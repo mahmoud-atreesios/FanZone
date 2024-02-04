@@ -14,12 +14,12 @@ class HomeVC: UIViewController {
 
     @IBOutlet weak var leagueCollectionView: UICollectionView!
     @IBOutlet weak var popularMatchesCollectionView: UICollectionView!
-    
+    @IBOutlet weak var upcomingMatchesTableView: UITableView!
     
     private let disposeBag = DisposeBag()
-    var arr = ["PL","laliga","EPL2","BL","CL","SA"]
     
-    var stadArray = ["Stad1","Stad2","Stad3"]
+    var arr = ["PL","laliga","EPL2","BL","CL","SA"]
+    var stadArray = ["Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3","Stad1","Stad2","Stad3"]
     var homeTeamArray = ["Arsenal","Manchester United", "Nottengham Forest"]
     var awayTeamArray = ["Manchester United", "Manchester City","Wolves"]
 
@@ -29,8 +29,13 @@ class HomeVC: UIViewController {
         NavBar.applyCustomNavBar(to: self)
         leagueCollectionView.register(UINib(nibName: "LeagueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "leagueCell")
         popularMatchesCollectionView.register(UINib(nibName: "PopularCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "popularCell")
+        upcomingMatchesTableView.register(UINib(nibName: "UpcomingMatchesTableViewCell", bundle: nil), forCellReuseIdentifier: "upcomingCell")
+        
+        upcomingMatchesTableView.isScrollEnabled = false
+
         setUpLeagueCollectionView()
         setUpPopularMatchesCollectionView()
+        setUpUpcomingMatchesTableView()
 
     }
 
@@ -81,3 +86,12 @@ extension HomeVC{
     }
 }
 
+extension HomeVC{
+    func setUpUpcomingMatchesTableView(){
+        Observable.just(stadArray)
+            .bind(to: upcomingMatchesTableView.rx.items(cellIdentifier: "upcomingCell", cellType: UpcomingMatchesTableViewCell.self)){row,stad,cell in
+                cell.stadImageView.image = UIImage(named: stad)
+            }
+            .disposed(by: disposeBag)
+    }
+}
