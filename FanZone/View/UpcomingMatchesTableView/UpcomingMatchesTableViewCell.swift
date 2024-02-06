@@ -15,6 +15,10 @@ class UpcomingMatchesTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeamName: UILabel!
     @IBOutlet weak var awayTeamName: UILabel!
     
+    @IBOutlet weak var matchDate: UILabel!
+    @IBOutlet weak var matchTime: UILabel!
+    @IBOutlet weak var stadName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

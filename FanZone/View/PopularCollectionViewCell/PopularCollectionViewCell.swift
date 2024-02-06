@@ -15,6 +15,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var awayTeam: UILabel!
     
     @IBOutlet weak var matchDate: UILabel!
+    @IBOutlet weak var matchTime: UILabel!
     @IBOutlet weak var stadiumName: UILabel!
     
     @IBOutlet weak var getTicketButton: UIButton!

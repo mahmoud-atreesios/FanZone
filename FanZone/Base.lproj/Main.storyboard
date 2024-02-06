@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4B-fw-apf">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1345"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1350"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDa-rm-UBE">
                                                 <rect key="frame" x="2" y="8" width="241" height="24"/>
@@ -98,7 +98,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oKO-qR-imS">
-                                                <rect key="frame" x="5" y="445" width="383" height="900"/>
+                                                <rect key="frame" x="5" y="450" width="383" height="900"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="900" id="eaI-6O-5ac"/>
@@ -123,7 +123,7 @@
                                             <constraint firstItem="b7j-so-Ruy" firstAttribute="leading" secondItem="b4B-fw-apf" secondAttribute="leading" constant="5" id="lm1-KW-ogl"/>
                                             <constraint firstItem="HoT-7o-lQH" firstAttribute="leading" secondItem="b4B-fw-apf" secondAttribute="leading" constant="2" id="lnp-jX-Qie"/>
                                             <constraint firstItem="3c0-Oe-NYL" firstAttribute="top" secondItem="DPL-QW-eZT" secondAttribute="bottom" constant="20" id="oP0-LB-vgX"/>
-                                            <constraint firstItem="oKO-qR-imS" firstAttribute="top" secondItem="Sqh-Wq-dhP" secondAttribute="bottom" constant="5" id="rwo-jF-98t"/>
+                                            <constraint firstItem="oKO-qR-imS" firstAttribute="top" secondItem="Sqh-Wq-dhP" secondAttribute="bottom" constant="10" id="rwo-jF-98t"/>
                                             <constraint firstAttribute="bottom" secondItem="oKO-qR-imS" secondAttribute="bottom" id="tou-B2-ghd"/>
                                             <constraint firstAttribute="trailing" secondItem="DPL-QW-eZT" secondAttribute="trailing" id="yX7-Dw-SP4"/>
                                             <constraint firstAttribute="trailing" secondItem="HoT-7o-lQH" secondAttribute="trailing" priority="999" constant="150" id="z5m-qH-8et"/>
