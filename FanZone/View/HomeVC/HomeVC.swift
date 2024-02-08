@@ -40,6 +40,7 @@ class HomeVC: UIViewController {
         upcomingMatchesTableView.register(UINib(nibName: "UpcomingMatchesTableViewCell", bundle: nil), forCellReuseIdentifier: "upcomingCell")
         
         viewModel.getUpcomingFixetures(leagueID: "152", from: calculateFormattedLaunchDate() , to: getFormattedDateAfterTenDays())
+
         upcomingMatchesTableView.isScrollEnabled = false
 
         setUpLeagueCollectionView()

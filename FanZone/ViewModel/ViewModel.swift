@@ -14,6 +14,9 @@ class ViewModel{
 
     var upcomingFixeturesModell: UpcomingFixeturesModel?
     var upcomingFixeturesResult = BehaviorRelay<[UpcomingFixetures]>.init(value: [])
+    
+    var newsDataModel: NewsModel?
+    var newsDataResult = BehaviorRelay<NewsModels>.init(value: [])
 
     func getUpcomingFixetures(leagueID: String, from: String, to: String){
         ApiClient.shared().getData(modelDTO: UpcomingFixeturesModel.self, .getUpcomingFixetures(id: leagueID, from: from, to: to))
@@ -30,4 +33,22 @@ class ViewModel{
     func clearUpcomingFixtures() {
         self.upcomingFixeturesResult.accept([])
     }
+    
+    func getNewsData() {
+        ApiClient.shared().fetchDataFromAPI(modelType: [NewsModel].self, url: URL(string: Constants.links.newsURL)!) { [weak self] result in
+            switch result {
+            case .success(let newsModels):
+                print("dattaaaaaaaa \(newsModels)")
+                DispatchQueue.main.async {
+                    self?.newsDataResult.accept(newsModels)
+                }
+            case .failure(let error):
+                print("Error fetching news data: \(error)")
+            }
+        }
+        print("Fetch data from API called")
+    }
+
+
+
 }

@@ -9,12 +9,14 @@ import Foundation
 import RxSwift
 
 protocol fetchData {
-    func getData<T: Decodable>(modelDTO: T.Type, _ endpoint: Endpoints, attributes: [String: String]?) -> Observable<T>
+    func fetchDataFromAPI<T: Decodable>(modelType: T.Type, url: URL, completion: @escaping (Result<T, Error>) -> Void)
+    func getData<T: Decodable>(modelDTO: T.Type, _ endpoint: Endpoints) -> Observable<T>
 }
 
 enum Endpoints {
     
     case getUpcomingFixetures(id: String, from: String, to: String)
+    //case getNewsData
     
     var stringUrl: URL {
         switch self {
@@ -22,11 +24,14 @@ enum Endpoints {
         case .getUpcomingFixetures(let id, let from, let to):
             return URL(string: Constants.links.upcomingFixteuresURL + Constants.links.apikey + "&from=\(from)&to=\(to)" + Constants.links.leagueId + "\(id)")!
 
+//        case .getNewsData:
+//            return URL(string: <#T##String#>)!
         }
     }
 }
 
-class ApiClient {
+class ApiClient: fetchData {
+    
     private static let sharedInstance = ApiClient()
 
     static func shared() -> ApiClient {
@@ -34,6 +39,55 @@ class ApiClient {
     }
 
     private init() {}
+
+    func fetchDataFromAPI<T>(modelType: T.Type, url: URL, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+        let headers = [
+            "X-RapidAPI-Key": Constants.links.newsApiKey,
+            "X-RapidAPI-Host": Constants.links.newsHost
+        ]
+        
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Invalid response")
+                return
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("HTTP status code: \(httpResponse.statusCode)")
+                let statusCodeError = NSError(domain: "", code: httpResponse.statusCode, userInfo: nil)
+                completion(.failure(statusCodeError))
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                let noDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])
+                completion(.failure(noDataError))
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(decodedData))
+            } catch {
+                print("Error decoding data: \(error)")
+                completion(.failure(error))
+            }
+        }
+        
+        dataTask.resume()
+    }
+
 
     func getData<T>(modelDTO: T.Type, _ endpoint: Endpoints) -> Observable<T> where T: Decodable {
         return Observable.create { observer in
