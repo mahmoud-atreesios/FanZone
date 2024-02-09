@@ -14,10 +14,12 @@ struct Constants{
         static let upcomingFixteuresURL = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey="
         static let leagueId = "&leagueId="
         
-        static let newsApiKey = "d3fdfa11edmsh84a84801195bc0bp174648jsn3d9f0d0ed128"
+        static let newsApiKey = "7403d80699msh2fd43e6b48b57b5p1df40bjsndf535a86df57"
         static let newsHost = "football-news-aggregator-live.p.rapidapi.com"
-        static let newsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/espn"
+        static let trendingNewsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/espn"
         
-                
+        static let newsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/fourfourtwo/epl"
+        
+        static let api = "MTQyMjczXzE3MDc0NDYyMzlfOWFlZDgzZjY2ZTg3NTkxNmJjMGM4ZmQ0MzhlN2Y3NDJlMWFjMmM4MQ=="
     }
 }

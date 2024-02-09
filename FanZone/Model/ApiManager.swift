@@ -9,14 +9,13 @@ import Foundation
 import RxSwift
 
 protocol fetchData {
-    func fetchDataFromAPI<T: Decodable>(modelType: T.Type, url: URL, completion: @escaping (Result<T, Error>) -> Void)
+    func fetchDataFromAPI<T: Decodable>(modelType: T.Type, url: URL, host: String, apiKey: String, completion: @escaping (Result<T, Error>) -> Void)
     func getData<T: Decodable>(modelDTO: T.Type, _ endpoint: Endpoints) -> Observable<T>
 }
 
 enum Endpoints {
     
     case getUpcomingFixetures(id: String, from: String, to: String)
-    //case getNewsData
     
     var stringUrl: URL {
         switch self {
@@ -24,8 +23,6 @@ enum Endpoints {
         case .getUpcomingFixetures(let id, let from, let to):
             return URL(string: Constants.links.upcomingFixteuresURL + Constants.links.apikey + "&from=\(from)&to=\(to)" + Constants.links.leagueId + "\(id)")!
 
-//        case .getNewsData:
-//            return URL(string: <#T##String#>)!
         }
     }
 }
@@ -40,10 +37,10 @@ class ApiClient: fetchData {
 
     private init() {}
 
-    func fetchDataFromAPI<T>(modelType: T.Type, url: URL, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+    func fetchDataFromAPI<T>(modelType: T.Type, url: URL, host: String, apiKey: String, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
         let headers = [
-            "X-RapidAPI-Key": Constants.links.newsApiKey,
-            "X-RapidAPI-Host": Constants.links.newsHost
+            "X-RapidAPI-Key": apiKey,
+            "X-RapidAPI-Host": host
         ]
         
         var request = URLRequest(url: url)

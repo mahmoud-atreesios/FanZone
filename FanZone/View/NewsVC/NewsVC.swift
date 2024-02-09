@@ -26,13 +26,14 @@ class NewsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         NavBar.applyCustomNavBar(to: self)
         
         trendingCollectionView.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
         newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsCell")
         
+        viewModel.getTrendingNewsData()
         viewModel.getNewsData()
         
         bindTrendingCollectionViewToViewModel()
@@ -44,13 +45,13 @@ extension NewsVC{
     
     func bindTrendingCollectionViewToViewModel(){
         
-        viewModel.newsDataResult
+        viewModel.trendingNewsDataResult
             .map { result in
                 // Filter and take the first 5 elements
                 return result.prefix(5)
             }
             .bind(to: trendingCollectionView.rx.items(cellIdentifier: "trendCell", cellType: TrendingCollectionViewCell.self)) { row, result, cell in
-
+                
                 cell.trendImageView.sd_setImage(with: URL(string: result.img ?? "PL"))
                 //cell.newsLabel.text = newsResult.modifiedTitle
                 cell.newsLabel.text = result.title
@@ -73,10 +74,35 @@ extension NewsVC{
                 cell.newsImageView.sd_setImage(with: URL(string: result.img ?? "PL"))
                 cell.newsTitle.text = result.title
                 
+                // Add tap gesture recognizer to each cell
+                let tapGesture = UITapGestureRecognizer()
+                cell.addGestureRecognizer(tapGesture)
+                
+                tapGesture.rx.event
+                    .bind { tapped in
+                        //guard let self = self else { return }
+                        self.performSegue(withIdentifier: "ShowWebPageSegue", sender: result)
+                    }
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
     }
 }
+
+extension NewsVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowWebPageSegue",
+           let destinationVC = segue.destination as? NewsWebVC,
+           let result = sender as? NewsModel,
+           let urlString = result.url,
+           let url = URL(string: urlString) {
+            destinationVC.url = url
+        } else {
+            print("Segue not properly configured.")
+        }
+    }
+}
+
 
 // MARK: - Automatic scroll of page control
 extension NewsVC{
@@ -89,7 +115,7 @@ extension NewsVC{
         super.viewDidAppear(animated)
         startAutoScrolling()
     }
-
+    
     func startAutoScrolling(){
         // Schedule a timer to change the page
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)

@@ -15,7 +15,7 @@ class ViewModel{
     var upcomingFixeturesModell: UpcomingFixeturesModel?
     var upcomingFixeturesResult = BehaviorRelay<[UpcomingFixetures]>.init(value: [])
     
-    var newsDataModel: NewsModel?
+    var trendingNewsDataResult = BehaviorRelay<TrendingNewsModels>.init(value: [])
     var newsDataResult = BehaviorRelay<NewsModels>.init(value: [])
 
     func getUpcomingFixetures(leagueID: String, from: String, to: String){
@@ -34,8 +34,21 @@ class ViewModel{
         self.upcomingFixeturesResult.accept([])
     }
     
+    func getTrendingNewsData() {
+        ApiClient.shared().fetchDataFromAPI(modelType: [TrendingNewsModel].self, url: URL(string: Constants.links.trendingNewsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
+            switch result {
+            case .success(let newsModels):
+                print("dattaaaaaaaa \(newsModels)")
+                    self?.trendingNewsDataResult.accept(newsModels)
+            case .failure(let error):
+                print("Error fetching news data: \(error)")
+            }
+        }
+        print("Fetch data from API called")
+    }
+    
     func getNewsData() {
-        ApiClient.shared().fetchDataFromAPI(modelType: [NewsModel].self, url: URL(string: Constants.links.newsURL)!) { [weak self] result in
+        ApiClient.shared().fetchDataFromAPI(modelType: [NewsModel].self, url: URL(string: Constants.links.newsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
             switch result {
             case .success(let newsModels):
                 print("dattaaaaaaaa \(newsModels)")
