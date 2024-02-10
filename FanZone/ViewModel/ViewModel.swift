@@ -17,6 +17,9 @@ class ViewModel{
     
     var trendingNewsDataResult = BehaviorRelay<TrendingNewsModels>.init(value: [])
     var newsDataResult = BehaviorRelay<NewsModels>.init(value: [])
+    
+    var highlightsModel: HighlightsModel?
+    var highlightsResult = BehaviorRelay<[HighlightResponse]>.init(value: [])
 
     func getUpcomingFixetures(leagueID: String, from: String, to: String){
         ApiClient.shared().getData(modelDTO: UpcomingFixeturesModel.self, .getUpcomingFixetures(id: leagueID, from: from, to: to))
@@ -61,7 +64,19 @@ class ViewModel{
         }
         print("Fetch data from API called")
     }
+}
 
-
-
+extension ViewModel{
+    
+    func getHighlightsData(){
+        ApiClient.shared().getData(modelDTO: HighlightsModel.self, .getHighlightsData)
+            .subscribe { highlights in
+                print("Highlights Data Received \(highlights.self)")
+                self.highlightsModel = highlights
+                self.highlightsResult.accept(highlights.response)
+            } onError: { error in
+                print("Error fetching Highlights Data: \(error)")
+            }
+            .disposed(by: disposeBag)
+    }
 }

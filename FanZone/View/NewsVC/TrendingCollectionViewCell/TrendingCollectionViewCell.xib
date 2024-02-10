@@ -20,8 +20,8 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1" translatesAutoresizingMaskIntoConstraints="NO" id="NBr-qH-h8b">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="300" id="XDH-uR-1Xf"/>
-                            <constraint firstAttribute="height" constant="200" id="hhy-X3-37s"/>
+                            <constraint firstAttribute="height" constant="200" id="0Vw-pF-6D9"/>
+                            <constraint firstAttribute="width" constant="300" id="xzR-QL-eZ5"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxk-5R-250">

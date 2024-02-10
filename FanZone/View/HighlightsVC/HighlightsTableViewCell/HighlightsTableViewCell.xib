@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="highlightCell" id="KGk-i7-Jjw" customClass="HighlightsTableViewCell" customModule="FanZone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="highlight1" translatesAutoresizingMaskIntoConstraints="NO" id="niP-mz-sVm">
+                        <rect key="frame" x="0.0" y="0.0" width="383" height="190"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="190" id="RA8-k5-XgW"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7g0-df-ZYV">
+                        <rect key="frame" x="153.66666666666666" y="69.666666666666657" width="76" height="52"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="76" id="V6L-Jf-mqh"/>
+                            <constraint firstAttribute="height" constant="55" id="a0T-4g-KgP"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78N-Dn-3c6">
+                        <rect key="frame" x="0.0" y="190" width="383" height="10"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="Xau-aj-ufG"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksO-2D-4p1" userLabel="BackgroundLabel">
+                        <rect key="frame" x="0.0" y="160" width="383" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atletico Madrid - Athletic Bilbao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9Y-Ss-XSs">
+                                <rect key="frame" x="5" y="4" width="259" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="r4s-f1-0Ex"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="aea-bm-qPg"/>
+                            <constraint firstAttribute="width" constant="383" id="mRu-p4-tKz"/>
+                            <constraint firstItem="p9Y-Ss-XSs" firstAttribute="leading" secondItem="ksO-2D-4p1" secondAttribute="leading" constant="5" id="oXM-mu-JOg"/>
+                            <constraint firstAttribute="bottom" secondItem="p9Y-Ss-XSs" secondAttribute="bottom" constant="5" id="rYs-lD-80v"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="7g0-df-ZYV" secondAttribute="trailing" constant="153.5" id="6f7-b7-pFh"/>
+                    <constraint firstAttribute="bottom" secondItem="niP-mz-sVm" secondAttribute="bottom" constant="10" id="807-wt-PqF"/>
+                    <constraint firstItem="7g0-df-ZYV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="68" id="D8d-d1-xKO"/>
+                    <constraint firstItem="niP-mz-sVm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="P9V-LL-mGG"/>
+                    <constraint firstAttribute="bottom" secondItem="78N-Dn-3c6" secondAttribute="bottom" id="Pds-SG-CwJ"/>
+                    <constraint firstAttribute="trailing" secondItem="niP-mz-sVm" secondAttribute="trailing" id="UG8-GK-1JC"/>
+                    <constraint firstItem="7g0-df-ZYV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="153.5" id="Xc4-fp-lep"/>
+                    <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="ksO-2D-4p1" secondAttribute="bottom" id="YCx-g8-boE"/>
+                    <constraint firstAttribute="trailing" secondItem="78N-Dn-3c6" secondAttribute="trailing" id="bDQ-ZF-z29"/>
+                    <constraint firstItem="niP-mz-sVm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="h7B-En-5oF"/>
+                    <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="7g0-df-ZYV" secondAttribute="bottom" constant="67" id="oyP-Hm-1bM"/>
+                    <constraint firstItem="ksO-2D-4p1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="szj-Pr-EXc"/>
+                    <constraint firstItem="78N-Dn-3c6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vdu-hp-zJY"/>
+                    <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="niP-mz-sVm" secondAttribute="bottom" id="wUC-j2-nvE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="PlayButtonImageView" destination="7g0-df-ZYV" id="AK8-nT-SuR"/>
+                <outlet property="highlightsImageView" destination="niP-mz-sVm" id="a3B-ZS-mf6"/>
+                <outlet property="labelBackground" destination="ksO-2D-4p1" id="FNx-7M-z4n"/>
+                <outlet property="matchLabel" destination="p9Y-Ss-XSs" id="HXB-nd-xDE"/>
+            </connections>
+            <point key="canvasLocation" x="138.1679389312977" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="highlight1" width="1200" height="630"/>
+        <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

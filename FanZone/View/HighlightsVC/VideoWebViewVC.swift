@@ -1,5 +1,5 @@
 //
-//  NewsWebVC.swift
+//  VideoWebViewVC.swift
 //  FanZone
 //
 //  Created by Mahmoud Mohamed Atrees on 09/02/2024.
@@ -8,22 +8,20 @@
 import UIKit
 import WebKit
 
-class NewsWebVC: UIViewController {
+class VideoWebViewVC: UIViewController {
 
-    
-    @IBOutlet weak var webView: WKWebView!
-    
+    @IBOutlet weak var videoWebView: WKWebView!
     var url: URL?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
         if let url = url {
             DispatchQueue.main.async {
-                self.webView.load(URLRequest(url: url))
+                self.videoWebView.load(URLRequest(url: url))
             }
         }
-    }
 
+    }
 
 }
