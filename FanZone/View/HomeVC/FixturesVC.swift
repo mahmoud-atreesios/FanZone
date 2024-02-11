@@ -16,7 +16,17 @@ class FixturesVC: UIViewController {
     var upcomingFixtures: BehaviorRelay<[UpcomingFixetures]> = BehaviorRelay(value: [])
     private let disposeBag = DisposeBag()
     
+    var leagueID: String?
+    
     var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
+    
+    var laligaStadArray = ["laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3"]
+    
+    var cairoStadArray = ["cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3"]
+    
+    var bundesStadArray = ["bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3",]
+    
+    var seriaStadArray = ["seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +51,27 @@ extension FixturesVC{
                 }
             }
             .bind(to: fixturesTableView.rx.items(cellIdentifier: "upcomingCell", cellType: UpcomingMatchesTableViewCell.self)) { row, result, cell in
+                
+                switch self.leagueID {
+                case "302":
+                    cell.stadImageView.image = UIImage(named: self.laligaStadArray[row])
+                case "141":
+                    cell.stadImageView.image = UIImage(named: self.cairoStadArray[row])
+                case "175":
+                    cell.stadImageView.image = UIImage(named: self.bundesStadArray[row])
+                case "207":
+                    cell.stadImageView.image = UIImage(named: self.seriaStadArray[row])
+                case "3":
+                    cell.stadImageView.image = UIImage(named: self.laligaStadArray[row])
+                default:
+                    cell.stadImageView.image = UIImage(named: self.plStadArray[row])
+                }
+                
                 cell.homeTeamName.text = result.eventHomeTeam
                 cell.awayTeamName.text = result.eventAwayTeam
                 cell.matchTime.text = result.eventTime
                 cell.matchDate.text = result.eventDate
                 cell.stadName.text = result.eventStadium
-                cell.stadImageView.image = UIImage(named: self.plStadArray[row])
             }
             .disposed(by: disposeBag)
     }

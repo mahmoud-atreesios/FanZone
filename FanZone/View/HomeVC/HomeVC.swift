@@ -23,8 +23,17 @@ class HomeVC: UIViewController {
         
     var arr = ["PL","laliga","EPL2","BL","SA","CL"]
     var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"3"]
+    
     var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
-    var laligaStadArray = ["",""]
+    
+    var laligaStadArray = ["laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3"]
+    
+    var cairoStadArray = ["cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3"]
+    
+    var bundesStadArray = ["bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3",]
+    
+    var seriaStadArray = ["seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3"]
+    
     var homeTeamArray = ["Arsenal","Manchester United", "Nottengham Forest"]
     var awayTeamArray = ["Manchester United", "Manchester City","Wolves"]
     
@@ -133,7 +142,20 @@ extension HomeVC{
             }
             .bind(to: popularMatchesCollectionView.rx.items(cellIdentifier: "popularCell", cellType: PopularCollectionViewCell.self)) { row, result, cell in
                 
-                cell.stadiumImageView.image = UIImage(named: self.plStadArray[row])
+                switch self.leagueID {
+                case "302":
+                    cell.stadiumImageView.image = UIImage(named: self.laligaStadArray[row])
+                case "141":
+                    cell.stadiumImageView.image = UIImage(named: self.cairoStadArray[row])
+                case "175":
+                    cell.stadiumImageView.image = UIImage(named: self.bundesStadArray[row])
+                case "207":
+                    cell.stadiumImageView.image = UIImage(named: self.seriaStadArray[row])
+                case "3":
+                    cell.stadiumImageView.image = UIImage(named: self.laligaStadArray[row])
+                default:
+                    cell.stadiumImageView.image = UIImage(named: self.plStadArray[row])
+                }
                 
                 cell.homeTeam.text = result.eventHomeTeam
                 cell.awayTeam.text = result.eventAwayTeam
@@ -174,7 +196,20 @@ extension HomeVC{
             }
             .bind(to: upcomingMatchesTableView.rx.items(cellIdentifier: "upcomingCell", cellType: UpcomingMatchesTableViewCell.self)) { row, result, cell in
                 
-                cell.stadImageView.image = UIImage(named: self.plStadArray[row])
+                switch self.leagueID {
+                case "302":
+                    cell.stadImageView.image = UIImage(named: self.laligaStadArray[row])
+                case "141":
+                    cell.stadImageView.image = UIImage(named: self.cairoStadArray[row])
+                case "175":
+                    cell.stadImageView.image = UIImage(named: self.bundesStadArray[row])
+                case "207":
+                    cell.stadImageView.image = UIImage(named: self.seriaStadArray[row])
+                case "3":
+                    cell.stadImageView.image = UIImage(named: self.laligaStadArray[row])
+                default:
+                    cell.stadImageView.image = UIImage(named: self.plStadArray[row])
+                }
                 
                 cell.homeTeamName.text = result.eventHomeTeam
                 cell.awayTeamName.text = result.eventAwayTeam
@@ -254,6 +289,7 @@ extension HomeVC {
            let destinationVC = segue.destination as? FixturesVC,
            let upcomingFixtures = sender as? BehaviorRelay<[UpcomingFixetures]> {
             destinationVC.upcomingFixtures.accept(upcomingFixtures.value)
+            destinationVC.leagueID = leagueID
         }
     }
 }
