@@ -42,9 +42,9 @@
                         <rect key="frame" x="0.0" y="160" width="383" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atletico Madrid - Athletic Bilbao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9Y-Ss-XSs">
-                                <rect key="frame" x="5" y="4" width="259" height="21"/>
+                                <rect key="frame" x="5" y="4" width="258.33333333333331" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="r4s-f1-0Ex"/>
+                                    <constraint firstAttribute="height" constant="21" id="ex8-qh-4sD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,14 +53,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="aea-bm-qPg"/>
-                            <constraint firstAttribute="width" constant="383" id="mRu-p4-tKz"/>
-                            <constraint firstItem="p9Y-Ss-XSs" firstAttribute="leading" secondItem="ksO-2D-4p1" secondAttribute="leading" constant="5" id="oXM-mu-JOg"/>
-                            <constraint firstAttribute="bottom" secondItem="p9Y-Ss-XSs" secondAttribute="bottom" constant="5" id="rYs-lD-80v"/>
+                            <constraint firstItem="p9Y-Ss-XSs" firstAttribute="leading" secondItem="ksO-2D-4p1" secondAttribute="leading" constant="5" id="UyR-3O-cgl"/>
+                            <constraint firstAttribute="bottom" secondItem="p9Y-Ss-XSs" secondAttribute="bottom" constant="5" id="ywi-Gb-MGJ"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ksO-2D-4p1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="17n-70-EDK"/>
                     <constraint firstAttribute="trailing" secondItem="7g0-df-ZYV" secondAttribute="trailing" constant="153.5" id="6f7-b7-pFh"/>
                     <constraint firstAttribute="bottom" secondItem="niP-mz-sVm" secondAttribute="bottom" constant="10" id="807-wt-PqF"/>
                     <constraint firstItem="7g0-df-ZYV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="68" id="D8d-d1-xKO"/>
@@ -68,13 +67,14 @@
                     <constraint firstAttribute="bottom" secondItem="78N-Dn-3c6" secondAttribute="bottom" id="Pds-SG-CwJ"/>
                     <constraint firstAttribute="trailing" secondItem="niP-mz-sVm" secondAttribute="trailing" id="UG8-GK-1JC"/>
                     <constraint firstItem="7g0-df-ZYV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="153.5" id="Xc4-fp-lep"/>
-                    <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="ksO-2D-4p1" secondAttribute="bottom" id="YCx-g8-boE"/>
+                    <constraint firstAttribute="trailing" secondItem="ksO-2D-4p1" secondAttribute="trailing" id="a6S-T7-5dP"/>
                     <constraint firstAttribute="trailing" secondItem="78N-Dn-3c6" secondAttribute="trailing" id="bDQ-ZF-z29"/>
                     <constraint firstItem="niP-mz-sVm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="h7B-En-5oF"/>
+                    <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="ksO-2D-4p1" secondAttribute="bottom" id="leY-Ha-7QZ"/>
                     <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="7g0-df-ZYV" secondAttribute="bottom" constant="67" id="oyP-Hm-1bM"/>
-                    <constraint firstItem="ksO-2D-4p1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="szj-Pr-EXc"/>
                     <constraint firstItem="78N-Dn-3c6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vdu-hp-zJY"/>
                     <constraint firstItem="78N-Dn-3c6" firstAttribute="top" secondItem="niP-mz-sVm" secondAttribute="bottom" id="wUC-j2-nvE"/>
+                    <constraint firstItem="ksO-2D-4p1" firstAttribute="top" secondItem="7g0-df-ZYV" secondAttribute="bottom" constant="37" id="zR0-to-ow1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

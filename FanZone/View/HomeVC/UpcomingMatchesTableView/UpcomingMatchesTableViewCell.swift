@@ -22,6 +22,11 @@ class UpcomingMatchesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // Set corner radius for top-left and bottom-left
+        stadImageView.layer.cornerRadius = 10.0
+        stadImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        stadImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

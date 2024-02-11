@@ -141,7 +141,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="snk-b8-g31"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KMM-Ex-ySa" firstAttribute="trailing" secondItem="snk-b8-g31" secondAttribute="trailing" id="ShE-Yl-e7E"/>
                             <constraint firstItem="KMM-Ex-ySa" firstAttribute="top" secondItem="snk-b8-g31" secondAttribute="top" id="kOo-tS-Sfu"/>
@@ -154,6 +154,7 @@
                     <connections>
                         <outlet property="leagueCollectionView" destination="b7j-so-Ruy" id="klg-Zi-TYe"/>
                         <outlet property="popularMatchesCollectionView" destination="DPL-QW-eZT" id="aBV-Wa-S6V"/>
+                        <outlet property="seeMoreLabelTapped" destination="3c0-Oe-NYL" id="fmh-AZ-LlP"/>
                         <outlet property="upcomingMatchesTableView" destination="oKO-qR-imS" id="Mxp-R9-2mW"/>
                         <segue destination="vPx-fx-qdl" kind="show" identifier="ShowFixturesSegue" id="kVX-OT-tp4"/>
                     </connections>
@@ -254,7 +255,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uuM-z9-uWt"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LRV-wP-kDt" firstAttribute="top" secondItem="uuM-z9-uWt" secondAttribute="top" id="B1r-na-xG6"/>
                             <constraint firstItem="LRV-wP-kDt" firstAttribute="leading" secondItem="uuM-z9-uWt" secondAttribute="leading" id="SCD-Rd-ryL"/>
@@ -292,19 +293,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="U2U-1M-RwZ">
-                                <rect key="frame" x="16" y="135" width="361" height="717"/>
+                                <rect key="frame" x="16" y="135" width="361" height="634"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="717" id="916-rW-dB4"/>
+                                    <constraint firstAttribute="height" constant="634" id="1JY-0m-bM0"/>
                                 </constraints>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wSS-w4-RvI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wSS-w4-RvI" firstAttribute="trailing" secondItem="U2U-1M-RwZ" secondAttribute="trailing" constant="16" id="2aD-pT-XGw"/>
-                            <constraint firstItem="U2U-1M-RwZ" firstAttribute="leading" secondItem="wSS-w4-RvI" secondAttribute="leading" constant="16" id="Fz6-0N-HMJ"/>
-                            <constraint firstItem="U2U-1M-RwZ" firstAttribute="top" secondItem="Dmf-95-4qS" secondAttribute="bottom" constant="8" id="WzH-1s-Y5P"/>
+                            <constraint firstItem="wSS-w4-RvI" firstAttribute="trailing" secondItem="U2U-1M-RwZ" secondAttribute="trailing" constant="16" id="EDY-ZS-5EQ"/>
+                            <constraint firstItem="U2U-1M-RwZ" firstAttribute="top" secondItem="Dmf-95-4qS" secondAttribute="bottom" constant="8" id="gcn-Mm-iVG"/>
+                            <constraint firstItem="U2U-1M-RwZ" firstAttribute="bottom" secondItem="wSS-w4-RvI" secondAttribute="bottom" id="koi-jX-l7r"/>
+                            <constraint firstItem="U2U-1M-RwZ" firstAttribute="leading" secondItem="wSS-w4-RvI" secondAttribute="leading" constant="16" id="wrN-SJ-BnG"/>
                             <constraint firstItem="Dmf-95-4qS" firstAttribute="top" secondItem="wSS-w4-RvI" secondAttribute="top" id="y2N-LJ-P5s"/>
                             <constraint firstItem="Dmf-95-4qS" firstAttribute="leading" secondItem="wSS-w4-RvI" secondAttribute="leading" constant="16" id="yHh-vy-3AR"/>
                         </constraints>
@@ -316,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab2-os-QcW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692.36641221374043" y="2331.6901408450703"/>
+            <point key="canvasLocation" x="-692.36641221374043" y="2330.9859154929577"/>
         </scene>
         <!--News WebVC-->
         <scene sceneID="vIC-Md-iqa">
@@ -435,7 +437,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XGS-jk-bHG"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Flf-KE-WzA" firstAttribute="leading" secondItem="XGS-jk-bHG" secondAttribute="leading" id="I5r-Zs-pte"/>
                             <constraint firstAttribute="bottom" secondItem="Flf-KE-WzA" secondAttribute="bottom" id="KAZ-Ub-wya"/>
@@ -525,7 +527,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hnz-RM-rFj"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WuZ-A0-b5Z" firstAttribute="leading" secondItem="Hnz-RM-rFj" secondAttribute="leading" id="9VM-DB-s7O"/>
                             <constraint firstAttribute="bottom" secondItem="WuZ-A0-b5Z" secondAttribute="bottom" id="eG3-uO-Qkl"/>

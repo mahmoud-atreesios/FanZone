@@ -10,27 +10,24 @@ import RxSwift
 import RxCocoa
 
 class HomeVC: UIViewController {
-
-
+    
     @IBOutlet weak var leagueCollectionView: UICollectionView!
     @IBOutlet weak var popularMatchesCollectionView: UICollectionView!
     @IBOutlet weak var upcomingMatchesTableView: UITableView!
+    @IBOutlet weak var seeMoreLabelTapped: UILabel!
     
-    private let disposeBag = DisposeBag()
     var viewModel = ViewModel()
+    private let disposeBag = DisposeBag()
+    
     var leagueID: String?
-
+        
     var arr = ["PL","laliga","EPL2","BL","SA","CL"]
-    
     var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"3"]
-    
     var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
-    
     var laligaStadArray = ["",""]
-    
     var homeTeamArray = ["Arsenal","Manchester United", "Nottengham Forest"]
     var awayTeamArray = ["Manchester United", "Manchester City","Wolves"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,15 +37,16 @@ class HomeVC: UIViewController {
         upcomingMatchesTableView.register(UINib(nibName: "UpcomingMatchesTableViewCell", bundle: nil), forCellReuseIdentifier: "upcomingCell")
         
         viewModel.getUpcomingFixetures(leagueID: "152", from: calculateFormattedLaunchDate() , to: getFormattedDateAfterTenDays())
-
+        
         upcomingMatchesTableView.isScrollEnabled = false
-
+        
         setUpLeagueCollectionView()
         bindingPopularCollectionViewToViewModel()
         bindingUpcomingTableViewToViewModel()
-
+        makeSeeMoreLabelGestured()
+        
     }
-
+    
 }
 
 extension HomeVC{
@@ -82,14 +80,14 @@ extension HomeVC{
                 
                 tapGesture.rx.event
                     .subscribe(onNext: { [self] _ in
-
+                        
                         if let selected = selectedCell {
                             selected.backgroundColor = UIColor(red: 216/255, green: 217/255, blue: 218/255, alpha: 1.0)
                         }
-                                                
+                        
                         selectedCell = cell
                         cell.backgroundColor = UIColor(red: 180/255, green: 180/255, blue: 179/255, alpha: 1.0)
-
+                        
                         if row == 0 {
                             // 3aezo lma edos hna eb3at ll api l id bta3 l league w egyb l data w b kda hakon mstakhdm function wa7da w model wa7da bs
                             self.leagueID = self.dic["PL"]
@@ -105,7 +103,7 @@ extension HomeVC{
                         }else if row == 5{
                             self.leagueID = self.dic["CL"]
                         }
-
+                        
                         self.viewModel.clearUpcomingFixtures()
                         self.viewModel.getUpcomingFixetures(leagueID: self.leagueID!, from: calculateFormattedLaunchDate(), to: getFormattedDateAfterTenDays())
                     })
@@ -116,7 +114,7 @@ extension HomeVC{
 }
 
 extension HomeVC{
-
+    
     func bindingPopularCollectionViewToViewModel(){
         viewModel.upcomingFixeturesResult
             .map { results in
@@ -134,16 +132,16 @@ extension HomeVC{
                 }
             }
             .bind(to: popularMatchesCollectionView.rx.items(cellIdentifier: "popularCell", cellType: PopularCollectionViewCell.self)) { row, result, cell in
-
+                
                 cell.stadiumImageView.image = UIImage(named: self.plStadArray[row])
-
+                
                 cell.homeTeam.text = result.eventHomeTeam
                 cell.awayTeam.text = result.eventAwayTeam
-
+                
                 cell.matchDate.text = result.eventDate
                 cell.matchTime.text = result.eventTime
                 cell.stadiumName.text = result.eventStadium
-
+                
                 // Add a light grey stroke to the cell
                 cell.contentView.layer.borderWidth = 1.0
                 cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
@@ -152,11 +150,11 @@ extension HomeVC{
             }
             .disposed(by: disposeBag)
     }
-
+    
     func shouldDisplayCell(_ result: UpcomingFixetures) -> Bool{
-
+        
         let popularTeams = ["Chelsea","Manchester Utd","Arsenal","Liverpool","Manchester City","Atletico Madrid","Barcelona","Atl. Madrid","Sevilla","Real Madrid","Zamalek","Al Ahly","Ismaily","Juventus","Inter Milan","AC Milan","AS Roma","Inter","Borussia Dortmund","Mainz","Bayern Munich","Bayer Leverkusen"]
-
+        
         return popularTeams.contains(result.eventHomeTeam) || popularTeams.contains(result.eventAwayTeam)
     }
 }
@@ -184,10 +182,6 @@ extension HomeVC{
                 cell.matchTime.text = result.eventTime
                 cell.stadName.text = result.eventStadium
                 
-                // Set corner radius for top-left and bottom-left
-                cell.stadImageView.layer.cornerRadius = 10.0
-                cell.stadImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-                cell.stadImageView.clipsToBounds = true
             }
             .disposed(by: disposeBag)
     }
@@ -225,7 +219,7 @@ extension HomeVC{
         
         let currentDate = Date()
         let calendar = Calendar.current
-
+        
         if let dateAfterTenDays = calendar.date(byAdding: .day, value: 11, to: currentDate) {
             return dateAfterTenDays
         } else {
@@ -242,6 +236,25 @@ extension HomeVC{
             return ""
         }
     }
-
-    
 }
+
+extension HomeVC {
+    func makeSeeMoreLabelGestured() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(seeMoreLabelTapped(_:)))
+        seeMoreLabelTapped.isUserInteractionEnabled = true
+        seeMoreLabelTapped.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func seeMoreLabelTapped(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ShowFixturesSegue", sender: viewModel.upcomingFixeturesResult)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowFixturesSegue",
+           let destinationVC = segue.destination as? FixturesVC,
+           let upcomingFixtures = sender as? BehaviorRelay<[UpcomingFixetures]> {
+            destinationVC.upcomingFixtures.accept(upcomingFixtures.value)
+        }
+    }
+}
+

@@ -16,7 +16,7 @@ struct Constants{
         static let leagueId = "&leagueId="
         
         //NewsVC
-        static let newsApiKey = "9ee116a835mshc0f2471f3f9f76cp1ad310jsna14d837e550a"
+        static let newsApiKey = "7403d80699msh2fd43e6b48b57b5p1df40bjsndf535a86df57"
         static let newsHost = "football-news-aggregator-live.p.rapidapi.com"
         static let trendingNewsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/espn"
         static let newsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/fourfourtwo/epl"
