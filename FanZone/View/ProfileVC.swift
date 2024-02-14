@@ -8,24 +8,32 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    @IBOutlet weak var fanIdTxtField: UITextField!
+    @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        NavBar.applyCustomNavBar(to: self)
-
+        uiSetUp()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ProfileVC{
+    func uiSetUp(){
+        backgroundImageView.image = UIImage(named: "stad2")
+        backgroundImageView.applyGradient(colors: [UIColor.white.withAlphaComponent(0), UIColor.white.withAlphaComponent(1)])
+        signInButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
+        
+        fanIdTxtField.layer.cornerRadius = 10.0
+        fanIdTxtField.layer.borderWidth = 1.0
+        fanIdTxtField.layer.borderColor = UIColor.lightGray.cgColor
+        
+        passwordTxtField.layer.cornerRadius = 10.0
+        passwordTxtField.layer.borderWidth = 1.0
+        passwordTxtField.layer.borderColor = UIColor.lightGray.cgColor
     }
-    */
-
 }

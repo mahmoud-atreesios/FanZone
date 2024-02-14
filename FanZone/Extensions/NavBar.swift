@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Mainly for title bar for the logoo and the person button
 struct NavBar{
      static func applyCustomNavBar(to viewController: UIViewController){
         let imageView = UIImageView(image: UIImage(named: "FanZoneLogo"))
@@ -21,5 +22,19 @@ struct NavBar{
             let rightBarButton = UIBarButtonItem(customView: imageView)
             viewController.navigationItem.rightBarButtonItem = rightBarButton
         }
+    }
+}
+
+
+// For gradient background signup page
+extension UIView {
+    func applyGradient(colors: [UIColor]) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = CGPoint(x: 0.8, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.8, y: 1)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

@@ -19,13 +19,9 @@ class FixturesVC: UIViewController {
     var leagueID: String?
     
     var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
-    
     var laligaStadArray = ["laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3"]
-    
     var cairoStadArray = ["cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3"]
-    
     var bundesStadArray = ["bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3",]
-    
     var seriaStadArray = ["seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3"]
     
     override func viewDidLoad() {
