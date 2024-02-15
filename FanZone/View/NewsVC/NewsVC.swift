@@ -29,7 +29,8 @@ class NewsVC: UIViewController {
         
         // Do any additional setup after loading the view.
         NavBar.applyCustomNavBar(to: self)
-        
+        newsTableView.isScrollEnabled = false
+
         trendingCollectionView.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
         newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsCell")
         

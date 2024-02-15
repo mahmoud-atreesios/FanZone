@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="KGk-i7-Jjw" customClass="CategorySelectionTableViewCell" customModule="FanZone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="363" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ba3-Oj-Xf6">
+                        <rect key="frame" x="60" y="13" width="52" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="wVN-6b-0nO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7C8-wd-6ov">
+                        <rect key="frame" x="162" y="13" width="34" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="hwP-LO-SKg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOo-6W-qMl" customClass="RadioButton" customModule="FanZone" customModuleProvider="target">
+                        <rect key="frame" x="288" y="10" width="35" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="B"/>
+                        <connections>
+                            <action selector="categorySelectedButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gEF-hC-9LY"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ba3-Oj-Xf6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="2i5-4M-NsK"/>
+                    <constraint firstAttribute="trailing" secondItem="AOo-6W-qMl" secondAttribute="trailing" constant="40" id="WGB-wz-Awi"/>
+                    <constraint firstAttribute="bottom" secondItem="7C8-wd-6ov" secondAttribute="bottom" constant="13" id="fm6-u3-W7d"/>
+                    <constraint firstItem="AOo-6W-qMl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="hXF-gz-U6O"/>
+                    <constraint firstItem="ba3-Oj-Xf6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="hlu-Rr-Wq7"/>
+                    <constraint firstAttribute="bottom" secondItem="AOo-6W-qMl" secondAttribute="bottom" constant="10" id="kHP-Sw-odP"/>
+                    <constraint firstAttribute="bottom" secondItem="ba3-Oj-Xf6" secondAttribute="bottom" constant="13" id="ss8-qi-O8P"/>
+                    <constraint firstItem="7C8-wd-6ov" firstAttribute="leading" secondItem="ba3-Oj-Xf6" secondAttribute="trailing" constant="50" id="ttf-TQ-0rL"/>
+                    <constraint firstItem="7C8-wd-6ov" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="vhq-CB-V47"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="categoryName" destination="ba3-Oj-Xf6" id="dbw-If-uYz"/>
+                <outlet property="categoryPrice" destination="7C8-wd-6ov" id="Cm1-Tj-GZE"/>
+                <outlet property="categorySelectedRadioButton" destination="AOo-6W-qMl" id="jih-mC-J16"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="20"/>
+        </tableViewCell>
+    </objects>
+</document>

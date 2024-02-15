@@ -276,34 +276,34 @@
             </objects>
             <point key="canvasLocation" x="131" y="1563"/>
         </scene>
-        <!--View Controller-->
+        <!--BookingVC-->
         <scene sceneID="EdT-Rf-Oml">
             <objects>
-                <viewController id="pIG-Ym-pCq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingVC" id="pIG-Ym-pCq" customClass="BookingVC" customModule="FanZone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dhl-z7-NvD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                  Book" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19v-dj-Z35">
-                                <rect key="frame" x="21.666666666666657" y="1147" width="350" height="70"/>
+                                <rect key="frame" x="21.666666666666657" y="1167" width="350" height="50"/>
                                 <color key="backgroundColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Akv-vL-CEp"/>
+                                    <constraint firstAttribute="height" constant="50" id="Akv-vL-CEp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.93333333330000001" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zib-O3-X7r" userLabel="Line">
-                                <rect key="frame" x="249" y="1147" width="3" height="70"/>
+                                <rect key="frame" x="230" y="1167" width="3" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Idz-pj-dqK"/>
+                                    <constraint firstAttribute="height" constant="50" id="Idz-pj-dqK"/>
                                     <constraint firstAttribute="width" constant="3" id="b9n-3j-8cY"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxN-bM-ULO">
-                                <rect key="frame" x="257" y="1172" width="53" height="24"/>
+                                <rect key="frame" x="238" y="1178" width="53" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Eh4-jy-qmP"/>
                                 </constraints>
@@ -312,7 +312,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyV-RM-La0">
-                                <rect key="frame" x="313" y="1176" width="39" height="18"/>
+                                <rect key="frame" x="294" y="1182" width="39" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="W3A-NZ-mhU"/>
                                 </constraints>
@@ -321,12 +321,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UF-IO-U11">
-                                <rect key="frame" x="0.0" y="103" width="393" height="1045"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="1051"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVO-Gz-EGg">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1045"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1051"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSV-92-RBM" userLabel="panoramaView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSV-92-RBM" userLabel="panoramaView" customClass="CTPanoramaView" customModule="CTPanoramaView">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="370"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -358,7 +358,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lK8-Zq-D7z">
-                                                <rect key="frame" x="15" y="802" width="363" height="235"/>
+                                                <rect key="frame" x="15" y="802" width="363" height="241"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -400,18 +400,24 @@
                             <constraint firstItem="qyV-RM-La0" firstAttribute="leading" secondItem="UxN-bM-ULO" secondAttribute="trailing" constant="3" id="IfJ-jW-dHZ"/>
                             <constraint firstItem="UxN-bM-ULO" firstAttribute="top" secondItem="7UF-IO-U11" secondAttribute="bottom" constant="24" id="K7A-cl-c8o"/>
                             <constraint firstItem="7UF-IO-U11" firstAttribute="top" secondItem="dV1-OZ-ihS" secondAttribute="top" id="Vcw-2o-oKz"/>
-                            <constraint firstItem="dV1-OZ-ihS" firstAttribute="bottom" secondItem="UxN-bM-ULO" secondAttribute="bottom" constant="21" id="XMh-LG-aBR"/>
+                            <constraint firstItem="dV1-OZ-ihS" firstAttribute="bottom" secondItem="UxN-bM-ULO" secondAttribute="bottom" constant="15" id="XMh-LG-aBR"/>
                             <constraint firstItem="7UF-IO-U11" firstAttribute="trailing" secondItem="dV1-OZ-ihS" secondAttribute="trailing" id="YJZ-Vj-pa2"/>
                             <constraint firstItem="19v-dj-Z35" firstAttribute="leading" secondItem="dV1-OZ-ihS" secondAttribute="leading" constant="21.5" id="dAr-23-sKg"/>
                             <constraint firstItem="Zib-O3-X7r" firstAttribute="bottom" secondItem="dhl-z7-NvD" secondAttribute="bottomMargin" id="eUi-Tc-5TO"/>
-                            <constraint firstItem="dV1-OZ-ihS" firstAttribute="bottom" secondItem="qyV-RM-La0" secondAttribute="bottom" constant="23" id="hsx-Rh-cdb"/>
+                            <constraint firstItem="dV1-OZ-ihS" firstAttribute="bottom" secondItem="qyV-RM-La0" secondAttribute="bottom" constant="17" id="hsx-Rh-cdb"/>
                             <constraint firstItem="dV1-OZ-ihS" firstAttribute="trailing" secondItem="19v-dj-Z35" secondAttribute="trailing" constant="21.5" id="wlv-HD-qyZ"/>
-                            <constraint firstItem="Zib-O3-X7r" firstAttribute="leading" secondItem="dV1-OZ-ihS" secondAttribute="leading" constant="249" id="xB6-ju-ZuQ"/>
+                            <constraint firstItem="Zib-O3-X7r" firstAttribute="leading" secondItem="dV1-OZ-ihS" secondAttribute="leading" constant="230" id="xB6-ju-ZuQ"/>
                             <constraint firstItem="UxN-bM-ULO" firstAttribute="leading" secondItem="Zib-O3-X7r" secondAttribute="trailing" constant="5" id="yh1-6s-3DN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ILb-uw-FbZ"/>
                     <size key="freeformSize" width="393" height="1300"/>
+                    <connections>
+                        <outlet property="bookingButton" destination="19v-dj-Z35" id="10D-z0-FS9"/>
+                        <outlet property="departmentSelectionTableView" destination="1kI-ID-b1r" id="cKe-tA-Huw"/>
+                        <outlet property="numberOfTicketsTableView" destination="lK8-Zq-D7z" id="fD5-SP-ds1"/>
+                        <outlet property="panoramaImageView" destination="CSV-92-RBM" id="3Qg-DV-bBv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glJ-xN-BzI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
