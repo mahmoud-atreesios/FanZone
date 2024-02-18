@@ -15,20 +15,22 @@ class CategorySelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var categorySelectedRadioButton: RadioButton!
     
     var checkButtonPressed: (() -> Void)?
+    var categoryPriceText: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
     @IBAction func categorySelectedButtonPressed(_ sender: UIButton) {
         checkButtonPressed?()
+//        print("price-----------\(categoryPriceText)")
     }
     
     func setRadioButtonChecked(_ isChecked: Bool) {

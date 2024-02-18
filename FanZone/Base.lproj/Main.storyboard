@@ -312,11 +312,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyV-RM-La0">
-                                <rect key="frame" x="294" y="1182" width="39" height="18"/>
+                                <rect key="frame" x="299" y="1182" width="47.333333333333314" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="W3A-NZ-mhU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -349,18 +349,30 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-Zl-3EC" userLabel="numberOfTickets">
-                                                <rect key="frame" x="15" y="757" width="363" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="olA-PK-Lzv"/>
-                                                </constraints>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-Zl-3EC" userLabel="numberOfTickets" customClass="JRDropDown">
+                                                <rect key="frame" x="288" y="737" width="75" height="34"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="arrowSize">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lK8-Zq-D7z">
-                                                <rect key="frame" x="15" y="802" width="363" height="241"/>
+                                                <rect key="frame" x="15" y="776" width="363" height="267"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkt-qA-rh5">
+                                                <rect key="frame" x="30" y="737" width="168" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -369,15 +381,18 @@
                                             <constraint firstAttribute="bottom" secondItem="lK8-Zq-D7z" secondAttribute="bottom" constant="8" id="HFV-sl-ouf"/>
                                             <constraint firstItem="1kI-ID-b1r" firstAttribute="leading" secondItem="iVO-Gz-EGg" secondAttribute="leading" constant="15" id="Iw4-PQ-LlA"/>
                                             <constraint firstItem="1OS-5p-pkv" firstAttribute="top" secondItem="CSV-92-RBM" secondAttribute="bottom" constant="10" id="K8T-JG-bPL"/>
+                                            <constraint firstItem="lK8-Zq-D7z" firstAttribute="top" secondItem="Dkt-qA-rh5" secondAttribute="bottom" constant="5" id="OUE-8K-2uS"/>
                                             <constraint firstItem="1kI-ID-b1r" firstAttribute="top" secondItem="1OS-5p-pkv" secondAttribute="bottom" constant="8" id="QSl-NR-SvV"/>
                                             <constraint firstItem="lK8-Zq-D7z" firstAttribute="top" secondItem="BqQ-Zl-3EC" secondAttribute="bottom" constant="5" id="QrA-rr-S77"/>
-                                            <constraint firstItem="BqQ-Zl-3EC" firstAttribute="top" secondItem="1kI-ID-b1r" secondAttribute="bottom" constant="25" id="VkO-eL-hVm"/>
+                                            <constraint firstItem="BqQ-Zl-3EC" firstAttribute="top" secondItem="1kI-ID-b1r" secondAttribute="bottom" constant="5" id="VkO-eL-hVm"/>
+                                            <constraint firstItem="Dkt-qA-rh5" firstAttribute="top" secondItem="1kI-ID-b1r" secondAttribute="bottom" constant="5" id="YcT-q3-DKh"/>
+                                            <constraint firstItem="Dkt-qA-rh5" firstAttribute="leading" secondItem="iVO-Gz-EGg" secondAttribute="leading" constant="30" id="e2h-ms-rmn"/>
                                             <constraint firstAttribute="trailing" secondItem="CSV-92-RBM" secondAttribute="trailing" id="eav-S0-SAs"/>
                                             <constraint firstItem="CSV-92-RBM" firstAttribute="leading" secondItem="iVO-Gz-EGg" secondAttribute="leading" id="h9W-rR-4eu"/>
+                                            <constraint firstItem="BqQ-Zl-3EC" firstAttribute="leading" secondItem="Dkt-qA-rh5" secondAttribute="trailing" constant="90" id="hU8-mV-i8i"/>
                                             <constraint firstAttribute="trailing" secondItem="lK8-Zq-D7z" secondAttribute="trailing" constant="15" id="hZi-dM-0Xj"/>
                                             <constraint firstItem="lK8-Zq-D7z" firstAttribute="leading" secondItem="iVO-Gz-EGg" secondAttribute="leading" constant="15" id="ixd-eu-xaI"/>
-                                            <constraint firstAttribute="trailing" secondItem="BqQ-Zl-3EC" secondAttribute="trailing" constant="15" id="pXi-i6-L7U"/>
-                                            <constraint firstItem="BqQ-Zl-3EC" firstAttribute="leading" secondItem="iVO-Gz-EGg" secondAttribute="leading" constant="15" id="tdo-P0-9fP"/>
+                                            <constraint firstAttribute="trailing" secondItem="BqQ-Zl-3EC" secondAttribute="trailing" constant="30" id="pXi-i6-L7U"/>
                                             <constraint firstItem="CSV-92-RBM" firstAttribute="top" secondItem="iVO-Gz-EGg" secondAttribute="top" id="uP1-gv-QfA"/>
                                         </constraints>
                                     </view>
@@ -397,7 +412,7 @@
                         <constraints>
                             <constraint firstItem="7UF-IO-U11" firstAttribute="leading" secondItem="dV1-OZ-ihS" secondAttribute="leading" id="8g7-VK-YJI"/>
                             <constraint firstItem="19v-dj-Z35" firstAttribute="bottom" secondItem="dV1-OZ-ihS" secondAttribute="bottom" id="H4S-Bz-neN"/>
-                            <constraint firstItem="qyV-RM-La0" firstAttribute="leading" secondItem="UxN-bM-ULO" secondAttribute="trailing" constant="3" id="IfJ-jW-dHZ"/>
+                            <constraint firstItem="qyV-RM-La0" firstAttribute="leading" secondItem="UxN-bM-ULO" secondAttribute="trailing" constant="8" id="IfJ-jW-dHZ"/>
                             <constraint firstItem="UxN-bM-ULO" firstAttribute="top" secondItem="7UF-IO-U11" secondAttribute="bottom" constant="24" id="K7A-cl-c8o"/>
                             <constraint firstItem="7UF-IO-U11" firstAttribute="top" secondItem="dV1-OZ-ihS" secondAttribute="top" id="Vcw-2o-oKz"/>
                             <constraint firstItem="dV1-OZ-ihS" firstAttribute="bottom" secondItem="UxN-bM-ULO" secondAttribute="bottom" constant="15" id="XMh-LG-aBR"/>
@@ -415,8 +430,10 @@
                     <connections>
                         <outlet property="bookingButton" destination="19v-dj-Z35" id="10D-z0-FS9"/>
                         <outlet property="departmentSelectionTableView" destination="1kI-ID-b1r" id="cKe-tA-Huw"/>
+                        <outlet property="numberOfTicketsDropDown" destination="BqQ-Zl-3EC" id="cei-lE-F9n"/>
                         <outlet property="numberOfTicketsTableView" destination="lK8-Zq-D7z" id="fD5-SP-ds1"/>
                         <outlet property="panoramaImageView" destination="CSV-92-RBM" id="3Qg-DV-bBv"/>
+                        <outlet property="totallTicketPrice" destination="qyV-RM-La0" id="sW9-5U-86b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glJ-xN-BzI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

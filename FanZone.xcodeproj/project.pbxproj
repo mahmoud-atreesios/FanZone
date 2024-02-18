@@ -23,6 +23,8 @@
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
 		1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D3BF22B7C699500623370 /* BookingVC.swift */; };
+		1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C606A592B817BFB00CD0259 /* cellData.swift */; };
+		1C606A5D2B81814A00CD0259 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 1C606A5C2B81814A00CD0259 /* iOSDropDown */; };
 		1C6144622B7318F4009424EA /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */; };
 		1C6144632B7318F4009424EA /* TrendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6144612B7318F4009424EA /* TrendingCollectionViewCell.xib */; };
 		1C6144652B7336DE009424EA /* TrendingNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6144642B7336DE009424EA /* TrendingNewsModel.swift */; };
@@ -87,6 +89,7 @@
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		1C5D3BF22B7C699500623370 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
+		1C606A592B817BFB00CD0259 /* cellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellData.swift; sourceTree = "<group>"; };
 		1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		1C6144612B7318F4009424EA /* TrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCollectionViewCell.xib; sourceTree = "<group>"; };
 		1C6144642B7336DE009424EA /* TrendingNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNewsModel.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 				1C015CD22B6CA46400988E7D /* RxSwift in Frameworks */,
 				1C015CD02B6CA46400988E7D /* RxRelay in Frameworks */,
 				1C61446A2B734019009424EA /* SDWebImage in Frameworks */,
+				1C606A5D2B81814A00CD0259 /* iOSDropDown in Frameworks */,
 				1C015CCE2B6CA46400988E7D /* RxCocoa in Frameworks */,
 				1C20DA8B2B7DB46F00936E0E /* RxDataSources in Frameworks */,
 				1C20DA892B7DB46F00936E0E /* Differentiator in Frameworks */,
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5D3BF22B7C699500623370 /* BookingVC.swift */,
+				1C606A592B817BFB00CD0259 /* cellData.swift */,
 				1C20DA792B7DA49B00936E0E /* DepartmnetSelectionTableViewCell */,
 				1C20DA822B7DABDE00936E0E /* CategorySelectionTableViewCell */,
 			);
@@ -444,6 +449,7 @@
 				1C6144692B734019009424EA /* SDWebImage */,
 				1C20DA882B7DB46F00936E0E /* Differentiator */,
 				1C20DA8A2B7DB46F00936E0E /* RxDataSources */,
+				1C606A5C2B81814A00CD0259 /* iOSDropDown */,
 			);
 			productName = FanZone;
 			productReference = 1C7C656E2B6AD3DE00A64EDD /* FanZone.app */;
@@ -524,6 +530,7 @@
 				1C015CCC2B6CA46400988E7D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				1C6144682B734019009424EA /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				1C20DA872B7DB46F00936E0E /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				1C606A5B2B81814900CD0259 /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 			);
 			productRefGroup = 1C7C656F2B6AD3DE00A64EDD /* Products */;
 			projectDirPath = "";
@@ -698,6 +705,7 @@
 				1CEF7C452B75D8C200A9B824 /* NewsWebVC.swift in Sources */,
 				1CAE5B7C2B707F03008431D0 /* ApiManager.swift in Sources */,
 				1CCBA4C52B76C0AA0079C049 /* HighlightsModel.swift in Sources */,
+				1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */,
 				1C7C65722B6AD3DE00A64EDD /* AppDelegate.swift in Sources */,
 				1CEF7C432B75CD7A00A9B824 /* NewsModel.swift in Sources */,
 				1CCBA4C12B76B9EA0079C049 /* HighlightsTableViewCell.swift in Sources */,
@@ -1071,6 +1079,14 @@
 				kind = branch;
 			};
 		};
+		1C606A5B2B81814900CD0259 /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		1C6144682B734019009424EA /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1106,6 +1122,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C20DA872B7DB46F00936E0E /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
+		};
+		1C606A5C2B81814A00CD0259 /* iOSDropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C606A5B2B81814900CD0259 /* XCRemoteSwiftPackageReference "iOSDropDown" */;
+			productName = iOSDropDown;
 		};
 		1C6144692B734019009424EA /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

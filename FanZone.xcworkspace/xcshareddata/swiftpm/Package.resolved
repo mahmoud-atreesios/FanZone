@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "iosdropdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jriosdev/iOSDropDown.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "01b96f2bc70c1243f69d9466538c291b6134db3a"
+      }
+    },
+    {
       "identity" : "rxdatasources",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RxSwiftCommunity/RxDataSources.git",
