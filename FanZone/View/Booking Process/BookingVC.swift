@@ -25,6 +25,7 @@ class BookingVC: UIViewController{
     private let disposeBag = DisposeBag()
     
     private let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
+    var numberOfSelectedTickets = BehaviorRelay<Int?>(value: 1)
 
     var departmentTableViewData: [cellData] = [
         cellData(opened: false, department: "Left", categories: ["Cat-1": 10,"Cat-2": 20,"Cat-3": 30], imageName: "test11"),
@@ -37,13 +38,16 @@ class BookingVC: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpUi()
-        panoramaImageView.controlMethod = .both
-        
+
         departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
         departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
-                
+        numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
+        
         departmentSelectionTableView.dataSource = self
         departmentSelectionTableView.delegate = self
+        
+        numberOfTicketsTableView.dataSource = self
+        numberOfTicketsTableView.delegate = self
         
         totalTicketPrice()
         setUpNumberOfTicketsDropDown()
@@ -53,7 +57,8 @@ class BookingVC: UIViewController{
     }
     
     @objc func bookingButtonTapped() {
-        //setTotallTicketPrice()
+        print("bookingButtonTapped")
+        print(numberOfSelectedTickets)
     }
 }
 
@@ -61,80 +66,116 @@ extension BookingVC{
     func setUpUi(){
         panoramaImageView.layer.cornerRadius = 20
         panoramaImageView.clipsToBounds = true
-        
+        panoramaImageView.controlMethod = .both
+
         bookingButton.layer.cornerRadius = 15
         bookingButton.clipsToBounds = true
+        bookingButton.isUserInteractionEnabled = true
     }
 }
 
 extension BookingVC{
     func setUpNumberOfTicketsDropDown(){
+        let attributedString = NSAttributedString(string: "1", attributes: [
+            .foregroundColor: UIColor.black
+        ])
+        
         numberOfTicketsDropDown.isSearchEnable = false
-        numberOfTicketsDropDown.placeholder = "0"
-        numberOfTicketsDropDown.optionArray = ["1","2","3"]
+        numberOfTicketsDropDown.attributedPlaceholder = attributedString
+        numberOfTicketsDropDown.optionArray = ["1","2","3","4"]
         numberOfTicketsDropDown.itemsTintColor = .black
+        numberOfTicketsDropDown.selectedIndex = 0
         
         // The the Closure returns Selected Index and String
         numberOfTicketsDropDown.didSelect{(selectedText , index ,id) in
-        print("Selected String: \(selectedText) \n index: \(index)")
-            
+            print("Selected String: \(selectedText) \n index: \(index)")
+            self.numberOfSelectedTickets.accept(Int(selectedText))
+            self.numberOfTicketsTableView.reloadData()
         }
     }
 }
-
 
 // MARK: Department and Category Selection
 extension BookingVC: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return departmentTableViewData.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if departmentTableViewData[section].opened == true {
-            return departmentTableViewData[section].categories.count + 1
+        if tableView == departmentSelectionTableView{
+            return departmentTableViewData.count
         }else {
             return 1
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == departmentSelectionTableView{
+            if departmentTableViewData[section].opened == true {
+                return departmentTableViewData[section].categories.count + 1
+            }else {
+                return 1
+            }
+        }else if tableView == numberOfTicketsTableView{
+            return numberOfSelectedTickets.value ?? 0
+        }else {
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categories = departmentTableViewData[indexPath.section].categories
-        let categoryKeys = Array(categories.keys).sorted()
-        let categoryValue = Array(categories.values).sorted()
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "departmentsCell", for: indexPath) as! DepartmnetSelectionTableViewCell
+        if tableView == departmentSelectionTableView{
+            let categories = departmentTableViewData[indexPath.section].categories
+            let categoryKeys = Array(categories.keys).sorted()
+            let categoryValue = Array(categories.values).sorted()
             
-            cell.departmentName.text = departmentTableViewData[indexPath.section].department
-            panoramaImageView.image = UIImage(named: departmentTableViewData[indexPath.section].imageName)
-            
-            cell.setSelectedCategoryName(departmentTableViewData[indexPath.section].selectedButton != nil ? categoryKeys[departmentTableViewData[indexPath.section].selectedButton!] : nil)
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategorySelectionTableViewCell
-            cell.categoryName.text = categoryKeys[indexPath.row - 1]
-            cell.categoryPrice.text = "\(categoryValue[indexPath.row - 1])$"
-            cell.categoryPriceText = "\(categoryValue[indexPath.row - 1])$"
-            
-            let isSelected = departmentTableViewData[indexPath.section].selectedButton == indexPath.row - 1
-            cell.setRadioButtonChecked(isSelected)
-            
-            cell.checkButtonPressed = {
-                if isSelected {
-                    self.departmentTableViewData[indexPath.section].selectedButton = nil
-                    self.ticketPriceRelay.accept(nil)
-                } else {
-                    self.departmentTableViewData[indexPath.section].selectedButton = indexPath.row - 1
-                    self.ticketPriceRelay.accept(categoryValue[indexPath.row - 1])
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "departmentsCell", for: indexPath) as! DepartmnetSelectionTableViewCell
+                
+                cell.departmentName.text = departmentTableViewData[indexPath.section].department
+                panoramaImageView.image = UIImage(named: departmentTableViewData[indexPath.section].imageName)
+                
+                cell.setSelectedCategoryName(departmentTableViewData[indexPath.section].selectedButton != nil ? categoryKeys[departmentTableViewData[indexPath.section].selectedButton!] : nil)
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategorySelectionTableViewCell
+                cell.categoryName.text = categoryKeys[indexPath.row - 1]
+                cell.categoryPrice.text = "\(categoryValue[indexPath.row - 1])$"
+                cell.categoryPriceText = "\(categoryValue[indexPath.row - 1])$"
+                
+                let isSelected = departmentTableViewData[indexPath.section].selectedButton == indexPath.row - 1
+                cell.setRadioButtonChecked(isSelected)
+                
+                cell.checkButtonPressed = {
+                    if isSelected {
+                        self.departmentTableViewData[indexPath.section].selectedButton = nil
+                        self.ticketPriceRelay.accept(nil)
+                    } else {
+                        self.departmentTableViewData[indexPath.section].selectedButton = indexPath.row - 1
+                        self.ticketPriceRelay.accept(categoryValue[indexPath.row - 1])
+                    }
+                    
+                    tableView.reloadSections(IndexSet(integer: indexPath.section), with: .none)
                 }
                 
-                tableView.reloadSections(IndexSet(integer: indexPath.section), with: .none)
+                return cell
+            }
+        }else if tableView == numberOfTicketsTableView{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ticketsForCell", for: indexPath) as! NumberOfTicketsTableViewCell
+            let ticketsDropList = cell.ticketsForDropList
+            ticketsDropList?.isSearchEnable = false
+            ticketsDropList?.placeholder = "My self"
+            ticketsDropList?.optionArray = ["My self","Dep-1","Dep-2","Dep-3"]
+            ticketsDropList?.itemsTintColor = .black
+            ticketsDropList?.arrowSize = 10
+            
+            // The the Closure returns Selected Index and String
+            ticketsDropList?.didSelect{(selectedText , index ,id) in
+                print("Selected String: \(selectedText) \n index: \(index)")
+                
             }
             
             return cell
         }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -151,13 +192,12 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension BookingVC{
-    func totalTicketPrice(){
-        ticketPriceRelay
-            .subscribe(onNext: { [weak self] price in
-                guard let self = self else { return }
-                if let price = price {
-                    self.totallTicketPrice.text = "\(price)$"
+extension BookingVC {
+    func totalTicketPrice() {
+        Observable.combineLatest(ticketPriceRelay, numberOfSelectedTickets)
+            .subscribe(onNext: { price, numberOfTickets in
+                if let price = price, let numberOfTickets = numberOfTickets {
+                    self.totallTicketPrice.text = "\(price * numberOfTickets)$"
                 } else {
                     self.totallTicketPrice.text = "0$"
                 }
@@ -165,3 +205,4 @@ extension BookingVC{
             .disposed(by: disposeBag)
     }
 }
+
