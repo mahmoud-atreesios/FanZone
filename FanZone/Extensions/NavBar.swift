@@ -38,3 +38,13 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+extension UIImageView {
+    func makeRounded() {
+        layer.borderWidth = 1
+        layer.masksToBounds = false
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+    }
+}

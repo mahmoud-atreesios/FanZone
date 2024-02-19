@@ -24,18 +24,11 @@ class HomeVC: UIViewController {
     var arr = ["PL","laliga","EPL2","BL","SA","CL"]
     var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"3"]
     
-    var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
-    
-    var laligaStadArray = ["laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3"]
-    
-    var cairoStadArray = ["cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3"]
-    
-    var bundesStadArray = ["bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3",]
-    
-    var seriaStadArray = ["seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3"]
-    
-    var homeTeamArray = ["Arsenal","Manchester United", "Nottengham Forest"]
-    var awayTeamArray = ["Manchester United", "Manchester City","Wolves"]
+    var plStadArray = Constants.links.plStadArray
+    var laligaStadArray = Constants.links.laligaStadArray
+    var cairoStadArray = Constants.links.cairoStadArray
+    var bundesStadArray = Constants.links.bundesStadArray
+    var seriaStadArray = Constants.links.seriaStadArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -185,7 +178,7 @@ extension HomeVC{
     func bindingUpcomingTableViewToViewModel() {
         viewModel.upcomingFixeturesResult
             .map { results in
-                // Sort the results based on the event date in ascending order
+                // Sort by event date in ascending order
                 return results.sorted { (result1, result2) in
                     if let date1 = self.getDatePrepareForComparison(from: result1.eventDate),
                        let date2 = self.getDatePrepareForComparison(from: result2.eventDate) {
@@ -217,9 +210,21 @@ extension HomeVC{
                 cell.matchTime.text = result.eventTime
                 cell.stadName.text = result.eventStadium
                 
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(_:)))
+                cell.addGestureRecognizer(tapGesture)
+                cell.isUserInteractionEnabled = true
+                
             }
             .disposed(by: disposeBag)
     }
+    
+    @objc func cellTapped(_ sender: UITapGestureRecognizer) {
+        guard let cell = sender.view as? UpcomingMatchesTableViewCell else { return }
+        guard let indexPath = upcomingMatchesTableView.indexPath(for: cell) else { return }
+        
+        performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
+    }
+
 }
 
 // MARK: - Date Managment

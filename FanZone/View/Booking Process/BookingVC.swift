@@ -42,6 +42,7 @@ class BookingVC: UIViewController{
         departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
         departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
+        numberOfTicketsTableView.isScrollEnabled = false
         
         departmentSelectionTableView.dataSource = self
         departmentSelectionTableView.delegate = self

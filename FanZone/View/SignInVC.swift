@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileVC: UIViewController {
+class SignInVC: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     
@@ -22,7 +22,7 @@ class ProfileVC: UIViewController {
     }
 }
 
-extension ProfileVC{
+extension SignInVC{
     func uiSetUp(){
         backgroundImageView.image = UIImage(named: "stad2")
         backgroundImageView.applyGradient(colors: [UIColor.white.withAlphaComponent(0), UIColor.white.withAlphaComponent(1)])

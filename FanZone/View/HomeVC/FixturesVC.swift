@@ -18,11 +18,11 @@ class FixturesVC: UIViewController {
     
     var leagueID: String?
     
-    var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
-    var laligaStadArray = ["laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3","laliga1","laliga2","laliga3"]
-    var cairoStadArray = ["cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3","cairo1","cairo2","cairo3"]
-    var bundesStadArray = ["bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3","bundes1","bundes2","bundes3",]
-    var seriaStadArray = ["seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3","seria1","seria2","seria3"]
+    var plStadArray = Constants.links.plStadArray
+    var laligaStadArray = Constants.links.laligaStadArray
+    var cairoStadArray = Constants.links.cairoStadArray
+    var bundesStadArray = Constants.links.bundesStadArray
+    var seriaStadArray = Constants.links.seriaStadArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +68,20 @@ extension FixturesVC{
                 cell.matchTime.text = result.eventTime
                 cell.matchDate.text = result.eventDate
                 cell.stadName.text = result.eventStadium
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(_:)))
+                cell.addGestureRecognizer(tapGesture)
+                cell.isUserInteractionEnabled = true
+                
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc func cellTapped(_ sender: UITapGestureRecognizer) {
+        guard let cell = sender.view as? UpcomingMatchesTableViewCell else { return }
+        guard let indexPath = fixturesTableView.indexPath(for: cell) else { return }
+        
+        performSegue(withIdentifier: "ShowBookingSegueFromFixtures", sender: indexPath)
     }
     
     func getDatePrepareForComparison(from dateString: String) -> Date? {

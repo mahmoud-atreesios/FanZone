@@ -41,7 +41,7 @@ class ViewModel{
         ApiClient.shared().fetchDataFromAPI(modelType: [TrendingNewsModel].self, url: URL(string: Constants.links.trendingNewsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
             switch result {
             case .success(let newsModels):
-                print("dattaaaaaaaa \(newsModels)")
+                //print("dattaaaaaaaa \(newsModels)")
                     self?.trendingNewsDataResult.accept(newsModels)
             case .failure(let error):
                 print("Error fetching news data: \(error)")
@@ -54,7 +54,7 @@ class ViewModel{
         ApiClient.shared().fetchDataFromAPI(modelType: [NewsModel].self, url: URL(string: Constants.links.newsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
             switch result {
             case .success(let newsModels):
-                print("dattaaaaaaaa \(newsModels)")
+                //print("dattaaaaaaaa \(newsModels)")
                 DispatchQueue.main.async {
                     self?.newsDataResult.accept(newsModels)
                 }
@@ -67,11 +67,10 @@ class ViewModel{
 }
 
 extension ViewModel{
-    
     func getHighlightsData(){
         ApiClient.shared().getData(modelDTO: HighlightsModel.self, .getHighlightsData)
             .subscribe { highlights in
-                print("Highlights Data Received \(highlights.self)")
+               // print("Highlights Data Received \(highlights.self)")
                 self.highlightsModel = highlights
                 self.highlightsResult.accept(highlights.response)
             } onError: { error in
