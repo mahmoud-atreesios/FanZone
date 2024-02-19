@@ -21,8 +21,25 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setUpUi()
+        makeContactUsViewClickable()
+    }
+}
+
+extension ProfileVC{
+    func makeContactUsViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(contactUsViewTapped))
+        contactUsView.addGestureRecognizer(tapGesture)
+    }
+    @objc func contactUsViewTapped(){
+        let contactUsVC = ContactUsVC(nibName: "ContactUsVC", bundle: nil)
+        present(contactUsVC, animated: true, completion: nil)
+    }
+}
+
+extension ProfileVC{
+    func setUpUi(){
         fanImageView.makeRounded()
-        
         matchTicketsView.layer.cornerRadius = 10
         matchTicketsView.layer.masksToBounds = true
         busTicketsView.layer.cornerRadius = 10
@@ -33,6 +50,5 @@ class ProfileVC: UIViewController {
         settingsView.layer.masksToBounds = true
         contactUsView.layer.cornerRadius = 10
         contactUsView.layer.masksToBounds = true
-        
     }
 }
