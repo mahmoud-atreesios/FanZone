@@ -13,7 +13,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var fanName: UILabel!
     
     @IBOutlet weak var matchTicketsView: UIView!
-    @IBOutlet weak var busTicketsView: UIView!
+    @IBOutlet weak var transportationView: UIView!
     @IBOutlet weak var familyManagmentView: UIView!
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var contactUsView: UIView!
@@ -23,6 +23,7 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         setUpUi()
         makeContactUsViewClickable()
+        makeTransportationViewClickable()
     }
 }
 
@@ -35,6 +36,15 @@ extension ProfileVC{
         let contactUsVC = ContactUsVC(nibName: "ContactUsVC", bundle: nil)
         present(contactUsVC, animated: true, completion: nil)
     }
+    
+    func makeTransportationViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TransportationViewTapped))
+        transportationView.addGestureRecognizer(tapGesture)
+    }
+    @objc func TransportationViewTapped(){
+        let transportationVC = TransportationVC(nibName: "TransportationVC", bundle: nil)
+        navigationController?.pushViewController(transportationVC, animated: true)
+    }
 }
 
 extension ProfileVC{
@@ -42,8 +52,8 @@ extension ProfileVC{
         fanImageView.makeRounded()
         matchTicketsView.layer.cornerRadius = 10
         matchTicketsView.layer.masksToBounds = true
-        busTicketsView.layer.cornerRadius = 10
-        busTicketsView.layer.masksToBounds = true
+        transportationView.layer.cornerRadius = 10
+        transportationView.layer.masksToBounds = true
         familyManagmentView.layer.cornerRadius = 10
         familyManagmentView.layer.masksToBounds = true
         settingsView.layer.cornerRadius = 10

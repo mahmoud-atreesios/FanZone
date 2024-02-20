@@ -37,8 +37,9 @@ class TabBar: UITabBarController {
         let userIsSignedIn = true
         if userIsSignedIn {
             let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
-            profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle.fill"), selectedImage: UIImage(systemName: "person.circle.fill"))
-            viewControllers[3] = profileVC
+            let profileNavController = UINavigationController(rootViewController: profileVC)
+            profileNavController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle.fill"), selectedImage: UIImage(systemName: "person.circle.fill"))
+            viewControllers[3] = profileNavController
         }
 
         setViewControllers(viewControllers, animated: false)

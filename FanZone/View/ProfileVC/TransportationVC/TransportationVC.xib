@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransportationVC" customModule="FanZone" customModuleProvider="target">
+            <connections>
+                <outlet property="bookButton" destination="ahQ-au-Io0" id="aaj-fU-6kW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVX-uz-eb2">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8z-7v-eSr">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7t-pf-u2u">
+                                    <rect key="frame" x="10" y="10" width="109" height="24"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-a7-IS0">
+                                    <rect key="frame" x="8" y="44" width="377" height="555"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="555" id="nJg-ZM-tnR"/>
+                                    </constraints>
+                                </tableView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-au-Io0">
+                                    <rect key="frame" x="27" y="609" width="339" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="Sgm-g6-PmB"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="Book Bus Ticket">
+                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="bookBusButtonPressed:" destination="-1" eventType="touchUpInside" id="mOU-7X-h9I"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ahQ-au-Io0" secondAttribute="trailing" constant="27" id="0cK-XT-T3b"/>
+                                <constraint firstItem="ahQ-au-Io0" firstAttribute="leading" secondItem="e8z-7v-eSr" secondAttribute="leading" constant="27" id="L8S-f1-ja3"/>
+                                <constraint firstItem="ahQ-au-Io0" firstAttribute="top" secondItem="IjB-a7-IS0" secondAttribute="bottom" constant="10" id="MD1-la-qUr"/>
+                                <constraint firstItem="IjB-a7-IS0" firstAttribute="leading" secondItem="e8z-7v-eSr" secondAttribute="leading" constant="8" id="UHd-f3-Cg7"/>
+                                <constraint firstItem="w7t-pf-u2u" firstAttribute="leading" secondItem="e8z-7v-eSr" secondAttribute="leading" constant="10" id="X4E-lD-0CO"/>
+                                <constraint firstItem="IjB-a7-IS0" firstAttribute="top" secondItem="w7t-pf-u2u" secondAttribute="bottom" constant="10" id="bEa-kd-d3l"/>
+                                <constraint firstAttribute="bottom" secondItem="ahQ-au-Io0" secondAttribute="bottom" constant="183" id="bO9-pB-f0L"/>
+                                <constraint firstAttribute="trailing" secondItem="IjB-a7-IS0" secondAttribute="trailing" constant="8" id="hPN-X7-YPz"/>
+                                <constraint firstItem="w7t-pf-u2u" firstAttribute="top" secondItem="e8z-7v-eSr" secondAttribute="top" constant="10" id="smx-qN-OF7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="e8z-7v-eSr" firstAttribute="height" secondItem="GVX-uz-eb2" secondAttribute="height" priority="250" id="99N-Sm-vTF"/>
+                        <constraint firstAttribute="bottom" secondItem="e8z-7v-eSr" secondAttribute="bottom" id="B1p-BZ-Vlf"/>
+                        <constraint firstItem="e8z-7v-eSr" firstAttribute="width" secondItem="GVX-uz-eb2" secondAttribute="width" id="ZPo-Nj-5Bo"/>
+                        <constraint firstItem="e8z-7v-eSr" firstAttribute="top" secondItem="GVX-uz-eb2" secondAttribute="top" id="cxc-Qh-nai"/>
+                        <constraint firstItem="e8z-7v-eSr" firstAttribute="leading" secondItem="GVX-uz-eb2" secondAttribute="leading" id="fk0-D1-8H6"/>
+                        <constraint firstAttribute="trailing" secondItem="e8z-7v-eSr" secondAttribute="trailing" id="skD-Go-tJr"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GVX-uz-eb2" secondAttribute="bottom" id="1nU-8J-nfw"/>
+                <constraint firstItem="GVX-uz-eb2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7xz-oN-6Xc"/>
+                <constraint firstItem="GVX-uz-eb2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LhY-d2-gVg"/>
+                <constraint firstItem="GVX-uz-eb2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="siv-km-AnY"/>
+            </constraints>
+            <point key="canvasLocation" x="129.00763358778624" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

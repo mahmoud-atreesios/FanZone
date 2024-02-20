@@ -64,6 +64,8 @@
 		1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA48202B771AC6002873AC /* FixturesVC.swift */; };
 		1CEF7C432B75CD7A00A9B824 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */; };
 		1CEF7C452B75D8C200A9B824 /* NewsWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF7C442B75D8C200A9B824 /* NewsWebVC.swift */; };
+		1CFD59E52B85522D00D5836F /* TransportationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD59E32B85522D00D5836F /* TransportationVC.swift */; };
+		1CFD59E62B85522D00D5836F /* TransportationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFD59E42B85522D00D5836F /* TransportationVC.xib */; };
 		48BFF7AACE64926ED10CA2C0 /* Pods_FanZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A14B6B10CCBE02FD636D77 /* Pods_FanZone.framework */; };
 		58FC1C1CD840E2A37924C5C7 /* Pods_FanZone_FanZoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4E4EEC42B525AEFC5B10C5 /* Pods_FanZone_FanZoneUITests.framework */; };
 /* End PBXBuildFile section */
@@ -139,6 +141,8 @@
 		1CEA48202B771AC6002873AC /* FixturesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesVC.swift; sourceTree = "<group>"; };
 		1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		1CEF7C442B75D8C200A9B824 /* NewsWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebVC.swift; sourceTree = "<group>"; };
+		1CFD59E32B85522D00D5836F /* TransportationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationVC.swift; sourceTree = "<group>"; };
+		1CFD59E42B85522D00D5836F /* TransportationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransportationVC.xib; sourceTree = "<group>"; };
 		3250A38F9D99E298DFC3E181 /* Pods_FanZoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanZoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A14B6B10CCBE02FD636D77 /* Pods_FanZone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanZone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9997ED6EDF22341820170BE0 /* Pods-FanZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanZone.release.xcconfig"; path = "Target Support Files/Pods-FanZone/Pods-FanZone.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				1C005ECD2B83603A00CA88A5 /* ProfileVC.swift */,
+				1CFD59E22B8551F500D5836F /* TransportationVC */,
 				1C005ED62B83F4CE00CA88A5 /* ContactUs */,
 			);
 			path = ProfileVC;
@@ -446,6 +451,15 @@
 			path = HighlightsTableViewCell;
 			sourceTree = "<group>";
 		};
+		1CFD59E22B8551F500D5836F /* TransportationVC */ = {
+			isa = PBXGroup;
+			children = (
+				1CFD59E32B85522D00D5836F /* TransportationVC.swift */,
+				1CFD59E42B85522D00D5836F /* TransportationVC.xib */,
+			);
+			path = TransportationVC;
+			sourceTree = "<group>";
+		};
 		95BEAA3E68AC9A3A9966DE83 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +611,7 @@
 				1C1921DA2B83F82E00B6DE44 /* ContactUsVC.xib in Resources */,
 				1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */,
 				1C7C657E2B6AD3E000A64EDD /* LaunchScreen.storyboard in Resources */,
+				1CFD59E62B85522D00D5836F /* TransportationVC.xib in Resources */,
 				1C6144632B7318F4009424EA /* TrendingCollectionViewCell.xib in Resources */,
 				1C7C657B2B6AD3E000A64EDD /* Assets.xcassets in Resources */,
 				1C7C65792B6AD3DE00A64EDD /* Main.storyboard in Resources */,
@@ -741,6 +756,7 @@
 				1C015CCB2B6CA35100988E7D /* ViewModel.swift in Sources */,
 				1C61741A2B6D601B00F3E8AB /* PopularCollectionViewCell.swift in Sources */,
 				1C20DA852B7DABFD00936E0E /* CategorySelectionTableViewCell.swift in Sources */,
+				1CFD59E52B85522D00D5836F /* TransportationVC.swift in Sources */,
 				1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */,
 				1C7C65AB2B6C38D900A64EDD /* HighlightsVC.swift in Sources */,
 				1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */,
