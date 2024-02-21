@@ -29,6 +29,7 @@
 		1C20DA8B2B7DB46F00936E0E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1C20DA8A2B7DB46F00936E0E /* RxDataSources */; };
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
+		1C4968482B86B50700168784 /* TransportationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* TransportationVC.swift */; };
 		1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D3BF22B7C699500623370 /* BookingVC.swift */; };
 		1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C606A592B817BFB00CD0259 /* cellData.swift */; };
 		1C606A5D2B81814A00CD0259 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 1C606A5C2B81814A00CD0259 /* iOSDropDown */; };
@@ -62,10 +63,10 @@
 		1CCBA4C52B76C0AA0079C049 /* HighlightsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */; };
 		1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */; };
 		1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA48202B771AC6002873AC /* FixturesVC.swift */; };
+		1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEDD9842B86458600267FAC /* BookBusVC.swift */; };
+		1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CEDD9852B86458600267FAC /* BookBusVC.xib */; };
 		1CEF7C432B75CD7A00A9B824 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */; };
 		1CEF7C452B75D8C200A9B824 /* NewsWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF7C442B75D8C200A9B824 /* NewsWebVC.swift */; };
-		1CFD59E52B85522D00D5836F /* TransportationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD59E32B85522D00D5836F /* TransportationVC.swift */; };
-		1CFD59E62B85522D00D5836F /* TransportationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFD59E42B85522D00D5836F /* TransportationVC.xib */; };
 		48BFF7AACE64926ED10CA2C0 /* Pods_FanZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A14B6B10CCBE02FD636D77 /* Pods_FanZone.framework */; };
 		58FC1C1CD840E2A37924C5C7 /* Pods_FanZone_FanZoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4E4EEC42B525AEFC5B10C5 /* Pods_FanZone_FanZoneUITests.framework */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		1C20DA842B7DABFD00936E0E /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		1C4968472B86B50700168784 /* TransportationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationVC.swift; sourceTree = "<group>"; };
 		1C5D3BF22B7C699500623370 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		1C606A592B817BFB00CD0259 /* cellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellData.swift; sourceTree = "<group>"; };
 		1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -139,10 +141,10 @@
 		1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsModel.swift; sourceTree = "<group>"; };
 		1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWebViewVC.swift; sourceTree = "<group>"; };
 		1CEA48202B771AC6002873AC /* FixturesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesVC.swift; sourceTree = "<group>"; };
+		1CEDD9842B86458600267FAC /* BookBusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBusVC.swift; sourceTree = "<group>"; };
+		1CEDD9852B86458600267FAC /* BookBusVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookBusVC.xib; sourceTree = "<group>"; };
 		1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		1CEF7C442B75D8C200A9B824 /* NewsWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebVC.swift; sourceTree = "<group>"; };
-		1CFD59E32B85522D00D5836F /* TransportationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationVC.swift; sourceTree = "<group>"; };
-		1CFD59E42B85522D00D5836F /* TransportationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransportationVC.xib; sourceTree = "<group>"; };
 		3250A38F9D99E298DFC3E181 /* Pods_FanZoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanZoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A14B6B10CCBE02FD636D77 /* Pods_FanZone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanZone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9997ED6EDF22341820170BE0 /* Pods-FanZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanZone.release.xcconfig"; path = "Target Support Files/Pods-FanZone/Pods-FanZone.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				1C005ECD2B83603A00CA88A5 /* ProfileVC.swift */,
-				1CFD59E22B8551F500D5836F /* TransportationVC */,
+				1C4968472B86B50700168784 /* TransportationVC.swift */,
+				1CEDD9832B86456B00267FAC /* BookBusVC */,
 				1C005ED62B83F4CE00CA88A5 /* ContactUs */,
 			);
 			path = ProfileVC;
@@ -451,13 +454,13 @@
 			path = HighlightsTableViewCell;
 			sourceTree = "<group>";
 		};
-		1CFD59E22B8551F500D5836F /* TransportationVC */ = {
+		1CEDD9832B86456B00267FAC /* BookBusVC */ = {
 			isa = PBXGroup;
 			children = (
-				1CFD59E32B85522D00D5836F /* TransportationVC.swift */,
-				1CFD59E42B85522D00D5836F /* TransportationVC.xib */,
+				1CEDD9842B86458600267FAC /* BookBusVC.swift */,
+				1CEDD9852B86458600267FAC /* BookBusVC.xib */,
 			);
-			path = TransportationVC;
+			path = BookBusVC;
 			sourceTree = "<group>";
 		};
 		95BEAA3E68AC9A3A9966DE83 /* Pods */ = {
@@ -611,7 +614,7 @@
 				1C1921DA2B83F82E00B6DE44 /* ContactUsVC.xib in Resources */,
 				1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */,
 				1C7C657E2B6AD3E000A64EDD /* LaunchScreen.storyboard in Resources */,
-				1CFD59E62B85522D00D5836F /* TransportationVC.xib in Resources */,
+				1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */,
 				1C6144632B7318F4009424EA /* TrendingCollectionViewCell.xib in Resources */,
 				1C7C657B2B6AD3E000A64EDD /* Assets.xcassets in Resources */,
 				1C7C65792B6AD3DE00A64EDD /* Main.storyboard in Resources */,
@@ -749,6 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C005ECE2B83603A00CA88A5 /* ProfileVC.swift in Sources */,
+				1C4968482B86B50700168784 /* TransportationVC.swift in Sources */,
 				1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */,
 				1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */,
 				1C7C65762B6AD3DE00A64EDD /* HomeVC.swift in Sources */,
@@ -756,7 +760,7 @@
 				1C015CCB2B6CA35100988E7D /* ViewModel.swift in Sources */,
 				1C61741A2B6D601B00F3E8AB /* PopularCollectionViewCell.swift in Sources */,
 				1C20DA852B7DABFD00936E0E /* CategorySelectionTableViewCell.swift in Sources */,
-				1CFD59E52B85522D00D5836F /* TransportationVC.swift in Sources */,
+				1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */,
 				1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */,
 				1C7C65AB2B6C38D900A64EDD /* HighlightsVC.swift in Sources */,
 				1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */,

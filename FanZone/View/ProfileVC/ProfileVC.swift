@@ -41,10 +41,13 @@ extension ProfileVC{
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TransportationViewTapped))
         transportationView.addGestureRecognizer(tapGesture)
     }
-    @objc func TransportationViewTapped(){
-        let transportationVC = TransportationVC(nibName: "TransportationVC", bundle: nil)
-        navigationController?.pushViewController(transportationVC, animated: true)
+    @objc func TransportationViewTapped() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let transportationVC = storyboard.instantiateViewController(withIdentifier: "TransportationVC") as? TransportationVC {
+            navigationController?.pushViewController(transportationVC, animated: true)
+        }
     }
+
 }
 
 extension ProfileVC{
