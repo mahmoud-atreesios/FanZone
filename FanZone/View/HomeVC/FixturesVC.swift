@@ -18,11 +18,11 @@ class FixturesVC: UIViewController {
     
     var leagueID: String?
     
-    var plStadArray = Constants.links.plStadArray
-    var laligaStadArray = Constants.links.laligaStadArray
-    var cairoStadArray = Constants.links.cairoStadArray
-    var bundesStadArray = Constants.links.bundesStadArray
-    var seriaStadArray = Constants.links.seriaStadArray
+    let plStadArray = Constants.links.plStadArray
+    let laligaStadArray = Constants.links.laligaStadArray
+    let cairoStadArray = Constants.links.cairoStadArray
+    let bundesStadArray = Constants.links.bundesStadArray
+    let seriaStadArray = Constants.links.seriaStadArray
     
     override func viewDidLoad() {
         super.viewDidLoad()

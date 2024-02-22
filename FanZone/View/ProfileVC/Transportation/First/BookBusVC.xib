@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookBusVC" customModule="FanZone" customModuleProvider="target">
             <connections>
+                <outlet property="showTripsButton" destination="hdm-r8-ymg" id="acL-KD-rus"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -71,9 +72,39 @@
                         <constraint firstAttribute="height" constant="35" id="w4X-Zr-rjV"/>
                     </constraints>
                 </stackView>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="a6A-1i-MQt">
-                    <rect key="frame" x="16" y="582" width="361" height="162"/>
-                </datePicker>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="113" translatesAutoresizingMaskIntoConstraints="NO" id="Hmc-GR-Y2f">
+                    <rect key="frame" x="20" y="534" width="358" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTg-MH-mUQ">
+                            <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJ6-vf-g6c">
+                            <rect key="frame" x="264.66666666666669" y="0.0" width="93.333333333333314" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="MqN-Dr-4eB"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdm-r8-ymg">
+                    <rect key="frame" x="90" y="708" width="213" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="63v-UR-EFd"/>
+                    </constraints>
+                    <color key="tintColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="arrow.right" catalog="system" imagePlacement="trailing" title="Show Trips   ">
+                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="showTripsButtonPressed:" destination="-1" eventType="touchUpInside" id="Bfi-Jn-ZUl"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -82,23 +113,26 @@
                 <constraint firstItem="abt-AM-4sN" firstAttribute="top" secondItem="Mb3-xn-oZW" secondAttribute="bottom" constant="40" id="ETz-Ex-OJU"/>
                 <constraint firstItem="VcI-x5-UP9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="JVG-aa-7sZ"/>
                 <constraint firstItem="Mb3-xn-oZW" firstAttribute="top" secondItem="Blf-r4-uwc" secondAttribute="bottom" constant="30" id="Jre-mk-Erx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hdm-r8-ymg" secondAttribute="trailing" constant="90" id="KO5-Z7-5Jw"/>
                 <constraint firstItem="Mb3-xn-oZW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="O31-hw-uZY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hdm-r8-ymg" secondAttribute="bottom" constant="60" id="S0U-27-qg3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VcI-x5-UP9" secondAttribute="trailing" constant="15" id="Wba-Cf-wYs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="abt-AM-4sN" secondAttribute="trailing" constant="15" id="XXk-eW-HqE"/>
-                <constraint firstItem="a6A-1i-MQt" firstAttribute="top" secondItem="VcI-x5-UP9" secondAttribute="bottom" constant="78" id="a0G-5c-F9w"/>
+                <constraint firstItem="Hmc-GR-Y2f" firstAttribute="top" secondItem="VcI-x5-UP9" secondAttribute="bottom" constant="30" id="YpM-oM-Vzu"/>
                 <constraint firstItem="VcI-x5-UP9" firstAttribute="top" secondItem="abt-AM-4sN" secondAttribute="bottom" constant="30" id="b8M-b9-2NA"/>
-                <constraint firstItem="a6A-1i-MQt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ceY-pK-4L5"/>
                 <constraint firstItem="Mb3-xn-oZW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dBm-Bf-L0I"/>
                 <constraint firstItem="Blf-r4-uwc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gxk-1c-Z9B"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="a6A-1i-MQt" secondAttribute="bottom" constant="74" id="nLM-FA-sfU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hmc-GR-Y2f" secondAttribute="trailing" constant="15" id="oXw-Nj-oVK"/>
+                <constraint firstItem="Hmc-GR-Y2f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="puN-za-Nwu"/>
+                <constraint firstItem="hdm-r8-ymg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="90" id="qjW-vt-AWA"/>
                 <constraint firstItem="abt-AM-4sN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rRO-MV-ZQg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="a6A-1i-MQt" secondAttribute="trailing" constant="16" id="uwy-dl-q4d"/>
             </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
         <image name="Bus" width="8000" height="4211"/>
+        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

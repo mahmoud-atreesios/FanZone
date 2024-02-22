@@ -24,11 +24,11 @@ class HomeVC: UIViewController {
     var arr = ["PL","laliga","EPL2","BL","SA","CL"]
     var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"3"]
     
-    var plStadArray = Constants.links.plStadArray
-    var laligaStadArray = Constants.links.laligaStadArray
-    var cairoStadArray = Constants.links.cairoStadArray
-    var bundesStadArray = Constants.links.bundesStadArray
-    var seriaStadArray = Constants.links.seriaStadArray
+    let plStadArray = Constants.links.plStadArray
+    let laligaStadArray = Constants.links.laligaStadArray
+    let cairoStadArray = Constants.links.cairoStadArray
+    let bundesStadArray = Constants.links.bundesStadArray
+    let seriaStadArray = Constants.links.seriaStadArray
     
     override func viewDidLoad() {
         super.viewDidLoad()

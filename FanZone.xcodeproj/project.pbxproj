@@ -29,7 +29,7 @@
 		1C20DA8B2B7DB46F00936E0E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1C20DA8A2B7DB46F00936E0E /* RxDataSources */; };
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
-		1C4968482B86B50700168784 /* TransportationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* TransportationVC.swift */; };
+		1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* BusTicketsVC.swift */; };
 		1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D3BF22B7C699500623370 /* BookingVC.swift */; };
 		1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C606A592B817BFB00CD0259 /* cellData.swift */; };
 		1C606A5D2B81814A00CD0259 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 1C606A5C2B81814A00CD0259 /* iOSDropDown */; };
@@ -105,7 +105,7 @@
 		1C20DA842B7DABFD00936E0E /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
-		1C4968472B86B50700168784 /* TransportationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationVC.swift; sourceTree = "<group>"; };
+		1C4968472B86B50700168784 /* BusTicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsVC.swift; sourceTree = "<group>"; };
 		1C5D3BF22B7C699500623370 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		1C606A592B817BFB00CD0259 /* cellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellData.swift; sourceTree = "<group>"; };
 		1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -195,8 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				1C005ECD2B83603A00CA88A5 /* ProfileVC.swift */,
-				1C4968472B86B50700168784 /* TransportationVC.swift */,
-				1CEDD9832B86456B00267FAC /* BookBusVC */,
+				1CDFF8EA2B877F7A0031241A /* MatchTickets */,
+				1CDFF8EB2B877F8B0031241A /* Bus Tickets */,
+				1CEDD9832B86456B00267FAC /* Transportation */,
 				1C005ED62B83F4CE00CA88A5 /* ContactUs */,
 			);
 			path = ProfileVC;
@@ -383,10 +384,10 @@
 			isa = PBXGroup;
 			children = (
 				1C005ECF2B83675900CA88A5 /* TabBar.swift */,
+				1C7C65AC2B6C38EA00A64EDD /* SignInVC.swift */,
 				1C61445A2B72D783009424EA /* HomeVC */,
 				1C38C08D2B74821000D67603 /* NewsVC */,
 				1CCBA4BE2B76B9B20079C049 /* HighlightsVC */,
-				1C7C65AC2B6C38EA00A64EDD /* SignInVC.swift */,
 				1C005ED12B83F48000CA88A5 /* ProfileVC */,
 				1C20DA782B7DA48200936E0E /* Booking Process */,
 			);
@@ -454,13 +455,36 @@
 			path = HighlightsTableViewCell;
 			sourceTree = "<group>";
 		};
-		1CEDD9832B86456B00267FAC /* BookBusVC */ = {
+		1CDFF8EA2B877F7A0031241A /* MatchTickets */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = MatchTickets;
+			sourceTree = "<group>";
+		};
+		1CDFF8EB2B877F8B0031241A /* Bus Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				1C4968472B86B50700168784 /* BusTicketsVC.swift */,
+			);
+			path = "Bus Tickets";
+			sourceTree = "<group>";
+		};
+		1CDFF8EC2B878BA20031241A /* First */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		1CEDD9832B86456B00267FAC /* Transportation */ = {
+			isa = PBXGroup;
+			children = (
+				1CDFF8EC2B878BA20031241A /* First */,
 				1CEDD9842B86458600267FAC /* BookBusVC.swift */,
 				1CEDD9852B86458600267FAC /* BookBusVC.xib */,
 			);
-			path = BookBusVC;
+			path = Transportation;
 			sourceTree = "<group>";
 		};
 		95BEAA3E68AC9A3A9966DE83 /* Pods */ = {
@@ -752,7 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C005ECE2B83603A00CA88A5 /* ProfileVC.swift in Sources */,
-				1C4968482B86B50700168784 /* TransportationVC.swift in Sources */,
+				1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */,
 				1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */,
 				1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */,
 				1C7C65762B6AD3DE00A64EDD /* HomeVC.swift in Sources */,

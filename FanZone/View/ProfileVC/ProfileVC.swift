@@ -13,6 +13,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var fanName: UILabel!
     
     @IBOutlet weak var matchTicketsView: UIView!
+    @IBOutlet weak var busTicketsView: UIView!
+    
     @IBOutlet weak var transportationView: UIView!
     @IBOutlet weak var familyManagmentView: UIView!
     @IBOutlet weak var settingsView: UIView!
@@ -23,7 +25,8 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         setUpUi()
         makeContactUsViewClickable()
-        makeTransportationViewClickable()
+        makeBusTicketsViewClickable()
+        makeBookTransportationViewClickable()
     }
 }
 
@@ -37,17 +40,26 @@ extension ProfileVC{
         present(contactUsVC, animated: true, completion: nil)
     }
     
-    func makeTransportationViewClickable(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TransportationViewTapped))
-        transportationView.addGestureRecognizer(tapGesture)
+    func makeBusTicketsViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(busTicketsViewTapped))
+        busTicketsView.addGestureRecognizer(tapGesture)
     }
-    @objc func TransportationViewTapped() {
+    @objc func busTicketsViewTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let transportationVC = storyboard.instantiateViewController(withIdentifier: "TransportationVC") as? TransportationVC {
-            navigationController?.pushViewController(transportationVC, animated: true)
+        if let busTicketsVC = storyboard.instantiateViewController(withIdentifier: "BusTicketsVC") as? BusTicketsVC {
+            navigationController?.pushViewController(busTicketsVC, animated: true)
         }
     }
-
+    
+    func makeBookTransportationViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(bookTransportationViewTapped))
+        transportationView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func bookTransportationViewTapped(){
+        let BookBusVC = BookBusVC(nibName: "BookBusVC", bundle: nil)
+        navigationController?.pushViewController(BookBusVC, animated: true)
+    }
 }
 
 extension ProfileVC{

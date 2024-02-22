@@ -784,7 +784,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kze-Zu-FB3">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="789"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FanImage" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-ER-jFQ">
                                                 <rect key="frame" x="106.66666666666669" y="5" width="180" height="180"/>
@@ -803,7 +803,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TMT-CH-dmL">
-                                                <rect key="frame" x="31" y="295" width="331" height="330"/>
+                                                <rect key="frame" x="31" y="265" width="331" height="400"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNL-Gq-fkF" userLabel="Match Tickets">
                                                         <rect key="frame" x="0.0" y="0.0" width="331" height="50"/>
@@ -845,19 +845,59 @@
                                                             <constraint firstAttribute="bottom" secondItem="Dns-rQ-L7v" secondAttribute="bottom" constant="12" id="y0J-LW-zlO"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aC-Yl-Ew8" userLabel="Bus Tickets">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jnx-ZU-Lvo" userLabel="Bus Tickets">
                                                         <rect key="frame" x="0.0" y="70" width="331" height="50"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ndW-Q9-7cG">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v99-zz-ADR">
                                                                 <rect key="frame" x="14" y="10.000000000000018" width="30" height="31.333333333333339"/>
+                                                                <color key="tintColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="b5n-v6-QLE"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="zhC-cP-3kp"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nk-iP-zpR">
+                                                                <rect key="frame" x="72" y="12" width="108.66666666666669" height="24"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ROD-5j-I30">
+                                                                <rect key="frame" x="293" y="9.9999999999999982" width="30" height="28.666666666666664"/>
+                                                                <color key="tintColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="RJM-jl-Yji"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="nBH-5V-C5h"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="3Nk-iP-zpR" secondAttribute="bottom" constant="14" id="7lc-w9-1Aj"/>
+                                                            <constraint firstItem="v99-zz-ADR" firstAttribute="leading" secondItem="Jnx-ZU-Lvo" secondAttribute="leading" constant="14" id="E4r-ht-Jc2"/>
+                                                            <constraint firstItem="3Nk-iP-zpR" firstAttribute="leading" secondItem="v99-zz-ADR" secondAttribute="trailing" constant="28" id="KQe-k9-cJO"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ROD-5j-I30" secondAttribute="bottom" constant="11" id="l7K-rs-BFL"/>
+                                                            <constraint firstAttribute="height" constant="50" id="leV-fJ-n9T"/>
+                                                            <constraint firstItem="v99-zz-ADR" firstAttribute="top" secondItem="Jnx-ZU-Lvo" secondAttribute="top" constant="10.67" id="o9N-dd-Q3j"/>
+                                                            <constraint firstItem="3Nk-iP-zpR" firstAttribute="top" secondItem="Jnx-ZU-Lvo" secondAttribute="top" constant="12" id="rnO-U2-vmG"/>
+                                                            <constraint firstAttribute="bottom" secondItem="v99-zz-ADR" secondAttribute="bottom" constant="9.3300000000000001" id="tmF-35-VNM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ROD-5j-I30" secondAttribute="trailing" constant="8" id="z4u-Ud-OaY"/>
+                                                            <constraint firstItem="ROD-5j-I30" firstAttribute="top" secondItem="Jnx-ZU-Lvo" secondAttribute="top" constant="9" id="zE0-zE-BcQ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aC-Yl-Ew8" userLabel="Bus Tickets">
+                                                        <rect key="frame" x="0.0" y="140" width="331" height="50"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ndW-Q9-7cG">
+                                                                <rect key="frame" x="14" y="9.9999999999999609" width="30" height="31.333333333333339"/>
                                                                 <color key="tintColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="fkC-fT-Xim"/>
                                                                     <constraint firstAttribute="width" constant="30" id="hcY-a1-KiS"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf3-QI-D37">
-                                                                <rect key="frame" x="71.999999999999986" y="12" width="139.66666666666663" height="24"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf3-QI-D37">
+                                                                <rect key="frame" x="72" y="12" width="192" height="24"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -886,7 +926,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sf-df-egW" userLabel="Family Managment">
-                                                        <rect key="frame" x="0.0" y="140" width="331" height="50"/>
+                                                        <rect key="frame" x="0.0" y="210" width="331" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="figure.and.child.holdinghands" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VNQ-jP-LfQ">
                                                                 <rect key="frame" x="14" y="9.9999999999999964" width="30" height="30.000000000000004"/>
@@ -926,7 +966,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-ZM-lQd" userLabel="Settings">
-                                                        <rect key="frame" x="0.0" y="210" width="331" height="50"/>
+                                                        <rect key="frame" x="0.0" y="280" width="331" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gearshape" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-yr-B8E">
                                                                 <rect key="frame" x="14" y="9.9999999999999609" width="30" height="30.000000000000011"/>
@@ -966,7 +1006,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eY6-gM-1wJ" userLabel="Contact Us">
-                                                        <rect key="frame" x="0.0" y="280" width="331" height="50"/>
+                                                        <rect key="frame" x="0.0" y="350" width="331" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lt1-7k-YaW">
                                                                 <rect key="frame" x="14" y="9.9999999999999645" width="30" height="30"/>
@@ -1006,9 +1046,6 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="330" id="2Qi-WI-Lqd"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1019,7 +1056,7 @@
                                             <constraint firstItem="uHI-ER-jFQ" firstAttribute="top" secondItem="kze-Zu-FB3" secondAttribute="top" constant="5" id="G7x-oA-enC"/>
                                             <constraint firstItem="uHI-ER-jFQ" firstAttribute="centerX" secondItem="kze-Zu-FB3" secondAttribute="centerX" id="MOb-AM-6Dj"/>
                                             <constraint firstItem="fdk-0m-E6v" firstAttribute="top" secondItem="uHI-ER-jFQ" secondAttribute="bottom" constant="10" id="Rlw-5W-IdT"/>
-                                            <constraint firstItem="TMT-CH-dmL" firstAttribute="top" secondItem="fdk-0m-E6v" secondAttribute="bottom" constant="70" id="Uo1-ae-k5k"/>
+                                            <constraint firstItem="TMT-CH-dmL" firstAttribute="top" secondItem="fdk-0m-E6v" secondAttribute="bottom" constant="40" id="Uo1-ae-k5k"/>
                                             <constraint firstItem="fdk-0m-E6v" firstAttribute="centerX" secondItem="kze-Zu-FB3" secondAttribute="centerX" id="ffn-sz-LeG"/>
                                         </constraints>
                                     </view>
@@ -1045,6 +1082,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hnN-dl-TSO"/>
                     <connections>
+                        <outlet property="busTicketsView" destination="Jnx-ZU-Lvo" id="pMM-Cx-NgW"/>
                         <outlet property="contactUsView" destination="eY6-gM-1wJ" id="mzU-Tf-uYk"/>
                         <outlet property="familyManagmentView" destination="1sf-df-egW" id="MH2-JD-c2y"/>
                         <outlet property="fanImageView" destination="uHI-ER-jFQ" id="1mn-pX-LOD"/>
@@ -1058,16 +1096,16 @@
             </objects>
             <point key="canvasLocation" x="4347.3282442748086" y="812.67605633802816"/>
         </scene>
-        <!--TransportationVC-->
+        <!--Bus TicketsVC-->
         <scene sceneID="j3b-70-FQd">
             <objects>
-                <viewController storyboardIdentifier="TransportationVC" id="XVC-hM-2mB" customClass="TransportationVC" customModule="FanZone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusTicketsVC" id="XVC-hM-2mB" customClass="BusTicketsVC" customModule="FanZone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AaW-JB-wax">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-Ri-sDB">
-                                <rect key="frame" x="0.0" y="103" width="393" height="660"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="662"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-1G-lhs">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="662"/>
@@ -1106,36 +1144,16 @@
                                     <constraint firstAttribute="bottom" secondItem="ajI-1G-lhs" secondAttribute="bottom" id="yBb-Uj-LjE"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wn-uD-h0o">
-                                <rect key="frame" x="30" y="763" width="333" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="l1l-sV-XDN"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Book Bus Ticket">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="bookBusButtonPressed:" destination="XVC-hM-2mB" eventType="touchUpInside" id="fDp-30-PYK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6IR-9d-Ztr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="t3D-Ri-sDB" firstAttribute="top" secondItem="6IR-9d-Ztr" secondAttribute="top" id="BRL-2p-M5g"/>
-                            <constraint firstItem="1Wn-uD-h0o" firstAttribute="bottom" secondItem="6IR-9d-Ztr" secondAttribute="bottom" id="S53-AR-Z1s"/>
                             <constraint firstItem="t3D-Ri-sDB" firstAttribute="leading" secondItem="6IR-9d-Ztr" secondAttribute="leading" id="Uas-En-gM3"/>
-                            <constraint firstItem="6IR-9d-Ztr" firstAttribute="trailing" secondItem="1Wn-uD-h0o" secondAttribute="trailing" constant="30" id="eDU-o5-mSS"/>
                             <constraint firstItem="t3D-Ri-sDB" firstAttribute="trailing" secondItem="6IR-9d-Ztr" secondAttribute="trailing" id="g8T-TC-AHf"/>
-                            <constraint firstItem="1Wn-uD-h0o" firstAttribute="leading" secondItem="6IR-9d-Ztr" secondAttribute="leading" constant="30" id="tIk-bE-HLM"/>
-                            <constraint firstItem="1Wn-uD-h0o" firstAttribute="top" secondItem="t3D-Ri-sDB" secondAttribute="bottom" id="vHr-i6-WfO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="No8-hO-RwU"/>
-                    <connections>
-                        <outlet property="bookButton" destination="1Wn-uD-h0o" id="hEs-eE-Hbu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJe-VB-4mK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
