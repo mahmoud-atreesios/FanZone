@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripsVC" customModule="FanZone" customModuleProvider="target">
             <connections>
+                <outlet property="availableTripsTableView" destination="oxl-9s-Gji" id="i1B-Pr-Lfs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,17 +19,31 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFo-94-TVO">
-                    <rect key="frame" x="16" y="59" width="56" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Trips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFo-94-TVO">
+                    <rect key="frame" x="15" y="59" width="162.33333333333334" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Xod-KG-Dgo"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oxl-9s-Gji">
+                    <rect key="frame" x="20" y="99" width="353" height="699"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="140" y="20"/>
+            <constraints>
+                <constraint firstItem="PFo-94-TVO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Pka-pp-eiD"/>
+                <constraint firstItem="oxl-9s-Gji" firstAttribute="top" secondItem="PFo-94-TVO" secondAttribute="bottom" constant="10" id="TSj-00-5Mr"/>
+                <constraint firstItem="PFo-94-TVO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="W96-b3-FOi"/>
+                <constraint firstItem="oxl-9s-Gji" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Wcl-wX-QIg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oxl-9s-Gji" secondAttribute="trailing" constant="20" id="a38-Np-Hfe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oxl-9s-Gji" secondAttribute="bottom" constant="20" id="mKD-6L-OTq"/>
+            </constraints>
+            <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
