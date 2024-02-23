@@ -40,9 +40,13 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "availableTripsCell", for: indexPath) as! AvailableTrips
-        
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tripDetailsVC = TripDetailsVC(nibName: "TripDetailsVC", bundle: nil)
+        tripDetailsVC.modalPresentationStyle = .fullScreen
+        present(tripDetailsVC, animated: true)
+        //navigationController?.pushViewController(tripDetailsVC, animated: true)
+    }
 }

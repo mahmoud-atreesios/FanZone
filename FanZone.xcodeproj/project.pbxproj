@@ -66,6 +66,8 @@
 		1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */; };
 		1CE120DC2B8796D100DA7CDC /* AvailableTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */; };
 		1CE120DD2B8796D100DA7CDC /* AvailableTrips.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */; };
+		1CE729AA2B88C05600F970DF /* TripDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE729A82B88C05600F970DF /* TripDetailsVC.swift */; };
+		1CE729AB2B88C05600F970DF /* TripDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE729A92B88C05600F970DF /* TripDetailsVC.xib */; };
 		1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA48202B771AC6002873AC /* FixturesVC.swift */; };
 		1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEDD9842B86458600267FAC /* BookBusVC.swift */; };
 		1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CEDD9852B86458600267FAC /* BookBusVC.xib */; };
@@ -148,6 +150,8 @@
 		1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWebViewVC.swift; sourceTree = "<group>"; };
 		1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTrips.swift; sourceTree = "<group>"; };
 		1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableTrips.xib; sourceTree = "<group>"; };
+		1CE729A82B88C05600F970DF /* TripDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsVC.swift; sourceTree = "<group>"; };
+		1CE729A92B88C05600F970DF /* TripDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripDetailsVC.xib; sourceTree = "<group>"; };
 		1CEA48202B771AC6002873AC /* FixturesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesVC.swift; sourceTree = "<group>"; };
 		1CEDD9842B86458600267FAC /* BookBusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBusVC.swift; sourceTree = "<group>"; };
 		1CEDD9852B86458600267FAC /* BookBusVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookBusVC.xib; sourceTree = "<group>"; };
@@ -498,11 +502,21 @@
 			path = "Bus Tickets";
 			sourceTree = "<group>";
 		};
+		1CE729A72B88C03400F970DF /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				1CE729A82B88C05600F970DF /* TripDetailsVC.swift */,
+				1CE729A92B88C05600F970DF /* TripDetailsVC.xib */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
 		1CEDD9832B86456B00267FAC /* Transportation */ = {
 			isa = PBXGroup;
 			children = (
 				1C7CBC3D2B878DB8008AF14C /* First */,
 				1C7CBC3E2B878E12008AF14C /* Second */,
+				1CE729A72B88C03400F970DF /* Third */,
 			);
 			path = Transportation;
 			sourceTree = "<group>";
@@ -658,6 +672,7 @@
 				1C1921DA2B83F82E00B6DE44 /* ContactUsVC.xib in Resources */,
 				1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */,
 				1C7C657E2B6AD3E000A64EDD /* LaunchScreen.storyboard in Resources */,
+				1CE729AB2B88C05600F970DF /* TripDetailsVC.xib in Resources */,
 				1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */,
 				1C6144632B7318F4009424EA /* TrendingCollectionViewCell.xib in Resources */,
 				1CE120DD2B8796D100DA7CDC /* AvailableTrips.xib in Resources */,
@@ -827,6 +842,7 @@
 				1CEF7C432B75CD7A00A9B824 /* NewsModel.swift in Sources */,
 				1CCBA4C12B76B9EA0079C049 /* HighlightsTableViewCell.swift in Sources */,
 				1C1921D92B83F82E00B6DE44 /* ContactUsVC.swift in Sources */,
+				1CE729AA2B88C05600F970DF /* TripDetailsVC.swift in Sources */,
 				1C6144622B7318F4009424EA /* TrendingCollectionViewCell.swift in Sources */,
 				1C7C65742B6AD3DE00A64EDD /* SceneDelegate.swift in Sources */,
 				1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */,
