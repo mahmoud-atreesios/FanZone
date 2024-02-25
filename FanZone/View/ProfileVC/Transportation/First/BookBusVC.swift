@@ -39,19 +39,20 @@ class BookBusVC: UIViewController {
     }
     
     @IBAction func showTripsButtonPressed(_ sender: UIButton) {
-//        guard let station = busStationDropList.text, !station.isEmpty else {
-//            showAlert(title: "Station Required", message: "Please select bus station.")
-//            return
-//        }
-//        
-//        guard let stadium = stadiumDestinationDropList.text, !stadium.isEmpty else {
-//            showAlert(title: "Stadium Required", message: "Please select the stadium destination.")
-//            return
-//        }
+        guard let station = busStationDropList.text, !station.isEmpty else {
+            showAlert(title: "Station Required", message: "Please select bus station.")
+            return
+        }
+        
+        guard let stadium = stadiumDestinationDropList.text, !stadium.isEmpty else {
+            showAlert(title: "Stadium Required", message: "Please select the stadium destination.")
+            return
+        }
+        
         let tripsVC = TripsVC(nibName: "TripsVC", bundle: nil)
         navigationController?.pushViewController(tripsVC, animated: true)
-        print("selected bus station \(selectedBusStation ?? "nothing yet")")
-        print("selected bus station \(selectedStadiumDestination ?? "nothing yet")")
+        //print("selected bus station \(selectedBusStation ?? "nothing yet")")
+        //print("selected bus station \(selectedStadiumDestination ?? "nothing yet")")
     }
 }
 

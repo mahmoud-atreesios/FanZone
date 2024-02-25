@@ -27,19 +27,13 @@ class ProfileVC: UIViewController {
         makeContactUsViewClickable()
         makeBusTicketsViewClickable()
         makeBookTransportationViewClickable()
+        makeFamilyManagmentViewClickable()
     }
 }
 
 extension ProfileVC{
-    func makeContactUsViewClickable(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(contactUsViewTapped))
-        contactUsView.addGestureRecognizer(tapGesture)
-    }
-    @objc func contactUsViewTapped(){
-        let contactUsVC = ContactUsVC(nibName: "ContactUsVC", bundle: nil)
-        present(contactUsVC, animated: true, completion: nil)
-    }
     
+    //2 bus tickets
     func makeBusTicketsViewClickable(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(busTicketsViewTapped))
         busTicketsView.addGestureRecognizer(tapGesture)
@@ -51,6 +45,7 @@ extension ProfileVC{
         }
     }
     
+    //3 book transportation
     func makeBookTransportationViewClickable(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(bookTransportationViewTapped))
         transportationView.addGestureRecognizer(tapGesture)
@@ -59,6 +54,27 @@ extension ProfileVC{
     @objc func bookTransportationViewTapped(){
         let BookBusVC = BookBusVC(nibName: "BookBusVC", bundle: nil)
         navigationController?.pushViewController(BookBusVC, animated: true)
+    }
+    
+    //4 family managment
+    func makeFamilyManagmentViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(familyManagmentViewTapped))
+        familyManagmentView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func familyManagmentViewTapped(){
+        let FamilyMembersVC = FamilyMembersVC(nibName: "FamilyMembersVC", bundle: nil)
+        navigationController?.pushViewController(FamilyMembersVC, animated: true)
+    }
+    
+    //6 contact us
+    func makeContactUsViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(contactUsViewTapped))
+        contactUsView.addGestureRecognizer(tapGesture)
+    }
+    @objc func contactUsViewTapped(){
+        let contactUsVC = ContactUsVC(nibName: "ContactUsVC", bundle: nil)
+        present(contactUsVC, animated: true, completion: nil)
     }
 }
 

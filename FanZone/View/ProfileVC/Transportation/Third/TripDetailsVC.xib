@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripDetailsVC" customModule="FanZone" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="wmz-tc-jef" id="FPg-ug-YFh"/>
+                <outlet property="bookButton" destination="ebW-DP-rwj" id="Xz9-m9-DWr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="tBF-qb-K8W"/>
             </connections>
         </placeholder>
@@ -150,7 +151,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JDH1726" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goG-0d-hhe">
-                                    <rect key="frame" x="0.0" y="26.666666666666689" width="73" height="43.333333333333357"/>
+                                    <rect key="frame" x="0.0" y="26.666666666666689" width="73" height="43.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -228,8 +229,8 @@
                         <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="sbf-DJ-mOm"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trips Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-vH-DLg">
-                    <rect key="frame" x="126.00000000000001" y="76" width="138.33333333333337" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-vH-DLg">
+                    <rect key="frame" x="126" y="76" width="125.66666666666669" height="30"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <color key="textColor" systemColor="systemBackgroundColor"/>
                     <nil key="highlightedColor"/>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="familyMembersCell" rowHeight="85" id="KGk-i7-Jjw" customClass="FamilyMembersTableViewCell" customModule="FanZone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FanImage" translatesAutoresizingMaskIntoConstraints="NO" id="4yv-2a-KEI">
+                        <rect key="frame" x="5" y="12.666666666666664" width="75" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="G5V-tO-iBK"/>
+                            <constraint firstAttribute="height" constant="75" id="eEn-yC-VKd"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YLm-h6-MRz">
+                        <rect key="frame" x="85" y="15" width="57.333333333333343" height="71"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Dep-id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6W-yy-7P1">
+                                <rect key="frame" x="0.0" y="0.0" width="57.333333333333336" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-et-RvX">
+                                <rect key="frame" x="0.0" y="29" width="57.333333333333336" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvg-nK-sCo">
+                                <rect key="frame" x="0.0" y="53" width="57.333333333333336" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="71" id="Eiv-Nc-k3f"/>
+                        </constraints>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="HxE-yq-Uuq">
+                        <rect key="frame" x="145.33333333333334" y="15" width="185.00000000000003" height="71"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="8975470949" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dW0-ZF-itZ">
+                                <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mahmoud Mohamed Atrees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p68-z8-Gx1">
+                                <rect key="frame" x="0.0" y="30" width="185" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuU-Vz-r64">
+                                <rect key="frame" x="0.0" y="54" width="32.333333333333336" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="71" id="Vq9-YG-G0w"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HxE-yq-Uuq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Fzv-dI-bNC"/>
+                    <constraint firstItem="4yv-2a-KEI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12.67" id="G5a-z2-R0T"/>
+                    <constraint firstAttribute="bottom" secondItem="4yv-2a-KEI" secondAttribute="bottom" constant="12.33" id="K7Z-3M-VXT"/>
+                    <constraint firstItem="YLm-h6-MRz" firstAttribute="leading" secondItem="4yv-2a-KEI" secondAttribute="trailing" constant="5" id="Lzd-h1-zrW"/>
+                    <constraint firstItem="4yv-2a-KEI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="NAj-WB-hPc"/>
+                    <constraint firstAttribute="bottom" secondItem="YLm-h6-MRz" secondAttribute="bottom" constant="14" id="S1L-uu-0Ge"/>
+                    <constraint firstItem="YLm-h6-MRz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hKu-CR-Es0"/>
+                    <constraint firstItem="HxE-yq-Uuq" firstAttribute="leading" secondItem="YLm-h6-MRz" secondAttribute="trailing" constant="3" id="iWU-X1-WwB"/>
+                    <constraint firstAttribute="bottom" secondItem="HxE-yq-Uuq" secondAttribute="bottom" constant="14" id="kv6-5z-VF0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="depGender" destination="WuU-Vz-r64" id="eiY-uG-aGv"/>
+                <outlet property="depID" destination="dW0-ZF-itZ" id="baj-uL-doq"/>
+                <outlet property="depImage" destination="4yv-2a-KEI" id="MY2-PV-gkw"/>
+                <outlet property="depName" destination="p68-z8-Gx1" id="cxd-KE-PsX"/>
+            </connections>
+            <point key="canvasLocation" x="168.70229007633588" y="34.154929577464792"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="FanImage" width="816" height="886"/>
+    </resources>
+</document>
