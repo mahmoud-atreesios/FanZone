@@ -79,3 +79,98 @@ extension ViewModel{
             .disposed(by: disposeBag)
     }
 }
+
+extension ViewModel {
+    func getFirstToken(completion: @escaping (String?) -> Void) {
+        ApiClient.shared().sendPostRequest(apiURL: URL(string: Constants.links.firstTokenUrl)!, body: Constants.links.firstTokenBody) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let accessToken = json["token"] as? String {
+                        completion(accessToken)
+                    } else {
+                        completion(nil)
+                        print("Failed to extract token from the response")
+                    }
+                } catch {
+                    completion(nil)
+                    print("Error parsing JSON:", error.localizedDescription)
+                }
+            case .failure(let error):
+                completion(nil)
+                print("Error:", error.localizedDescription)
+            }
+        }
+    }
+    
+    func getOrderId(firstToken: String, completion: @escaping (String?) -> Void){
+        
+        let body: [String: Any] = [
+            "auth_token": "\(firstToken)",
+            "delivery_needed": "false",
+            "amount_cents": "10000",
+            "currency": "EGP",
+            "items": Constants.links.orderIditems
+        ]
+        
+        ApiClient.shared().sendPostRequest(apiURL: URL(string: Constants.links.orderIdUrl)!, body: body) { result in
+            switch result {
+            case .success(let data):
+                // Handle successful response (data contains the response data)
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let orderId = json["id"] as? Int {
+                        completion(String(orderId))
+                    } else {
+                        completion(nil)
+                        print("Unable to extract order ID from the response")
+                    }
+                } catch {
+                    completion(nil)
+                    print("Error parsing JSON:", error.localizedDescription)
+                }
+            case .failure(let error):
+                completion(nil)
+                print("Error:", error.localizedDescription)
+            }
+        }
+    }
+    
+    func getPaymentToken(firstToken: String, orderId: String, totalPrice: String, completion: @escaping (String?) -> Void){
+        
+        let body: [String: Any] = [
+            "auth_token": "\(firstToken)",
+            "amount_cents": "\(totalPrice)",
+            "expiration": 3600,
+            "order_id": "\(orderId)",
+            "billing_data": Constants.links.billingData,
+            "currency": "EGP",
+            "integration_id": 4283915,
+            "lock_order_when_paid": "false",
+        ]
+        
+        ApiClient.shared().sendPostRequest(apiURL: URL(string: Constants.links.paymentTokenUrl)!, body: body) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let paymentToken = json["token"] as? String {
+                        //print("Token:", paymentToken)
+                        completion(paymentToken)
+                    } else {
+                        completion(nil)
+                        print("Failed to extract token from the response")
+                    }
+                } catch {
+                    completion(nil)
+                    print("Error parsing JSON:", error.localizedDescription)
+                }
+            case .failure(let error):
+                completion(nil)
+                print("Error:", error.localizedDescription)
+            }
+        }
+    }
+}
+

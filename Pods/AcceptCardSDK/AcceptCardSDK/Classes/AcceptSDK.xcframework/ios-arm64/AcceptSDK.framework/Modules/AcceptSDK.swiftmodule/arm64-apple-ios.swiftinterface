@@ -1,0 +1,170 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 effective-4.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name AcceptSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AcceptSDK
+import Foundation
+import QuartzCore
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+@objc public enum TZStackViewDistribution : Swift.Int {
+  case fill
+  case fillEqually
+  case fillProportionally
+  case equalSpacing
+  case equalCentering
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum TZStackViewAlignment : Swift.Int {
+  case fill
+  case center
+  case leading
+  case top
+  case trailing
+  case bottom
+  case firstBaseline
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct SaveCardResponse {
+  public let card_subtype: Swift.String
+  public let id: Swift.Int
+  public let token: Swift.String
+  public let created_at: Swift.String
+  public let masked_pan: Swift.String
+  public let merchant_id: Swift.Int
+  public let order_id: Swift.Int?
+  public let email: Swift.String?
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TZSpacerView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class AcceptSDKCustomization {
+  public var titleLabelTextColor: UIKit.UIColor?
+  public var buttonsColor: UIKit.UIColor?
+  public var backgroundColor: UIKit.UIColor?
+  public var navBarColor: UIKit.UIColor?
+  public var navBarTextColor: UIKit.UIColor?
+  public var textFieldBackgroundColor: UIKit.UIColor?
+  public var textFieldTextColor: UIKit.UIColor?
+  public var inputLabelTextColor: UIKit.UIColor?
+  public var buttonText: Swift.String
+  public var cardNameLabelText: Swift.String
+  public var cardNumberLabelText: Swift.String
+  public var expirationLabelText: Swift.String
+  public var cvvLabelText: Swift.String
+  @objc deinit
+}
+public struct PayResponse {
+  public let amount_cents: Swift.Int
+  public let is_refunded: Swift.Bool
+  public let is_capture: Swift.Bool
+  public let captured_amount: Swift.Int
+  public let source_data_type: Swift.String
+  public let pending: Swift.Bool
+  public let is_3d_secure: Swift.Bool
+  public let id: Swift.Int
+  public let is_void: Swift.Bool
+  public let currency: Swift.String
+  public let is_auth: Swift.Bool
+  public let is_refund: Swift.Bool
+  public let owner: Swift.Int
+  public let is_voided: Swift.Bool
+  public let source_data_pan: Swift.String
+  public let profile_id: Swift.Int
+  public let success: Swift.Bool
+  public let dataMessage: Swift.String
+  public let source_data_sub_type: Swift.String
+  public let error_occured: Swift.Bool
+  public let is_standalone_payment: Swift.Bool
+  public let created_at: Swift.String
+  public let refunded_amount_cents: Swift.Int
+  public let integration_id: Swift.Int
+  public let order: Swift.Int
+}
+public protocol AcceptSDKDelegate : AnyObject {
+  func userDidCancel()
+  func paymentAttemptFailed(_ error: AcceptSDKError, detailedDescription: Swift.String)
+  func transactionRejected(_ payData: PayResponse)
+  func transactionAccepted(_ payData: PayResponse)
+  func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse)
+  func userDidCancel3dSecurePayment(_ pendingPayData: PayResponse)
+}
+@objc @_Concurrency.MainActor(unsafe) public class TZStackView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var distribution: TZStackViewDistribution {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var axis: UIKit.NSLayoutConstraint.Axis {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var alignment: TZStackViewAlignment
+  @_Concurrency.MainActor(unsafe) public var spacing: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public var layoutMarginsRelativeArrangement: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var arrangedSubviews: [UIKit.UIView] {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public init(arrangedSubviews: [UIKit.UIView] = [])
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @_Concurrency.MainActor(unsafe) public func addArrangedSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func removeArrangedSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func insertArrangedSubview(_ view: UIKit.UIView, atIndex stackIndex: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func willRemoveSubview(_ subview: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateConstraints()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder aDecoder: Foundation.NSCoder)
+}
+public enum AcceptSDKCountry {
+  case Egypt
+  case Pakistan
+  public static func == (a: AcceptSDKCountry, b: AcceptSDKCountry) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum AcceptSDKLanguage {
+  case English
+  case Arabic
+  public static func == (a: AcceptSDKLanguage, b: AcceptSDKLanguage) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class AcceptSDK {
+  weak public var delegate: AcceptSDKDelegate?
+  public init()
+  public var customization: AcceptSDKCustomization?
+  public func presentPayVC(vC: UIKit.UIViewController, paymentKey: Swift.String, country: AcceptSDKCountry = AcceptSDKCountry.Egypt, saveCardDefault: Swift.Bool, showSaveCard: Swift.Bool, showAlerts: Swift.Bool, token: Swift.String? = nil, maskedPanNumber: Swift.String? = nil, language: AcceptSDKLanguage = .English) throws
+  @objc deinit
+}
+public enum AcceptSDKError : Swift.Error {
+  case MissingArgumentError(Swift.String)
+  case ServerError(Swift.String)
+  case JSONParsingError(Swift.String)
+  case Unknown(Swift.String)
+}
+extension TZStackViewDistribution : Swift.Equatable {}
+extension TZStackViewDistribution : Swift.Hashable {}
+extension TZStackViewDistribution : Swift.RawRepresentable {}
+extension TZStackViewAlignment : Swift.Equatable {}
+extension TZStackViewAlignment : Swift.Hashable {}
+extension TZStackViewAlignment : Swift.RawRepresentable {}
+extension AcceptSDKCountry : Swift.Equatable {}
+extension AcceptSDKCountry : Swift.Hashable {}
+extension AcceptSDKLanguage : Swift.Equatable {}
+extension AcceptSDKLanguage : Swift.Hashable {}

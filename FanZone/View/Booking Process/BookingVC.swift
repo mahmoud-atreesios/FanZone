@@ -22,10 +22,17 @@ class BookingVC: UIViewController{
     @IBOutlet weak var bookingButton: UILabel!
     @IBOutlet weak var totallTicketPrice: UILabel!
     
+    private let viewModel = ViewModel()
     private let disposeBag = DisposeBag()
     
+    var firstToken: String?
+    var orderId: String?
+    var totalPrice: String?
+    
     private let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
-    var numberOfSelectedTickets = BehaviorRelay<Int?>(value: 1)
+    var numberOfSelectedTickets = BehaviorRelay<Int>(value: 1)
+    
+    
 
     var departmentTableViewData: [cellData] = [
         cellData(opened: false, department: "Left", categories: ["Cat-1": 10,"Cat-2": 20,"Cat-3": 30], imageName: "test11"),
@@ -38,7 +45,18 @@ class BookingVC: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpUi()
-
+        
+        viewModel.getFirstToken { accessToken in
+            if let token = accessToken {
+                // Use the access token here
+                print("Access Token:", token)
+                self.firstToken = token
+            } else {
+                // Handle error or no token
+                print("Failed to get access token")
+            }
+        }
+        
         departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
         departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
@@ -58,8 +76,22 @@ class BookingVC: UIViewController{
     }
     
     @objc func bookingButtonTapped() {
-        print("bookingButtonTapped")
-        print(numberOfSelectedTickets)
+        //print(numberOfSelectedTickets.value)
+        
+        let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
+        paymentMethodVC.firstToken = firstToken
+        paymentMethodVC.totalPrice = totalPrice
+        
+        viewModel.getOrderId(firstToken: firstToken ?? "") { orderid in
+            if let order = orderid{
+                print("order ID: \(order)")
+                //self.orderId = order
+                paymentMethodVC.orderId = order
+            } else {
+                print("Failed to get access token")
+            }
+        }
+        navigationController?.pushViewController(paymentMethodVC, animated: true)
     }
 }
 
@@ -90,8 +122,9 @@ extension BookingVC{
         // The the Closure returns Selected Index and String
         numberOfTicketsDropDown.didSelect{(selectedText , index ,id) in
             print("Selected String: \(selectedText) \n index: \(index)")
-            self.numberOfSelectedTickets.accept(Int(selectedText))
+            self.numberOfSelectedTickets.accept(Int(selectedText) ?? 0)
             self.numberOfTicketsTableView.reloadData()
+            
         }
     }
 }
@@ -115,7 +148,7 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
                 return 1
             }
         }else if tableView == numberOfTicketsTableView{
-            return numberOfSelectedTickets.value ?? 0
+            return numberOfSelectedTickets.value
         }else {
             return 0
         }
@@ -197,8 +230,9 @@ extension BookingVC {
     func totalTicketPrice() {
         Observable.combineLatest(ticketPriceRelay, numberOfSelectedTickets)
             .subscribe(onNext: { price, numberOfTickets in
-                if let price = price, let numberOfTickets = numberOfTickets {
+                if let price = price{
                     self.totallTicketPrice.text = "\(price * numberOfTickets)$"
+                    self.totalPrice = "\(price * numberOfTickets)00"
                 } else {
                     self.totallTicketPrice.text = "0$"
                 }
@@ -206,4 +240,3 @@ extension BookingVC {
             .disposed(by: disposeBag)
     }
 }
-

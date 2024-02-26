@@ -70,6 +70,8 @@
 		1CCBA4C22B76B9EA0079C049 /* HighlightsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C02B76B9EA0079C049 /* HighlightsTableViewCell.xib */; };
 		1CCBA4C52B76C0AA0079C049 /* HighlightsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */; };
 		1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */; };
+		1CD593AE2B8D259200710333 /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD593AC2B8D259200710333 /* PaymentMethodVC.swift */; };
+		1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */; };
 		1CE120DC2B8796D100DA7CDC /* AvailableTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */; };
 		1CE120DD2B8796D100DA7CDC /* AvailableTrips.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */; };
 		1CE729AA2B88C05600F970DF /* TripDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE729A82B88C05600F970DF /* TripDetailsVC.swift */; };
@@ -160,6 +162,8 @@
 		1CCBA4C02B76B9EA0079C049 /* HighlightsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightsTableViewCell.xib; sourceTree = "<group>"; };
 		1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsModel.swift; sourceTree = "<group>"; };
 		1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWebViewVC.swift; sourceTree = "<group>"; };
+		1CD593AC2B8D259200710333 /* PaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodVC.swift; sourceTree = "<group>"; };
+		1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentMethodVC.xib; sourceTree = "<group>"; };
 		1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTrips.swift; sourceTree = "<group>"; };
 		1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableTrips.xib; sourceTree = "<group>"; };
 		1CE729A82B88C05600F970DF /* TripDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsVC.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				1C20DA792B7DA49B00936E0E /* DepartmnetSelectionTableViewCell */,
 				1C20DA822B7DABDE00936E0E /* CategorySelectionTableViewCell */,
 				1C0C1D492B82872E0038DAEF /* NumberOfTickets */,
+				1CD593AB2B8D257400710333 /* PaymentMethod */,
 			);
 			path = "Booking Process";
 			sourceTree = "<group>";
@@ -529,6 +534,15 @@
 			path = HighlightsTableViewCell;
 			sourceTree = "<group>";
 		};
+		1CD593AB2B8D257400710333 /* PaymentMethod */ = {
+			isa = PBXGroup;
+			children = (
+				1CD593AC2B8D259200710333 /* PaymentMethodVC.swift */,
+				1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */,
+			);
+			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
 		1CDFF8EA2B877F7A0031241A /* MatchTickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +737,7 @@
 				1C7C657B2B6AD3E000A64EDD /* Assets.xcassets in Resources */,
 				1C7C65792B6AD3DE00A64EDD /* Main.storyboard in Resources */,
 				1C20DA862B7DABFD00936E0E /* CategorySelectionTableViewCell.xib in Resources */,
+				1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */,
 				1C015CC82B6C9D9500988E7D /* LeagueCollectionViewCell.xib in Resources */,
 				1CABEAE12B8B2B85001DB682 /* FamilyMembersTableViewCell.xib in Resources */,
 				1CCBA4C22B76B9EA0079C049 /* HighlightsTableViewCell.xib in Resources */,
@@ -861,6 +876,7 @@
 				1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */,
 				1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */,
 				1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */,
+				1CD593AE2B8D259200710333 /* PaymentMethodVC.swift in Sources */,
 				1C7C65762B6AD3DE00A64EDD /* HomeVC.swift in Sources */,
 				1CAE5B7E2B708018008431D0 /* UpcomingFixeturesModel.swift in Sources */,
 				1C015CCB2B6CA35100988E7D /* ViewModel.swift in Sources */,

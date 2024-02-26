@@ -1,16 +1,20 @@
 PODS:
+  - AcceptCardSDK (5.6.0)
   - CTPanoramaView (1.5)
 
 DEPENDENCIES:
+  - AcceptCardSDK
   - CTPanoramaView (~> 1.5)
 
 SPEC REPOS:
   trunk:
+    - AcceptCardSDK
     - CTPanoramaView
 
 SPEC CHECKSUMS:
+  AcceptCardSDK: e58ae71e6d4a817043da508706164411921ce638
   CTPanoramaView: f7af526aaffedb2d52e87112ee0d57bb115eb6a2
 
-PODFILE CHECKSUM: 1776897c59964350807ea601f75813d896df1e2b
+PODFILE CHECKSUM: 57eca3fdd60e78d68c59b2ee61171dc74b9352ff
 
 COCOAPODS: 1.12.1

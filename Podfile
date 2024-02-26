@@ -17,5 +17,6 @@ target 'FanZone' do
   end
 
 pod "CTPanoramaView", "~> 1.5"
+pod 'AcceptCardSDK'
 
 end
