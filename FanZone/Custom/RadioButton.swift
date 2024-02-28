@@ -41,10 +41,31 @@ class RadioButton: UIButton {
     }
     
     func updateButtonAppearance() {
+        
+        let outerCircleImage = UIImage(systemName: "circle")?
+            .withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+        let innerCircleImage = UIImage(systemName: "circle.fill")?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        let size = outerCircleImage?.size ?? .zero
+
         if isChecked {
-            setImage(UIImage(named: "radio_button_checked")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+            outerCircleImage?.draw(in: CGRect(origin: .zero, size: size))
+            innerCircleImage?.draw(in: CGRect(origin: CGPoint(x: 5, y: 5), size: CGSize(width: size.width - 10, height: size.height - 10)))
+            let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            setImage(combinedImage, for: .normal)
+
         } else {
-            setImage(UIImage(named: "radio_button_unchecked")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+            outerCircleImage?.draw(in: CGRect(origin: .zero, size: size))
+            let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            setImage(combinedImage, for: .normal)
+
         }
     }
 }
+

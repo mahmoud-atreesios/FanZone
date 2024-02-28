@@ -10,8 +10,12 @@ import AcceptSDK
 
 class PaymentMethodVC: UIViewController {
     
-    @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet weak var visaButton: RadioButton!
+    @IBOutlet weak var fawryButton: RadioButton!
+    
+    
+    @IBOutlet weak var nextButton: UIButton!
     
     private let viewModel = ViewModel()
     private let accept = AcceptSDK()
@@ -24,9 +28,8 @@ class PaymentMethodVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        nextButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
-        
         accept.delegate = self
+        nextButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
         
     }
     
@@ -55,6 +58,11 @@ class PaymentMethodVC: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        guard paymentToken != nil else {
+            // Payment token is nil, show an alert
+            showAlert(title: "Payment method Required!", message: "You have to choose a payment method first.")
+            return
+        }
         paymentView()
     }
 }
@@ -109,11 +117,14 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse) {
         print("Here i should save the ticket in the data base")
         print(payData)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
+            navigationController?.pushViewController(homeVC, animated: true)
+        }
     }
     
     func userDidCancel3dSecurePayment(_ pendingPayData: PayResponse) {
         print(pendingPayData.integration_id)
     }
-    
     
 }

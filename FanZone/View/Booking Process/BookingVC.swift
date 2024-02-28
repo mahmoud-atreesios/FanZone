@@ -45,17 +45,7 @@ class BookingVC: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpUi()
-        
-        viewModel.getFirstToken { accessToken in
-            if let token = accessToken {
-                // Use the access token here
-                print("Access Token:", token)
-                self.firstToken = token
-            } else {
-                // Handle error or no token
-                print("Failed to get access token")
-            }
-        }
+        getFirtToken()
         
         departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
         departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
@@ -70,14 +60,28 @@ class BookingVC: UIViewController{
         
         totalTicketPrice()
         setUpNumberOfTicketsDropDown()
-        
+        makeBookingButtonLabelClickable()
+    }
+}
+
+extension BookingVC{
+    func setUpUi(){
+        panoramaImageView.layer.cornerRadius = 20
+        panoramaImageView.clipsToBounds = true
+        panoramaImageView.controlMethod = .both
+
+        bookingButton.layer.cornerRadius = 15
+        bookingButton.clipsToBounds = true
+        bookingButton.isUserInteractionEnabled = true
+    }
+    
+    func makeBookingButtonLabelClickable(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(bookingButtonTapped))
         bookingButton.addGestureRecognizer(tapGesture)
     }
     
     @objc func bookingButtonTapped() {
         //print(numberOfSelectedTickets.value)
-        
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
         paymentMethodVC.totalPrice = totalPrice
@@ -96,14 +100,17 @@ class BookingVC: UIViewController{
 }
 
 extension BookingVC{
-    func setUpUi(){
-        panoramaImageView.layer.cornerRadius = 20
-        panoramaImageView.clipsToBounds = true
-        panoramaImageView.controlMethod = .both
-
-        bookingButton.layer.cornerRadius = 15
-        bookingButton.clipsToBounds = true
-        bookingButton.isUserInteractionEnabled = true
+    func getFirtToken(){
+        viewModel.getFirstToken { accessToken in
+            if let token = accessToken {
+                // Use the access token here
+                print("Access Token:", token)
+                self.firstToken = token
+            } else {
+                // Handle error or no token
+                print("Failed to get access token")
+            }
+        }
     }
 }
 
