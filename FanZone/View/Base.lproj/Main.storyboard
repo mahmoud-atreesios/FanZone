@@ -655,7 +655,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="8Rg-kX-tZT"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIb-HH-E05">
@@ -663,7 +663,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="DmJ-bF-sv2"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCz-02-5Co">
@@ -703,7 +703,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="itS-ni-hJV">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="itS-ni-hJV">
                                                 <rect key="frame" x="310" y="526.66666666666663" width="25" height="21"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -764,8 +764,10 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="AJv-fY-7pY" id="N5w-Gp-P73"/>
                         <outlet property="fanIdTxtField" destination="jG2-cv-rny" id="BZZ-Ug-Fjb"/>
+                        <outlet property="hidePasswordImageView" destination="itS-ni-hJV" id="IbV-ha-219"/>
                         <outlet property="passwordTxtField" destination="TIb-HH-E05" id="Xe3-pa-HrJ"/>
                         <outlet property="signInButton" destination="XCz-02-5Co" id="CKc-cJ-SFY"/>
+                        <outlet property="signUpLabel" destination="vE6-IO-X4m" id="4gp-RZ-DnN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EY9-gz-vUi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1284,7 +1286,7 @@
         <image name="arrow.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="128" height="102"/>
-        <image name="eye.slash.fill" catalog="system" width="128" height="85"/>
+        <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="figure.and.child.holdinghands" catalog="system" width="128" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>

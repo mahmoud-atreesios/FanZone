@@ -33,8 +33,6 @@ struct UpcomingFixetures: Codable {
     let homeTeamLogo, awayTeamLogo: String?
     let eventCountryKey: Int
     let leagueLogo, countryLogo: String?
-    let eventHomeFormation: EventHomeFormation
-    let eventAwayFormation: EventAwayFormation
     let fkStageKey: Int?
     let stageName: String?
     let leagueGroup: JSONNull?
@@ -71,8 +69,6 @@ struct UpcomingFixetures: Codable {
         case eventCountryKey = "event_country_key"
         case leagueLogo = "league_logo"
         case countryLogo = "country_logo"
-        case eventHomeFormation = "event_home_formation"
-        case eventAwayFormation = "event_away_formation"
         case fkStageKey = "fk_stage_key"
         case stageName = "stage_name"
         case leagueGroup = "league_group"
@@ -80,24 +76,8 @@ struct UpcomingFixetures: Codable {
     }
 }
 
-enum EventAwayFormation: String, Codable {
-    case empty = ""
-    case the3412 = "3-4-1-2"
-    case the3421 = "3-4-2-1"
-    case the4231 = "4-2-3-1"
-    case the442 = "4-4-2"
-}
-
 enum EventFinalResult: String, Codable {
     case empty = "-"
-}
-
-enum EventHomeFormation: String, Codable {
-    case empty = ""
-    case the343 = "3-4-3"
-    case the4141 = "4-1-4-1"
-    case the433 = "4-3-3"
-    case the442 = "4-4-2"
 }
 
 enum EventReferee: Codable {

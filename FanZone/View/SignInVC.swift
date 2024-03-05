@@ -15,10 +15,28 @@ class SignInVC: UIViewController {
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
+    @IBOutlet weak var hidePasswordImageView: UIImageView!
+    @IBOutlet weak var signUpLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         uiSetUp()
+        makeHidePasswordImageViewClickable()
+        makeSignUpLabelClickable()
+    }
+    
+}
+
+extension SignInVC{
+    func makeSignUpLabelClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToRegisterForm))
+        signUpLabel.isUserInteractionEnabled = true
+        signUpLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func goToRegisterForm() {
+        
     }
 }
 
@@ -35,5 +53,16 @@ extension SignInVC{
         passwordTxtField.layer.cornerRadius = 10.0
         passwordTxtField.layer.borderWidth = 1.0
         passwordTxtField.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    func makeHidePasswordImageViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
+        hidePasswordImageView.isUserInteractionEnabled = true
+        hidePasswordImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func togglePasswordVisibility() {
+        passwordTxtField.isSecureTextEntry.toggle()
+        hidePasswordImageView.image = passwordTxtField.isSecureTextEntry ? UIImage(systemName: "eye.slash") : UIImage(systemName: "eye")
     }
 }

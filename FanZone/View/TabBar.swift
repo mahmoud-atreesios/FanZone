@@ -34,7 +34,7 @@ class TabBar: UITabBarController {
 
         var viewControllers = [homeNavController, newsNavController, highlightsNavController, signInVC]
         
-        let userIsSignedIn = true
+        let userIsSignedIn = false
         
         if userIsSignedIn {
             let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC")

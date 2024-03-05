@@ -54,6 +54,14 @@
 		1C7C65AD2B6C38EA00A64EDD /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7C65AC2B6C38EA00A64EDD /* SignInVC.swift */; };
 		1C7CBC422B878E4C008AF14C /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7CBC402B878E4C008AF14C /* TripsVC.swift */; };
 		1C7CBC432B878E4C008AF14C /* TripsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7CBC412B878E4C008AF14C /* TripsVC.xib */; };
+		1C7D573B2B975B9C00AA6618 /* StepOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D57392B975B9C00AA6618 /* StepOneVC.swift */; };
+		1C7D573C2B975B9C00AA6618 /* StepOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7D573A2B975B9C00AA6618 /* StepOneVC.xib */; };
+		1C7D573F2B975BAF00AA6618 /* StepTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D573D2B975BAF00AA6618 /* StepTwoVC.swift */; };
+		1C7D57402B975BAF00AA6618 /* StepTwoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7D573E2B975BAF00AA6618 /* StepTwoVC.xib */; };
+		1C7D57432B975BBF00AA6618 /* StepThreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D57412B975BBF00AA6618 /* StepThreeVC.swift */; };
+		1C7D57442B975BBF00AA6618 /* StepThreeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7D57422B975BBF00AA6618 /* StepThreeVC.xib */; };
+		1C7D574A2B97848700AA6618 /* RegisterationDoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D57482B97848700AA6618 /* RegisterationDoneVC.swift */; };
+		1C7D574B2B97848700AA6618 /* RegisterationDoneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7D57492B97848700AA6618 /* RegisterationDoneVC.xib */; };
 		1CABEADC2B8B299B001DB682 /* FamilyMembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CABEADA2B8B299B001DB682 /* FamilyMembersVC.swift */; };
 		1CABEADD2B8B299B001DB682 /* FamilyMembersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CABEADB2B8B299B001DB682 /* FamilyMembersVC.xib */; };
 		1CABEAE02B8B2B85001DB682 /* FamilyMembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CABEADE2B8B2B85001DB682 /* FamilyMembersTableViewCell.swift */; };
@@ -146,6 +154,14 @@
 		1C7C65AC2B6C38EA00A64EDD /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		1C7CBC402B878E4C008AF14C /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		1C7CBC412B878E4C008AF14C /* TripsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripsVC.xib; sourceTree = "<group>"; };
+		1C7D57392B975B9C00AA6618 /* StepOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepOneVC.swift; sourceTree = "<group>"; };
+		1C7D573A2B975B9C00AA6618 /* StepOneVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepOneVC.xib; sourceTree = "<group>"; };
+		1C7D573D2B975BAF00AA6618 /* StepTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTwoVC.swift; sourceTree = "<group>"; };
+		1C7D573E2B975BAF00AA6618 /* StepTwoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepTwoVC.xib; sourceTree = "<group>"; };
+		1C7D57412B975BBF00AA6618 /* StepThreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepThreeVC.swift; sourceTree = "<group>"; };
+		1C7D57422B975BBF00AA6618 /* StepThreeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepThreeVC.xib; sourceTree = "<group>"; };
+		1C7D57482B97848700AA6618 /* RegisterationDoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationDoneVC.swift; sourceTree = "<group>"; };
+		1C7D57492B97848700AA6618 /* RegisterationDoneVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterationDoneVC.xib; sourceTree = "<group>"; };
 		1CABEADA2B8B299B001DB682 /* FamilyMembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMembersVC.swift; sourceTree = "<group>"; };
 		1CABEADB2B8B299B001DB682 /* FamilyMembersVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyMembersVC.xib; sourceTree = "<group>"; };
 		1CABEADE2B8B2B85001DB682 /* FamilyMembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMembersTableViewCell.swift; sourceTree = "<group>"; };
@@ -365,17 +381,14 @@
 		1C7C65702B6AD3DE00A64EDD /* FanZone */ = {
 			isa = PBXGroup;
 			children = (
-				1C7C65712B6AD3DE00A64EDD /* AppDelegate.swift */,
-				1C7C65732B6AD3DE00A64EDD /* SceneDelegate.swift */,
 				1C7C65A12B6C18B900A64EDD /* Model */,
 				1C7C65A22B6C18C000A64EDD /* View */,
 				1C7C65A32B6C18C600A64EDD /* ViewModel */,
 				1C7C65A42B6C192800A64EDD /* Extensions */,
 				1C7C65A52B6C193E00A64EDD /* Constants */,
 				1CC2F3882B7EB8C0006FFB77 /* Custom */,
-				1C7C65772B6AD3DE00A64EDD /* Main.storyboard */,
-				1C7C657A2B6AD3E000A64EDD /* Assets.xcassets */,
-				1C7C657C2B6AD3E000A64EDD /* LaunchScreen.storyboard */,
+				1C7D57462B97833D00AA6618 /* Assets */,
+				1C7D57452B9782F000AA6618 /* Supporting Files */,
 				1C7C657F2B6AD3E000A64EDD /* Info.plist */,
 			);
 			path = FanZone;
@@ -413,6 +426,7 @@
 		1C7C65A22B6C18C000A64EDD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C7C65772B6AD3DE00A64EDD /* Main.storyboard */,
 				1C005ECF2B83675900CA88A5 /* TabBar.swift */,
 				1C7C65AC2B6C38EA00A64EDD /* SignInVC.swift */,
 				1C61445A2B72D783009424EA /* HomeVC */,
@@ -420,6 +434,7 @@
 				1CCBA4BE2B76B9B20079C049 /* HighlightsVC */,
 				1C005ED12B83F48000CA88A5 /* ProfileVC */,
 				1C20DA782B7DA48200936E0E /* Booking Process */,
+				1C7D57352B975B2F00AA6618 /* RegistrationProcess */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -466,6 +481,71 @@
 				1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */,
 			);
 			path = Second;
+			sourceTree = "<group>";
+		};
+		1C7D57352B975B2F00AA6618 /* RegistrationProcess */ = {
+			isa = PBXGroup;
+			children = (
+				1C7D57362B975B5600AA6618 /* Step1 */,
+				1C7D57382B975B7500AA6618 /* Step2 */,
+				1C7D57372B975B6900AA6618 /* Step3 */,
+				1C7D57472B97844D00AA6618 /* Registration Done */,
+			);
+			path = RegistrationProcess;
+			sourceTree = "<group>";
+		};
+		1C7D57362B975B5600AA6618 /* Step1 */ = {
+			isa = PBXGroup;
+			children = (
+				1C7D57392B975B9C00AA6618 /* StepOneVC.swift */,
+				1C7D573A2B975B9C00AA6618 /* StepOneVC.xib */,
+			);
+			path = Step1;
+			sourceTree = "<group>";
+		};
+		1C7D57372B975B6900AA6618 /* Step3 */ = {
+			isa = PBXGroup;
+			children = (
+				1C7D57412B975BBF00AA6618 /* StepThreeVC.swift */,
+				1C7D57422B975BBF00AA6618 /* StepThreeVC.xib */,
+			);
+			path = Step3;
+			sourceTree = "<group>";
+		};
+		1C7D57382B975B7500AA6618 /* Step2 */ = {
+			isa = PBXGroup;
+			children = (
+				1C7D573D2B975BAF00AA6618 /* StepTwoVC.swift */,
+				1C7D573E2B975BAF00AA6618 /* StepTwoVC.xib */,
+			);
+			path = Step2;
+			sourceTree = "<group>";
+		};
+		1C7D57452B9782F000AA6618 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C7C65712B6AD3DE00A64EDD /* AppDelegate.swift */,
+				1C7C65732B6AD3DE00A64EDD /* SceneDelegate.swift */,
+				1C7C657C2B6AD3E000A64EDD /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C7D57462B97833D00AA6618 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1C7C657A2B6AD3E000A64EDD /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1C7D57472B97844D00AA6618 /* Registration Done */ = {
+			isa = PBXGroup;
+			children = (
+				1C7D57482B97848700AA6618 /* RegisterationDoneVC.swift */,
+				1C7D57492B97848700AA6618 /* RegisterationDoneVC.xib */,
+			);
+			path = "Registration Done";
 			sourceTree = "<group>";
 		};
 		1CABEAD72B8B2924001DB682 /* FamilyManagment */ = {
@@ -729,15 +809,19 @@
 				1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */,
 				1C7C657E2B6AD3E000A64EDD /* LaunchScreen.storyboard in Resources */,
 				1CE729AB2B88C05600F970DF /* TripDetailsVC.xib in Resources */,
+				1C7D57442B975BBF00AA6618 /* StepThreeVC.xib in Resources */,
 				1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */,
 				1CABEAE52B8B41E5001DB682 /* AddMemberVC.xib in Resources */,
 				1C6144632B7318F4009424EA /* TrendingCollectionViewCell.xib in Resources */,
 				1CE120DD2B8796D100DA7CDC /* AvailableTrips.xib in Resources */,
+				1C7D573C2B975B9C00AA6618 /* StepOneVC.xib in Resources */,
+				1C7D57402B975BAF00AA6618 /* StepTwoVC.xib in Resources */,
 				1CABEADD2B8B299B001DB682 /* FamilyMembersVC.xib in Resources */,
 				1C7C657B2B6AD3E000A64EDD /* Assets.xcassets in Resources */,
 				1C7C65792B6AD3DE00A64EDD /* Main.storyboard in Resources */,
 				1C20DA862B7DABFD00936E0E /* CategorySelectionTableViewCell.xib in Resources */,
 				1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */,
+				1C7D574B2B97848700AA6618 /* RegisterationDoneVC.xib in Resources */,
 				1C015CC82B6C9D9500988E7D /* LeagueCollectionViewCell.xib in Resources */,
 				1CABEAE12B8B2B85001DB682 /* FamilyMembersTableViewCell.xib in Resources */,
 				1CCBA4C22B76B9EA0079C049 /* HighlightsTableViewCell.xib in Resources */,
@@ -872,6 +956,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7D573B2B975B9C00AA6618 /* StepOneVC.swift in Sources */,
 				1C005ECE2B83603A00CA88A5 /* ProfileVC.swift in Sources */,
 				1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */,
 				1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */,
@@ -880,13 +965,16 @@
 				1C7C65762B6AD3DE00A64EDD /* HomeVC.swift in Sources */,
 				1CAE5B7E2B708018008431D0 /* UpcomingFixeturesModel.swift in Sources */,
 				1C015CCB2B6CA35100988E7D /* ViewModel.swift in Sources */,
+				1C7D573F2B975BAF00AA6618 /* StepTwoVC.swift in Sources */,
 				1C7CBC422B878E4C008AF14C /* TripsVC.swift in Sources */,
+				1C7D574A2B97848700AA6618 /* RegisterationDoneVC.swift in Sources */,
 				1CABEADC2B8B299B001DB682 /* FamilyMembersVC.swift in Sources */,
 				1C61741A2B6D601B00F3E8AB /* PopularCollectionViewCell.swift in Sources */,
 				1C20DA852B7DABFD00936E0E /* CategorySelectionTableViewCell.swift in Sources */,
 				1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */,
 				1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */,
 				1C7C65AB2B6C38D900A64EDD /* HighlightsVC.swift in Sources */,
+				1C7D57432B975BBF00AA6618 /* StepThreeVC.swift in Sources */,
 				1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */,
 				1C7C65AD2B6C38EA00A64EDD /* SignInVC.swift in Sources */,
 				1CE120DC2B8796D100DA7CDC /* AvailableTrips.swift in Sources */,
