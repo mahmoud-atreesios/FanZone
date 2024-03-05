@@ -30,7 +30,7 @@ class NewsVC: UIViewController {
         // Do any additional setup after loading the view.
         NavBar.applyCustomNavBar(to: self)
         newsTableView.isScrollEnabled = false
-
+        
         trendingCollectionView.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
         newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsCell")
         
@@ -46,10 +46,10 @@ extension NewsVC{
     
     func bindTrendingCollectionViewToViewModel(){
         
-        viewModel.trendingNewsDataResult
+        viewModel.newsDataResult
             .map { result in
                 // Filter and take the first 5 elements
-                return result.prefix(5)
+                return result.suffix(5)
             }
             .bind(to: trendingCollectionView.rx.items(cellIdentifier: "trendCell", cellType: TrendingCollectionViewCell.self)) { row, result, cell in
                 
@@ -64,6 +64,27 @@ extension NewsVC{
             }
             .disposed(by: disposeBag)
     }
+    
+//    func bindTrendingCollectionViewToViewModel(){
+//
+//        viewModel.trendingNewsDataResult
+//            .map { result in
+//                // Filter and take the first 5 elements
+//                return result.prefix(5)
+//            }
+//            .bind(to: trendingCollectionView.rx.items(cellIdentifier: "trendCell", cellType: TrendingCollectionViewCell.self)) { row, result, cell in
+//
+//                cell.trendImageView.sd_setImage(with: URL(string: result.img ?? "PL"))
+//                //cell.newsLabel.text = newsResult.modifiedTitle
+//                cell.newsLabel.text = result.title
+//
+//                //Cell UI
+//                cell.contentView.layer.borderWidth = 1.0
+//                cell.contentView.layer.cornerRadius = 10.0
+//                cell.contentView.layer.masksToBounds = true
+//            }
+//            .disposed(by: disposeBag)
+//    }
 }
 
 extension NewsVC{

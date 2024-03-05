@@ -31,8 +31,6 @@ class BookingVC: UIViewController{
     
     private let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
     var numberOfSelectedTickets = BehaviorRelay<Int>(value: 1)
-    
-    
 
     var departmentTableViewData: [cellData] = [
         cellData(opened: false, department: "Left", categories: ["Cat-1": 10,"Cat-2": 20,"Cat-3": 30], imageName: "test11"),
@@ -62,6 +60,17 @@ class BookingVC: UIViewController{
         setUpNumberOfTicketsDropDown()
         makeBookingButtonLabelClickable()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
 }
 
 extension BookingVC{
