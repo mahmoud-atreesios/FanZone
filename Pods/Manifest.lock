@@ -1,20 +1,24 @@
 PODS:
   - AcceptCardSDK (5.6.0)
   - CTPanoramaView (1.5)
+  - lottie-ios (4.4.1)
 
 DEPENDENCIES:
   - AcceptCardSDK
   - CTPanoramaView (~> 1.5)
+  - lottie-ios
 
 SPEC REPOS:
   trunk:
     - AcceptCardSDK
     - CTPanoramaView
+    - lottie-ios
 
 SPEC CHECKSUMS:
   AcceptCardSDK: e58ae71e6d4a817043da508706164411921ce638
   CTPanoramaView: f7af526aaffedb2d52e87112ee0d57bb115eb6a2
+  lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
 
-PODFILE CHECKSUM: 57eca3fdd60e78d68c59b2ee61171dc74b9352ff
+PODFILE CHECKSUM: 6ac93cee2eefbb5c8939a05c4f051154cf6470dd
 
 COCOAPODS: 1.12.1

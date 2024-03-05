@@ -16,6 +16,7 @@
                 <outlet property="fanImage" destination="Qrp-od-pNS" id="VgT-aB-FBx"/>
                 <outlet property="fanPhoneNumber" destination="5zE-m9-SLn" id="fwk-lE-CdZ"/>
                 <outlet property="fanSupportedTeam" destination="YFW-6T-pkD" id="2fH-jn-OVf"/>
+                <outlet property="nextButton" destination="Iau-VH-7Eb" id="ojh-xL-UbT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,11 +25,11 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdl-te-unF">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdl-te-unF">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-kY-DBP">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="852.66666666666663"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="step2" translatesAutoresizingMaskIntoConstraints="NO" id="CHa-97-cIG">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -104,10 +105,10 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iau-VH-7Eb">
-                                    <rect key="frame" x="120" y="737" width="153" height="35.666666666666664"/>
+                                    <rect key="frame" x="120" y="774" width="153" height="35.666666666666629"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="153" id="C0R-pe-kdh"/>
-                                        <constraint firstAttribute="height" constant="35.670000000000002" id="SY3-Bl-pP7"/>
+                                        <constraint firstAttribute="width" constant="153" id="7kh-BT-Uyf"/>
+                                        <constraint firstAttribute="height" constant="35.670000000000002" id="DKo-KT-PUA"/>
                                     </constraints>
                                     <color key="tintColor" red="0.34117650989999998" green="0.58431375029999999" blue="0.60392159219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="Button"/>
@@ -123,16 +124,16 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="CHa-97-cIG" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" id="1AN-cD-TLQ"/>
-                                <constraint firstAttribute="trailing" secondItem="Iau-VH-7Eb" secondAttribute="trailing" constant="120" id="239-yC-Cxf"/>
                                 <constraint firstItem="IYH-bD-BwY" firstAttribute="top" secondItem="Qrp-od-pNS" secondAttribute="bottom" constant="5" id="ADc-Qb-onA"/>
                                 <constraint firstItem="TAk-Ss-QVj" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="10" id="CWL-Tb-PaG"/>
-                                <constraint firstAttribute="bottom" secondItem="Iau-VH-7Eb" secondAttribute="bottom" constant="80" id="Con-hB-nTB"/>
+                                <constraint firstItem="Iau-VH-7Eb" firstAttribute="top" secondItem="IYH-bD-BwY" secondAttribute="bottom" constant="83" id="DnE-sT-ZbO"/>
                                 <constraint firstItem="IYH-bD-BwY" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="20" id="Ewv-tc-fmV"/>
-                                <constraint firstItem="Iau-VH-7Eb" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="120" id="LyI-4b-sxh"/>
+                                <constraint firstAttribute="bottom" secondItem="Iau-VH-7Eb" secondAttribute="bottom" constant="42.329999999999998" id="Mdu-xF-sTh"/>
                                 <constraint firstItem="CHa-97-cIG" firstAttribute="top" secondItem="Pck-kY-DBP" secondAttribute="top" id="Qod-w3-73h"/>
                                 <constraint firstItem="Qrp-od-pNS" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="131.5" id="XGW-3A-zQy"/>
                                 <constraint firstAttribute="trailing" secondItem="CHa-97-cIG" secondAttribute="trailing" id="Z7d-uk-zWQ"/>
-                                <constraint firstItem="Iau-VH-7Eb" firstAttribute="top" secondItem="IYH-bD-BwY" secondAttribute="bottom" constant="46" id="cJv-Ts-ch7"/>
+                                <constraint firstItem="Iau-VH-7Eb" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="120" id="ar5-cb-JPL"/>
+                                <constraint firstAttribute="trailing" secondItem="Iau-VH-7Eb" secondAttribute="trailing" constant="120" id="hE9-Kg-LfJ"/>
                                 <constraint firstAttribute="trailing" secondItem="Qrp-od-pNS" secondAttribute="trailing" constant="131.5" id="hbf-xP-56h"/>
                                 <constraint firstItem="TAk-Ss-QVj" firstAttribute="top" secondItem="CHa-97-cIG" secondAttribute="bottom" constant="10" id="qHY-t7-cVT"/>
                                 <constraint firstAttribute="trailing" secondItem="IYH-bD-BwY" secondAttribute="trailing" constant="20" id="qv8-PX-bBH"/>

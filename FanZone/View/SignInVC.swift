@@ -24,19 +24,26 @@ class SignInVC: UIViewController {
         uiSetUp()
         makeHidePasswordImageViewClickable()
         makeSignUpLabelClickable()
+        
     }
     
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        print("Button pressed")
+        let RegisterationDoneVC = RegisterationDoneVC(nibName: "RegisterationDoneVC", bundle: nil)
+        navigationController?.pushViewController(RegisterationDoneVC, animated: true)
+    }
 }
 
 extension SignInVC{
     func makeSignUpLabelClickable(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToRegisterForm))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(signUpLabelTapped))
         signUpLabel.isUserInteractionEnabled = true
         signUpLabel.addGestureRecognizer(tapGesture)
     }
     
-    @objc func goToRegisterForm() {
-        
+    @objc func signUpLabelTapped() {
+        let stepOneVC = StepOneVC(nibName: "StepOneVC", bundle: nil)
+        navigationController?.pushViewController(stepOneVC, animated: true)
     }
 }
 

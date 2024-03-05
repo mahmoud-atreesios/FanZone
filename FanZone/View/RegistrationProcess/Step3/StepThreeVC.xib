@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="fanSsnImage" destination="uRf-a5-MjX" id="hZl-fn-DBm"/>
                 <outlet property="optionalFanPassportId" destination="NJC-Ch-DKZ" id="ImK-qg-gcg"/>
+                <outlet property="registerButton" destination="Mt5-nn-5m3" id="twu-Zp-thG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40B-fj-Dos">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40B-fj-Dos">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sg-Qq-Wa8">
@@ -83,10 +84,10 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mt5-nn-5m3">
-                                    <rect key="frame" x="120" y="736.33333333333337" width="153" height="35.666666666666629"/>
+                                    <rect key="frame" x="120" y="646.33333333333337" width="153" height="35.666666666666629"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="153" id="PfS-4x-t8g"/>
-                                        <constraint firstAttribute="height" constant="35.670000000000002" id="hgG-t9-rml"/>
+                                        <constraint firstAttribute="width" constant="153" id="WSs-Bq-Sew"/>
+                                        <constraint firstAttribute="height" constant="35.670000000000002" id="h9Y-SX-iUX"/>
                                     </constraints>
                                     <color key="tintColor" red="0.34117650989999998" green="0.58431375029999999" blue="0.60392159219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="Button"/>
@@ -100,6 +101,7 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Mt5-nn-5m3" secondAttribute="trailing" constant="120" id="8tC-o7-JCv"/>
                                 <constraint firstAttribute="trailing" secondItem="NJC-Ch-DKZ" secondAttribute="trailing" constant="20" id="93w-92-XoI"/>
                                 <constraint firstItem="NJC-Ch-DKZ" firstAttribute="leading" secondItem="0Sg-Qq-Wa8" secondAttribute="leading" constant="20" id="BbQ-1I-Kl2"/>
                                 <constraint firstItem="Lak-6U-6RF" firstAttribute="top" secondItem="54i-Fj-uGf" secondAttribute="bottom" constant="10" id="JBx-zd-Z6N"/>
@@ -107,14 +109,13 @@
                                 <constraint firstItem="BKc-nO-imy" firstAttribute="leading" secondItem="0Sg-Qq-Wa8" secondAttribute="leading" constant="20" id="NRB-iY-1n4"/>
                                 <constraint firstItem="54i-Fj-uGf" firstAttribute="top" secondItem="0Sg-Qq-Wa8" secondAttribute="top" id="TN0-GT-DjJ"/>
                                 <constraint firstItem="BKc-nO-imy" firstAttribute="top" secondItem="Lak-6U-6RF" secondAttribute="bottom" constant="70" id="be4-bN-Nyq"/>
+                                <constraint firstItem="Mt5-nn-5m3" firstAttribute="top" secondItem="NJC-Ch-DKZ" secondAttribute="bottom" constant="91.329999999999998" id="c8D-l3-ZpK"/>
                                 <constraint firstAttribute="trailing" secondItem="54i-Fj-uGf" secondAttribute="trailing" id="g6Q-DF-zSB"/>
+                                <constraint firstItem="Mt5-nn-5m3" firstAttribute="leading" secondItem="0Sg-Qq-Wa8" secondAttribute="leading" constant="120" id="gmH-wb-Kk0"/>
                                 <constraint firstItem="54i-Fj-uGf" firstAttribute="leading" secondItem="0Sg-Qq-Wa8" secondAttribute="leading" id="iLf-9o-0jl"/>
                                 <constraint firstItem="Lak-6U-6RF" firstAttribute="leading" secondItem="0Sg-Qq-Wa8" secondAttribute="leading" constant="10" id="l1H-PN-wPa"/>
-                                <constraint firstItem="Mt5-nn-5m3" firstAttribute="top" secondItem="NJC-Ch-DKZ" secondAttribute="bottom" constant="181.33000000000001" id="nDd-Ob-Yqj"/>
-                                <constraint firstAttribute="bottom" secondItem="Mt5-nn-5m3" secondAttribute="bottom" constant="80" id="r2e-un-uKj"/>
-                                <constraint firstItem="Mt5-nn-5m3" firstAttribute="leading" secondItem="0Sg-Qq-Wa8" secondAttribute="leading" constant="120" id="rJm-f7-JiU"/>
+                                <constraint firstAttribute="bottom" secondItem="Mt5-nn-5m3" secondAttribute="bottom" constant="170" id="sLZ-c0-YUE"/>
                                 <constraint firstAttribute="trailing" secondItem="BKc-nO-imy" secondAttribute="trailing" constant="20" id="upz-95-BjJ"/>
-                                <constraint firstAttribute="trailing" secondItem="Mt5-nn-5m3" secondAttribute="trailing" constant="120" id="wpO-f3-As3"/>
                             </constraints>
                         </view>
                     </subviews>

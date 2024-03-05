@@ -645,9 +645,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stad2" translatesAutoresizingMaskIntoConstraints="NO" id="AJv-fY-7pY">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="500"/>
+                                                <rect key="frame" x="0.0" y="-104" width="393" height="604"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="500" id="Pd1-lQ-fUa"/>
+                                                    <constraint firstAttribute="height" constant="604" id="Pd1-lQ-fUa"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fan ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jG2-cv-rny">
@@ -673,6 +673,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
+                                                <connections>
+                                                    <action selector="signInButtonPressed:" destination="srs-eK-p4I" eventType="touchUpInside" id="vUd-4r-1kO"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kke-6v-MYs">
                                                 <rect key="frame" x="50" y="301" width="293" height="31.333333333333314"/>
@@ -725,7 +728,7 @@
                                             <constraint firstAttribute="trailing" secondItem="XCz-02-5Co" secondAttribute="trailing" constant="100" id="NFA-Ut-Q8G"/>
                                             <constraint firstAttribute="trailing" secondItem="itS-ni-hJV" secondAttribute="trailing" constant="58" id="PAt-li-dA2"/>
                                             <constraint firstItem="gGf-wB-5TP" firstAttribute="top" secondItem="kke-6v-MYs" secondAttribute="bottom" constant="7.6699999999999999" id="QhF-3l-nqk"/>
-                                            <constraint firstItem="AJv-fY-7pY" firstAttribute="top" secondItem="gdy-Qu-uJf" secondAttribute="top" id="Qnd-Mf-C4n"/>
+                                            <constraint firstItem="AJv-fY-7pY" firstAttribute="top" secondItem="gdy-Qu-uJf" secondAttribute="top" constant="-104" id="Qnd-Mf-C4n"/>
                                             <constraint firstItem="XCz-02-5Co" firstAttribute="top" secondItem="TIb-HH-E05" secondAttribute="bottom" constant="30" id="Rrp-4K-xSI"/>
                                             <constraint firstItem="TIb-HH-E05" firstAttribute="leading" secondItem="gdy-Qu-uJf" secondAttribute="leading" constant="50" id="Ugs-01-So4"/>
                                             <constraint firstItem="kke-6v-MYs" firstAttribute="top" secondItem="ISO-4c-OUw" secondAttribute="bottom" constant="71" id="aas-dc-Fio"/>
@@ -759,7 +762,6 @@
                             <constraint firstItem="cY5-DT-H3m" firstAttribute="top" secondItem="2P2-wh-GLc" secondAttribute="top" id="zRj-Et-Rcf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person.circle.fill" catalog="system" id="vbC-se-HWh"/>
                     <navigationItem key="navigationItem" id="FuD-S4-BXI"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="AJv-fY-7pY" id="N5w-Gp-P73"/>
@@ -772,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EY9-gz-vUi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806.8702290076335" y="812.67605633802816"/>
+            <point key="canvasLocation" x="1806.8702290076335" y="1562.6760563380283"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="PkE-rv-MbW">
@@ -1096,7 +1098,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDf-cp-NTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4347.3282442748086" y="812.67605633802816"/>
+            <point key="canvasLocation" x="5274.0458015267177" y="812.67605633802816"/>
         </scene>
         <!--Bus TicketsVC-->
         <scene sceneID="j3b-70-FQd">
@@ -1176,7 +1178,7 @@
                         <segue destination="uLB-sW-3Ht" kind="relationship" relationship="viewControllers" id="TzF-lF-4Kz"/>
                         <segue destination="BEm-Tb-Fk4" kind="relationship" relationship="viewControllers" id="9hR-DW-7Ga"/>
                         <segue destination="DfK-lC-T77" kind="relationship" relationship="viewControllers" id="zR0-DJ-wQT"/>
-                        <segue destination="srs-eK-p4I" kind="relationship" relationship="viewControllers" id="t5k-4s-prF"/>
+                        <segue destination="WYT-k3-bTJ" kind="relationship" relationship="viewControllers" id="t5k-4s-prF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSk-7X-mnI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1256,7 +1258,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRe-9s-BKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420.6106870229005" y="812.67605633802816"/>
+            <point key="canvasLocation" x="4347.3282442748086" y="812.67605633802816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wAZ-RN-FRL">
@@ -1275,6 +1277,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5t-HA-7AW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3421" y="1517"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qfu-X1-8wl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WYT-k3-bTJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="person.circle.fill" catalog="system" id="vbC-se-HWh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmm-kf-OQe">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="srs-eK-p4I" kind="relationship" relationship="rootViewController" id="RPY-Cl-lWh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vK3-JF-CdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1806.8702290076335" y="812.67605633802816"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

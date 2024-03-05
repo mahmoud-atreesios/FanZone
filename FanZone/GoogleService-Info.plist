@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCU4PkKj1U5X2zUKVJq-conRugUBxe_01o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>81399283807</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.atrees.FanZone</string>
+	<key>PROJECT_ID</key>
+	<string>fanzone-5210f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fanzone-5210f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:81399283807:ios:f8baecddddbc8481f4dbea</string>
+</dict>
+</plist>

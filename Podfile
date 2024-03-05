@@ -18,5 +18,6 @@ target 'FanZone' do
 
 pod "CTPanoramaView", "~> 1.5"
 pod 'AcceptCardSDK'
+pod 'lottie-ios'
 
 end

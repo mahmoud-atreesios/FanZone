@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 class TabBar: UITabBarController {
     
@@ -30,13 +32,14 @@ class TabBar: UITabBarController {
         highlightsNavController.tabBarItem = UITabBarItem(title: "Highlights", image: UIImage(systemName: "video"), selectedImage: UIImage(systemName: "video"))
 
         let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInVC")
-        signInVC.tabBarItem = UITabBarItem(title: "SignIn", image: UIImage(systemName: "person.circle.fill"), selectedImage: UIImage(systemName: "person.circle.fill"))
+        let signInNavController = UINavigationController(rootViewController: signInVC)
+        signInNavController.tabBarItem = UITabBarItem(title: "SignIn", image: UIImage(systemName: "person.circle.fill"), selectedImage: UIImage(systemName: "person.circle.fill"))
 
-        var viewControllers = [homeNavController, newsNavController, highlightsNavController, signInVC]
+        var viewControllers = [homeNavController, newsNavController, highlightsNavController, signInNavController]
         
-        let userIsSignedIn = false
+        //let userIsSignedIn = false
         
-        if userIsSignedIn {
+        if Auth.auth().currentUser != nil{
             let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
             let profileNavController = UINavigationController(rootViewController: profileVC)
             if let originalImage = UIImage(named: "FanImage") {
