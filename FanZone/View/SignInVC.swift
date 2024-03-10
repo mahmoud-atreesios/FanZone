@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInVC: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    @IBOutlet weak var fanIdTxtField: UITextField!
-    @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var fanEmail: UITextField!
+    @IBOutlet weak var fanPassword: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
     @IBOutlet weak var hidePasswordImageView: UIImageView!
@@ -28,9 +29,26 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        print("Button pressed")
-        let RegisterationDoneVC = RegisterationDoneVC(nibName: "RegisterationDoneVC", bundle: nil)
-        navigationController?.pushViewController(RegisterationDoneVC, animated: true)
+        guard let email = fanEmail.text, !email.isEmpty else {
+            showAlert(title: "Email Required", message: "Please enter your email.")
+            return
+        }
+        guard let password = fanPassword.text, !password.isEmpty else {
+            showAlert(title: "Password Required", message: "Please enter your password.")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
+            if error != nil{
+                self.showAlert(title: "Error!", message: "The email or password is not correct")
+            }else{
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC {
+                    profileVC.navigationItem.hidesBackButton = true
+                    self.navigationController?.pushViewController(profileVC, animated: true)
+                }
+            }
+        }
     }
 }
 
@@ -53,13 +71,13 @@ extension SignInVC{
         backgroundImageView.applyGradient(colors: [UIColor.white.withAlphaComponent(0), UIColor.white.withAlphaComponent(1)])
         signInButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
         
-        fanIdTxtField.layer.cornerRadius = 10.0
-        fanIdTxtField.layer.borderWidth = 1.0
-        fanIdTxtField.layer.borderColor = UIColor.lightGray.cgColor
+        fanEmail.layer.cornerRadius = 10.0
+        fanEmail.layer.borderWidth = 1.0
+        fanEmail.layer.borderColor = UIColor.lightGray.cgColor
         
-        passwordTxtField.layer.cornerRadius = 10.0
-        passwordTxtField.layer.borderWidth = 1.0
-        passwordTxtField.layer.borderColor = UIColor.lightGray.cgColor
+        fanPassword.layer.cornerRadius = 10.0
+        fanPassword.layer.borderWidth = 1.0
+        fanPassword.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func makeHidePasswordImageViewClickable(){
@@ -69,7 +87,7 @@ extension SignInVC{
     }
     
     @objc func togglePasswordVisibility() {
-        passwordTxtField.isSecureTextEntry.toggle()
-        hidePasswordImageView.image = passwordTxtField.isSecureTextEntry ? UIImage(systemName: "eye.slash") : UIImage(systemName: "eye")
+        fanPassword.isSecureTextEntry.toggle()
+        hidePasswordImageView.image = fanPassword.isSecureTextEntry ? UIImage(systemName: "eye.slash") : UIImage(systemName: "eye")
     }
 }

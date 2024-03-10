@@ -765,9 +765,9 @@
                     <navigationItem key="navigationItem" id="FuD-S4-BXI"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="AJv-fY-7pY" id="N5w-Gp-P73"/>
-                        <outlet property="fanIdTxtField" destination="jG2-cv-rny" id="BZZ-Ug-Fjb"/>
+                        <outlet property="fanEmail" destination="jG2-cv-rny" id="uJz-tW-17j"/>
+                        <outlet property="fanPassword" destination="TIb-HH-E05" id="dHc-ym-kQ5"/>
                         <outlet property="hidePasswordImageView" destination="itS-ni-hJV" id="IbV-ha-219"/>
-                        <outlet property="passwordTxtField" destination="TIb-HH-E05" id="Xe3-pa-HrJ"/>
                         <outlet property="signInButton" destination="XCz-02-5Co" id="CKc-cJ-SFY"/>
                         <outlet property="signUpLabel" destination="vE6-IO-X4m" id="4gp-RZ-DnN"/>
                     </connections>

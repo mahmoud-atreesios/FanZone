@@ -176,6 +176,7 @@ extension StepTwoVC{
         nextButton.tintColor = UIColor(red: 87/255, green: 149/255, blue: 154/255, alpha: 1.0)
         nextButton.layer.cornerRadius = 10
         nextButton.layer.masksToBounds = true
+        fanImage.makeRounded()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

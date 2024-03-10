@@ -55,6 +55,11 @@
 		1C20DA862B7DABFD00936E0E /* CategorySelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C20DA842B7DABFD00936E0E /* CategorySelectionTableViewCell.xib */; };
 		1C20DA892B7DB46F00936E0E /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 1C20DA882B7DB46F00936E0E /* Differentiator */; };
 		1C20DA8B2B7DB46F00936E0E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1C20DA8A2B7DB46F00936E0E /* RxDataSources */; };
+		1C32CFE62B98DF2E00815AED /* MatchTicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C32CFE42B98DF2E00815AED /* MatchTicketsVC.swift */; };
+		1C32CFE72B98DF2E00815AED /* MatchTicketsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C32CFE52B98DF2E00815AED /* MatchTicketsVC.xib */; };
+		1C336E7F2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C336E7D2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift */; };
+		1C336E802B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C336E7E2B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib */; };
+		1C336E822B98FE9200BE4D1E /* MatchTicketsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */; };
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
 		1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* BusTicketsVC.swift */; };
@@ -156,6 +161,11 @@
 		1C20DA7F2B7DA64100936E0E /* DepartmnetSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmnetSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		1C20DA832B7DABFD00936E0E /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		1C20DA842B7DABFD00936E0E /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
+		1C32CFE42B98DF2E00815AED /* MatchTicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTicketsVC.swift; sourceTree = "<group>"; };
+		1C32CFE52B98DF2E00815AED /* MatchTicketsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTicketsVC.xib; sourceTree = "<group>"; };
+		1C336E7D2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTicketsTableViewCell.swift; sourceTree = "<group>"; };
+		1C336E7E2B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTicketsTableViewCell.xib; sourceTree = "<group>"; };
+		1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTicketsModel.swift; sourceTree = "<group>"; };
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		1C4968472B86B50700168784 /* BusTicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsVC.swift; sourceTree = "<group>"; };
@@ -480,6 +490,7 @@
 				1C6144642B7336DE009424EA /* TrendingNewsModel.swift */,
 				1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */,
 				1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */,
+				1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -689,6 +700,10 @@
 		1CDFF8EA2B877F7A0031241A /* MatchTickets */ = {
 			isa = PBXGroup;
 			children = (
+				1C32CFE42B98DF2E00815AED /* MatchTicketsVC.swift */,
+				1C32CFE52B98DF2E00815AED /* MatchTicketsVC.xib */,
+				1C336E7D2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift */,
+				1C336E7E2B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib */,
 			);
 			path = MatchTickets;
 			sourceTree = "<group>";
@@ -898,6 +913,7 @@
 				1C20DA812B7DA64100936E0E /* DepartmnetSelectionTableViewCell.xib in Resources */,
 				1C1921DA2B83F82E00B6DE44 /* ContactUsVC.xib in Resources */,
 				1C8C30C62B97AC5C00D9E08D /* Animation - 1709667478219.json in Resources */,
+				1C32CFE72B98DF2E00815AED /* MatchTicketsVC.xib in Resources */,
 				1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */,
 				1C8C30C82B97B17B00D9E08D /* congrats.json in Resources */,
 				1C7C657E2B6AD3E000A64EDD /* LaunchScreen.storyboard in Resources */,
@@ -913,6 +929,7 @@
 				1C7C657B2B6AD3E000A64EDD /* Assets.xcassets in Resources */,
 				1C7C65792B6AD3DE00A64EDD /* Main.storyboard in Resources */,
 				1C20DA862B7DABFD00936E0E /* CategorySelectionTableViewCell.xib in Resources */,
+				1C336E802B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib in Resources */,
 				1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */,
 				1C7D574B2B97848700AA6618 /* RegisterationDoneVC.xib in Resources */,
 				1C015CC82B6C9D9500988E7D /* LeagueCollectionViewCell.xib in Resources */,
@@ -1051,6 +1068,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7D573B2B975B9C00AA6618 /* StepOneVC.swift in Sources */,
+				1C336E7F2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift in Sources */,
 				1C005ECE2B83603A00CA88A5 /* ProfileVC.swift in Sources */,
 				1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */,
 				1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */,
@@ -1068,6 +1086,7 @@
 				1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */,
 				1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */,
 				1C7C65AB2B6C38D900A64EDD /* HighlightsVC.swift in Sources */,
+				1C336E822B98FE9200BE4D1E /* MatchTicketsModel.swift in Sources */,
 				1C7D57432B975BBF00AA6618 /* StepThreeVC.swift in Sources */,
 				1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */,
 				1C7C65AD2B6C38EA00A64EDD /* SignInVC.swift in Sources */,
@@ -1080,6 +1099,7 @@
 				1C20DA802B7DA64100936E0E /* DepartmnetSelectionTableViewCell.swift in Sources */,
 				1CEF7C452B75D8C200A9B824 /* NewsWebVC.swift in Sources */,
 				1CAE5B7C2B707F03008431D0 /* ApiManager.swift in Sources */,
+				1C32CFE62B98DF2E00815AED /* MatchTicketsVC.swift in Sources */,
 				1CCBA4C52B76C0AA0079C049 /* HighlightsModel.swift in Sources */,
 				1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */,
 				1C7C65722B6AD3DE00A64EDD /* AppDelegate.swift in Sources */,

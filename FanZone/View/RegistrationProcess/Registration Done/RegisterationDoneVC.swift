@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import Firebase
 
 class RegisterationDoneVC: UIViewController {
     
@@ -24,9 +25,19 @@ class RegisterationDoneVC: UIViewController {
     
     @IBAction func getYourTicketButtonPressed(_ sender: UIButton) {
         print("i am hererereerer")
+        
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                print("User signed out successfully")
+            } catch {
+                print("Error signing out: \(error.localizedDescription)")
+            }
+        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
-            navigationController?.pushViewController(homeVC, animated: true)
+        if let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInVC") as? SignInVC {
+            navigationController?.pushViewController(signInVC, animated: true)
         }
     }
 }

@@ -128,3 +128,11 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     }
     
 }
+
+extension PaymentMethodVC{
+    
+    // save match ticket of the current user to firestore database
+    func saveMatchTicketToDataBase(){
+        
+    }
+}
