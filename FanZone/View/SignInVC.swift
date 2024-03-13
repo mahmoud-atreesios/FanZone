@@ -25,7 +25,7 @@ class SignInVC: UIViewController {
         uiSetUp()
         makeHidePasswordImageViewClickable()
         makeSignUpLabelClickable()
-        
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
@@ -89,5 +89,17 @@ extension SignInVC{
     @objc func togglePasswordVisibility() {
         fanPassword.isSecureTextEntry.toggle()
         hidePasswordImageView.image = fanPassword.isSecureTextEntry ? UIImage(systemName: "eye.slash") : UIImage(systemName: "eye")
+    }
+}
+// MARK: HIDE KEYBOARD
+extension SignInVC{
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

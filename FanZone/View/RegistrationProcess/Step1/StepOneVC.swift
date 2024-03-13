@@ -27,6 +27,7 @@ class StepOneVC: UIViewController {
         setUp()
         makeHideConfirmPasswordImageViewClickable()
         makeHidePasswordImageViewClickable()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
@@ -103,5 +104,18 @@ extension StepOneVC{
         nextButton.tintColor = UIColor(red: 87/255, green: 149/255, blue: 154/255, alpha: 1.0)
         nextButton.layer.cornerRadius = 10
         nextButton.layer.masksToBounds = true
+    }
+}
+
+// MARK: HIDE KEYBOARD
+extension StepOneVC{
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

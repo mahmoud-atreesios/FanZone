@@ -34,6 +34,7 @@ class StepTwoVC: UIViewController {
         setUpGenderDropList()
         setUpSupportedTeamDropList()
         makeFanImageViewClickable()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
@@ -189,3 +190,15 @@ extension StepTwoVC{
     }
 }
 
+// MARK: HIDE KEYBOARD
+extension StepTwoVC{
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

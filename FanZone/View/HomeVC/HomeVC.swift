@@ -70,7 +70,7 @@ extension HomeVC{
                     if row == 0 {
                         cell.backgroundColor = UIColor(red: 180/255, green: 180/255, blue: 179/255, alpha: 1.0)
                         selectedCell = cell
-                        //self.leagueID = self.dic["PL"] // Assuming arr contains the keys
+                        //self.leagueID = self.dic["PL"]
                     }
                     hasExecutedOnce = true
                 }
@@ -222,8 +222,30 @@ extension HomeVC{
         guard let cell = sender.view as? UpcomingMatchesTableViewCell else { return }
         guard let indexPath = upcomingMatchesTableView.indexPath(for: cell) else { return }
         
+        // Use the sorted upcomingFixeturesResult to get the selected match
+        let sortedMatches = viewModel.upcomingFixeturesResult.value.sorted { (result1, result2) in
+            if let date1 = self.getDatePrepareForComparison(from: result1.eventDate),
+               let date2 = self.getDatePrepareForComparison(from: result2.eventDate) {
+                return date1 < date2
+            }
+            return false
+        }
+        let selectedMatch = sortedMatches[indexPath.row]
+        
+        print("***********Tapped IndexPath:", indexPath)
+        print("=========Selected Match:", selectedMatch)
+        
+        MatchTicketsManager.shared.selectedMatchTicketsModel = MatchTicketsModel(
+            leagueName: selectedMatch.leagueName,
+            departmentName: "Cat3-left",
+            homeTeamLogo: selectedMatch.homeTeamLogo,
+            awayTeamLogo: selectedMatch.awayTeamLogo,
+            matchStadium: selectedMatch.eventStadium,
+            matchDate: selectedMatch.eventDate
+        )
         performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
     }
+
 
 }
 

@@ -23,6 +23,7 @@ class StepThreeVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUp()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func addSsnImageButtonPressed(_ sender: UIButton) {
@@ -123,3 +124,15 @@ extension StepThreeVC{
     }
 }
 
+// MARK: HIDE KEYBOARD
+extension StepThreeVC{
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

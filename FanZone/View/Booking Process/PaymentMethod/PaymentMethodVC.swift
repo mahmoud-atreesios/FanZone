@@ -7,6 +7,9 @@
 
 import UIKit
 import AcceptSDK
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 class PaymentMethodVC: UIViewController {
     
@@ -19,6 +22,7 @@ class PaymentMethodVC: UIViewController {
     
     private let viewModel = ViewModel()
     private let accept = AcceptSDK()
+    private let db = Firestore.firestore()
     
     var firstToken: String?
     var orderId: String?
@@ -117,6 +121,7 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse) {
         print("Here i should save the ticket in the data base")
         print(payData)
+        saveMatchTicketToDataBase()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
             navigationController?.pushViewController(homeVC, animated: true)
@@ -130,9 +135,33 @@ extension PaymentMethodVC: AcceptSDKDelegate{
 }
 
 extension PaymentMethodVC{
-    
     // save match ticket of the current user to firestore database
     func saveMatchTicketToDataBase(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("User not authenticated")
+            return
+        }
         
+        // Generate a new document ID
+        let ticketRef = self.db.collection("Match_Tickets").document()
+        
+        if let selectedMatchTicketsModel = MatchTicketsManager.shared.selectedMatchTicketsModel {
+            ticketRef.setData([
+                "userID": userID, // Store the user ID for reference
+                "leagueName": selectedMatchTicketsModel.leagueName ?? "Unknown leagueName",
+//                "leagueSeason": selectedMatchTicketsModel.leagueSeason ?? "Unknown leagueSeason",
+                "departmentName": selectedMatchTicketsModel.departmentName ?? "Unknown departmentName",
+                "homeTeamLogo": selectedMatchTicketsModel.homeTeamLogo ?? "Unknown homeTeamLogo",
+                "awayTeamLogo": selectedMatchTicketsModel.awayTeamLogo ?? "Unknown awayTeamLogo",
+                "matchDate": selectedMatchTicketsModel.matchDate ?? "Unknown matchDate",
+                "matchStadium": selectedMatchTicketsModel.matchStadium ?? "Unknown matchStadium",
+            ]) { error in
+                if let e = error {
+                    print("Error adding document: \(e.localizedDescription)")
+                } else {
+                    print("Match Ticket Saved successfully")
+                }
+            }
+        }
     }
 }

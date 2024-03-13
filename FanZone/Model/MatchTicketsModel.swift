@@ -9,9 +9,10 @@ import Foundation
 
 struct MatchTicketsModel{
     let leagueName: String?
-    let departmentName: String
+//    let leagueSeason: String?
+    let departmentName: String?
     let homeTeamLogo:String?
-    let awayTeam: String?
+    let awayTeamLogo: String?
     let matchStadium: String?
     let matchDate: String?
 }

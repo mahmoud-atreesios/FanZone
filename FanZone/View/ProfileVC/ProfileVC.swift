@@ -32,10 +32,12 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         setUpUi()
         retriveCurrentFanData()
-        makeContactUsViewClickable()
+        
+        makeMatchTicketsViewClickable()
         makeBusTicketsViewClickable()
         makeBookTransportationViewClickable()
         makeFamilyManagmentViewClickable()
+        makeContactUsViewClickable()
     }
 }
 
@@ -79,6 +81,17 @@ extension ProfileVC{
 }
 
 extension ProfileVC{
+    
+    //1 match Tickets
+    func makeMatchTicketsViewClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(matchTicketsViewTapped))
+        matchTicketsView.addGestureRecognizer(tapGesture)
+    }
+    @objc func matchTicketsViewTapped(){
+        let matchTicketsVC = MatchTicketsVC(nibName: "MatchTicketsVC", bundle: nil)
+        navigationController?.pushViewController(matchTicketsVC, animated: true)
+    }
+    
     
     //2 bus tickets
     func makeBusTicketsViewClickable(){
