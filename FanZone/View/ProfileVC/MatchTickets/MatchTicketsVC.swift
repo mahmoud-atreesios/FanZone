@@ -60,9 +60,40 @@ extension MatchTicketsVC: UITableViewDelegate, UITableViewDataSource{
         } else {
             cell.ticketStatus.text = "Activated"
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(_:)))
+        cell.addGestureRecognizer(tapGesture)
+        cell.isUserInteractionEnabled = true
+        
         return cell
     }
-    
+}
+
+extension MatchTicketsVC {
+    @objc func cellTapped(_ sender: UITapGestureRecognizer) {
+        guard let cell = sender.view as? MatchTicketsTableViewCell else { return }
+        guard let indexPath = matchTicketsTableView.indexPath(for: cell) else { return }
+        let ticket = tickets[indexPath.row]
+
+        let matchTicketDetailsVC = MatchTicketDetailsVC(nibName: "MatchTicketDetailsVC", bundle: nil)
+        matchTicketDetailsVC.loadViewIfNeeded() // Ensure the view is loaded
+        matchTicketDetailsVC.leagueName.text = ticket["leagueName"] as? String
+        matchTicketDetailsVC.leagueRound.text = ticket["leagueRound"] as? String
+        matchTicketDetailsVC.departmentName.text = ticket["departmentName"] as? String
+        matchTicketDetailsVC.homeTeamLogo.sd_setImage(with: URL(string: ticket["homeTeamLogo"] as? String ?? ""))
+        matchTicketDetailsVC.awayTeamLogo.sd_setImage(with: URL(string: ticket["awayTeamLogo"] as? String ?? ""))
+        matchTicketDetailsVC.matchStadium.text = ticket["matchStadium"] as? String
+        matchTicketDetailsVC.matchDate.text = ticket["matchDate"] as? String
+        matchTicketDetailsVC.matchTime.text = ticket["matchTime"] as? String
+        matchTicketDetailsVC.retrieveQRCodeImage(qrCodeURL: ticket["qrCodeURL"] as? String ?? "")
+
+        navigationController?.pushViewController(matchTicketDetailsVC, animated: true)
+    }
+}
+
+
+
+extension MatchTicketsVC{
     func fetchMatchTickets(){
         let userID = Auth.auth().currentUser?.uid
         if let userID = userID {
@@ -83,5 +114,17 @@ extension MatchTicketsVC: UITableViewDelegate, UITableViewDataSource{
                     }
                 }
         }
+    }
+}
+
+extension MatchTicketsVC{
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
 }

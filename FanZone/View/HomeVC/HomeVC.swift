@@ -237,11 +237,13 @@ extension HomeVC{
         
         MatchTicketsManager.shared.selectedMatchTicketsModel = MatchTicketsModel(
             leagueName: selectedMatch.leagueName,
+            leagueRound: selectedMatch.leagueRound.rawValue,
             departmentName: "Cat3-left",
             homeTeamLogo: selectedMatch.homeTeamLogo,
             awayTeamLogo: selectedMatch.awayTeamLogo,
             matchStadium: selectedMatch.eventStadium,
-            matchDate: selectedMatch.eventDate
+            matchDate: selectedMatch.eventDate,
+            matchTime: selectedMatch.eventTime
         )
         performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
     }
@@ -278,11 +280,10 @@ extension HomeVC{
     }
     
     func getDateAfterTenDays() -> Date? {
-        
         let currentDate = Date()
         let calendar = Calendar.current
         
-        if let dateAfterTenDays = calendar.date(byAdding: .day, value: 11, to: currentDate) {
+        if let dateAfterTenDays = calendar.date(byAdding: .day, value: 15, to: currentDate) {
             return dateAfterTenDays
         } else {
             return nil

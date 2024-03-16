@@ -10,6 +10,7 @@ import AcceptSDK
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class PaymentMethodVC: UIViewController {
     
@@ -134,34 +135,83 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     
 }
 
-extension PaymentMethodVC{
-    // save match ticket of the current user to firestore database
+extension PaymentMethodVC {
     func saveMatchTicketToDataBase(){
         guard let userID = Auth.auth().currentUser?.uid else {
             print("User not authenticated")
             return
         }
-        
-        // Generate a new document ID
+
+        // Generate a new document ID for the match ticket
         let ticketRef = self.db.collection("Match_Tickets").document()
-        
-        if let selectedMatchTicketsModel = MatchTicketsManager.shared.selectedMatchTicketsModel {
-            ticketRef.setData([
-                "userID": userID, // Store the user ID for reference
-                "leagueName": selectedMatchTicketsModel.leagueName ?? "Unknown leagueName",
-//                "leagueSeason": selectedMatchTicketsModel.leagueSeason ?? "Unknown leagueSeason",
-                "departmentName": selectedMatchTicketsModel.departmentName ?? "Unknown departmentName",
-                "homeTeamLogo": selectedMatchTicketsModel.homeTeamLogo ?? "Unknown homeTeamLogo",
-                "awayTeamLogo": selectedMatchTicketsModel.awayTeamLogo ?? "Unknown awayTeamLogo",
-                "matchDate": selectedMatchTicketsModel.matchDate ?? "Unknown matchDate",
-                "matchStadium": selectedMatchTicketsModel.matchStadium ?? "Unknown matchStadium",
-            ]) { error in
-                if let e = error {
-                    print("Error adding document: \(e.localizedDescription)")
-                } else {
-                    print("Match Ticket Saved successfully")
+
+        // Generate and save the QR code
+        createAndSaveQRCodeToFirebase { qrCodeURL in
+            if let selectedMatchTicketsModel = MatchTicketsManager.shared.selectedMatchTicketsModel {
+                let data: [String: Any] = [
+                    "userID": userID, // Store the user ID for reference
+                    "leagueName": selectedMatchTicketsModel.leagueName ?? "Unknown leagueName",
+                    "leagueSeason": selectedMatchTicketsModel.leagueRound ?? "Unknown leagueRound",
+                    "departmentName": selectedMatchTicketsModel.departmentName ?? "Unknown departmentName",
+                    "homeTeamLogo": selectedMatchTicketsModel.homeTeamLogo ?? "Unknown homeTeamLogo",
+                    "awayTeamLogo": selectedMatchTicketsModel.awayTeamLogo ?? "Unknown awayTeamLogo",
+                    "matchStadium": selectedMatchTicketsModel.matchStadium ?? "Unknown matchStadium",
+                    "matchDate": selectedMatchTicketsModel.matchDate ?? "Unknown matchDate",
+                    "matchTime": selectedMatchTicketsModel.matchTime ?? "Unknown matchTime",
+                    "qrCodeURL": qrCodeURL
+                ]
+
+                // Set data to Firestore
+                ticketRef.setData(data) { error in
+                    if let e = error {
+                        print("Error adding document: \(e.localizedDescription)")
+                    } else {
+                        print("Match Ticket with QR Code Saved successfully")
+                    }
+                }
+            }
+        }
+    }
+
+    private func createAndSaveQRCodeToFirebase(completion: @escaping (String) -> Void) {
+        // Generate a unique string for the QR code (you can use any unique identifier)
+        let uniqueString = UUID().uuidString
+
+        // Create a data object from the unique string
+        if let data = uniqueString.data(using: .ascii) {
+            // Create a QR code filter
+            if let filter = CIFilter(name: "CIQRCodeGenerator") {
+                // Set the message data for the QR code
+                filter.setValue(data, forKey: "inputMessage")
+
+                // Get the output image from the filter
+                if let outputImage = filter.outputImage {
+                    // Scale the image to fit into the image view
+                    let scaledImage = UIImage(ciImage: outputImage).resized(to: CGSize(width: 200, height: 200))
+                    
+                    // Convert the UIImage to Data
+                    if let imageData = scaledImage.pngData() {
+                        // Upload the image data to Firebase Storage
+                        let qrCodeRef = Storage.storage().reference().child("qr_codes/\(uniqueString).png")
+                        qrCodeRef.putData(imageData, metadata: nil) { (metadata, error) in
+                            guard metadata != nil else {
+                                print("Error uploading image: \(error?.localizedDescription ?? "Unknown error")")
+                                return
+                            }
+
+                            // Get the download URL of the uploaded image
+                            qrCodeRef.downloadURL { (url, error) in
+                                if let downloadURL = url {
+                                    completion(downloadURL.absoluteString)
+                                } else {
+                                    print("Error getting download URL: \(error?.localizedDescription ?? "Unknown error")")
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
+

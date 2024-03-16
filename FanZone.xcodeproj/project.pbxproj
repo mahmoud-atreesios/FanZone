@@ -60,6 +60,8 @@
 		1C336E7F2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C336E7D2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift */; };
 		1C336E802B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C336E7E2B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib */; };
 		1C336E822B98FE9200BE4D1E /* MatchTicketsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */; };
+		1C35C3962BA243D200BC4E06 /* MatchTicketDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C35C3942BA243D200BC4E06 /* MatchTicketDetailsVC.swift */; };
+		1C35C3972BA243D200BC4E06 /* MatchTicketDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C35C3952BA243D200BC4E06 /* MatchTicketDetailsVC.xib */; };
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
 		1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* BusTicketsVC.swift */; };
@@ -167,6 +169,8 @@
 		1C336E7D2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTicketsTableViewCell.swift; sourceTree = "<group>"; };
 		1C336E7E2B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTicketsTableViewCell.xib; sourceTree = "<group>"; };
 		1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTicketsModel.swift; sourceTree = "<group>"; };
+		1C35C3942BA243D200BC4E06 /* MatchTicketDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTicketDetailsVC.swift; sourceTree = "<group>"; };
+		1C35C3952BA243D200BC4E06 /* MatchTicketDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTicketDetailsVC.xib; sourceTree = "<group>"; };
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		1C4968472B86B50700168784 /* BusTicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsVC.swift; sourceTree = "<group>"; };
@@ -376,6 +380,15 @@
 				1C20DA842B7DABFD00936E0E /* CategorySelectionTableViewCell.xib */,
 			);
 			path = CategorySelectionTableViewCell;
+			sourceTree = "<group>";
+		};
+		1C35C3932BA2439C00BC4E06 /* MatchTicketDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1C35C3942BA243D200BC4E06 /* MatchTicketDetailsVC.swift */,
+				1C35C3952BA243D200BC4E06 /* MatchTicketDetailsVC.xib */,
+			);
+			path = MatchTicketDetails;
 			sourceTree = "<group>";
 		};
 		1C38C0882B747F8A00D67603 /* NewsTableView */ = {
@@ -703,6 +716,7 @@
 		1CDFF8EA2B877F7A0031241A /* MatchTickets */ = {
 			isa = PBXGroup;
 			children = (
+				1C35C3932BA2439C00BC4E06 /* MatchTicketDetails */,
 				1C32CFE42B98DF2E00815AED /* MatchTicketsVC.swift */,
 				1C32CFE52B98DF2E00815AED /* MatchTicketsVC.xib */,
 				1C336E7D2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift */,
@@ -924,6 +938,7 @@
 				1C7D57442B975BBF00AA6618 /* StepThreeVC.xib in Resources */,
 				1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */,
 				1CABEAE52B8B41E5001DB682 /* AddMemberVC.xib in Resources */,
+				1C35C3972BA243D200BC4E06 /* MatchTicketDetailsVC.xib in Resources */,
 				1C6144632B7318F4009424EA /* TrendingCollectionViewCell.xib in Resources */,
 				1CE120DD2B8796D100DA7CDC /* AvailableTrips.xib in Resources */,
 				1C7D573C2B975B9C00AA6618 /* StepOneVC.xib in Resources */,
@@ -1089,6 +1104,7 @@
 				1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */,
 				1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */,
 				1C7C65AB2B6C38D900A64EDD /* HighlightsVC.swift in Sources */,
+				1C35C3962BA243D200BC4E06 /* MatchTicketDetailsVC.swift in Sources */,
 				1C336E822B98FE9200BE4D1E /* MatchTicketsModel.swift in Sources */,
 				1C7D57432B975BBF00AA6618 /* StepThreeVC.swift in Sources */,
 				1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */,

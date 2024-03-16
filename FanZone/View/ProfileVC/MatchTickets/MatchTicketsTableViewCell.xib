@@ -75,7 +75,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="K0t-KZ-Zjg" userLabel="matchDate">
                         <rect key="frame" x="200" y="90" width="110" height="31.333333333333329"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hCF-Qd-c3R">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hCF-Qd-c3R">
                                 <rect key="frame" x="0.0" y="0.99999999999999822" width="30" height="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -177,7 +177,7 @@
     <resources>
         <image name="ManCity" width="3500" height="3500"/>
         <image name="ManUnited" width="1280" height="1297"/>
-        <image name="clock.circle" catalog="system" width="128" height="123"/>
+        <image name="calendar.circle" catalog="system" width="128" height="123"/>
         <image name="sportscourt.circle" catalog="system" width="128" height="123"/>
         <image name="sportscourt.fill" catalog="system" width="128" height="83"/>
         <systemColor name="systemBackgroundColor">
