@@ -42,10 +42,8 @@ class SignInVC: UIViewController {
             if error != nil{
                 self.showAlert(title: "Error!", message: "The email or password is not correct")
             }else{
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC {
-                    profileVC.navigationItem.hidesBackButton = true
-                    self.navigationController?.pushViewController(profileVC, animated: true)
+                if let tabBarController = self.tabBarController as? TabBar {
+                    tabBarController.setupTabs()
                 }
             }
         }

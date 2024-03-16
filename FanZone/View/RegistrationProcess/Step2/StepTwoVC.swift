@@ -134,6 +134,9 @@ extension StepTwoVC{
                         "fanImageURL": downloadURL.absoluteString // Save the download URL
                     ]) { error in
                         if let e = error {
+                            self.activityIndicator.stopAnimating()
+                            self.isSavingData = false
+                            self.nextButton.isEnabled = true
                             print("Error adding document: \(e.localizedDescription)")
                         } else {
                             self.activityIndicator.stopAnimating()

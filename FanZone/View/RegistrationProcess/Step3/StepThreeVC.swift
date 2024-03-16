@@ -92,6 +92,9 @@ extension StepThreeVC{
                 storageRef.downloadURL { (url, error) in
                     guard let downloadURL = url else {
                         if let error = error {
+                            self.activityIndicator.stopAnimating()
+                            self.isSavingData = false
+                            self.registerButton.isEnabled = true
                             print("Error getting download URL: \(error.localizedDescription)")
                         }
                         return
@@ -102,6 +105,9 @@ extension StepThreeVC{
                         "SSNimage": downloadURL.absoluteString
                     ]) { error in
                         if let error = error {
+                            self.activityIndicator.stopAnimating()
+                            self.isSavingData = false
+                            self.registerButton.isEnabled = true
                             print("Error updating document: \(error.localizedDescription)")
                         } else {
                             self.activityIndicator.stopAnimating()

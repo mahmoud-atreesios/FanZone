@@ -39,6 +39,11 @@ class ProfileVC: UIViewController {
         makeFamilyManagmentViewClickable()
         makeContactUsViewClickable()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
 }
 
 extension ProfileVC{

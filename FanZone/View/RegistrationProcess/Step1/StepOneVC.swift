@@ -66,7 +66,6 @@ extension StepOneVC{
 
 extension StepOneVC{
     func createUser(){
-        
         activityIndicator.startAnimating()
         isSavingData = true
         nextButton.isEnabled = false
@@ -75,11 +74,15 @@ extension StepOneVC{
             if let fanEmail = fanEmail.text , let fanPassword = fanPassword.text{
                 Auth.auth().createUser(withEmail: fanEmail, password: fanPassword) { authResult, error in
                     if let e = error{
+                        self.activityIndicator.stopAnimating()
+                        self.isSavingData = false
+                        self.nextButton.isEnabled = true
                         self.showAlert(title: "Error!", message: "\(e.localizedDescription)")
                     }else {
                         self.activityIndicator.stopAnimating()
                         self.isSavingData = false
-                        
+                        self.nextButton.isEnabled = true
+
                         let stepTwoVC = StepTwoVC(nibName: "StepTwoVC", bundle: nil)
                         self.navigationController?.pushViewController(stepTwoVC, animated: true)
                     }
@@ -87,6 +90,9 @@ extension StepOneVC{
                 }
             }
         }else {
+            self.activityIndicator.stopAnimating()
+            self.isSavingData = false
+            self.nextButton.isEnabled = true
             showAlert(title: "Error!", message: "Password and Confirm Password doesn't Match")
         }
     }
