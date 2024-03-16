@@ -27,6 +27,9 @@ class StepTwoVC: UIViewController {
     var selectedGender: String?
     var selectedSupportedTeam: String?
     
+    var activityIndicator: UIActivityIndicatorView!
+    var isSavingData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -35,9 +38,12 @@ class StepTwoVC: UIViewController {
         setUpSupportedTeamDropList()
         makeFanImageViewClickable()
         hideKeyboardWhenTappedAround()
+        setupActivityIndicator()
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
+        guard !isSavingData else { return }
         
         guard let fullName = fanFullName.text, !fullName.isEmpty else {
             showAlert(title: "Full Name Required", message: "Please enter your Name.")
@@ -62,13 +68,34 @@ class StepTwoVC: UIViewController {
 }
 
 extension StepTwoVC{
+    private func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .white
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+}
+
+extension StepTwoVC{
     func saveFanData(){
+        activityIndicator.startAnimating()
+        isSavingData = true
+        // Disable the Next button
+        nextButton.isEnabled = false
+        
         guard let image = fanImage.image else {
             showAlert(title: "Error!", message: "No image selected")
+            activityIndicator.stopAnimating()
+            isSavingData = false
+            nextButton.isEnabled = true
             return
         }
         guard let userID = Auth.auth().currentUser?.uid else {
             showAlert(title: "Error!", message: "User not authenticated")
+            activityIndicator.stopAnimating()
+            isSavingData = false
+            nextButton.isEnabled = true
             return
         }
         
@@ -83,6 +110,9 @@ extension StepTwoVC{
             storageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if let error = error {
                     print("Error uploading image: \(error.localizedDescription)")
+                    self.activityIndicator.stopAnimating()
+                    self.isSavingData = false
+                    self.nextButton.isEnabled = true
                     return
                 }
                 
@@ -106,9 +136,14 @@ extension StepTwoVC{
                         if let e = error {
                             print("Error adding document: \(e.localizedDescription)")
                         } else {
+                            self.activityIndicator.stopAnimating()
+                            self.isSavingData = false
+                            
                             let stepThreeVC = StepThreeVC(nibName: "StepThreeVC", bundle: nil)
                             self.navigationController?.pushViewController(stepThreeVC, animated: true)
                         }
+                        // Enable the Next button
+                        self.nextButton.isEnabled = true
                     }
                 }
             }

@@ -21,6 +21,9 @@ class StepOneVC: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    var activityIndicator: UIActivityIndicatorView!
+    var isSavingData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,9 +31,12 @@ class StepOneVC: UIViewController {
         makeHideConfirmPasswordImageViewClickable()
         makeHidePasswordImageViewClickable()
         hideKeyboardWhenTappedAround()
+        setupActivityIndicator()
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
+        guard !isSavingData else { return }
         
         guard let email = fanEmail.text, !email.isEmpty else {
             showAlert(title: "Email Required", message: "Please enter your email.")
@@ -44,6 +50,26 @@ class StepOneVC: UIViewController {
             showAlert(title: "Confirm Password Required", message: "Please confirm your password.")
             return
         }
+        createUser()
+    }
+}
+
+extension StepOneVC{
+    private func setupActivityIndicator(){
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .black
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+}
+
+extension StepOneVC{
+    func createUser(){
+        
+        activityIndicator.startAnimating()
+        isSavingData = true
+        nextButton.isEnabled = false
         
         if fanPassword.text == fanConfirmPassword.text{
             if let fanEmail = fanEmail.text , let fanPassword = fanPassword.text{
@@ -51,15 +77,18 @@ class StepOneVC: UIViewController {
                     if let e = error{
                         self.showAlert(title: "Error!", message: "\(e.localizedDescription)")
                     }else {
+                        self.activityIndicator.stopAnimating()
+                        self.isSavingData = false
+                        
                         let stepTwoVC = StepTwoVC(nibName: "StepTwoVC", bundle: nil)
                         self.navigationController?.pushViewController(stepTwoVC, animated: true)
                     }
+                    self.nextButton.isEnabled = true
                 }
             }
         }else {
             showAlert(title: "Error!", message: "Password and Confirm Password doesn't Match")
         }
-        
     }
 }
 

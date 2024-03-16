@@ -18,12 +18,15 @@ class StepThreeVC: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     let db = Firestore.firestore()
+    var activityIndicator: UIActivityIndicatorView!
+    var isSavingData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUp()
         hideKeyboardWhenTappedAround()
+        setupActivityIndicator()
     }
     
     @IBAction func addSsnImageButtonPressed(_ sender: UIButton) {
@@ -34,27 +37,44 @@ class StepThreeVC: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        guard !isSavingData else { return }
         saveMoreDataToFanCollection()
     }
-    
+}
+
+extension StepThreeVC{
+    private func setupActivityIndicator(){
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .black
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
 }
 
 extension StepThreeVC{
     func saveMoreDataToFanCollection(){
+        activityIndicator.startAnimating()
+        isSavingData = true
+        registerButton.isEnabled = false
+        
         guard let image = fanSsnImage.image else {
             print("No image selected")
+            self.activityIndicator.stopAnimating()
+            self.isSavingData = false
+            registerButton.isEnabled = true
             return
         }
         
         guard let userID = Auth.auth().currentUser?.uid else {
             print("User not authenticated")
+            self.activityIndicator.stopAnimating()
+            self.isSavingData = false
+            registerButton.isEnabled = true
             return
         }
         
-        // Generate a unique image name
         let imageName = UUID().uuidString
-        
-        // Construct the storage reference
         let storageRef = Storage.storage().reference().child("images/\(imageName).jpg")
         
         if let imageData = image.jpegData(compressionQuality: 0.5) {
@@ -62,6 +82,9 @@ extension StepThreeVC{
             storageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if let error = error {
                     print("Error uploading image: \(error.localizedDescription)")
+                    self.activityIndicator.stopAnimating()
+                    self.isSavingData = false
+                    self.registerButton.isEnabled = true
                     return
                 }
                 
@@ -76,14 +99,18 @@ extension StepThreeVC{
                     
                     self.db.collection("Fan").document(userID).updateData([
                         "passportID": self.optionalFanPassportId.text ?? "",
-                        "SSNimage": downloadURL.absoluteString // Save the download URL
+                        "SSNimage": downloadURL.absoluteString
                     ]) { error in
                         if let error = error {
                             print("Error updating document: \(error.localizedDescription)")
                         } else {
+                            self.activityIndicator.stopAnimating()
+                            self.isSavingData = false
+                            
                             let RegisterationDoneVC = RegisterationDoneVC(nibName: "RegisterationDoneVC", bundle: nil)
                             self.navigationController?.pushViewController(RegisterationDoneVC, animated: true)
                         }
+                        self.registerButton.isEnabled = true
                     }
                 }
             }
