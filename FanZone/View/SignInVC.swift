@@ -19,6 +19,9 @@ class SignInVC: UIViewController {
     @IBOutlet weak var hidePasswordImageView: UIImageView!
     @IBOutlet weak var signUpLabel: UILabel!
     
+    var activityIndicator: UIActivityIndicatorView!
+    var isSavingData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,25 +29,49 @@ class SignInVC: UIViewController {
         makeHidePasswordImageViewClickable()
         makeSignUpLabelClickable()
         hideKeyboardWhenTappedAround()
+        setupActivityIndicator()
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+        
+        guard !isSavingData else { return }
+        createAccount()
+    }
+}
+
+extension SignInVC{
+    func createAccount(){
+        
+        activityIndicator.startAnimating()
+        isSavingData = true
+        signInButton.isEnabled = false
+        
         guard let email = fanEmail.text, !email.isEmpty else {
+            self.activityIndicator.stopAnimating()
+            self.isSavingData = false
+            self.signInButton.isEnabled = true
             showAlert(title: "Email Required", message: "Please enter your email.")
             return
         }
         guard let password = fanPassword.text, !password.isEmpty else {
+            self.activityIndicator.stopAnimating()
+            self.isSavingData = false
+            self.signInButton.isEnabled = true
             showAlert(title: "Password Required", message: "Please enter your password.")
             return
         }
         
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
             if error != nil{
+                self.activityIndicator.stopAnimating()
+                self.isSavingData = false
+                self.signInButton.isEnabled = true
                 self.showAlert(title: "Error!", message: "The email or password is not correct")
             }else{
                 if let tabBarController = self.tabBarController as? TabBar {
                     tabBarController.setupTabs()
                 }
+                self.signInButton.isEnabled = true
             }
         }
     }
@@ -89,6 +116,18 @@ extension SignInVC{
         hidePasswordImageView.image = fanPassword.isSecureTextEntry ? UIImage(systemName: "eye.slash") : UIImage(systemName: "eye")
     }
 }
+
+
+extension SignInVC{
+    private func setupActivityIndicator(){
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .black
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+}
+
 // MARK: HIDE KEYBOARD
 extension SignInVC{
     func hideKeyboardWhenTappedAround(){

@@ -22,17 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                print("User signed out successfully")
-            } catch {
-                print("Error signing out: \(error.localizedDescription)")
-            }
-        }
-    }
 
     // MARK: UISceneSession Lifecycle
 

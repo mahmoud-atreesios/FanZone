@@ -24,9 +24,9 @@ class RegisterationDoneVC: UIViewController {
     }
     
     @IBAction func getYourTicketButtonPressed(_ sender: UIButton) {
-            if let tabBarController = self.tabBarController as? TabBar {
-                tabBarController.setupTabs()
-            }
+        if let tabBarController = self.tabBarController as? TabBar {
+            tabBarController.setupTabs()
+        }
     }
 }
 
@@ -66,12 +66,3 @@ extension RegisterationDoneVC{
         congratsAnimationViewTwo!.play()
     }
 }
-
-//if Auth.auth().currentUser != nil {
-//            do {
-//                try Auth.auth().signOut()
-//                print("User signed out successfully")
-//            } catch {
-//                print("Error signing out: \(error.localizedDescription)")
-//            }
-//        }

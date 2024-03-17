@@ -38,6 +38,7 @@ class ProfileVC: UIViewController {
         makeBookTransportationViewClickable()
         makeFamilyManagmentViewClickable()
         makeContactUsViewClickable()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -156,5 +157,23 @@ extension ProfileVC{
         settingsView.layer.masksToBounds = true
         contactUsView.layer.cornerRadius = 10
         contactUsView.layer.masksToBounds = true
+        let rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOutButtonTapped))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc func signOutButtonTapped() {
+        // Handle edit button tapped
+        print("sign outtttttttttt")
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                print("User signed out successfully")
+                if let tabBarController = self.tabBarController as? TabBar {
+                    tabBarController.setupTabs()
+                }
+            } catch {
+                print("Error signing out: \(error.localizedDescription)")
+            }
+        }
     }
 }
