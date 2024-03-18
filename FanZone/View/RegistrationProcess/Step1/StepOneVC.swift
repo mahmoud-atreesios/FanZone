@@ -65,35 +65,45 @@ extension StepOneVC{
 }
 
 extension StepOneVC{
-    func createUser(){
+    func createUser() {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.5
+        view.addSubview(blurEffectView)
+        
         activityIndicator.startAnimating()
         isSavingData = true
         nextButton.isEnabled = false
         
-        if fanPassword.text == fanConfirmPassword.text{
-            if let fanEmail = fanEmail.text , let fanPassword = fanPassword.text{
+        if fanPassword.text == fanConfirmPassword.text {
+            if let fanEmail = fanEmail.text, let fanPassword = fanPassword.text {
                 Auth.auth().createUser(withEmail: fanEmail, password: fanPassword) { authResult, error in
-                    if let e = error{
+                    if let e = error {
                         self.activityIndicator.stopAnimating()
                         self.isSavingData = false
                         self.nextButton.isEnabled = true
+                        blurEffectView.removeFromSuperview()
                         self.showAlert(title: "Error!", message: "\(e.localizedDescription)")
-                    }else {
+                    } else {
                         self.activityIndicator.stopAnimating()
                         self.isSavingData = false
                         self.nextButton.isEnabled = true
-
+                        blurEffectView.removeFromSuperview()
+                        
                         let stepTwoVC = StepTwoVC(nibName: "StepTwoVC", bundle: nil)
                         self.navigationController?.pushViewController(stepTwoVC, animated: true)
                     }
                     self.nextButton.isEnabled = true
                 }
             }
-        }else {
+        } else {
             self.activityIndicator.stopAnimating()
             self.isSavingData = false
             self.nextButton.isEnabled = true
+            blurEffectView.removeFromSuperview()
             showAlert(title: "Error!", message: "Password and Confirm Password doesn't Match")
+            self.view.isUserInteractionEnabled = true
         }
     }
 }

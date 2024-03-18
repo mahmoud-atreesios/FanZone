@@ -16,4 +16,5 @@ struct MatchTicketsModel{
     let matchStadium: String?
     let matchDate: String?
     let matchTime: String?
+    let ticketStatus: String?
 }

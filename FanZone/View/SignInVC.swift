@@ -41,7 +41,6 @@ class SignInVC: UIViewController {
 
 extension SignInVC{
     func createAccount(){
-        
         activityIndicator.startAnimating()
         isSavingData = true
         signInButton.isEnabled = false

@@ -31,6 +31,7 @@ class MatchTicketsVC: UIViewController {
 }
 
 extension MatchTicketsVC: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tickets.count
     }
@@ -48,17 +49,23 @@ extension MatchTicketsVC: UITableViewDelegate, UITableViewDataSource{
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-
+        
         if let matchDateString = ticket["matchDate"] as? String,
            let matchDate = dateFormatter.date(from: matchDateString),
            let appLaunchDate = UserDefaults.standard.object(forKey: "appLaunchDate") as? Date {
-            if matchDate < appLaunchDate {
-                cell.ticketStatus.text = "Expired"
+            if matchDate < appLaunchDate && ticket["ticketStatus"] as! String == "Activated"  {
+                let ticketID = ticket["documentID"] as? String ?? ""
+                let ticketRef = db.collection("Match_Tickets").document(ticketID)
+                ticketRef.updateData(["ticketStatus": "Expired"]) { error in
+                    if let error = error {
+                        print("Error updating ticket status: \(error.localizedDescription)")
+                    } else {
+                        cell.ticketStatus.text = ticket["ticketStatus"] as? String
+                    }
+                }
             } else {
-                cell.ticketStatus.text = "Activated"
+                cell.ticketStatus.text = ticket["ticketStatus"] as? String
             }
-        } else {
-            cell.ticketStatus.text = "Activated"
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(_:)))
@@ -67,6 +74,7 @@ extension MatchTicketsVC: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
+    
 }
 
 extension MatchTicketsVC {
@@ -74,7 +82,7 @@ extension MatchTicketsVC {
         guard let cell = sender.view as? MatchTicketsTableViewCell else { return }
         guard let indexPath = matchTicketsTableView.indexPath(for: cell) else { return }
         let ticket = tickets[indexPath.row]
-
+        
         let matchTicketDetailsVC = MatchTicketDetailsVC(nibName: "MatchTicketDetailsVC", bundle: nil)
         matchTicketDetailsVC.loadViewIfNeeded() // Ensure the view is loaded
         matchTicketDetailsVC.leagueName.text = ticket["leagueName"] as? String
@@ -86,14 +94,15 @@ extension MatchTicketsVC {
         matchTicketDetailsVC.matchDate.text = ticket["matchDate"] as? String
         matchTicketDetailsVC.matchTime.text = ticket["matchTime"] as? String
         matchTicketDetailsVC.retrieveQRCodeImage(qrCodeURL: ticket["qrCodeURL"] as? String ?? "")
-
+        matchTicketDetailsVC.matchDateForComparison = ticket["matchDate"] as? String
+        print("Ticket ID: \(ticket["documentID"] as? String ?? "")")
+        matchTicketDetailsVC.ticketID = ticket["documentID"] as? String
+        
         navigationController?.pushViewController(matchTicketDetailsVC, animated: true)
     }
 }
 
-
-
-extension MatchTicketsVC{
+extension MatchTicketsVC {
     func fetchMatchTickets(){
         let userID = Auth.auth().currentUser?.uid
         if let userID = userID {
@@ -107,7 +116,11 @@ extension MatchTicketsVC{
                             print("No documents")
                             return
                         }
-                        self.tickets = documents.compactMap { $0.data() }
+                        self.tickets = documents.map { document in
+                            var data = document.data()
+                            data["documentID"] = document.documentID
+                            return data
+                        }
                         DispatchQueue.main.async {
                             self.matchTicketsTableView.reloadData()
                         }
@@ -116,6 +129,7 @@ extension MatchTicketsVC{
         }
     }
 }
+
 
 extension MatchTicketsVC{
     override func viewWillAppear(_ animated: Bool) {

@@ -77,24 +77,35 @@ extension StepTwoVC{
     }
 }
 
-extension StepTwoVC{
-    func saveFanData(){
+extension StepTwoVC {
+    func saveFanData() {
+        // Add a blur effect view
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.5
+        view.addSubview(blurEffectView)
+        
+        // Add an activity indicator
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        isSavingData = true
+        
         // Disable the Next button
         nextButton.isEnabled = false
         
         guard let image = fanImage.image else {
             showAlert(title: "Error!", message: "No image selected")
             activityIndicator.stopAnimating()
-            isSavingData = false
+            blurEffectView.removeFromSuperview()
             nextButton.isEnabled = true
             return
         }
         guard let userID = Auth.auth().currentUser?.uid else {
             showAlert(title: "Error!", message: "User not authenticated")
             activityIndicator.stopAnimating()
-            isSavingData = false
+            blurEffectView.removeFromSuperview()
             nextButton.isEnabled = true
             return
         }
@@ -110,8 +121,8 @@ extension StepTwoVC{
             storageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if let error = error {
                     print("Error uploading image: \(error.localizedDescription)")
-                    self.activityIndicator.stopAnimating()
-                    self.isSavingData = false
+                    activityIndicator.stopAnimating()
+                    blurEffectView.removeFromSuperview()
                     self.nextButton.isEnabled = true
                     return
                 }
@@ -122,6 +133,9 @@ extension StepTwoVC{
                         if let error = error {
                             print("Error getting download URL: \(error.localizedDescription)")
                         }
+                        activityIndicator.stopAnimating()
+                        blurEffectView.removeFromSuperview()
+                        self.nextButton.isEnabled = true
                         return
                     }
                     
@@ -134,18 +148,13 @@ extension StepTwoVC{
                         "fanImageURL": downloadURL.absoluteString // Save the download URL
                     ]) { error in
                         if let e = error {
-                            self.activityIndicator.stopAnimating()
-                            self.isSavingData = false
-                            self.nextButton.isEnabled = true
                             print("Error adding document: \(e.localizedDescription)")
                         } else {
-                            self.activityIndicator.stopAnimating()
-                            self.isSavingData = false
-                            
                             let stepThreeVC = StepThreeVC(nibName: "StepThreeVC", bundle: nil)
                             self.navigationController?.pushViewController(stepThreeVC, animated: true)
                         }
-                        // Enable the Next button
+                        activityIndicator.stopAnimating()
+                        blurEffectView.removeFromSuperview()
                         self.nextButton.isEnabled = true
                     }
                 }

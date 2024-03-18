@@ -243,7 +243,8 @@ extension HomeVC{
             awayTeamLogo: selectedMatch.awayTeamLogo,
             matchStadium: selectedMatch.eventStadium,
             matchDate: selectedMatch.eventDate,
-            matchTime: selectedMatch.eventTime
+            matchTime: selectedMatch.eventTime,
+            ticketStatus: "Activated"
         )
         performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
     }

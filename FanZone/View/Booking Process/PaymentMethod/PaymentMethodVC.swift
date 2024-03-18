@@ -158,6 +158,7 @@ extension PaymentMethodVC {
                     "matchStadium": selectedMatchTicketsModel.matchStadium ?? "Unknown matchStadium",
                     "matchDate": selectedMatchTicketsModel.matchDate ?? "Unknown matchDate",
                     "matchTime": selectedMatchTicketsModel.matchTime ?? "Unknown matchTime",
+                    "ticketStatus": selectedMatchTicketsModel.ticketStatus ?? "Unkown status",
                     "qrCodeURL": qrCodeURL
                 ]
 
