@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
+import Lottie
 
 class StepTwoVC: UIViewController {
     
@@ -26,8 +27,7 @@ class StepTwoVC: UIViewController {
     let db = Firestore.firestore()
     var selectedGender: String?
     var selectedSupportedTeam: String?
-    
-    var activityIndicator: UIActivityIndicatorView!
+
     var isSavingData = false
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class StepTwoVC: UIViewController {
         setUpSupportedTeamDropList()
         makeFanImageViewClickable()
         hideKeyboardWhenTappedAround()
-        setupActivityIndicator()
+        LoaderManager.shared.setUpBallLoader(in: view)
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
@@ -67,45 +67,33 @@ class StepTwoVC: UIViewController {
     }
 }
 
-extension StepTwoVC{
-    private func setupActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .white
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
-    }
-}
-
 extension StepTwoVC {
     func saveFanData() {
-        // Add a blur effect view
         let blurEffect = UIBlurEffect(style: .regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.alpha = 0.5
         view.addSubview(blurEffectView)
+
+        LoaderManager.shared.showBallLoader()
+        view.addSubview(LoaderManager.shared.ballLoader)
         
-        // Add an activity indicator
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = view.center
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        
-        // Disable the Next button
+        isSavingData = true
         nextButton.isEnabled = false
         
         guard let image = fanImage.image else {
             showAlert(title: "Error!", message: "No image selected")
-            activityIndicator.stopAnimating()
+            LoaderManager.shared.hideBallLoader()
             blurEffectView.removeFromSuperview()
+            isSavingData = false
             nextButton.isEnabled = true
             return
         }
         guard let userID = Auth.auth().currentUser?.uid else {
             showAlert(title: "Error!", message: "User not authenticated")
-            activityIndicator.stopAnimating()
+            LoaderManager.shared.hideBallLoader()
             blurEffectView.removeFromSuperview()
+            isSavingData = false
             nextButton.isEnabled = true
             return
         }
@@ -121,8 +109,9 @@ extension StepTwoVC {
             storageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if let error = error {
                     print("Error uploading image: \(error.localizedDescription)")
-                    activityIndicator.stopAnimating()
+                    LoaderManager.shared.hideBallLoader()
                     blurEffectView.removeFromSuperview()
+                    self.isSavingData = false
                     self.nextButton.isEnabled = true
                     return
                 }
@@ -133,8 +122,9 @@ extension StepTwoVC {
                         if let error = error {
                             print("Error getting download URL: \(error.localizedDescription)")
                         }
-                        activityIndicator.stopAnimating()
+                        LoaderManager.shared.hideBallLoader()
                         blurEffectView.removeFromSuperview()
+                        self.isSavingData = false
                         self.nextButton.isEnabled = true
                         return
                     }
@@ -153,7 +143,8 @@ extension StepTwoVC {
                             let stepThreeVC = StepThreeVC(nibName: "StepThreeVC", bundle: nil)
                             self.navigationController?.pushViewController(stepThreeVC, animated: true)
                         }
-                        activityIndicator.stopAnimating()
+                        LoaderManager.shared.hideBallLoader()
+                        self.isSavingData = false
                         blurEffectView.removeFromSuperview()
                         self.nextButton.isEnabled = true
                     }
@@ -184,7 +175,6 @@ extension StepTwoVC: UIImagePickerControllerDelegate, UINavigationControllerDele
             return
         }
         fanImage.image = image
-        // Save the image to Firebase Storage and Firestore (as shown in the previous example)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

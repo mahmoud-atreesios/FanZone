@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import Lottie
 
 class StepOneVC: UIViewController {
     
@@ -21,7 +22,6 @@ class StepOneVC: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
-    var activityIndicator: UIActivityIndicatorView!
     var isSavingData = false
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class StepOneVC: UIViewController {
         makeHideConfirmPasswordImageViewClickable()
         makeHidePasswordImageViewClickable()
         hideKeyboardWhenTappedAround()
-        setupActivityIndicator()
+        LoaderManager.shared.setUpBallLoader(in: view)
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
@@ -55,24 +55,16 @@ class StepOneVC: UIViewController {
 }
 
 extension StepOneVC{
-    private func setupActivityIndicator(){
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .black
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
-    }
-}
-
-extension StepOneVC{
     func createUser() {
         let blurEffect = UIBlurEffect(style: .regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.alpha = 0.5
         view.addSubview(blurEffectView)
+
+        LoaderManager.shared.showBallLoader()
+        view.addSubview(LoaderManager.shared.ballLoader)
         
-        activityIndicator.startAnimating()
         isSavingData = true
         nextButton.isEnabled = false
         
@@ -80,13 +72,13 @@ extension StepOneVC{
             if let fanEmail = fanEmail.text, let fanPassword = fanPassword.text {
                 Auth.auth().createUser(withEmail: fanEmail, password: fanPassword) { authResult, error in
                     if let e = error {
-                        self.activityIndicator.stopAnimating()
+                        LoaderManager.shared.hideBallLoader()
                         self.isSavingData = false
                         self.nextButton.isEnabled = true
                         blurEffectView.removeFromSuperview()
                         self.showAlert(title: "Error!", message: "\(e.localizedDescription)")
                     } else {
-                        self.activityIndicator.stopAnimating()
+                        LoaderManager.shared.hideBallLoader()
                         self.isSavingData = false
                         self.nextButton.isEnabled = true
                         blurEffectView.removeFromSuperview()
@@ -98,7 +90,7 @@ extension StepOneVC{
                 }
             }
         } else {
-            self.activityIndicator.stopAnimating()
+            LoaderManager.shared.hideBallLoader()
             self.isSavingData = false
             self.nextButton.isEnabled = true
             blurEffectView.removeFromSuperview()

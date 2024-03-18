@@ -127,6 +127,9 @@
 		1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CEDD9852B86458600267FAC /* BookBusVC.xib */; };
 		1CEF7C432B75CD7A00A9B824 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */; };
 		1CEF7C452B75D8C200A9B824 /* NewsWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF7C442B75D8C200A9B824 /* NewsWebVC.swift */; };
+		1CF0C1752BA8C2FB0086BCEA /* ballLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CF0C1742BA8C2FB0086BCEA /* ballLoader.json */; };
+		1CF0C1772BA8C8530086BCEA /* playerLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CF0C1762BA8C8530086BCEA /* playerLoader.json */; };
+		1CF0C1792BA8CC360086BCEA /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF0C1782BA8CC360086BCEA /* LoaderManager.swift */; };
 		48BFF7AACE64926ED10CA2C0 /* Pods_FanZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A14B6B10CCBE02FD636D77 /* Pods_FanZone.framework */; };
 		58FC1C1CD840E2A37924C5C7 /* Pods_FanZone_FanZoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4E4EEC42B525AEFC5B10C5 /* Pods_FanZone_FanZoneUITests.framework */; };
 /* End PBXBuildFile section */
@@ -238,6 +241,9 @@
 		1CEDD9852B86458600267FAC /* BookBusVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookBusVC.xib; sourceTree = "<group>"; };
 		1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		1CEF7C442B75D8C200A9B824 /* NewsWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebVC.swift; sourceTree = "<group>"; };
+		1CF0C1742BA8C2FB0086BCEA /* ballLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ballLoader.json; sourceTree = "<group>"; };
+		1CF0C1762BA8C8530086BCEA /* playerLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = playerLoader.json; sourceTree = "<group>"; };
+		1CF0C1782BA8CC360086BCEA /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		3250A38F9D99E298DFC3E181 /* Pods_FanZoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanZoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A14B6B10CCBE02FD636D77 /* Pods_FanZone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanZone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9997ED6EDF22341820170BE0 /* Pods-FanZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanZone.release.xcconfig"; path = "Target Support Files/Pods-FanZone/Pods-FanZone.release.xcconfig"; sourceTree = "<group>"; };
@@ -625,6 +631,8 @@
 				1C7C657A2B6AD3E000A64EDD /* Assets.xcassets */,
 				1C8C30C52B97AC5C00D9E08D /* Animation - 1709667478219.json */,
 				1C8C30C72B97B17B00D9E08D /* congrats.json */,
+				1CF0C1742BA8C2FB0086BCEA /* ballLoader.json */,
+				1CF0C1762BA8C8530086BCEA /* playerLoader.json */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -681,6 +689,7 @@
 			children = (
 				1CC2F3892B7EB8E4006FFB77 /* RadioButton.swift */,
 				1C1921DB2B84022900B6DE44 /* Alert.swift */,
+				1CF0C1782BA8CC360086BCEA /* LoaderManager.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -936,6 +945,7 @@
 				1C7C657E2B6AD3E000A64EDD /* LaunchScreen.storyboard in Resources */,
 				1CE729AB2B88C05600F970DF /* TripDetailsVC.xib in Resources */,
 				1C7D57442B975BBF00AA6618 /* StepThreeVC.xib in Resources */,
+				1CF0C1752BA8C2FB0086BCEA /* ballLoader.json in Resources */,
 				1CEDD9872B86458600267FAC /* BookBusVC.xib in Resources */,
 				1CABEAE52B8B41E5001DB682 /* AddMemberVC.xib in Resources */,
 				1C35C3972BA243D200BC4E06 /* MatchTicketDetailsVC.xib in Resources */,
@@ -946,6 +956,7 @@
 				1CABEADD2B8B299B001DB682 /* FamilyMembersVC.xib in Resources */,
 				1C7C657B2B6AD3E000A64EDD /* Assets.xcassets in Resources */,
 				1C7C65792B6AD3DE00A64EDD /* Main.storyboard in Resources */,
+				1CF0C1772BA8C8530086BCEA /* playerLoader.json in Resources */,
 				1C20DA862B7DABFD00936E0E /* CategorySelectionTableViewCell.xib in Resources */,
 				1C336E802B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib in Resources */,
 				1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */,
@@ -1117,6 +1128,7 @@
 				1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */,
 				1C20DA802B7DA64100936E0E /* DepartmnetSelectionTableViewCell.swift in Sources */,
 				1CEF7C452B75D8C200A9B824 /* NewsWebVC.swift in Sources */,
+				1CF0C1792BA8CC360086BCEA /* LoaderManager.swift in Sources */,
 				1CAE5B7C2B707F03008431D0 /* ApiManager.swift in Sources */,
 				1C32CFE62B98DF2E00815AED /* MatchTicketsVC.swift in Sources */,
 				1CCBA4C52B76C0AA0079C049 /* HighlightsModel.swift in Sources */,

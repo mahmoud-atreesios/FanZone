@@ -26,7 +26,7 @@ class StepThreeVC: UIViewController {
         // Do any additional setup after loading the view.
         setUp()
         hideKeyboardWhenTappedAround()
-        setupActivityIndicator()
+        LoaderManager.shared.setUpBallLoader(in: view)
     }
     
     @IBAction func addSsnImageButtonPressed(_ sender: UIButton) {
@@ -42,16 +42,6 @@ class StepThreeVC: UIViewController {
     }
 }
 
-extension StepThreeVC{
-    private func setupActivityIndicator(){
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .black
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
-    }
-}
-
 extension StepThreeVC {
     func saveMoreDataToFanCollection() {
         let blurEffect = UIBlurEffect(style: .regular)
@@ -59,17 +49,15 @@ extension StepThreeVC {
         blurEffectView.frame = view.bounds
         blurEffectView.alpha = 0.5
         view.addSubview(blurEffectView)
-        
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = view.center
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
+
+        LoaderManager.shared.showBallLoader()
+        view.addSubview(LoaderManager.shared.ballLoader)
         
         registerButton.isEnabled = false
         
         guard let image = fanSsnImage.image else {
             print("No image selected")
-            activityIndicator.stopAnimating()
+            LoaderManager.shared.hideBallLoader()
             isSavingData = false
             registerButton.isEnabled = true
             blurEffectView.removeFromSuperview()
@@ -78,7 +66,7 @@ extension StepThreeVC {
         
         guard let userID = Auth.auth().currentUser?.uid else {
             print("User not authenticated")
-            activityIndicator.stopAnimating()
+            LoaderManager.shared.hideBallLoader()
             isSavingData = false
             registerButton.isEnabled = true
             blurEffectView.removeFromSuperview()
@@ -93,7 +81,7 @@ extension StepThreeVC {
             storageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if let error = error {
                     print("Error uploading image: \(error.localizedDescription)")
-                    activityIndicator.stopAnimating()
+                    LoaderManager.shared.hideBallLoader()
                     self.isSavingData = false
                     self.registerButton.isEnabled = true
                     blurEffectView.removeFromSuperview()
@@ -106,7 +94,7 @@ extension StepThreeVC {
                         if let error = error {
                             print("Error getting download URL: \(error.localizedDescription)")
                         }
-                        activityIndicator.stopAnimating()
+                        LoaderManager.shared.hideBallLoader()
                         self.isSavingData = false
                         self.registerButton.isEnabled = true
                         blurEffectView.removeFromSuperview()
@@ -124,7 +112,7 @@ extension StepThreeVC {
                             let registrationDoneVC = RegisterationDoneVC(nibName: "RegisterationDoneVC", bundle: nil) 
                             self.navigationController?.pushViewController(registrationDoneVC, animated: true)
                         }
-                        activityIndicator.stopAnimating()
+                        LoaderManager.shared.hideBallLoader()
                         self.isSavingData = false
                         self.registerButton.isEnabled = true
                         blurEffectView.removeFromSuperview()
@@ -134,79 +122,6 @@ extension StepThreeVC {
         }
     }
 }
-
-
-//extension StepThreeVC{
-//    func saveMoreDataToFanCollection(){
-//        activityIndicator.startAnimating()
-//        isSavingData = true
-//        registerButton.isEnabled = false
-//
-//        guard let image = fanSsnImage.image else {
-//            print("No image selected")
-//            self.activityIndicator.stopAnimating()
-//            self.isSavingData = false
-//            registerButton.isEnabled = true
-//            return
-//        }
-//
-//        guard let userID = Auth.auth().currentUser?.uid else {
-//            print("User not authenticated")
-//            self.activityIndicator.stopAnimating()
-//            self.isSavingData = false
-//            registerButton.isEnabled = true
-//            return
-//        }
-//
-//        let imageName = UUID().uuidString
-//        let storageRef = Storage.storage().reference().child("images/\(imageName).jpg")
-//
-//        if let imageData = image.jpegData(compressionQuality: 0.5) {
-//            // Upload the image data to Firebase Storage
-//            storageRef.putData(imageData, metadata: nil) { (metadata, error) in
-//                if let error = error {
-//                    print("Error uploading image: \(error.localizedDescription)")
-//                    self.activityIndicator.stopAnimating()
-//                    self.isSavingData = false
-//                    self.registerButton.isEnabled = true
-//                    return
-//                }
-//
-//                // Image uploaded successfully, now save the download URL in Firestore
-//                storageRef.downloadURL { (url, error) in
-//                    guard let downloadURL = url else {
-//                        if let error = error {
-//                            self.activityIndicator.stopAnimating()
-//                            self.isSavingData = false
-//                            self.registerButton.isEnabled = true
-//                            print("Error getting download URL: \(error.localizedDescription)")
-//                        }
-//                        return
-//                    }
-//
-//                    self.db.collection("Fan").document(userID).updateData([
-//                        "passportID": self.optionalFanPassportId.text ?? "",
-//                        "SSNimage": downloadURL.absoluteString
-//                    ]) { error in
-//                        if let error = error {
-//                            self.activityIndicator.stopAnimating()
-//                            self.isSavingData = false
-//                            self.registerButton.isEnabled = true
-//                            print("Error updating document: \(error.localizedDescription)")
-//                        } else {
-//                            self.activityIndicator.stopAnimating()
-//                            self.isSavingData = false
-//
-//                            let RegisterationDoneVC = RegisterationDoneVC(nibName: "RegisterationDoneVC", bundle: nil)
-//                            self.navigationController?.pushViewController(RegisterationDoneVC, animated: true)
-//                        }
-//                        self.registerButton.isEnabled = true
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
 
 extension StepThreeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
