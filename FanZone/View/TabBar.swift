@@ -48,13 +48,14 @@ class TabBar: UITabBarController {
                     if let document = document, document.exists {
                         let data = document.data()
                         
-                        if let fanImageURL = data?["fanImageURL"] as? String {
+                        if let fanImageURL = data?["fanImageURL"] as? String , let fanName = data?["fullname"] as? String{
+                            let firstName = fanName.components(separatedBy: " ").first ?? ""
                             DispatchQueue.global().async {
                                 SDWebImageManager.shared.loadImage(with: URL(string: fanImageURL), options: [], progress: nil) { (image, _, _, _, _, _) in
                                     if let fanImage = image {
                                         DispatchQueue.main.async {
                                             let resizedImage = self.resizeImageAndRoundCorners(fanImage, targetSize: CGSize(width: 30, height: 30))
-                                            let tabBarItem = UITabBarItem(title: "Profile", image: resizedImage.withRenderingMode(.alwaysOriginal), selectedImage: resizedImage.withRenderingMode(.alwaysOriginal))
+                                            let tabBarItem = UITabBarItem(title: firstName, image: resizedImage.withRenderingMode(.alwaysOriginal), selectedImage: resizedImage.withRenderingMode(.alwaysOriginal))
                                             profileNavController.tabBarItem = tabBarItem
                                         }
                                     }

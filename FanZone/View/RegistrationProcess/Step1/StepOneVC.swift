@@ -94,8 +94,8 @@ extension StepOneVC{
             self.isSavingData = false
             self.nextButton.isEnabled = true
             blurEffectView.removeFromSuperview()
-            showAlert(title: "Error!", message: "Password and Confirm Password doesn't Match")
             self.view.isUserInteractionEnabled = true
+            showAlert(title: "Error!", message: "Password and Confirm Password doesn't Match")
         }
     }
 }

@@ -33,11 +33,11 @@ class ViewModel{
             .disposed(by: disposeBag)
     }
     
-    func clearUpcomingFixtures() {
+    func clearUpcomingFixtures(){
         self.upcomingFixeturesResult.accept([])
     }
     
-    func getTrendingNewsData() {
+    func getTrendingNewsData(){
         ApiClient.shared().fetchDataFromAPI(modelType: [TrendingNewsModel].self, url: URL(string: Constants.links.trendingNewsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
             switch result {
             case .success(let newsModels):
@@ -50,7 +50,7 @@ class ViewModel{
         print("Fetch data from API called")
     }
     
-    func getNewsData() {
+    func getNewsData(){
         ApiClient.shared().fetchDataFromAPI(modelType: [NewsModel].self, url: URL(string: Constants.links.newsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
             switch result {
             case .success(let newsModels):

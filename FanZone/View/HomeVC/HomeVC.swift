@@ -22,7 +22,7 @@ class HomeVC: UIViewController {
     var leagueID: String?
         
     var arr = ["PL","laliga","EPL2","BL","SA","CL"]
-    var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"3"]
+    var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"390"]
     
     let plStadArray = Constants.links.plStadArray
     let laligaStadArray = Constants.links.laligaStadArray
@@ -162,8 +162,44 @@ extension HomeVC{
                 cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
                 cell.contentView.layer.cornerRadius = 10.0
                 cell.contentView.layer.masksToBounds = true
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(_:)))
+                cell.addGestureRecognizer(tapGesture)
+                cell.isUserInteractionEnabled = true
+                
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc func cellTapped(_ sender: UITapGestureRecognizer) {
+        guard let cell = sender.view as? PopularCollectionViewCell else { return }
+        guard let indexPath = popularMatchesCollectionView.indexPath(for: cell) else { return }
+
+        let filteredMatches = viewModel.upcomingFixeturesResult.value.filter { shouldDisplayCell($0) }
+        let sortedMatches = filteredMatches.sorted { (result1, result2) in
+            if let date1 = self.getDatePrepareForComparison(from: result1.eventDate),
+               let date2 = self.getDatePrepareForComparison(from: result2.eventDate) {
+                return date1 < date2
+            }
+            return false
+        }
+        let selectedMatch = sortedMatches[indexPath.row]
+
+        print("***********Tapped IndexPath:", indexPath)
+        print("=========Selected Match:", selectedMatch)
+
+        MatchTicketsManager.shared.selectedMatchTicketsModel = MatchTicketsModel(
+            leagueName: selectedMatch.leagueName,
+            leagueRound: selectedMatch.leagueRound.rawValue,
+            departmentName: "Cat3-left",
+            homeTeamLogo: selectedMatch.homeTeamLogo,
+            awayTeamLogo: selectedMatch.awayTeamLogo,
+            matchStadium: selectedMatch.eventStadium,
+            matchDate: selectedMatch.eventDate,
+            matchTime: selectedMatch.eventTime,
+            ticketStatus: "Activated"
+        )
+        performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
     }
     
     func shouldDisplayCell(_ result: UpcomingFixetures) -> Bool{
@@ -210,7 +246,7 @@ extension HomeVC{
                 cell.matchTime.text = result.eventTime
                 cell.stadName.text = result.eventStadium
                 
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(_:)))
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.upcomingCellTapped(_:)))
                 cell.addGestureRecognizer(tapGesture)
                 cell.isUserInteractionEnabled = true
                 
@@ -218,7 +254,7 @@ extension HomeVC{
             .disposed(by: disposeBag)
     }
     
-    @objc func cellTapped(_ sender: UITapGestureRecognizer) {
+    @objc func upcomingCellTapped(_ sender: UITapGestureRecognizer) {
         guard let cell = sender.view as? UpcomingMatchesTableViewCell else { return }
         guard let indexPath = upcomingMatchesTableView.indexPath(for: cell) else { return }
         
@@ -248,8 +284,6 @@ extension HomeVC{
         )
         performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
     }
-
-
 }
 
 // MARK: - Date Managment

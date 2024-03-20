@@ -26,7 +26,6 @@ class NewsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         NavBar.applyCustomNavBar(to: self)
         newsTableView.isScrollEnabled = false
@@ -43,20 +42,29 @@ class NewsVC: UIViewController {
 }
 
 extension NewsVC{
-    
     func bindTrendingCollectionViewToViewModel(){
-        
-        viewModel.newsDataResult
+
+        viewModel.trendingNewsDataResult
             .map { result in
                 // Filter and take the first 5 elements
-                return result.suffix(5)
+                return result.prefix(5)
+            }
+            .catch { error in
+                let alert = UIAlertController(title: "Error", message: "Failed to fetch news data. Would you like to retry?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                    self.viewModel.getNewsData() // Retry the API call
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return Observable.just([])
             }
             .bind(to: trendingCollectionView.rx.items(cellIdentifier: "trendCell", cellType: TrendingCollectionViewCell.self)) { row, result, cell in
-                
+
                 cell.trendImageView.sd_setImage(with: URL(string: result.img ?? "PL"))
                 //cell.newsLabel.text = newsResult.modifiedTitle
                 cell.newsLabel.text = result.title
-                
+
                 //Cell UI
                 cell.contentView.layer.borderWidth = 1.0
                 cell.contentView.layer.cornerRadius = 10.0
@@ -64,45 +72,32 @@ extension NewsVC{
             }
             .disposed(by: disposeBag)
     }
-    
-//    func bindTrendingCollectionViewToViewModel(){
-//
-//        viewModel.trendingNewsDataResult
-//            .map { result in
-//                // Filter and take the first 5 elements
-//                return result.prefix(5)
-//            }
-//            .bind(to: trendingCollectionView.rx.items(cellIdentifier: "trendCell", cellType: TrendingCollectionViewCell.self)) { row, result, cell in
-//
-//                cell.trendImageView.sd_setImage(with: URL(string: result.img ?? "PL"))
-//                //cell.newsLabel.text = newsResult.modifiedTitle
-//                cell.newsLabel.text = result.title
-//
-//                //Cell UI
-//                cell.contentView.layer.borderWidth = 1.0
-//                cell.contentView.layer.cornerRadius = 10.0
-//                cell.contentView.layer.masksToBounds = true
-//            }
-//            .disposed(by: disposeBag)
-//    }
 }
 
 extension NewsVC{
     
     func bindNewsTableViewToViewModel(){
         viewModel.newsDataResult
+            .catch { error in
+                let alert = UIAlertController(title: "Error", message: "Failed to fetch news data. Would you like to retry?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                    self.viewModel.getNewsData() // Retry the API call
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return Observable.just([])
+            }
             .bind(to: newsTableView.rx.items(cellIdentifier: "newsCell", cellType: NewsTableViewCell.self)){row,result,cell in
                 
                 cell.newsImageView.sd_setImage(with: URL(string: result.img ?? "PL"))
                 cell.newsTitle.text = result.title
                 
-                // Add tap gesture recognizer to each cell
                 let tapGesture = UITapGestureRecognizer()
                 cell.addGestureRecognizer(tapGesture)
                 
                 tapGesture.rx.event
                     .bind { tapped in
-                        //guard let self = self else { return }
                         self.performSegue(withIdentifier: "ShowWebPageSegue", sender: result)
                     }
                     .disposed(by: self.disposeBag)
@@ -142,7 +137,6 @@ extension NewsVC{
         // Schedule a timer to change the page
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
         
-        //Page Control UI
         pageControl.layer.cornerRadius = 10.0
         pageControl.layer.masksToBounds = true
     }

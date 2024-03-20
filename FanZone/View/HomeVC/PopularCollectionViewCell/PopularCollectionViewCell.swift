@@ -18,12 +18,15 @@ class PopularCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var matchTime: UILabel!
     @IBOutlet weak var stadiumName: UILabel!
     
-    @IBOutlet weak var getTicketButton: UIButton!
+    
+    @IBOutlet weak var getTicketLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        getTicketButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
+        getTicketLabel.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
+        getTicketLabel.layer.cornerRadius = 5.0
+        getTicketLabel.layer.masksToBounds = true
     }
 
     var parentViewController: UIViewController? {
@@ -35,11 +38,5 @@ class PopularCollectionViewCell: UICollectionViewCell {
             parentResponder = responder.next
         }
         return nil
-    }
-    
-    @IBAction func getTicketButtonPressed(_ sender: UIButton) {
-        if let parentVC = parentViewController {
-            parentVC.performSegue(withIdentifier: "ShowBookingSegue", sender: nil)
-        }
     }
 }

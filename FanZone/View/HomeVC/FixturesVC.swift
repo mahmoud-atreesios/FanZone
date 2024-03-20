@@ -81,6 +81,31 @@ extension FixturesVC{
         guard let cell = sender.view as? UpcomingMatchesTableViewCell else { return }
         guard let indexPath = fixturesTableView.indexPath(for: cell) else { return }
         
+        // Use the sorted upcomingFixeturesResult to get the selected match
+        let sortedMatches = upcomingFixtures.value.sorted { (result1, result2) in
+            if let date1 = self.getDatePrepareForComparison(from: result1.eventDate),
+               let date2 = self.getDatePrepareForComparison(from: result2.eventDate) {
+                return date1 < date2
+            }
+            return false
+        }
+        let selectedMatch = sortedMatches[indexPath.row]
+        
+        print("***********Tapped IndexPath:", indexPath)
+        print("=========Selected Match:", selectedMatch)
+        
+        MatchTicketsManager.shared.selectedMatchTicketsModel = MatchTicketsModel(
+            leagueName: selectedMatch.leagueName,
+            leagueRound: selectedMatch.leagueRound.rawValue,
+            departmentName: "Cat3-left",
+            homeTeamLogo: selectedMatch.homeTeamLogo,
+            awayTeamLogo: selectedMatch.awayTeamLogo,
+            matchStadium: selectedMatch.eventStadium,
+            matchDate: selectedMatch.eventDate,
+            matchTime: selectedMatch.eventTime,
+            ticketStatus: "Activated"
+        )
+        
         performSegue(withIdentifier: "ShowBookingSegueFromFixtures", sender: indexPath)
     }
     

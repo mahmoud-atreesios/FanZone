@@ -137,34 +137,26 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-9L-JbG">
-                        <rect key="frame" x="137.33333333333334" y="189.33333333333334" width="67.666666666666657" height="24.333333333333343"/>
-                        <color key="tintColor" systemColor="tintColor"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="filled">
-                            <attributedString key="attributedTitle">
-                                <fragment content="Get Ticket">
-                                    <attributes>
-                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <font key="NSFont" size="9" name="Arial-BoldMT"/>
-                                        <font key="NSOriginalFont" metaFont="systemBold" size="10"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                        </buttonConfiguration>
-                        <connections>
-                            <action selector="getTicketButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qvq-qG-KS8"/>
-                        </connections>
-                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Ticket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4O-64-ocb">
+                        <rect key="frame" x="151" y="191" width="61" height="21"/>
+                        <color key="backgroundColor" red="0.19215688110000001" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="61" id="Dmc-me-t6g"/>
+                            <constraint firstAttribute="height" constant="21" id="b9B-tP-d4K"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="A4O-64-ocb" secondAttribute="bottom" constant="8" id="2Bf-cy-SOe"/>
                 <constraint firstItem="V4s-qO-766" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3KI-Je-rgt"/>
                 <constraint firstAttribute="bottom" secondItem="ojF-mE-R8p" secondAttribute="bottom" constant="6.6699999999999999" id="3iW-oV-MTp"/>
-                <constraint firstItem="SW3-9L-JbG" firstAttribute="top" secondItem="V4s-qO-766" secondAttribute="bottom" constant="5" id="3ve-Ev-l4k"/>
+                <constraint firstItem="A4O-64-ocb" firstAttribute="top" secondItem="V4s-qO-766" secondAttribute="bottom" constant="6.6699999999999999" id="8Sc-P6-zi6"/>
                 <constraint firstItem="v2J-k7-JIR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8f9-qg-Trp"/>
                 <constraint firstAttribute="trailing" secondItem="KM3-Rh-EGH" secondAttribute="trailing" id="Ed8-F0-Nik"/>
                 <constraint firstItem="6lP-rI-goZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="H0M-h8-Hwo"/>
@@ -173,7 +165,6 @@
                 <constraint firstItem="V4s-qO-766" firstAttribute="top" secondItem="KM3-Rh-EGH" secondAttribute="bottom" constant="5" id="NDu-Ax-dxF"/>
                 <constraint firstItem="v2J-k7-JIR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="O5L-ek-29g"/>
                 <constraint firstAttribute="trailing" secondItem="V4s-qO-766" secondAttribute="trailing" id="S3G-qj-uJW"/>
-                <constraint firstAttribute="trailing" secondItem="SW3-9L-JbG" secondAttribute="trailing" constant="15" id="SR4-An-DIL"/>
                 <constraint firstItem="KM3-Rh-EGH" firstAttribute="top" secondItem="6lP-rI-goZ" secondAttribute="bottom" constant="5" id="VBU-4e-enn"/>
                 <constraint firstItem="yj3-bL-KLX" firstAttribute="leading" secondItem="QgI-t1-gqa" secondAttribute="trailing" constant="5" id="VL0-CH-Sf1"/>
                 <constraint firstItem="yj3-bL-KLX" firstAttribute="top" secondItem="v2J-k7-JIR" secondAttribute="bottom" constant="5" id="Xye-MP-vc4"/>
@@ -182,13 +173,13 @@
                 <constraint firstItem="QgI-t1-gqa" firstAttribute="top" secondItem="v2J-k7-JIR" secondAttribute="bottom" constant="5" id="h9G-hT-pkt"/>
                 <constraint firstItem="KM3-Rh-EGH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="jOr-Sd-eXi"/>
                 <constraint firstItem="QgI-t1-gqa" firstAttribute="leading" secondItem="6lP-rI-goZ" secondAttribute="trailing" constant="5" id="k1H-qq-kRq"/>
-                <constraint firstAttribute="bottom" secondItem="SW3-9L-JbG" secondAttribute="bottom" constant="6.3300000000000001" id="l4f-et-kTc"/>
                 <constraint firstAttribute="trailing" secondItem="v2J-k7-JIR" secondAttribute="trailing" id="lQp-bJ-v2A"/>
+                <constraint firstAttribute="trailing" secondItem="A4O-64-ocb" secondAttribute="trailing" constant="8" id="vSq-Kl-sqc"/>
                 <constraint firstItem="KM3-Rh-EGH" firstAttribute="top" secondItem="yj3-bL-KLX" secondAttribute="bottom" constant="5" id="zYu-xX-tD5"/>
             </constraints>
             <connections>
                 <outlet property="awayTeam" destination="yj3-bL-KLX" id="hfe-Ey-aoj"/>
-                <outlet property="getTicketButton" destination="SW3-9L-JbG" id="mLy-zK-8wP"/>
+                <outlet property="getTicketLabel" destination="A4O-64-ocb" id="NNB-uR-PSf"/>
                 <outlet property="homeTeam" destination="6lP-rI-goZ" id="z6f-zy-sP0"/>
                 <outlet property="matchDate" destination="oUj-GJ-c4X" id="Z1i-Iw-8kc"/>
                 <outlet property="matchTime" destination="g9G-fl-vpI" id="RAR-h6-Yq3"/>
@@ -208,9 +199,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
