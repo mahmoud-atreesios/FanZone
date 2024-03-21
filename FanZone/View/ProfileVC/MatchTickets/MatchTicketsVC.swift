@@ -83,6 +83,11 @@ extension MatchTicketsVC {
         guard let indexPath = matchTicketsTableView.indexPath(for: cell) else { return }
         let ticket = tickets[indexPath.row]
         
+        guard let ticketStatus = ticket["ticketStatus"] as? String, ticketStatus != "Refunded" else {
+            // Ticket status is "refunded", do nothing
+            return
+        }
+        
         let matchTicketDetailsVC = MatchTicketDetailsVC(nibName: "MatchTicketDetailsVC", bundle: nil)
         matchTicketDetailsVC.loadViewIfNeeded() // Ensure the view is loaded
         matchTicketDetailsVC.leagueName.text = ticket["leagueName"] as? String
@@ -120,6 +125,23 @@ extension MatchTicketsVC {
                             var data = document.data()
                             data["documentID"] = document.documentID
                             return data
+                        }
+                        // Sort tickets based on ticket status
+                        self.tickets.sort { (ticket1, ticket2) -> Bool in
+                            guard let status1 = ticket1["ticketStatus"] as? String,
+                                  let status2 = ticket2["ticketStatus"] as? String else {
+                                return false
+                            }
+                            // Define order based on status: Activated -> Refunded -> Expired
+                            if status1 == "Activated" {
+                                return true
+                            } else if status1 == "Refunded" && status2 != "Activated" {
+                                return true
+                            } else if status1 == "Expired" && status2 != "Activated" && status2 != "Refunded" {
+                                return true
+                            } else {
+                                return false
+                            }
                         }
                         DispatchQueue.main.async {
                             self.matchTicketsTableView.reloadData()

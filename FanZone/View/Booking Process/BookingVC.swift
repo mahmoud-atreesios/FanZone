@@ -10,6 +10,7 @@ import CTPanoramaView
 import RxSwift
 import RxCocoa
 import iOSDropDown
+import Firebase
 
 class BookingVC: UIViewController{
     
@@ -91,6 +92,11 @@ extension BookingVC{
     
     @objc func bookingButtonTapped() {
         //print(numberOfSelectedTickets.value)
+        guard Auth.auth().currentUser != nil else {
+            showAlert(title: "OOPS!", message: "You have to sign in first to be able to book a ticket.")
+            return
+        }
+        
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
         paymentMethodVC.totalPrice = totalPrice

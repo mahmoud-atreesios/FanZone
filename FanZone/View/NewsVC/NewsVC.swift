@@ -147,6 +147,18 @@ extension NewsVC{
     }
     
     @objc func scrollToNextPage(){
+        guard trendingCollectionView.numberOfItems(inSection: 0) > 0 else {
+            // No items in the collection view, show alert and return
+            let alert = UIAlertController(title: "No Data", message: "There are no items to display.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+            // Retry the API call
+            viewModel.getNewsData()
+            
+            return
+        }
+        
         // Calculate the next page index
         let nextPage = (currentIndex + 1) % pageControl.numberOfPages
         

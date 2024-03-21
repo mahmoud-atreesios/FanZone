@@ -30,10 +30,24 @@ class StepThreeVC: UIViewController {
     }
     
     @IBAction func addSsnImageButtonPressed(_ sender: UIButton) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let choosePhotoAction = UIAlertAction(title: "Choose Photo", style: .default) { (_) in
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }
+        alertController.addAction(choosePhotoAction)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { (_) in
+                self.showImagePickerController(sourceType: .camera)
+            }
+            alertController.addAction(takePhotoAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -135,6 +149,13 @@ extension StepThreeVC: UIImagePickerControllerDelegate, UINavigationControllerDe
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
     }
 }
 

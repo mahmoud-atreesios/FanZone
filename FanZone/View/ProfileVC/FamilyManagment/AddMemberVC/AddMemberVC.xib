@@ -125,6 +125,9 @@
                                     <buttonConfiguration key="configuration" style="filled" title="Add Member">
                                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="addMemberButtonPressed:" destination="-1" eventType="touchUpInside" id="8js-Gy-dgf"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -164,8 +164,29 @@ extension StepTwoVC: UIImagePickerControllerDelegate, UINavigationControllerDele
     @objc func imageViewTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true, completion: nil)
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let choosePhotoAction = UIAlertAction(title: "Choose Photo", style: .default) { (_) in
+                imagePickerController.sourceType = .photoLibrary
+                self.present(imagePickerController, animated: true, completion: nil)
+            }
+            alertController.addAction(choosePhotoAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { (_) in
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }
+            alertController.addAction(takePhotoAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
