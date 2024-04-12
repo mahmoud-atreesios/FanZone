@@ -60,7 +60,7 @@ extension BookBusVC{
     func setUpStationDropList(){
         
         busStationDropList.isSearchEnable = false
-        busStationDropList.optionArray = ["Haram","Zayed","Ain Shams","Alexandria"]
+        busStationDropList.optionArray = ["Ain Shames","Tahrir Square","Haram","Alexandria","5th settlement","Giza"]
         busStationDropList.itemsTintColor = .black
         
         // The the Closure returns Selected Index and String
@@ -73,7 +73,7 @@ extension BookBusVC{
     func setUpStadiumDropList(){
         
         stadiumDestinationDropList.isSearchEnable = false
-        stadiumDestinationDropList.optionArray = ["Cairo Stadium","Old Trafford","Elithad","San Siro"]
+        stadiumDestinationDropList.optionArray = ["We Salam Stad","Ismalia Stadium","Cairo Stadium","Alexandria Stadium","Borg El Arab Stad"]
         stadiumDestinationDropList.itemsTintColor = .black
         
         // The the Closure returns Selected Index and String

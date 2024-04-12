@@ -16,6 +16,8 @@ class MatchTicketsVC: UIViewController {
     
     @IBOutlet weak var matchTicketsTableView: UITableView!
     
+    var noMatchesImageView: UIImageView!
+    
     private let db = Firestore.firestore()
     var tickets: [[String: Any]] = []
     
@@ -25,8 +27,8 @@ class MatchTicketsVC: UIViewController {
         matchTicketsTableView.register(UINib(nibName: "MatchTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "matchTicketCell")
         matchTicketsTableView.delegate = self
         matchTicketsTableView.dataSource = self
-        
         fetchMatchTickets()
+        //setFirstScreen()
     }
 }
 
@@ -87,6 +89,10 @@ extension MatchTicketsVC {
             // Ticket status is "refunded", do nothing
             return
         }
+        guard let ticketStatus = ticket["ticketStatus"] as? String, ticketStatus != "Expired" else {
+            // Ticket status is "refunded", do nothing
+            return
+        }
         
         let matchTicketDetailsVC = MatchTicketDetailsVC(nibName: "MatchTicketDetailsVC", bundle: nil)
         matchTicketDetailsVC.loadViewIfNeeded() // Ensure the view is loaded
@@ -135,9 +141,9 @@ extension MatchTicketsVC {
                             // Define order based on status: Activated -> Refunded -> Expired
                             if status1 == "Activated" {
                                 return true
-                            } else if status1 == "Refunded" && status2 != "Activated" {
+                            } else if status1 == "Expired" && status2 != "Activated" {
                                 return true
-                            } else if status1 == "Expired" && status2 != "Activated" && status2 != "Refunded" {
+                            } else if status1 == "Refunded" && status2 != "Activated" && status2 != "Expired" {
                                 return true
                             } else {
                                 return false
@@ -152,8 +158,23 @@ extension MatchTicketsVC {
     }
 }
 
-
 extension MatchTicketsVC{
+    
+    func setFirstScreen(){
+        if tickets.isEmpty {
+            // Create and configure the "no matches" image view
+            noMatchesImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200)) // Adjust the frame according to your layout
+            noMatchesImageView.image = UIImage(named: "nomatches")
+            noMatchesImageView.contentMode = .scaleAspectFit // Adjust the content mode according to your image aspect ratio
+            noMatchesImageView.center = view.center
+            view.addSubview(noMatchesImageView)
+        } else {
+            // Remove the "no matches" image view if tickets are available
+            noMatchesImageView?.removeFromSuperview()
+            noMatchesImageView = nil
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true

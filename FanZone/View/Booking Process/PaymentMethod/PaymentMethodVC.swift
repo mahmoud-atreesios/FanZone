@@ -165,7 +165,7 @@ extension PaymentMethodVC {
                 // Set data to Firestore
                 ticketRef.setData(data) { error in
                     if let e = error {
-                        print("Error adding document: \(e.localizedDescription)")
+                        print("+++++++++++++++++++++++++++++++++++++++ Error adding document: \(e.localizedDescription)")
                     } else {
                         print("Match Ticket with QR Code Saved successfully")
                     }

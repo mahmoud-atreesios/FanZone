@@ -21,16 +21,6 @@ class TripsVC: UIViewController {
         availableTripsTableView.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
-    
 }
 
 extension TripsVC: UITableViewDelegate, UITableViewDataSource{
@@ -48,5 +38,18 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
         tripDetailsVC.modalPresentationStyle = .fullScreen
         present(tripDetailsVC, animated: true)
         //navigationController?.pushViewController(tripDetailsVC, animated: true)
+    }
+}
+
+
+extension TripsVC{
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
 }
