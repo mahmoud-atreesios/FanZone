@@ -156,7 +156,7 @@ extension PaymentMethodVC {
                     if let e = error {
                         print("+++++++++++++++++++++++++++++++++++++++ Error adding document: \(e.localizedDescription)")
                     } else {
-                        print("Match Ticket with QR Code Saved successfully")
+                        print("Bus Ticket Saved successfully")
                     }
                 }
             }
