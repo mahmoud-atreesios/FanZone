@@ -65,6 +65,8 @@
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
 		1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* BusTicketsVC.swift */; };
+		1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */; };
+		1C4BA0F82BC9EF66000AA477 /* BusTicketsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */; };
 		1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D3BF22B7C699500623370 /* BookingVC.swift */; };
 		1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C606A592B817BFB00CD0259 /* cellData.swift */; };
 		1C606A5D2B81814A00CD0259 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 1C606A5C2B81814A00CD0259 /* iOSDropDown */; };
@@ -177,6 +179,8 @@
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		1C4968472B86B50700168784 /* BusTicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsVC.swift; sourceTree = "<group>"; };
+		1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsModel.swift; sourceTree = "<group>"; };
+		1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsManager.swift; sourceTree = "<group>"; };
 		1C5D3BF22B7C699500623370 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		1C606A592B817BFB00CD0259 /* cellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellData.swift; sourceTree = "<group>"; };
 		1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -417,6 +421,24 @@
 			path = NewsVC;
 			sourceTree = "<group>";
 		};
+		1C4BA0F22BC9EF1A000AA477 /* MatchTicket */ = {
+			isa = PBXGroup;
+			children = (
+				1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */,
+				1CE96B032B9E577C004199E6 /* MatchTicketsManager.swift */,
+			);
+			path = MatchTicket;
+			sourceTree = "<group>";
+		};
+		1C4BA0F32BC9EF22000AA477 /* BusTicket */ = {
+			isa = PBXGroup;
+			children = (
+				1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */,
+				1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */,
+			);
+			path = BusTicket;
+			sourceTree = "<group>";
+		};
 		1C61445A2B72D783009424EA /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,13 +528,13 @@
 		1C7C65A12B6C18B900A64EDD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C4BA0F32BC9EF22000AA477 /* BusTicket */,
+				1C4BA0F22BC9EF1A000AA477 /* MatchTicket */,
 				1CAE5B7B2B707F03008431D0 /* ApiManager.swift */,
 				1CAE5B7D2B708018008431D0 /* UpcomingFixeturesModel.swift */,
 				1C6144642B7336DE009424EA /* TrendingNewsModel.swift */,
 				1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */,
 				1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */,
-				1C336E812B98FE9200BE4D1E /* MatchTicketsModel.swift */,
-				1CE96B032B9E577C004199E6 /* MatchTicketsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1106,6 +1128,7 @@
 				1C7C65762B6AD3DE00A64EDD /* HomeVC.swift in Sources */,
 				1CAE5B7E2B708018008431D0 /* UpcomingFixeturesModel.swift in Sources */,
 				1C015CCB2B6CA35100988E7D /* ViewModel.swift in Sources */,
+				1C4BA0F82BC9EF66000AA477 /* BusTicketsManager.swift in Sources */,
 				1C7D573F2B975BAF00AA6618 /* StepTwoVC.swift in Sources */,
 				1C7CBC422B878E4C008AF14C /* TripsVC.swift in Sources */,
 				1C7D574A2B97848700AA6618 /* RegisterationDoneVC.swift in Sources */,
@@ -1143,6 +1166,7 @@
 				1C6144622B7318F4009424EA /* TrendingCollectionViewCell.swift in Sources */,
 				1C7C65742B6AD3DE00A64EDD /* SceneDelegate.swift in Sources */,
 				1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */,
+				1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */,
 				1C7C65A92B6C38C200A64EDD /* NewsVC.swift in Sources */,
 				1CABEAE42B8B41E5001DB682 /* AddMemberVC.swift in Sources */,
 				1C1921DC2B84022900B6DE44 /* Alert.swift in Sources */,

@@ -18,24 +18,15 @@ class BookBusVC: UIViewController {
     
     var selectedBusStation: String?
     var selectedStadiumDestination: String?
+    var selectedNumberOfSeats: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        showTripsButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
+        setupUI()
         setUpStationDropList()
         setUpStadiumDropList()
         setUpNumberOfSeatsDropDown()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func showTripsButtonPressed(_ sender: UIButton) {
@@ -49,16 +40,21 @@ class BookBusVC: UIViewController {
             return
         }
         
+        guard let numberOfSeats = numberOfSeatsDropList.text, !numberOfSeats.isEmpty else {
+            showAlert(title: "Number os seats Required", message: "Please select number of seats.")
+            return
+        }
+        
         let tripsVC = TripsVC(nibName: "TripsVC", bundle: nil)
+        tripsVC.selectedBusStation = selectedBusStation
+        tripsVC.selectedStadiumDestination = selectedStadiumDestination
+        tripsVC.selectedNumberOfSeats = selectedNumberOfSeats
         navigationController?.pushViewController(tripsVC, animated: true)
-        //print("selected bus station \(selectedBusStation ?? "nothing yet")")
-        //print("selected bus station \(selectedStadiumDestination ?? "nothing yet")")
     }
 }
 
 extension BookBusVC{
     func setUpStationDropList(){
-        
         busStationDropList.isSearchEnable = false
         busStationDropList.optionArray = ["Ain Shames","Tahrir Square","Haram","Alexandria","5th settlement","Giza"]
         busStationDropList.itemsTintColor = .black
@@ -71,7 +67,6 @@ extension BookBusVC{
     }
     
     func setUpStadiumDropList(){
-        
         stadiumDestinationDropList.isSearchEnable = false
         stadiumDestinationDropList.optionArray = ["We Salam Stad","Ismalia Stadium","Cairo Stadium","Alexandria Stadium","Borg El Arab Stad"]
         stadiumDestinationDropList.itemsTintColor = .black
@@ -84,7 +79,6 @@ extension BookBusVC{
     }
     
     func setUpNumberOfSeatsDropDown(){
-        
         numberOfSeatsDropList.isSearchEnable = false
         numberOfSeatsDropList.optionArray = ["1","2","3"]
         numberOfSeatsDropList.itemsTintColor = .black
@@ -92,6 +86,23 @@ extension BookBusVC{
         // The the Closure returns Selected Index and String
         numberOfSeatsDropList.didSelect{(selectedText , index ,id) in
             print("Selected String: \(selectedText) \n index: \(index)")
+            self.selectedNumberOfSeats = selectedText
         }
+    }
+}
+
+
+extension BookBusVC{
+    func setupUI(){
+        showTripsButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
 }

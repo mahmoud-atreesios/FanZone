@@ -18,7 +18,6 @@ class PaymentMethodVC: UIViewController {
     @IBOutlet weak var visaButton: RadioButton!
     @IBOutlet weak var fawryButton: RadioButton!
     
-    
     @IBOutlet weak var nextButton: UIButton!
     
     private let viewModel = ViewModel()
@@ -36,16 +35,6 @@ class PaymentMethodVC: UIViewController {
         accept.delegate = self
         nextButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func button(_ sender: UIButton) {
@@ -119,7 +108,7 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     
     // MARK: mohaaaaaaaaaam
     // MARK: de l functon l hastakhdmha lma l user edfa3 3shan a3mal save ll ticket fe l data base
-    func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse) {
+    func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse){
         print("Here i should save the ticket in the data base")
         print(payData)
         saveMatchTicketToDataBase()
@@ -141,10 +130,10 @@ extension PaymentMethodVC {
             print("User not authenticated")
             return
         }
-
+        
         // Generate a new document ID for the match ticket
         let ticketRef = self.db.collection("Match_Tickets").document()
-
+        
         // Generate and save the QR code
         createAndSaveQRCodeToFirebase { qrCodeURL in
             if let selectedMatchTicketsModel = MatchTicketsManager.shared.selectedMatchTicketsModel {
@@ -161,7 +150,7 @@ extension PaymentMethodVC {
                     "ticketStatus": selectedMatchTicketsModel.ticketStatus ?? "Unkown status",
                     "qrCodeURL": qrCodeURL
                 ]
-
+                
                 // Set data to Firestore
                 ticketRef.setData(data) { error in
                     if let e = error {
@@ -173,18 +162,50 @@ extension PaymentMethodVC {
             }
         }
     }
-
-    private func createAndSaveQRCodeToFirebase(completion: @escaping (String) -> Void) {
+    
+//    func saveBusTicketToDataBase(){
+//        guard let userID = Auth.auth().currentUser?.uid else {
+//            print("User not authenticated")
+//            return
+//        }
+//
+//        // Generate a new document ID for the match ticket
+//        let ticketRef = self.db.collection("Bus_Tickets").document()
+//
+//        if let selectedBusTicketsModel = BusTicketsManager.shared.selectedBusTicketsModel {
+//            let data: [String: Any] = [
+//                "userID": userID, // Store the user ID for reference
+//                "busStation": selectedBusTicketsModel.station ?? "Unknown station",
+//                "stadiumDestination": selectedBusTicketsModel.destination ?? "Unknown destination",
+//                "travelDate": selectedBusTicketsModel.travelDate ?? "Unknown travelDate",
+//                "travelTime": selectedBusTicketsModel.travelTime ?? "Unknown travelTime",
+//                "numberOfSeats": selectedBusTicketsModel.numberOfSeats ?? "Unknown numberOfSeats",
+//                "busNumber": selectedBusTicketsModel.busNumber ?? "Unknown busNumber",
+//                "ticketStatus": selectedBusTicketsModel.ticketStatus ?? "Unkown status",
+//            ]
+//
+//            // Set data to Firestore
+//            ticketRef.setData(data) { error in
+//                if let e = error {
+//                    print("+++++++++++++++++++++++++++++++++++++++ Error adding document: \(e.localizedDescription)")
+//                } else {
+//                    print("Match Ticket with QR Code Saved successfully")
+//                }
+//            }
+//        }
+//    }
+    
+    private func createAndSaveQRCodeToFirebase(completion: @escaping (String) -> Void){
         // Generate a unique string for the QR code (you can use any unique identifier)
         let uniqueString = UUID().uuidString
-
+        
         // Create a data object from the unique string
         if let data = uniqueString.data(using: .ascii) {
             // Create a QR code filter
             if let filter = CIFilter(name: "CIQRCodeGenerator") {
                 // Set the message data for the QR code
                 filter.setValue(data, forKey: "inputMessage")
-
+                
                 // Get the output image from the filter
                 if let outputImage = filter.outputImage {
                     // Scale the image to fit into the image view
@@ -199,7 +220,7 @@ extension PaymentMethodVC {
                                 print("Error uploading image: \(error?.localizedDescription ?? "Unknown error")")
                                 return
                             }
-
+                            
                             // Get the download URL of the uploaded image
                             qrCodeRef.downloadURL { (url, error) in
                                 if let downloadURL = url {
@@ -216,3 +237,14 @@ extension PaymentMethodVC {
     }
 }
 
+extension PaymentMethodVC{
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+}

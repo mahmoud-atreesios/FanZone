@@ -12,6 +12,13 @@
             <connections>
                 <outlet property="backgroundView" destination="wmz-tc-jef" id="FPg-ug-YFh"/>
                 <outlet property="bookButton" destination="ebW-DP-rwj" id="Xz9-m9-DWr"/>
+                <outlet property="busNumber" destination="goG-0d-hhe" id="ygf-aE-F7k"/>
+                <outlet property="date" destination="7cq-vo-btc" id="D28-5q-Pjn"/>
+                <outlet property="destinationName" destination="Fcp-zQ-hxf" id="Wtr-ca-vNd"/>
+                <outlet property="numberOfSeats" destination="OWu-d9-PJR" id="nHM-Sj-hC8"/>
+                <outlet property="stationName" destination="rTS-KQ-RYP" id="wkk-wz-swe"/>
+                <outlet property="time" destination="IkS-Rv-b04" id="nfJ-YR-gcR"/>
+                <outlet property="totalPrice" destination="MPh-1j-Am8" id="sBq-oy-eQA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="tBF-qb-K8W"/>
             </connections>
         </placeholder>
@@ -32,7 +39,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ain Shams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTS-KQ-RYP">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ain Shams" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTS-KQ-RYP">
                                     <rect key="frame" x="0.0" y="34.666666666666657" width="84.333333333333329" height="20.333333333333329"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20.329999999999998" id="9qn-Ez-yeo"/>
@@ -70,10 +77,10 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mzH-Nx-u4T" userLabel="Date">
-                            <rect key="frame" x="15" y="145" width="84.333333333333329" height="55"/>
+                            <rect key="frame" x="15.000000000000007" y="145" width="105.66666666666669" height="55"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMl-Gd-c5h">
-                                    <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="26.666666666666668"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMl-Gd-c5h">
+                                    <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="26.666666666666668"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -93,10 +100,10 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wmp-4h-Lg5" userLabel="Time">
-                            <rect key="frame" x="179.33333333333334" y="145" width="66" height="55"/>
+                            <rect key="frame" x="170.66666666666666" y="145" width="107.99999999999997" height="55"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-hf-br9">
-                                    <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="26.666666666666668"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-hf-br9">
+                                    <rect key="frame" x="0.0" y="0.0" width="108" height="26.666666666666668"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -116,7 +123,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ti0-gK-RFd" userLabel="Stadium">
-                            <rect key="frame" x="179.33333333333334" y="30" width="112.33333333333334" height="55"/>
+                            <rect key="frame" x="149.33333333333334" y="30" width="112.33333333333334" height="55"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4m-67-Q3X">
                                     <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="25.666666666666668"/>
@@ -124,7 +131,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-zQ-hxf">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo Stadium" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-zQ-hxf">
                                     <rect key="frame" x="0.0" y="34.666666666666657" width="112.33333333333333" height="20.333333333333329"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20.329999999999998" id="tDm-MB-bO5"/>
@@ -171,11 +178,11 @@
                         <constraint firstItem="SBi-Hg-Q4E" firstAttribute="leading" secondItem="wmz-tc-jef" secondAttribute="leading" constant="15" id="G8h-ae-XGc"/>
                         <constraint firstItem="SBi-Hg-Q4E" firstAttribute="top" secondItem="ZD8-Kh-Aik" secondAttribute="bottom" constant="30" id="J6t-3G-DBS"/>
                         <constraint firstItem="Wmp-4h-Lg5" firstAttribute="top" secondItem="ti0-gK-RFd" secondAttribute="bottom" constant="60" id="JFy-LD-uwl"/>
-                        <constraint firstItem="ti0-gK-RFd" firstAttribute="leading" secondItem="bb5-z9-PT5" secondAttribute="trailing" constant="80" id="eOA-fJ-y8N"/>
+                        <constraint firstItem="ti0-gK-RFd" firstAttribute="leading" secondItem="bb5-z9-PT5" secondAttribute="trailing" constant="50" id="eOA-fJ-y8N"/>
                         <constraint firstItem="ZD8-Kh-Aik" firstAttribute="top" secondItem="mzH-Nx-u4T" secondAttribute="bottom" constant="60" id="eQI-aR-pwG"/>
                         <constraint firstItem="mzH-Nx-u4T" firstAttribute="leading" secondItem="wmz-tc-jef" secondAttribute="leading" constant="15" id="gYx-K8-QrU"/>
                         <constraint firstItem="bb5-z9-PT5" firstAttribute="leading" secondItem="wmz-tc-jef" secondAttribute="leading" constant="15" id="kdc-ge-DfW"/>
-                        <constraint firstItem="Wmp-4h-Lg5" firstAttribute="leading" secondItem="mzH-Nx-u4T" secondAttribute="trailing" constant="80" id="mag-8P-Abg"/>
+                        <constraint firstItem="Wmp-4h-Lg5" firstAttribute="leading" secondItem="mzH-Nx-u4T" secondAttribute="trailing" constant="50" id="mag-8P-Abg"/>
                         <constraint firstItem="ZD8-Kh-Aik" firstAttribute="leading" secondItem="wmz-tc-jef" secondAttribute="leading" constant="15" id="wa9-q2-AXc"/>
                     </constraints>
                 </view>

@@ -61,17 +61,6 @@ class BookingVC: UIViewController{
         setUpNumberOfTicketsDropDown()
         makeBookingButtonLabelClickable()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
-    
 }
 
 extension BookingVC{
@@ -83,6 +72,16 @@ extension BookingVC{
         bookingButton.layer.cornerRadius = 15
         bookingButton.clipsToBounds = true
         bookingButton.isUserInteractionEnabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     func makeBookingButtonLabelClickable(){
