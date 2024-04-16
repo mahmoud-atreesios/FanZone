@@ -64,7 +64,10 @@
 		1C35C3972BA243D200BC4E06 /* MatchTicketDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C35C3952BA243D200BC4E06 /* MatchTicketDetailsVC.xib */; };
 		1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */; };
 		1C38C08C2B747FAB00D67603 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */; };
-		1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4968472B86B50700168784 /* BusTicketsVC.swift */; };
+		1C4468872BCD3EB600327FDC /* BusTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4468852BCD3EB600327FDC /* BusTicketVC.swift */; };
+		1C4468882BCD3EB600327FDC /* BusTicketVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4468862BCD3EB600327FDC /* BusTicketVC.xib */; };
+		1C44688B2BCD3ED200327FDC /* BusTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4468892BCD3ED200327FDC /* BusTicketTableViewCell.swift */; };
+		1C44688C2BCD3ED200327FDC /* BusTicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C44688A2BCD3ED200327FDC /* BusTicketTableViewCell.xib */; };
 		1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */; };
 		1C4BA0F82BC9EF66000AA477 /* BusTicketsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */; };
 		1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D3BF22B7C699500623370 /* BookingVC.swift */; };
@@ -117,6 +120,7 @@
 		1CCBA4C22B76B9EA0079C049 /* HighlightsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C02B76B9EA0079C049 /* HighlightsTableViewCell.xib */; };
 		1CCBA4C52B76C0AA0079C049 /* HighlightsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */; };
 		1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */; };
+		1CD5629F2BCE6A8E006682D7 /* UIGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD5629E2BCE6A8E006682D7 /* UIGradient */; };
 		1CD593AE2B8D259200710333 /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD593AC2B8D259200710333 /* PaymentMethodVC.swift */; };
 		1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */; };
 		1CE120DC2B8796D100DA7CDC /* AvailableTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */; };
@@ -178,7 +182,10 @@
 		1C35C3952BA243D200BC4E06 /* MatchTicketDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTicketDetailsVC.xib; sourceTree = "<group>"; };
 		1C38C0892B747FAB00D67603 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1C38C08A2B747FAB00D67603 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
-		1C4968472B86B50700168784 /* BusTicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsVC.swift; sourceTree = "<group>"; };
+		1C4468852BCD3EB600327FDC /* BusTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketVC.swift; sourceTree = "<group>"; };
+		1C4468862BCD3EB600327FDC /* BusTicketVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusTicketVC.xib; sourceTree = "<group>"; };
+		1C4468892BCD3ED200327FDC /* BusTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketTableViewCell.swift; sourceTree = "<group>"; };
+		1C44688A2BCD3ED200327FDC /* BusTicketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusTicketTableViewCell.xib; sourceTree = "<group>"; };
 		1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsModel.swift; sourceTree = "<group>"; };
 		1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsManager.swift; sourceTree = "<group>"; };
 		1C5D3BF22B7C699500623370 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
@@ -290,6 +297,7 @@
 				1C1D9B572B97B96D00A06A1E /* FirebaseDatabaseSwift in Frameworks */,
 				1C1D9B712B97B96D00A06A1E /* FirebaseRemoteConfig in Frameworks */,
 				1C1D9B452B97B96D00A06A1E /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				1CD5629F2BCE6A8E006682D7 /* UIGradient in Frameworks */,
 				1C1D9B532B97B96D00A06A1E /* FirebaseCrashlytics in Frameworks */,
 				48BFF7AACE64926ED10CA2C0 /* Pods_FanZone.framework in Frameworks */,
 				1C1D9B732B97B96D00A06A1E /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -419,6 +427,24 @@
 				1C38C0882B747F8A00D67603 /* NewsTableView */,
 			);
 			path = NewsVC;
+			sourceTree = "<group>";
+		};
+		1C4468832BCD3E8300327FDC /* BusTicketsVC */ = {
+			isa = PBXGroup;
+			children = (
+				1C4468852BCD3EB600327FDC /* BusTicketVC.swift */,
+				1C4468862BCD3EB600327FDC /* BusTicketVC.xib */,
+			);
+			path = BusTicketsVC;
+			sourceTree = "<group>";
+		};
+		1C4468842BCD3E8E00327FDC /* BusTicketTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1C4468892BCD3ED200327FDC /* BusTicketTableViewCell.swift */,
+				1C44688A2BCD3ED200327FDC /* BusTicketTableViewCell.xib */,
+			);
+			path = BusTicketTableViewCell;
 			sourceTree = "<group>";
 		};
 		1C4BA0F22BC9EF1A000AA477 /* MatchTicket */ = {
@@ -759,7 +785,8 @@
 		1CDFF8EB2B877F8B0031241A /* Bus Tickets */ = {
 			isa = PBXGroup;
 			children = (
-				1C4968472B86B50700168784 /* BusTicketsVC.swift */,
+				1C4468832BCD3E8300327FDC /* BusTicketsVC */,
+				1C4468842BCD3E8E00327FDC /* BusTicketTableViewCell */,
 			);
 			path = "Bus Tickets";
 			sourceTree = "<group>";
@@ -859,6 +886,7 @@
 				1C1D9B722B97B96D00A06A1E /* FirebaseRemoteConfigSwift */,
 				1C1D9B742B97B96D00A06A1E /* FirebaseStorage */,
 				1C1D9B762B97B96D00A06A1E /* FirebaseStorageCombine-Community */,
+				1CD5629E2BCE6A8E006682D7 /* UIGradient */,
 			);
 			productName = FanZone;
 			productReference = 1C7C656E2B6AD3DE00A64EDD /* FanZone.app */;
@@ -941,6 +969,7 @@
 				1C20DA872B7DB46F00936E0E /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				1C606A5B2B81814900CD0259 /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 				1C1D9B412B97B96D00A06A1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1CD5629D2BCE6A8E006682D7 /* XCRemoteSwiftPackageReference "UIGradient" */,
 			);
 			productRefGroup = 1C7C656F2B6AD3DE00A64EDD /* Products */;
 			projectDirPath = "";
@@ -959,6 +988,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C20DA812B7DA64100936E0E /* DepartmnetSelectionTableViewCell.xib in Resources */,
+				1C4468882BCD3EB600327FDC /* BusTicketVC.xib in Resources */,
 				1C1921DA2B83F82E00B6DE44 /* ContactUsVC.xib in Resources */,
 				1C8C30C62B97AC5C00D9E08D /* Animation - 1709667478219.json in Resources */,
 				1C32CFE72B98DF2E00815AED /* MatchTicketsVC.xib in Resources */,
@@ -981,6 +1011,7 @@
 				1CF0C1772BA8C8530086BCEA /* playerLoader.json in Resources */,
 				1C20DA862B7DABFD00936E0E /* CategorySelectionTableViewCell.xib in Resources */,
 				1C336E802B98E05D00BE4D1E /* MatchTicketsTableViewCell.xib in Resources */,
+				1C44688C2BCD3ED200327FDC /* BusTicketTableViewCell.xib in Resources */,
 				1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */,
 				1C7D574B2B97848700AA6618 /* RegisterationDoneVC.xib in Resources */,
 				1C015CC82B6C9D9500988E7D /* LeagueCollectionViewCell.xib in Resources */,
@@ -1121,7 +1152,6 @@
 				1C7D573B2B975B9C00AA6618 /* StepOneVC.swift in Sources */,
 				1C336E7F2B98E05D00BE4D1E /* MatchTicketsTableViewCell.swift in Sources */,
 				1C005ECE2B83603A00CA88A5 /* ProfileVC.swift in Sources */,
-				1C4968482B86B50700168784 /* BusTicketsVC.swift in Sources */,
 				1CCBA4C72B76C9B00079C049 /* VideoWebViewVC.swift in Sources */,
 				1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */,
 				1CD593AE2B8D259200710333 /* PaymentMethodVC.swift in Sources */,
@@ -1133,6 +1163,7 @@
 				1C7CBC422B878E4C008AF14C /* TripsVC.swift in Sources */,
 				1C7D574A2B97848700AA6618 /* RegisterationDoneVC.swift in Sources */,
 				1CABEADC2B8B299B001DB682 /* FamilyMembersVC.swift in Sources */,
+				1C4468872BCD3EB600327FDC /* BusTicketVC.swift in Sources */,
 				1C61741A2B6D601B00F3E8AB /* PopularCollectionViewCell.swift in Sources */,
 				1C20DA852B7DABFD00936E0E /* CategorySelectionTableViewCell.swift in Sources */,
 				1CEDD9862B86458600267FAC /* BookBusVC.swift in Sources */,
@@ -1141,6 +1172,7 @@
 				1C35C3962BA243D200BC4E06 /* MatchTicketDetailsVC.swift in Sources */,
 				1C336E822B98FE9200BE4D1E /* MatchTicketsModel.swift in Sources */,
 				1C7D57432B975BBF00AA6618 /* StepThreeVC.swift in Sources */,
+				1C44688B2BCD3ED200327FDC /* BusTicketTableViewCell.swift in Sources */,
 				1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */,
 				1C7C65AD2B6C38EA00A64EDD /* SignInVC.swift in Sources */,
 				1CE120DC2B8796D100DA7CDC /* AvailableTrips.swift in Sources */,
@@ -1561,6 +1593,14 @@
 				kind = branch;
 			};
 		};
+		1CD5629D2BCE6A8E006682D7 /* XCRemoteSwiftPackageReference "UIGradient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dqhieu/UIGradient.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1733,6 +1773,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C6144682B734019009424EA /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		1CD5629E2BCE6A8E006682D7 /* UIGradient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CD5629D2BCE6A8E006682D7 /* XCRemoteSwiftPackageReference "UIGradient" */;
+			productName = UIGradient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1102,69 +1102,6 @@
             </objects>
             <point key="canvasLocation" x="1807" y="1563"/>
         </scene>
-        <!--Bus TicketsVC-->
-        <scene sceneID="j3b-70-FQd">
-            <objects>
-                <viewController storyboardIdentifier="BusTicketsVC" id="XVC-hM-2mB" customClass="BusTicketsVC" customModule="FanZone" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AaW-JB-wax">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-Ri-sDB">
-                                <rect key="frame" x="0.0" y="103" width="393" height="662"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-1G-lhs">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="662"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzV-HK-2FG">
-                                                <rect key="frame" x="10" y="0.0" width="129" height="29"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0YY-Zx-HYh">
-                                                <rect key="frame" x="15" y="39" width="363" height="623"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="623" id="EHo-Cq-Il0"/>
-                                                </constraints>
-                                            </tableView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="0YY-Zx-HYh" secondAttribute="trailing" constant="15" id="5uB-Wz-NA4"/>
-                                            <constraint firstItem="0YY-Zx-HYh" firstAttribute="top" secondItem="pzV-HK-2FG" secondAttribute="bottom" constant="10" id="Ad7-oh-eNX"/>
-                                            <constraint firstAttribute="bottom" secondItem="0YY-Zx-HYh" secondAttribute="bottom" id="Piw-tI-Qd3"/>
-                                            <constraint firstItem="0YY-Zx-HYh" firstAttribute="leading" secondItem="ajI-1G-lhs" secondAttribute="leading" constant="15" id="Yfd-ZJ-xcu"/>
-                                            <constraint firstItem="pzV-HK-2FG" firstAttribute="leading" secondItem="ajI-1G-lhs" secondAttribute="leading" constant="10" id="fTH-eS-Omk"/>
-                                            <constraint firstItem="pzV-HK-2FG" firstAttribute="top" secondItem="ajI-1G-lhs" secondAttribute="top" id="yr5-oP-KEn"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ajI-1G-lhs" firstAttribute="leading" secondItem="t3D-Ri-sDB" secondAttribute="leading" id="DqZ-yz-0g6"/>
-                                    <constraint firstAttribute="trailing" secondItem="ajI-1G-lhs" secondAttribute="trailing" id="GwU-S9-LcD"/>
-                                    <constraint firstItem="ajI-1G-lhs" firstAttribute="height" secondItem="t3D-Ri-sDB" secondAttribute="height" priority="250" id="IWG-cV-Jl4"/>
-                                    <constraint firstItem="ajI-1G-lhs" firstAttribute="width" secondItem="t3D-Ri-sDB" secondAttribute="width" id="ag5-Rn-6s8"/>
-                                    <constraint firstItem="ajI-1G-lhs" firstAttribute="top" secondItem="t3D-Ri-sDB" secondAttribute="top" id="b8g-SO-paS"/>
-                                    <constraint firstAttribute="bottom" secondItem="ajI-1G-lhs" secondAttribute="bottom" id="yBb-Uj-LjE"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6IR-9d-Ztr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="t3D-Ri-sDB" firstAttribute="top" secondItem="6IR-9d-Ztr" secondAttribute="top" id="BRL-2p-M5g"/>
-                            <constraint firstItem="t3D-Ri-sDB" firstAttribute="leading" secondItem="6IR-9d-Ztr" secondAttribute="leading" id="Uas-En-gM3"/>
-                            <constraint firstItem="t3D-Ri-sDB" firstAttribute="trailing" secondItem="6IR-9d-Ztr" secondAttribute="trailing" id="g8T-TC-AHf"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="No8-hO-RwU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wJe-VB-4mK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4347.3282442748086" y="1516.9014084507044"/>
-        </scene>
         <!--Tab Bar-->
         <scene sceneID="jNR-Kf-RrW">
             <objects>
@@ -1243,24 +1180,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WO0-eq-iQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="976" y="813"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wAZ-RN-FRL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Erw-tB-Ovv" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8FE-vA-66s">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XVC-hM-2mB" kind="relationship" relationship="rootViewController" id="uAk-K0-y1w"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D5t-HA-7AW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3421" y="1517"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qfu-X1-8wl">

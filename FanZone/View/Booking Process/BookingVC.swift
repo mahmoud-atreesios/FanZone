@@ -89,6 +89,7 @@ extension BookingVC{
         bookingButton.addGestureRecognizer(tapGesture)
     }
     
+    //boooooooooking button
     @objc func bookingButtonTapped() {
         //print(numberOfSelectedTickets.value)
         guard Auth.auth().currentUser != nil else {

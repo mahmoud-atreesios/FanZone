@@ -104,11 +104,9 @@ extension ProfileVC{
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(busTicketsViewTapped))
         busTicketsView.addGestureRecognizer(tapGesture)
     }
-    @objc func busTicketsViewTapped() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let busTicketsVC = storyboard.instantiateViewController(withIdentifier: "BusTicketsVC") as? BusTicketsVC {
-            navigationController?.pushViewController(busTicketsVC, animated: true)
-        }
+    @objc func busTicketsViewTapped(){
+        let busTicketsVC = BusTicketVC(nibName: "BusTicketVC", bundle: nil)
+        navigationController?.pushViewController(busTicketsVC, animated: true)
     }
     
     //3 book transportation

@@ -13,7 +13,6 @@ import FirebaseStorage
 
 class TripsVC: UIViewController {
     
-    
     @IBOutlet weak var availableTripsTableView: UITableView!
     
     private let db = Firestore.firestore()
@@ -66,10 +65,11 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
         tripDetailsVC.travelTime = selectedTrip["time"] as? String
         tripDetailsVC.ticketPrice = selectedTrip["price"] as? String
         tripDetailsVC.selectedBusNumber = selectedTrip["busNumber"] as? String
+        tripDetailsVC.estimatedArrivalTimee = selectedTrip["estimatedArrivalTime"] as? String
         tripDetailsVC.selectedNumberOfSeats = selectedNumberOfSeats
         
-        present(tripDetailsVC, animated: true)
-        //navigationController?.pushViewController(tripDetailsVC, animated: true)
+        //present(tripDetailsVC, animated: true)
+        navigationController?.pushViewController(tripDetailsVC, animated: true)
     }
 }
 

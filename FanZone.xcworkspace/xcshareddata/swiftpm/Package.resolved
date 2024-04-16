@@ -143,6 +143,15 @@
         "revision" : "65e8f29b2d63c4e38e736b25c27b83e012159be8",
         "version" : "1.25.2"
       }
+    },
+    {
+      "identity" : "uigradient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dqhieu/UIGradient.git",
+      "state" : {
+        "revision" : "2f559b064ddbca24f5994e8f923bb1ddf6a6be7d",
+        "version" : "1.3.2"
+      }
     }
   ],
   "version" : 2

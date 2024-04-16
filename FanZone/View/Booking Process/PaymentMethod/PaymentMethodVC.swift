@@ -14,10 +14,8 @@ import FirebaseStorage
 
 class PaymentMethodVC: UIViewController {
     
-    
     @IBOutlet weak var visaButton: RadioButton!
     @IBOutlet weak var fawryButton: RadioButton!
-    
     @IBOutlet weak var nextButton: UIButton!
     
     private let viewModel = ViewModel()
@@ -111,7 +109,8 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse){
         print("Here i should save the ticket in the data base")
         print(payData)
-        saveMatchTicketToDataBase()
+        //saveMatchTicketToDataBase()
+        saveBusTicketToDataBase()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
             navigationController?.pushViewController(homeVC, animated: true)
@@ -156,44 +155,44 @@ extension PaymentMethodVC {
                     if let e = error {
                         print("+++++++++++++++++++++++++++++++++++++++ Error adding document: \(e.localizedDescription)")
                     } else {
-                        print("Bus Ticket Saved successfully")
+                        print("Match Ticket with QR Code Saved successfully")
                     }
                 }
             }
         }
     }
     
-//    func saveBusTicketToDataBase(){
-//        guard let userID = Auth.auth().currentUser?.uid else {
-//            print("User not authenticated")
-//            return
-//        }
-//
-//        // Generate a new document ID for the match ticket
-//        let ticketRef = self.db.collection("Bus_Tickets").document()
-//
-//        if let selectedBusTicketsModel = BusTicketsManager.shared.selectedBusTicketsModel {
-//            let data: [String: Any] = [
-//                "userID": userID, // Store the user ID for reference
-//                "busStation": selectedBusTicketsModel.station ?? "Unknown station",
-//                "stadiumDestination": selectedBusTicketsModel.destination ?? "Unknown destination",
-//                "travelDate": selectedBusTicketsModel.travelDate ?? "Unknown travelDate",
-//                "travelTime": selectedBusTicketsModel.travelTime ?? "Unknown travelTime",
-//                "numberOfSeats": selectedBusTicketsModel.numberOfSeats ?? "Unknown numberOfSeats",
-//                "busNumber": selectedBusTicketsModel.busNumber ?? "Unknown busNumber",
-//                "ticketStatus": selectedBusTicketsModel.ticketStatus ?? "Unkown status",
-//            ]
-//
-//            // Set data to Firestore
-//            ticketRef.setData(data) { error in
-//                if let e = error {
-//                    print("+++++++++++++++++++++++++++++++++++++++ Error adding document: \(e.localizedDescription)")
-//                } else {
-//                    print("Match Ticket with QR Code Saved successfully")
-//                }
-//            }
-//        }
-//    }
+    func saveBusTicketToDataBase(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("User not authenticated")
+            return
+        }
+
+        // Generate a new document ID for the match ticket
+        let ticketRef = self.db.collection("Bus_Tickets").document()
+
+        if let selectedBusTicketsModel = BusTicketsManager.shared.selectedBusTicketsModel {
+            let data: [String: Any] = [
+                "userID": userID, // Store the user ID for reference
+                "busStation": selectedBusTicketsModel.station ?? "Unknown station",
+                "stadiumDestination": selectedBusTicketsModel.destination ?? "Unknown destination",
+                "travelDate": selectedBusTicketsModel.travelDate ?? "Unknown travelDate",
+                "travelTime": selectedBusTicketsModel.travelTime ?? "Unknown travelTime",
+                "numberOfSeats": selectedBusTicketsModel.numberOfSeats ?? "Unknown numberOfSeats",
+                "busNumber": selectedBusTicketsModel.busNumber ?? "Unknown busNumber",
+                "ticketStatus": selectedBusTicketsModel.ticketStatus ?? "Unkown status",
+            ]
+
+            // Set data to Firestore
+            ticketRef.setData(data) { error in
+                if let e = error {
+                    print("+++++++++++++++++++++++++++++++++++++++ Error adding document: \(e.localizedDescription)")
+                } else {
+                    print("Bus Ticket Saved successfully")
+                }
+            }
+        }
+    }
     
     private func createAndSaveQRCodeToFirebase(completion: @escaping (String) -> Void){
         // Generate a unique string for the QR code (you can use any unique identifier)

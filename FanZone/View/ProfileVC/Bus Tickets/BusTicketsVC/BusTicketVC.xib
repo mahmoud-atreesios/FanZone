@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusTicketVC" customModule="FanZone" customModuleProvider="target">
+            <connections>
+                <outlet property="busTicketsTableView" destination="PiD-K7-FOP" id="ePP-T0-Vke"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-TD-MIc">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-1R-tzs">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUn-Sz-lOG">
+                                    <rect key="frame" x="8" y="0.0" width="129" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="129" id="bHQ-qo-kzP"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PiD-K7-FOP">
+                                    <rect key="frame" x="10" y="37" width="373" height="815"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="815" id="bz1-8F-IvC"/>
+                                    </constraints>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="qUn-Sz-lOG" firstAttribute="top" secondItem="uxo-1R-tzs" secondAttribute="top" id="9aR-gr-taA"/>
+                                <constraint firstAttribute="bottom" secondItem="PiD-K7-FOP" secondAttribute="bottom" id="KAc-rI-RFk"/>
+                                <constraint firstItem="qUn-Sz-lOG" firstAttribute="leading" secondItem="uxo-1R-tzs" secondAttribute="leading" constant="8" id="KeO-4I-XSU"/>
+                                <constraint firstAttribute="trailing" secondItem="PiD-K7-FOP" secondAttribute="trailing" constant="10" id="PhU-bS-RVK"/>
+                                <constraint firstItem="PiD-K7-FOP" firstAttribute="top" secondItem="qUn-Sz-lOG" secondAttribute="bottom" constant="8" id="QAF-bN-fGV"/>
+                                <constraint firstItem="PiD-K7-FOP" firstAttribute="leading" secondItem="uxo-1R-tzs" secondAttribute="leading" constant="10" id="jMr-cL-5a0"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="uxo-1R-tzs" secondAttribute="bottom" id="5qK-gf-BNb"/>
+                        <constraint firstItem="uxo-1R-tzs" firstAttribute="width" secondItem="oLI-TD-MIc" secondAttribute="width" id="FhX-2v-Zay"/>
+                        <constraint firstItem="uxo-1R-tzs" firstAttribute="leading" secondItem="oLI-TD-MIc" secondAttribute="leading" id="TGq-yA-31j"/>
+                        <constraint firstItem="uxo-1R-tzs" firstAttribute="top" secondItem="oLI-TD-MIc" secondAttribute="top" id="bCX-Qm-0xa"/>
+                        <constraint firstItem="uxo-1R-tzs" firstAttribute="height" secondItem="oLI-TD-MIc" secondAttribute="height" priority="250" id="bLK-Ko-35j"/>
+                        <constraint firstAttribute="trailing" secondItem="uxo-1R-tzs" secondAttribute="trailing" id="eeC-Ji-fzZ"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="oLI-TD-MIc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="G1A-D1-cU4"/>
+                <constraint firstItem="oLI-TD-MIc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SJY-QI-PF5"/>
+                <constraint firstItem="oLI-TD-MIc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ViC-p4-VxC"/>
+                <constraint firstAttribute="bottom" secondItem="oLI-TD-MIc" secondAttribute="bottom" id="W61-I7-Lpd"/>
+            </constraints>
+            <point key="canvasLocation" x="129.00763358778624" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
