@@ -78,7 +78,6 @@ class MatchTicketDetailsVC: UIViewController {
         confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
 
         self.present(confirmAlert, animated: true, completion: nil)
-
     }
 }
 

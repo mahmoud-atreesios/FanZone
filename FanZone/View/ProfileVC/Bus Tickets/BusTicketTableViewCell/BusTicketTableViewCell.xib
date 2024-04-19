@@ -187,6 +187,10 @@
                             <constraint firstAttribute="height" constant="17" id="NxU-rE-Ksq"/>
                         </constraints>
                     </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="refunded" translatesAutoresizingMaskIntoConstraints="NO" id="x3y-xX-Fe0">
+                        <rect key="frame" x="339" y="10" width="22" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.19215686274509802" green="0.27058823529411763" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
@@ -221,6 +225,7 @@
                 <outlet property="fanID" destination="SpS-nN-bg1" id="hc3-LQ-jCe"/>
                 <outlet property="mainView" destination="H2p-sc-9uM" id="ECd-f6-tWl"/>
                 <outlet property="numberOfSeats" destination="DO7-HQ-Lv7" id="RhO-Vb-EiF"/>
+                <outlet property="refundedButton" destination="x3y-xX-Fe0" id="FOg-JK-XkS"/>
                 <outlet property="station" destination="4Ef-eK-nzu" id="QNs-Jh-yyb"/>
                 <outlet property="ticketStatus" destination="hdQ-ig-wZO" id="1U3-ru-3XA"/>
                 <outlet property="time" destination="Wa6-1P-A9R" id="xKp-ge-A18"/>
@@ -232,6 +237,7 @@
         <image name="bus.fill" catalog="system" width="128" height="122"/>
         <image name="calendar.circle" catalog="system" width="128" height="123"/>
         <image name="clock.circle" catalog="system" width="128" height="123"/>
+        <image name="refunded" width="512" height="512"/>
         <image name="sportscourt.circle" catalog="system" width="128" height="123"/>
         <namedColor name="Color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

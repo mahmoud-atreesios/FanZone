@@ -7,6 +7,11 @@
 
 import UIKit
 import UIGradient
+import Firebase
+
+protocol BusTicketTableViewCellDelegate: AnyObject {
+    func refundTicket(withID ticketID: String)
+}
 
 class BusTicketTableViewCell: UITableViewCell {
     
@@ -24,12 +29,33 @@ class BusTicketTableViewCell: UITableViewCell {
     @IBOutlet weak var busNumber: UILabel!
     @IBOutlet weak var ticketStatus: UILabel!
     
-
+    @IBOutlet weak var refundedButton: UIImageView!
+    
+    var ticketID: String?
+    //private let db = Firestore.firestore()
+    var delegate: BusTicketTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         mainView.backgroundColor = UIColor.fromGradientWithDirection(.leftToRight, frame: frame, colors: [ UIColor(red: 0.063, green: 0.188, blue: 0.247, alpha: 1.0) , UIColor(red: 0.165, green: 0.490, blue: 0.615, alpha: 1.0)])
-
+        
+        makeRefundedButtonClickable()
+    }
+    
+    func makeRefundedButtonClickable(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(refundedButtonTapped))
+        refundedButton.isUserInteractionEnabled = true
+        refundedButton.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func refundedButtonTapped() {
+        guard let ticketID = ticketID else {
+            print("No ticket ID available")
+            return
+        }
+        
+        delegate?.refundTicket(withID: ticketID)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

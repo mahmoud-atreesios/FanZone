@@ -111,10 +111,13 @@ extension PaymentMethodVC: AcceptSDKDelegate{
         print(payData)
         //saveMatchTicketToDataBase()
         saveBusTicketToDataBase()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
-            navigationController?.pushViewController(homeVC, animated: true)
+        if let tabBarController = self.tabBarController as? TabBar {
+            tabBarController.setupTabs()
         }
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
+//            navigationController?.pushViewController(homeVC, animated: true)
+//        }
     }
     
     func userDidCancel3dSecurePayment(_ pendingPayData: PayResponse) {
