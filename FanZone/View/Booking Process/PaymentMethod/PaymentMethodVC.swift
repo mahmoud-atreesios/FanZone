@@ -109,8 +109,8 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse){
         print("Here i should save the ticket in the data base")
         print(payData)
-        //saveMatchTicketToDataBase()
-        saveBusTicketToDataBase()
+        saveMatchTicketToDataBase()
+        //saveBusTicketToDataBase()
         if let tabBarController = self.tabBarController as? TabBar {
             tabBarController.setupTabs()
         }

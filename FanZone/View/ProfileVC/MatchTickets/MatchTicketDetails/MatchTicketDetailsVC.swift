@@ -54,24 +54,47 @@ class MatchTicketDetailsVC: UIViewController {
                                              preferredStyle: .alert)
 
         confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
-            // Update ticket status to "Refunded" in Firestore
-            let ticketRef = self.db.collection("Match_Tickets").document(ticketID)
-            ticketRef.updateData(["ticketStatus": "Refunded"]) { error in
-                if let error = error {
-                    print("Error updating ticket status: \(error.localizedDescription)")
-                } else {
-                    print("Ticket status updated successfully to refundedddd")
-                    let successAlert = UIAlertController(title: "Ticket refunded successfully",
-                                                         message: nil,
-                                                         preferredStyle: .alert)
-                    successAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
-                        // Reload the tab bar
-                        if let tabBarController = self.tabBarController as? TabBar {
-                            tabBarController.setupTabs()
-                        }
-                    }))
-                    self.present(successAlert, animated: true, completion: nil)
+            // Get the launch date
+            let launchDate = UserDefaults.standard.object(forKey: "appLaunchDate") as? Date ?? Date()
+
+            // Get the match date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            guard let matchDateString = self.matchDateForComparison,
+                  let matchDate = dateFormatter.date(from: matchDateString) else {
+                print("Invalid match date")
+                return
+            }
+
+            // Calculate the difference in days
+            let calendar = Calendar.current
+            if let days = calendar.dateComponents([.day], from: launchDate, to: matchDate).day, days > 1 {
+                // Update ticket status to "Refunded" in Firestore
+                let ticketRef = self.db.collection("Match_Tickets").document(ticketID)
+                ticketRef.updateData(["ticketStatus": "Refunded"]) { error in
+                    if let error = error {
+                        print("Error updating ticket status: \(error.localizedDescription)")
+                    } else {
+                        print("Ticket status updated successfully to refundedddd")
+                        let successAlert = UIAlertController(title: "Ticket refunded successfully",
+                                                             message: nil,
+                                                             preferredStyle: .alert)
+                        successAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
+                            // Reload the tab bar
+                            if let tabBarController = self.tabBarController as? TabBar {
+                                tabBarController.setupTabs()
+                            }
+                        }))
+                        self.present(successAlert, animated: true, completion: nil)
+                    }
                 }
+            } else {
+                // Show alert that ticket cannot be refunded
+                let cannotRefundAlert = UIAlertController(title: "Ticket cannot be refunded",
+                                                          message: "Sorry, The ticket cannot be refunded as our policy says you cannot refund a ticket before the ticket date by 24h, if you have further questions you can contact us.",
+                                                          preferredStyle: .alert)
+                cannotRefundAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(cannotRefundAlert, animated: true, completion: nil)
             }
         }))
 
@@ -79,6 +102,7 @@ class MatchTicketDetailsVC: UIViewController {
 
         self.present(confirmAlert, animated: true, completion: nil)
     }
+
 }
 
 
