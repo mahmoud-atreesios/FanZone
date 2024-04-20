@@ -95,7 +95,7 @@ extension BusTicketVC: UITableViewDelegate, UITableViewDataSource{
                     
                     // Calculate the difference in days
                     let calendar = Calendar.current
-                    if let days = calendar.dateComponents([.day], from: launchDate, to: travelDate).day, days > 1 {
+                    if let days = calendar.dateComponents([.day], from: launchDate, to: travelDate).day, days >= 1 {
                         // Update ticket status to "Refunded" in Firestore
                         let ticketRef = self.db.collection("Bus_Tickets").document(ticketID)
                         ticketRef.updateData(["ticketStatus": "Refunded"]) { error in
@@ -133,8 +133,6 @@ extension BusTicketVC: UITableViewDelegate, UITableViewDataSource{
         
         self.present(confirmAlert, animated: true, completion: nil)
     }
-    
-    
 }
 
 extension BusTicketVC{
@@ -163,7 +161,7 @@ extension BusTicketVC{
                                 return false
                             }
                             // Define order based on status: Activated -> Refunded -> Expired
-                            if status1 == "Activated" {
+                            if status1 == "Activated" && status2 != "Activated" {
                                 return true
                             } else if status1 == "Expired" && status2 != "Activated" {
                                 return true
