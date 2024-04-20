@@ -139,7 +139,7 @@ extension MatchTicketsVC {
                                 return false
                             }
                             // Define order based on status: Activated -> Refunded -> Expired
-                            if status1 == "Activated" {
+                            if status1 == "Activated" && status2 != "Activated" {
                                 return true
                             } else if status1 == "Expired" && status2 != "Activated" {
                                 return true

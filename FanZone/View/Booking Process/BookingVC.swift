@@ -100,6 +100,7 @@ extension BookingVC{
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
         paymentMethodVC.totalPrice = totalPrice
+        paymentMethodVC.matchBus = true
         
         viewModel.getOrderId(firstToken: firstToken ?? "") { orderid in
             if let order = orderid{

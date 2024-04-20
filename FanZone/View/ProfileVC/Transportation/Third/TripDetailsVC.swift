@@ -68,6 +68,7 @@ extension TripDetailsVC{
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
         paymentMethodVC.totalPrice = totalTicketPrice
+        paymentMethodVC.matchBus = false
         
         viewModel.getOrderId(firstToken: firstToken ?? "") { orderid in
             if let order = orderid{

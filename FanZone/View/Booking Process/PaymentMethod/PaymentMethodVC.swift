@@ -26,6 +26,7 @@ class PaymentMethodVC: UIViewController {
     var orderId: String?
     var paymentToken: String?
     var totalPrice: String?
+    var matchBus = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +110,13 @@ extension PaymentMethodVC: AcceptSDKDelegate{
     func transactionAccepted(_ payData: PayResponse, savedCardData: SaveCardResponse){
         print("Here i should save the ticket in the data base")
         print(payData)
-        saveMatchTicketToDataBase()
-        //saveBusTicketToDataBase()
+        
+        if matchBus{
+            saveMatchTicketToDataBase()
+        } else {
+            saveBusTicketToDataBase()
+        }
+        
         if let tabBarController = self.tabBarController as? TabBar {
             tabBarController.setupTabs()
         }

@@ -68,7 +68,7 @@ class MatchTicketDetailsVC: UIViewController {
 
             // Calculate the difference in days
             let calendar = Calendar.current
-            if let days = calendar.dateComponents([.day], from: launchDate, to: matchDate).day, days > 1 {
+            if let days = calendar.dateComponents([.day], from: launchDate, to: matchDate).day, days >= 1 {
                 // Update ticket status to "Refunded" in Firestore
                 let ticketRef = self.db.collection("Match_Tickets").document(ticketID)
                 ticketRef.updateData(["ticketStatus": "Refunded"]) { error in
