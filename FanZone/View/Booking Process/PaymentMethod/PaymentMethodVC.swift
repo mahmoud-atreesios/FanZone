@@ -143,7 +143,7 @@ extension PaymentMethodVC {
         let ticketRef = self.db.collection("Match_Tickets").document()
         
         // Generate and save the QR code
-        createAndSaveQRCodeToFirebase { qrCodeURL in
+        createAndSaveQRCodeToFirebase(withUserID: userID) { qrCodeURL in
             if let selectedMatchTicketsModel = MatchTicketsManager.shared.selectedMatchTicketsModel {
                 let data: [String: Any] = [
                     "userID": userID, // Store the user ID for reference
@@ -202,10 +202,9 @@ extension PaymentMethodVC {
             }
         }
     }
-    
-    private func createAndSaveQRCodeToFirebase(completion: @escaping (String) -> Void){
+    private func createAndSaveQRCodeToFirebase(withUserID userID: String, completion: @escaping (String) -> Void){
         // Generate a unique string for the QR code (you can use any unique identifier)
-        let uniqueString = UUID().uuidString
+        let uniqueString = "\(userID)_\(UUID().uuidString)" // Append the userID to the unique string
         
         // Create a data object from the unique string
         if let data = uniqueString.data(using: .ascii) {

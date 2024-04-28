@@ -11,7 +11,7 @@ struct Constants{
     enum links{
         
         //HomeVC
-        static let apikey = "a1c1fd71c54b8f126999cdd2b3b3956771e0c67b1fafd30bc6ab40a07eac490f"
+        static let apikey = "f28a9be4069cfe0380ed1dd5b4eecfe04a1cf19cdd1e1f0d358e8cee816b75a2"
         static let upcomingFixteuresURL = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey="
         static let leagueId = "&leagueId="
         

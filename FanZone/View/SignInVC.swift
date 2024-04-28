@@ -33,12 +33,12 @@ class SignInVC: UIViewController {
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         guard !isSavingData else { return }
-        createAccount()
+        signIn()
     }
 }
 
 extension SignInVC{
-    func createAccount(){
+    func signIn(){
         let blurEffect = UIBlurEffect(style: .regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
