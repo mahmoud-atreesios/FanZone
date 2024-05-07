@@ -113,6 +113,7 @@
 		1CAE5B7A2B707DEC008431D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE5B792B707DEC008431D0 /* Constants.swift */; };
 		1CAE5B7C2B707F03008431D0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE5B7B2B707F03008431D0 /* ApiManager.swift */; };
 		1CAE5B7E2B708018008431D0 /* UpcomingFixeturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE5B7D2B708018008431D0 /* UpcomingFixeturesModel.swift */; };
+		1CB830792BEA7F660046EDC8 /* AllTeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB830782BEA7F660046EDC8 /* AllTeamsModel.swift */; };
 		1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC22DCA2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift */; };
 		1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC22DCB2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib */; };
 		1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC2F3892B7EB8E4006FFB77 /* RadioButton.swift */; };
@@ -233,6 +234,7 @@
 		1CAE5B792B707DEC008431D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1CAE5B7B2B707F03008431D0 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		1CAE5B7D2B708018008431D0 /* UpcomingFixeturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingFixeturesModel.swift; sourceTree = "<group>"; };
+		1CB830782BEA7F660046EDC8 /* AllTeamsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTeamsModel.swift; sourceTree = "<group>"; };
 		1CC22DCA2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMatchesTableViewCell.swift; sourceTree = "<group>"; };
 		1CC22DCB2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingMatchesTableViewCell.xib; sourceTree = "<group>"; };
 		1CC2F3892B7EB8E4006FFB77 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				1C6144642B7336DE009424EA /* TrendingNewsModel.swift */,
 				1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */,
 				1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */,
+				1CB830782BEA7F660046EDC8 /* AllTeamsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1199,6 +1202,7 @@
 				1C7C65742B6AD3DE00A64EDD /* SceneDelegate.swift in Sources */,
 				1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */,
 				1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */,
+				1CB830792BEA7F660046EDC8 /* AllTeamsModel.swift in Sources */,
 				1C7C65A92B6C38C200A64EDD /* NewsVC.swift in Sources */,
 				1CABEAE42B8B41E5001DB682 /* AddMemberVC.swift in Sources */,
 				1C1921DC2B84022900B6DE44 /* Alert.swift in Sources */,

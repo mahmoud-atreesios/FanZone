@@ -12,6 +12,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 import Lottie
+import RxSwift
 
 class StepTwoVC: UIViewController {
     
@@ -24,16 +25,19 @@ class StepTwoVC: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    private let disposeBag = DisposeBag()
     let db = Firestore.firestore()
     var selectedGender: String?
     var selectedSupportedTeam: String?
-
+    var fanPassword: String?
+    var viewModel = ViewModel()
     var isSavingData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUp()
+        viewModel.getAllTeams(leagueID: "141")
         setUpGenderDropList()
         setUpSupportedTeamDropList()
         makeFanImageViewClickable()
@@ -135,6 +139,7 @@ extension StepTwoVC {
                         "phoneNumber": self.fanPhoneNumber.text!,
                         "gender": self.selectedGender!,
                         "supportedTeam": self.selectedSupportedTeam!,
+                        "password":self.fanPassword!,
                         "fanImageURL": downloadURL.absoluteString // Save the download URL
                     ]) { error in
                         if let e = error {
@@ -219,15 +224,22 @@ extension StepTwoVC{
     
     func setUpSupportedTeamDropList(){
         fanSupportedTeam.isSearchEnable = false
-        fanSupportedTeam.optionArray = ["Zamalek", "Ahly"]
+        fanSupportedTeam.optionArray = viewModel.teamsResult.value.map { $0.teamName }
         fanSupportedTeam.itemsTintColor = .black
         
-        // The the Closure returns Selected Index and String
+        // The Closure returns Selected Index and String
         fanSupportedTeam.didSelect{(selectedText , index ,id) in
-            //print("Selected String: \(selectedText) \n index: \(index)")
             self.selectedSupportedTeam = selectedText
         }
+        
+        // Update the drop-down list after the teamsResult value changes
+        viewModel.teamsResult
+            .subscribe(onNext: { [weak self] teams in
+                self?.fanSupportedTeam.optionArray = teams.map { $0.teamName }
+            })
+            .disposed(by: disposeBag)
     }
+
 }
 
 extension StepTwoVC{

@@ -38,7 +38,7 @@ class BusTicketTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mainView.backgroundColor = UIColor.fromGradientWithDirection(.leftToRight, frame: frame, colors: [ UIColor(red: 0.063, green: 0.188, blue: 0.247, alpha: 1.0) , UIColor(red: 0.165, green: 0.490, blue: 0.615, alpha: 1.0)])
+        //mainView.backgroundColor = UIColor.fromGradientWithDirection(.leftToRight, frame: frame, colors: [ UIColor(red: 0.063, green: 0.188, blue: 0.247, alpha: 1.0) , UIColor(red: 0.165, green: 0.490, blue: 0.615, alpha: 1.0)])
         
         makeRefundedButtonClickable()
     }

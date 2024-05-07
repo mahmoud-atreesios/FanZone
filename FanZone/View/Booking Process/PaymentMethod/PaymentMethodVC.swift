@@ -28,6 +28,9 @@ class PaymentMethodVC: UIViewController {
     var totalPrice: String?
     var matchBus = true
     
+    let dep1 = "A9BK7Zsf1lOPThd05LQeBKLfR4Q2"
+    let dep2 = "v3iobxxTAyQev3bkF2nkFxcpm6o1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -204,7 +207,7 @@ extension PaymentMethodVC {
     }
     private func createAndSaveQRCodeToFirebase(withUserID userID: String, completion: @escaping (String) -> Void){
         // Generate a unique string for the QR code (you can use any unique identifier)
-        let uniqueString = "\(userID)_\(UUID().uuidString)" // Append the userID to the unique string
+        let uniqueString = "\(userID)_\(dep1)_\(UUID().uuidString)" // Append the userID to the unique string
         
         // Create a data object from the unique string
         if let data = uniqueString.data(using: .ascii) {

@@ -84,6 +84,7 @@ extension StepOneVC{
                         blurEffectView.removeFromSuperview()
                         
                         let stepTwoVC = StepTwoVC(nibName: "StepTwoVC", bundle: nil)
+                        stepTwoVC.fanPassword = fanPassword
                         self.navigationController?.pushViewController(stepTwoVC, animated: true)
                     }
                     self.nextButton.isEnabled = true

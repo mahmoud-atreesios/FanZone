@@ -14,6 +14,7 @@ struct Constants{
         static let apikey = "f28a9be4069cfe0380ed1dd5b4eecfe04a1cf19cdd1e1f0d358e8cee816b75a2"
         static let upcomingFixteuresURL = "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey="
         static let leagueId = "&leagueId="
+        static let allTeams = "https://apiv2.allsportsapi.com/football/?&met=Teams"
         
         //NewsVC
         static let newsApiKey = "7403d80699msh2fd43e6b48b57b5p1df40bjsndf535a86df57"

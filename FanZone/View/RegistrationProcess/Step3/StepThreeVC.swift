@@ -88,7 +88,7 @@ extension StepThreeVC {
         }
         
         let imageName = UUID().uuidString
-        let storageRef = Storage.storage().reference().child("images/\(imageName).jpg")
+        let storageRef = Storage.storage().reference().child("ssnImages/\(imageName).jpg")
         
         if let imageData = image.jpegData(compressionQuality: 0.5) {
             // Upload the image data to Firebase Storage
@@ -117,8 +117,13 @@ extension StepThreeVC {
                     
                     // Update the document in Firestore
                     self.db.collection("Fan").document(userID).updateData([
-                        "passportID": self.optionalFanPassportId.text ?? "",
-                        "SSNimage": downloadURL.absoluteString
+                        "passportID": self.optionalFanPassportId.text == "" ? "null" : self.optionalFanPassportId.text!,
+                        "SSNimage": downloadURL.absoluteString,
+                        "status":"allowed",
+                        "panned_date": "null",
+                        "panned_until":"null",
+                        "country": "Egypt",
+                        "birthDate": "2000-05-30"
                     ]) { error in
                         if let error = error {
                             print("Error updating document: \(error.localizedDescription)")

@@ -16,6 +16,7 @@ protocol fetchData {
 enum Endpoints {
     
     case getUpcomingFixetures(id: String, from: String, to: String)
+    case getAllTeams(leagueID: String)
     case getHighlightsData
     
     var stringUrl: URL {
@@ -24,6 +25,9 @@ enum Endpoints {
         case .getUpcomingFixetures(let id, let from, let to):
             return URL(string: Constants.links.upcomingFixteuresURL + Constants.links.apikey + "&from=\(from)&to=\(to)" + Constants.links.leagueId + "\(id)")!
 
+        case .getAllTeams(let leagueID):
+            return URL(string: Constants.links.allTeams + Constants.links.leagueId + "\(leagueID)" + "&APIkey=\(Constants.links.apikey)")!
+            
         case .getHighlightsData:
             return URL(string: Constants.links.highlightsURL + Constants.links.highlightsApi)!
         }

@@ -20,13 +20,31 @@ class ViewModel{
     
     var highlightsModel: HighlightsModel?
     var highlightsResult = BehaviorRelay<[HighlightResponse]>.init(value: [])
+    
+    var teamsModel: AllTeamsModel?
+    var teamsResult = BehaviorRelay<[Teams]>.init(value: [])
 
+}
+
+// MARK: - Fixtures
+extension ViewModel{
     func getUpcomingFixetures(leagueID: String, from: String, to: String){
         ApiClient.shared().getData(modelDTO: UpcomingFixeturesModel.self, .getUpcomingFixetures(id: leagueID, from: from, to: to))
             .subscribe(onNext: { upcomingFixetures in
-                //print("Received upcoming Fixetures: \(upcomingFixetures.self)")
                 self.upcomingFixeturesModell = upcomingFixetures
                 self.upcomingFixeturesResult.accept(upcomingFixetures.result)
+            }, onError: { error in
+                print("Error fetching Upcoming Fixtures: \(error)")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func getAllTeams(leagueID: String){
+        ApiClient.shared().getData(modelDTO: AllTeamsModel.self, .getAllTeams(leagueID: leagueID))
+            .subscribe(onNext: { allTeams in
+                print("All Teams Data:", allTeams)
+                self.teamsModel = allTeams
+                self.teamsResult.accept(allTeams.result)
             }, onError: { error in
                 print("Error fetching Upcoming Fixtures: \(error)")
             })
@@ -36,7 +54,11 @@ class ViewModel{
     func clearUpcomingFixtures(){
         self.upcomingFixeturesResult.accept([])
     }
-    
+}
+
+
+// MARK: - News Data
+extension ViewModel{
     func getTrendingNewsData(){
         ApiClient.shared().fetchDataFromAPI(modelType: [TrendingNewsModel].self, url: URL(string: Constants.links.trendingNewsURL)!, host: Constants.links.newsHost, apiKey: Constants.links.newsApiKey) { [weak self] result in
             switch result {
@@ -66,6 +88,7 @@ class ViewModel{
     }
 }
 
+// MARK: - Highlight Data
 extension ViewModel{
     func getHighlightsData(){
         ApiClient.shared().getData(modelDTO: HighlightsModel.self, .getHighlightsData)
@@ -80,6 +103,7 @@ extension ViewModel{
     }
 }
 
+// MARK: - Payment
 extension ViewModel {
     func getFirstToken(completion: @escaping (String?) -> Void) {
         ApiClient.shared().sendPostRequest(apiURL: URL(string: Constants.links.firstTokenUrl)!, body: Constants.links.firstTokenBody) { result in
