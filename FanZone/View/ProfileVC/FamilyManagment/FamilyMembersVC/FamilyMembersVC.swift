@@ -45,7 +45,7 @@ extension FamilyMembersVC: UITableViewDelegate,UITableViewDataSource{
         
         let member = members[indexPath.row] // Assuming tickets is an array containing the documents from the "Match_Tickets" collection
         let memberImage = member["depImageURL"] as? String
-        cell.depID.text = member["userID"] as? String
+        cell.depID.text = member["depID"] as? String
         cell.depName.text = member["depName"] as? String
         cell.depGender.text = member["depGender"] as? String
         cell.depImage.sd_setImage(with: URL(string: memberImage ?? ""))

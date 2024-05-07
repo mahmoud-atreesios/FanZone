@@ -51,6 +51,14 @@ class AddMemberVC: UIViewController {
 }
 
 extension AddMemberVC{
+    func generateUniqueString() -> String {
+        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomString = String((0..<9).map{ _ in characters.randomElement()! })
+        return randomString
+    }
+}
+
+extension AddMemberVC{
     func saveMemberToDataBase(){
         let blurEffect = UIBlurEffect(style: .regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -64,6 +72,8 @@ extension AddMemberVC{
         //isSavingData = true
         addMemberButton.isEnabled = false
         
+        let depID = generateUniqueString()
+
         guard let userID = Auth.auth().currentUser?.uid else {
             print("User not authenticated")
             return
@@ -154,11 +164,14 @@ extension AddMemberVC{
                         // Save department image URL, birth certificate image URL, and other data to Firestore
                         let data: [String: Any] = [
                             "userID": userID,
+                            "depID": depID,
                             "depName": depName,
                             "depSSN": depSSN,
                             "depGender": depGender,
                             "depImageURL": depImageURL,
-                            "birthCertificateImageURL": birthCertificateImageURL
+                            "birthCertificateImageURL": birthCertificateImageURL,
+                            "status": "allowed",
+                            "birthDate": "2017-03-20"
                         ]
                         
                         // Set data to Firestore

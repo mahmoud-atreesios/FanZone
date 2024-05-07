@@ -26,13 +26,15 @@ class BookingVC: UIViewController{
     private let viewModel = ViewModel()
     private let disposeBag = DisposeBag()
     
+    private let db = Firestore.firestore()
     var firstToken: String?
     var orderId: String?
     var totalPrice: String?
+    var members: [[String: Any]] = []
     
     private let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
     var numberOfSelectedTickets = BehaviorRelay<Int>(value: 1)
-
+    
     var departmentTableViewData: [cellData] = [
         cellData(opened: false, department: "Left", categories: ["Cat-1": 10,"Cat-2": 20,"Cat-3": 30], imageName: "test11"),
         cellData(opened: false, department: "Right", categories: ["Cat-1": 10,"Cat-2": 20,"Cat-3": 30], imageName: "test13"),
@@ -45,7 +47,7 @@ class BookingVC: UIViewController{
         // Do any additional setup after loading the view.
         setUpUi()
         getFirtToken()
-        
+
         departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
         departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
@@ -60,6 +62,7 @@ class BookingVC: UIViewController{
         totalTicketPrice()
         setUpNumberOfTicketsDropDown()
         makeBookingButtonLabelClickable()
+        fetchFamilyMembers()
     }
 }
 
@@ -68,7 +71,7 @@ extension BookingVC{
         panoramaImageView.layer.cornerRadius = 20
         panoramaImageView.clipsToBounds = true
         panoramaImageView.controlMethod = .both
-
+        
         bookingButton.layer.cornerRadius = 15
         bookingButton.clipsToBounds = true
         bookingButton.isUserInteractionEnabled = true
@@ -139,6 +142,7 @@ extension BookingVC{
         numberOfTicketsDropDown.isSearchEnable = false
         numberOfTicketsDropDown.attributedPlaceholder = attributedString
         numberOfTicketsDropDown.optionArray = ["1","2","3","4"]
+        //numberOfTicketsDropDown.optionArray = members.count
         numberOfTicketsDropDown.itemsTintColor = .black
         numberOfTicketsDropDown.selectedIndex = 0
         
@@ -146,8 +150,8 @@ extension BookingVC{
         numberOfTicketsDropDown.didSelect{(selectedText , index ,id) in
             print("Selected String: \(selectedText) \n index: \(index)")
             self.numberOfSelectedTickets.accept(Int(selectedText) ?? 0)
+            print(self.members.count)
             self.numberOfTicketsTableView.reloadData()
-            
         }
     }
 }
@@ -215,19 +219,25 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
                 
                 return cell
             }
-        }else if tableView == numberOfTicketsTableView{
+        } else if tableView == numberOfTicketsTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ticketsForCell", for: indexPath) as! NumberOfTicketsTableViewCell
-            let ticketsDropList = cell.ticketsForDropList
-            ticketsDropList?.isSearchEnable = false
-            ticketsDropList?.placeholder = "My self"
-            ticketsDropList?.optionArray = ["My self","Dep-1","Dep-2","Dep-3"]
-            ticketsDropList?.itemsTintColor = .black
-            ticketsDropList?.arrowSize = 10
             
-            // The the Closure returns Selected Index and String
-            ticketsDropList?.didSelect{(selectedText , index ,id) in
+            if indexPath.row == 0 {
+                cell.ticketsForDropList.isSearchEnable = false
+                cell.ticketsForDropList.attributedPlaceholder = NSAttributedString(string: "Myself", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                cell.ticketsForDropList.selectedIndex = 0
+                cell.ticketsForDropList.optionArray = ["Myself"]
+            } else {
+                cell.ticketsForDropList.isSearchEnable = false
+                cell.ticketsForDropList.placeholder = "Select Department"
+                cell.ticketsForDropList.optionArray = members.compactMap { $0["depName"] as? String }
+            }
+            
+            cell.ticketsForDropList.itemsTintColor = .black
+            cell.ticketsForDropList.arrowSize = 10
+            
+            cell.ticketsForDropList.didSelect { (selectedText, index, id) in
                 print("Selected String: \(selectedText) \n index: \(index)")
-                
             }
             
             return cell
@@ -249,7 +259,7 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension BookingVC {
+extension BookingVC{
     func totalTicketPrice() {
         Observable.combineLatest(ticketPriceRelay, numberOfSelectedTickets)
             .subscribe(onNext: { price, numberOfTickets in
@@ -261,5 +271,31 @@ extension BookingVC {
                 }
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension BookingVC{
+    func fetchFamilyMembers(){
+        let userID = Auth.auth().currentUser?.uid
+        if let userID = userID {
+            db.collection("Family_Members")
+                .whereField("userID", isEqualTo: userID)
+                .getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error.localizedDescription)")
+                    } else {
+                        guard let documents = querySnapshot?.documents else {
+                            print("No documents")
+                            return
+                        }
+                        self.members = documents.map { document in
+                            var data = document.data()
+                            data["documentID"] = document.documentID
+                            return data
+                        }
+                        self.numberOfTicketsTableView.reloadData()
+                    }
+                }
+        }
     }
 }
