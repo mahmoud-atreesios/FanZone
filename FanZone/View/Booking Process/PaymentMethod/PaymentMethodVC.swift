@@ -28,15 +28,17 @@ class PaymentMethodVC: UIViewController {
     var totalPrice: String?
     var matchBus = true
     
-    let dep1 = "A9BK7Zsf1lOPThd05LQeBKLfR4Q2"
-    let dep2 = "v3iobxxTAyQev3bkF2nkFxcpm6o1"
+    var selectedDepIds: [String] = []
+    
+    var dep1 = "A9BK7Zsf1lOPThd05LQeBKLfR4Q2"
+    var dep2 = "v3iobxxTAyQev3bkF2nkFxcpm6o1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         accept.delegate = self
         nextButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
-        
+        print("++++++++++ \(selectedDepIds) ++++++++")
     }
     
     @IBAction func button(_ sender: UIButton) {
@@ -205,9 +207,11 @@ extension PaymentMethodVC {
             }
         }
     }
+    
     private func createAndSaveQRCodeToFirebase(withUserID userID: String, completion: @escaping (String) -> Void){
         // Generate a unique string for the QR code (you can use any unique identifier)
-        let uniqueString = "\(userID)_\(dep1)_\(UUID().uuidString)" // Append the userID to the unique string
+        let depIdsString = selectedDepIds.joined(separator: "_")
+        let uniqueString = "\(depIdsString)_\(generateUniqueString())"
         
         // Create a data object from the unique string
         if let data = uniqueString.data(using: .ascii) {
@@ -248,6 +252,14 @@ extension PaymentMethodVC {
 }
 
 extension PaymentMethodVC{
+    func generateUniqueString() -> String {
+        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomString = String((0..<11).map{ _ in characters.randomElement()! })
+        return randomString
+    }
+}
+
+extension PaymentMethodVC{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
@@ -258,3 +270,4 @@ extension PaymentMethodVC{
         tabBarController?.tabBar.isHidden = false
     }
 }
+

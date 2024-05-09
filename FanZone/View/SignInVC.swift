@@ -125,10 +125,10 @@ extension SignInVC{
     }
 }
 
-// MARK: HIDE KEYBOARD
+// MARK: - HIDE KEYBOARD
 extension SignInVC{
     func hideKeyboardWhenTappedAround(){
-        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberVC.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignInVC.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }

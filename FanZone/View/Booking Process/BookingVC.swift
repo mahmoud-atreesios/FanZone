@@ -31,6 +31,7 @@ class BookingVC: UIViewController{
     var orderId: String?
     var totalPrice: String?
     var members: [[String: Any]] = []
+    var selectedDepIds: [String] = []
     
     private let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
     var numberOfSelectedTickets = BehaviorRelay<Int>(value: 1)
@@ -47,7 +48,7 @@ class BookingVC: UIViewController{
         // Do any additional setup after loading the view.
         setUpUi()
         getFirtToken()
-
+        
         departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
         departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
@@ -94,16 +95,36 @@ extension BookingVC{
     
     //boooooooooking button
     @objc func bookingButtonTapped() {
-        //print(numberOfSelectedTickets.value)
         guard Auth.auth().currentUser != nil else {
             showAlert(title: "OOPS!", message: "You have to sign in first to be able to book a ticket.")
             return
         }
         
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("User not authenticated")
+            return
+        }
+        
+        // Collect selected depIds
+        for indexPath in 0..<numberOfTicketsTableView.numberOfRows(inSection: 0) {
+            if let cell = numberOfTicketsTableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? NumberOfTicketsTableViewCell,
+               let index = cell.ticketsForDropList.selectedIndex {
+                   if index == 0 {
+                       // Selected "Myself", prepend userID
+                       selectedDepIds.insert(userID, at: 0)
+                   } else if index > 0 {
+                       let depId = self.members[index - 1]["depID"] as? String ?? ""
+                       selectedDepIds.append(depId)
+                   }
+            }
+        }
+
+        
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
         paymentMethodVC.totalPrice = totalPrice
         paymentMethodVC.matchBus = true
+        paymentMethodVC.selectedDepIds = selectedDepIds
         
         viewModel.getOrderId(firstToken: firstToken ?? "") { orderid in
             if let order = orderid{
@@ -219,25 +240,21 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
                 
                 return cell
             }
-        } else if tableView == numberOfTicketsTableView {
+        }else if tableView == numberOfTicketsTableView{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ticketsForCell", for: indexPath) as! NumberOfTicketsTableViewCell
+            let ticketsDropList = cell.ticketsForDropList
+            ticketsDropList?.isSearchEnable = false
+            ticketsDropList?.placeholder = "My self"
+            ticketsDropList?.optionArray = ["Myself"] + members.compactMap { $0["depName"] as? String }
+            ticketsDropList?.itemsTintColor = .black
+            ticketsDropList?.arrowSize = 10
             
-            if indexPath.row == 0 {
-                cell.ticketsForDropList.isSearchEnable = false
-                cell.ticketsForDropList.attributedPlaceholder = NSAttributedString(string: "Myself", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-                cell.ticketsForDropList.selectedIndex = 0
-                cell.ticketsForDropList.optionArray = ["Myself"]
-            } else {
-                cell.ticketsForDropList.isSearchEnable = false
-                cell.ticketsForDropList.placeholder = "Select Department"
-                cell.ticketsForDropList.optionArray = members.compactMap { $0["depName"] as? String }
-            }
-            
-            cell.ticketsForDropList.itemsTintColor = .black
-            cell.ticketsForDropList.arrowSize = 10
-            
+            // The the Closure returns Selected Index and String
             cell.ticketsForDropList.didSelect { (selectedText, index, id) in
-                print("Selected String: \(selectedText) \n index: \(index)")
+                if index > 0 {
+                    let depId = self.members[index - 1]["depID"] as? String ?? ""
+                    print("Selected DepId for \(selectedText) is \(depId)")
+                }
             }
             
             return cell
