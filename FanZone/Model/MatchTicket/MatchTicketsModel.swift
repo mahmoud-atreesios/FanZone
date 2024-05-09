@@ -12,7 +12,9 @@ struct MatchTicketsModel{
     let leagueRound: String?
     let departmentName: String?
     let homeTeamLogo:String?
+    let homeTeamName: String?
     let awayTeamLogo: String?
+    let awayTeamName: String?
     let matchStadium: String?
     let matchDate: String?
     let matchTime: String?

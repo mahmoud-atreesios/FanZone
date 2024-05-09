@@ -161,6 +161,12 @@ extension PaymentMethodVC {
                     "matchDate": selectedMatchTicketsModel.matchDate ?? "Unknown matchDate",
                     "matchTime": selectedMatchTicketsModel.matchTime ?? "Unknown matchTime",
                     "ticketStatus": selectedMatchTicketsModel.ticketStatus ?? "Unkown status",
+                    "team1": selectedMatchTicketsModel.homeTeamName ?? "unknwon team1",
+                    "team2": selectedMatchTicketsModel.awayTeamName ?? "unknwon team2",
+                    "selectedTicket": "yes",
+                    "buyDate": "null",
+                    "refundDate": "null",
+                    "TicketsTo": self.selectedDepIds,
                     "qrCodeURL": qrCodeURL
                 ]
                 

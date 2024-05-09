@@ -110,7 +110,6 @@ extension BookingVC{
             if let cell = numberOfTicketsTableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? NumberOfTicketsTableViewCell,
                let index = cell.ticketsForDropList.selectedIndex {
                    if index == 0 {
-                       // Selected "Myself", prepend userID
                        selectedDepIds.insert(userID, at: 0)
                    } else if index > 0 {
                        let depId = self.members[index - 1]["depID"] as? String ?? ""
