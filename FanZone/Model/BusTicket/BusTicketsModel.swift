@@ -15,4 +15,6 @@ struct BusTicketsModel{
     let numberOfSeats: String?
     let busNumber: String?
     let ticketStatus: String?
+    let documentID: String?
+    let availableSeats: Int?
 }

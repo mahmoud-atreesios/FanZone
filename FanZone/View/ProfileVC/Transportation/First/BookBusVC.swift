@@ -56,7 +56,7 @@ class BookBusVC: UIViewController {
 extension BookBusVC{
     func setUpStationDropList(){
         busStationDropList.isSearchEnable = false
-        busStationDropList.optionArray = ["Ain Shames","Tahrir Square","Haram","Alexandria","5th settlement","Giza"]
+        busStationDropList.optionArray = ["Ain Shames","Tahrir Square","helwan","Alexandria","5th settlement","Giza","shobra"]
         busStationDropList.itemsTintColor = .black
         
         // The the Closure returns Selected Index and String
@@ -68,7 +68,7 @@ extension BookBusVC{
     
     func setUpStadiumDropList(){
         stadiumDestinationDropList.isSearchEnable = false
-        stadiumDestinationDropList.optionArray = ["We Salam Stad","Ismalia Stadium","Cairo Stadium","Alexandria Stadium","Borg El Arab Stad"]
+        stadiumDestinationDropList.optionArray = ["We Salam Stad","Ismalia Stadium","Cairo International Stadium (al-Qāhirah (Cairo))","Alexandria Stadium","Borg El Arab Stadium (Al-Iskandarîah (Alexandria))"]
         stadiumDestinationDropList.itemsTintColor = .black
         
         // The the Closure returns Selected Index and String
@@ -80,7 +80,7 @@ extension BookBusVC{
     
     func setUpNumberOfSeatsDropDown(){
         numberOfSeatsDropList.isSearchEnable = false
-        numberOfSeatsDropList.optionArray = ["1","2","3"]
+        numberOfSeatsDropList.optionArray = ["1","2","3","4"]
         numberOfSeatsDropList.itemsTintColor = .black
         
         // The the Closure returns Selected Index and String

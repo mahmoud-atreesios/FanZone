@@ -120,6 +120,7 @@ extension PaymentMethodVC: AcceptSDKDelegate{
             saveMatchTicketToDataBase()
         } else {
             saveBusTicketToDataBase()
+            updateAvailableSeatsInTrips()
         }
         
         if let tabBarController = self.tabBarController as? TabBar {
@@ -146,9 +147,10 @@ extension PaymentMethodVC {
         
         // Generate a new document ID for the match ticket
         let ticketRef = self.db.collection("Match_Tickets").document()
+        let documentID = ticketRef.documentID // Get the generated document ID
         
         // Generate and save the QR code
-        createAndSaveQRCodeToFirebase(withUserID: userID) { qrCodeURL in
+        createAndSaveQRCodeToFirebase(withDocumentID: documentID) { qrCodeURL in
             if let selectedMatchTicketsModel = MatchTicketsManager.shared.selectedMatchTicketsModel {
                 let data: [String: Any] = [
                     "userID": userID, // Store the user ID for reference
@@ -166,6 +168,7 @@ extension PaymentMethodVC {
                     "selectedTicket": "yes",
                     "buyDate": "null",
                     "refundDate": "null",
+                    "depID":"null",
                     "TicketsTo": self.selectedDepIds,
                     "qrCodeURL": qrCodeURL
                 ]
@@ -214,10 +217,37 @@ extension PaymentMethodVC {
         }
     }
     
-    private func createAndSaveQRCodeToFirebase(withUserID userID: String, completion: @escaping (String) -> Void){
+    func updateAvailableSeatsInTrips(){
+        if let selectedBusData = BusTicketsManager.shared.selectedBusTicketsModel{
+            guard let availableSeats = selectedBusData.availableSeats,
+                  let numberOfSeatsString = selectedBusData.numberOfSeats,
+                  let numberOfSeats = Int(numberOfSeatsString),
+                  let documentID = selectedBusData.documentID else {
+                print("Invalid data format")
+                return
+            }
+            
+            let updatedAvailableSeats = availableSeats - numberOfSeats
+            
+            self.db.collection("Trips").document(documentID).updateData([
+                "availableSeats": updatedAvailableSeats,
+            ]) { error in
+                if let error = error {
+                    print("Error updating document: \(error)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+            
+        }
+    }
+
+    
+    private func createAndSaveQRCodeToFirebase(withDocumentID documentID: String, completion: @escaping (String) -> Void){
         // Generate a unique string for the QR code (you can use any unique identifier)
         let depIdsString = selectedDepIds.joined(separator: "_")
-        let uniqueString = "\(depIdsString)_\(generateUniqueString())"
+        let uniqueString = "\(documentID)"
+
         
         // Create a data object from the unique string
         if let data = uniqueString.data(using: .ascii) {

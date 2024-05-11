@@ -50,13 +50,13 @@ class AddMemberVC: UIViewController {
     
 }
 
-extension AddMemberVC{
-    func generateUniqueString() -> String {
-        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let randomString = String((0..<9).map{ _ in characters.randomElement()! })
-        return randomString
-    }
-}
+//extension AddMemberVC{
+//    func generateUniqueString() -> String {
+//        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+//        let randomString = String((0..<9).map{ _ in characters.randomElement()! })
+//        return randomString
+//    }
+//}
 
 extension AddMemberVC{
     func saveMemberToDataBase(){
@@ -72,7 +72,7 @@ extension AddMemberVC{
         //isSavingData = true
         addMemberButton.isEnabled = false
         
-        let depID = generateUniqueString()
+       // let depID = generateUniqueString()
 
         guard let userID = Auth.auth().currentUser?.uid else {
             print("User not authenticated")
@@ -97,8 +97,6 @@ extension AddMemberVC{
             return
         }
         
-        // Generate a new document ID for the Family_Members
-        let memberRef = self.db.collection("Family_Members").document()
         
         guard let depName = depName.text, let depSSN = depSSN.text, let depGender = selectedGender else {
             showAlert(title: "Error", message: "Please complete the form.")
@@ -160,6 +158,11 @@ extension AddMemberVC{
                             print("Error getting birth certificate image URL: \(error?.localizedDescription ?? "")")
                             return
                         }
+                        
+                        // Generate a new document reference for the Family_Members
+                        let memberRef = self.db.collection("Family_Members").document()
+                        // Use the document ID as the depID
+                        let depID = memberRef.documentID
                         
                         // Save department image URL, birth certificate image URL, and other data to Firestore
                         let data: [String: Any] = [

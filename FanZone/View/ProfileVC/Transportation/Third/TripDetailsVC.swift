@@ -31,6 +31,8 @@ class TripDetailsVC: UIViewController {
     var selectedBusNumber: String?
     var ticketPrice: String?
     var estimatedArrivalTimee: String?
+    var tripDocumentID: String?
+    var availableSeats: Int?
     
     private let viewModel = ViewModel()
     private let disposeBag = DisposeBag()
@@ -56,6 +58,16 @@ extension TripDetailsVC{
             return
         }
         
+        guard let availableSeats = availableSeats, let selectedNumberOfSeatsInteger = Int(selectedNumberOfSeats ?? "0") else {
+            showAlert(title: "Error", message: "Invalid number of available seats or selected number of seats.")
+            return
+        }
+        
+        guard availableSeats >= selectedNumberOfSeatsInteger else {
+            showAlert(title: "Not Enough Seats", message: "There are not enough available seats in this trip.")
+            return
+        }
+        
         BusTicketsManager.shared.selectedBusTicketsModel = BusTicketsModel(
             station: selectedStation,
             destination: selectedDestination,
@@ -63,7 +75,9 @@ extension TripDetailsVC{
             travelTime: travelTime,
             numberOfSeats: selectedNumberOfSeats,
             busNumber: selectedBusNumber,
-            ticketStatus: "Activated")
+            ticketStatus: "Activated",
+            documentID: tripDocumentID,
+            availableSeats: availableSeats)
         
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken

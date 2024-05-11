@@ -50,6 +50,7 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
         cell.travelDate.text = availableTrips["date"] as? String
         cell.travelTime.text = availableTrips["time"] as? String
         cell.tripPrice.text = "\(availableTrips["price"] as? String ?? "0")$"
+        cell.availableSeats.text = "avaialable Seats: \(availableTrips["availableSeats"] as? Int ?? 0)"
         
         return cell
     }
@@ -66,6 +67,8 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
         tripDetailsVC.ticketPrice = selectedTrip["price"] as? String
         tripDetailsVC.selectedBusNumber = selectedTrip["busNumber"] as? String
         tripDetailsVC.estimatedArrivalTimee = selectedTrip["estimatedArrivalTime"] as? String
+        tripDetailsVC.tripDocumentID = selectedTrip["documentID"] as? String
+        tripDetailsVC.availableSeats = selectedTrip["availableSeats"] as? Int
         tripDetailsVC.selectedNumberOfSeats = selectedNumberOfSeats
         
         //present(tripDetailsVC, animated: true)
@@ -87,10 +90,15 @@ extension TripsVC{
                             print("No documents")
                             return
                         }
-                        self.availableTrips = documents.map { document in
+                        var tempTrips: [[String: Any]] = []
+                        tempTrips = documents.map { document in
                             var data = document.data()
                             data["documentID"] = document.documentID
                             return data
+                        }
+                        // Filter the temporary array to include trips with availableSeats > 0
+                        self.availableTrips = tempTrips.filter { trip in
+                            return trip["availableSeats"] as? Int ?? 0 > 0
                         }
                         DispatchQueue.main.async {
                             self.availableTripsTableView.reloadData()

@@ -49,25 +49,25 @@
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qu9-Y0-OhX" userLabel="Stadium">
-                        <rect key="frame" x="175" y="9.9999999999999982" width="107" height="26.333333333333329"/>
+                        <rect key="frame" x="175" y="10" width="156" height="36.333333333333336"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sportscourt.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Z3-Qu-1yG">
-                                <rect key="frame" x="0.0" y="0.99999999999999822" width="25" height="25"/>
+                                <rect key="frame" x="0.0" y="0.99999999999999822" width="25" height="19"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26.329999999999998" id="qpC-e4-tfj"/>
                                     <constraint firstAttribute="width" constant="25" id="zoO-Du-QD2"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-ur-TaL">
-                                <rect key="frame" x="30" y="0.0" width="77" height="26.333333333333332"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo Stadium" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-ur-TaL">
+                                <rect key="frame" x="30" y="0.0" width="126" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <color key="textColor" name="Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="26.329999999999998" id="Xwv-49-dC7"/>
+                            <constraint firstAttribute="height" constant="36.329999999999998" id="cdh-KE-JAe"/>
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M88-BG-S8B" userLabel="Date">
@@ -187,15 +187,17 @@
                             <constraint firstAttribute="height" constant="17" id="NxU-rE-Ksq"/>
                         </constraints>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="refunded" translatesAutoresizingMaskIntoConstraints="NO" id="x3y-xX-Fe0">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refunded" translatesAutoresizingMaskIntoConstraints="NO" id="x3y-xX-Fe0">
                         <rect key="frame" x="339" y="10" width="22" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="Au4-oe-clq"/>
+                            <constraint firstAttribute="width" constant="22" id="fLJ-o8-jdh"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.19215686274509802" green="0.27058823529411763" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="xbi-G1-qJR" firstAttribute="leading" secondItem="UnI-WM-Rrj" secondAttribute="trailing" constant="77.329999999999998" id="05n-Nh-wKW"/>
-                    <constraint firstItem="NSf-vv-KhF" firstAttribute="top" secondItem="Qu9-Y0-OhX" secondAttribute="bottom" constant="13" id="1eH-IT-bYp"/>
                     <constraint firstItem="UnI-WM-Rrj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="2zH-b8-2ZW"/>
                     <constraint firstItem="WQD-gq-2ak" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JYP-Rb-u0h"/>
                     <constraint firstItem="M88-BG-S8B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="L1L-la-7Gn"/>
@@ -206,7 +208,10 @@
                     <constraint firstItem="Qu9-Y0-OhX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="S0g-Eb-smM"/>
                     <constraint firstItem="i6B-Fr-2Ek" firstAttribute="top" secondItem="xbi-G1-qJR" secondAttribute="bottom" constant="52" id="Uwq-IB-wqE"/>
                     <constraint firstItem="i6B-Fr-2Ek" firstAttribute="top" secondItem="yUc-Kt-J64" secondAttribute="bottom" constant="27" id="VC9-qO-XaA"/>
+                    <constraint firstItem="x3y-xX-Fe0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VhP-a6-uEp"/>
                     <constraint firstAttribute="bottom" secondItem="i6B-Fr-2Ek" secondAttribute="bottom" id="XXe-fc-u7A"/>
+                    <constraint firstItem="NSf-vv-KhF" firstAttribute="top" secondItem="Qu9-Y0-OhX" secondAttribute="bottom" constant="3" id="g3g-r4-kLm"/>
+                    <constraint firstItem="x3y-xX-Fe0" firstAttribute="leading" secondItem="Qu9-Y0-OhX" secondAttribute="trailing" constant="8" id="hMo-cy-M2h"/>
                     <constraint firstItem="i6B-Fr-2Ek" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hQL-29-kNI"/>
                     <constraint firstItem="yUc-Kt-J64" firstAttribute="top" secondItem="UnI-WM-Rrj" secondAttribute="bottom" constant="8" id="ig2-GG-KHp"/>
                     <constraint firstItem="Qu9-Y0-OhX" firstAttribute="leading" secondItem="WQD-gq-2ak" secondAttribute="trailing" constant="10" id="nku-9w-olo"/>
@@ -215,6 +220,7 @@
                     <constraint firstItem="UnI-WM-Rrj" firstAttribute="top" secondItem="M88-BG-S8B" secondAttribute="bottom" constant="15" id="srs-B1-Zdf"/>
                     <constraint firstItem="yUc-Kt-J64" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="u7D-jE-nxq"/>
                     <constraint firstItem="M88-BG-S8B" firstAttribute="top" secondItem="WQD-gq-2ak" secondAttribute="bottom" constant="13" id="xOO-uN-hdw"/>
+                    <constraint firstAttribute="trailing" secondItem="x3y-xX-Fe0" secondAttribute="trailing" constant="12" id="xwV-9m-vfy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -18,6 +18,7 @@ class AvailableTrips: UITableViewCell {
     @IBOutlet weak var travelTime: UILabel!
     
     @IBOutlet weak var tripPrice: UILabel!
+    @IBOutlet weak var availableSeats: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
