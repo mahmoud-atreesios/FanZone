@@ -11,12 +11,12 @@ struct NewsModel: Codable {
     let url: String?
     let title: String?
     let img: String?
-    let shortDesc: String?
+    //let shortDesc: String?
 
     enum CodingKeys: String, CodingKey {
         case url, title
-        case img = "news_img"
-        case shortDesc = "short_desc"
+        case img = "img"
+        //case shortDesc = "short_desc"
     }
 }
 

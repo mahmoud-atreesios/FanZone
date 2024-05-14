@@ -20,7 +20,7 @@ struct Constants{
         static let newsApiKey = "7403d80699msh2fd43e6b48b57b5p1df40bjsndf535a86df57"
         static let newsHost = "football-news-aggregator-live.p.rapidapi.com"
         static let trendingNewsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/espn"
-        static let newsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/fourfourtwo/epl"
+        static let newsURL = "https://football-news-aggregator-live.p.rapidapi.com/news/onefootball"
         
         //HighlightsVC
         static let highlightsApi = "MTQyMjc0XzE3MDc0NDY2MTVfODY5NTJhNzVlYzM1OWYyNmE4ZGE5MjI2NTIxNzUwMWZjNDg4YTI0Yg=="

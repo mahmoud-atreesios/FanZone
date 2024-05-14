@@ -66,7 +66,6 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
         tripDetailsVC.travelTime = selectedTrip["time"] as? String
         tripDetailsVC.ticketPrice = selectedTrip["price"] as? String
         tripDetailsVC.selectedBusNumber = selectedTrip["busNumber"] as? String
-        tripDetailsVC.estimatedArrivalTimee = selectedTrip["estimatedArrivalTime"] as? String
         tripDetailsVC.tripDocumentID = selectedTrip["documentID"] as? String
         tripDetailsVC.availableSeats = selectedTrip["availableSeats"] as? Int
         tripDetailsVC.selectedNumberOfSeats = selectedNumberOfSeats

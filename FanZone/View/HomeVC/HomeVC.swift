@@ -37,6 +37,8 @@ class HomeVC: UIViewController {
         leagueCollectionView.register(UINib(nibName: "LeagueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "leagueCell")
         popularMatchesCollectionView.register(UINib(nibName: "PopularCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "popularCell")
         upcomingMatchesTableView.register(UINib(nibName: "UpcomingMatchesTableViewCell", bundle: nil), forCellReuseIdentifier: "upcomingCell")
+        //upcomingMatchesTableView.delegate = self
+        //upcomingMatchesTableView.dataSource = self
         
         viewModel.getUpcomingFixetures(leagueID: "152", from: calculateFormattedLaunchDate() , to: getFormattedDateAfterTenDays())
         
@@ -48,8 +50,45 @@ class HomeVC: UIViewController {
         makeSeeMoreLabelGestured()
         
     }
-    
 }
+
+//extension HomeVC: UITableViewDelegate, UITableViewDataSource{
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "upcomingCell", for: indexPath) as! UpcomingMatchesTableViewCell
+//
+//        cell.homeTeamName.text = "Man City"
+//        cell.awayTeamName.text = "Arsenal"
+//        cell.matchDate.text = "2024-05-20"
+//        cell.matchTime.text = "17:00"
+//        cell.stadName.text = "Etihad Stadium"
+//        cell.stadImageView.image = UIImage(named: "PL1")
+//
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        MatchTicketsManager.shared.selectedMatchTicketsModel = MatchTicketsModel(
+//            leagueName: "Premier League",
+//            leagueRound: "Round 12",
+//            departmentName: "Cat3-left",
+//            homeTeamLogo: "https://firebasestorage.googleapis.com:443/v0/b/database10-244fc.appspot.com/o/images%2F2ED98C1C-C283-47D3-8655-9E9849AB4ACB.jpg?alt=media&token=3ab99d5f-cb7c-4646-b105-694df74c6da1",
+//            homeTeamName: "Arsenal",
+//            awayTeamLogo: "https://firebasestorage.googleapis.com:443/v0/b/database10-244fc.appspot.com/o/images%2F2ED98C1C-C283-47D3-8655-9E9849AB4ACB.jpg?alt=media&token=3ab99d5f-cb7c-4646-b105-694df74c6da1",
+//            awayTeamName: "Arsenal",
+//            matchStadium: "Etihad Stadium",
+//            matchDate: "2024-05-20",
+//            matchTime: "17:00",
+//            ticketStatus: "Activated"
+//        )
+//
+//        performSegue(withIdentifier: "ShowBookingSegue", sender: indexPath)
+//    }
+//}
+
 
 extension HomeVC{
     func setUpLeagueCollectionView(){
@@ -116,7 +155,6 @@ extension HomeVC{
 }
 
 extension HomeVC{
-    
     func bindingPopularCollectionViewToViewModel(){
         viewModel.upcomingFixeturesResult
             .map { results in

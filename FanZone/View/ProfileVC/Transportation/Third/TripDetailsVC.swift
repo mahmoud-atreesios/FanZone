@@ -16,7 +16,6 @@ class TripDetailsVC: UIViewController {
     @IBOutlet weak var destinationName: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var estimatedArrivalTime: UILabel!
     @IBOutlet weak var numberOfSeats: UILabel!
     @IBOutlet weak var busNumber: UILabel!
     @IBOutlet weak var backgroundView: UIView!
@@ -30,7 +29,6 @@ class TripDetailsVC: UIViewController {
     var selectedNumberOfSeats: String?
     var selectedBusNumber: String?
     var ticketPrice: String?
-    var estimatedArrivalTimee: String?
     var tripDocumentID: String?
     var availableSeats: Int?
     
@@ -132,7 +130,6 @@ extension TripDetailsVC{
         time.text = travelTime
         busNumber.text = selectedBusNumber
         numberOfSeats.text = selectedNumberOfSeats
-        estimatedArrivalTime.text = estimatedArrivalTimee
                 
         if let ticketPriceInt = Int(ticketPrice ?? "0") , let selectedNumberOfSeatsInt = Int(selectedNumberOfSeats ?? "0"){
             totalTicketPrice = String(ticketPriceInt * selectedNumberOfSeatsInt)

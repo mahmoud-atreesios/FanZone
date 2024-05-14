@@ -52,7 +52,7 @@ extension NewsVC{
             .catch { error in
                 let alert = UIAlertController(title: "Error", message: "Failed to fetch news data. Would you like to retry?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
-                    self.viewModel.getNewsData() // Retry the API call
+                    self.viewModel.getTrendingNewsData() // Retry the API call
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
@@ -75,7 +75,6 @@ extension NewsVC{
 }
 
 extension NewsVC{
-    
     func bindNewsTableViewToViewModel(){
         viewModel.newsDataResult
             .catch { error in
