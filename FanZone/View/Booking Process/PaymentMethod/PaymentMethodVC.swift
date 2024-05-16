@@ -201,9 +201,10 @@ extension PaymentMethodVC {
                 "stadiumDestination": selectedBusTicketsModel.destination ?? "Unknown destination",
                 "travelDate": selectedBusTicketsModel.travelDate ?? "Unknown travelDate",
                 "travelTime": selectedBusTicketsModel.travelTime ?? "Unknown travelTime",
-                "numberOfSeats": selectedBusTicketsModel.numberOfSeats ?? "Unknown numberOfSeats",
+                //"numberOfSeats": selectedBusTicketsModel.numberOfSeats ?? "Unknown numberOfSeats",
                 "busNumber": selectedBusTicketsModel.busNumber ?? "Unknown busNumber",
                 "ticketStatus": selectedBusTicketsModel.ticketStatus ?? "Unkown status",
+                "ticketTo": selectedBusTicketsModel.ticketTo ?? "unknown ticketTo"
             ]
 
             // Set data to Firestore
@@ -220,14 +221,14 @@ extension PaymentMethodVC {
     func updateAvailableSeatsInTrips(){
         if let selectedBusData = BusTicketsManager.shared.selectedBusTicketsModel{
             guard let availableSeats = selectedBusData.availableSeats,
-                  let numberOfSeatsString = selectedBusData.numberOfSeats,
-                  let numberOfSeats = Int(numberOfSeatsString),
+                  //let numberOfSeatsString = selectedBusData.numberOfSeats,
+                  //let numberOfSeats = Int(numberOfSeatsString),
                   let documentID = selectedBusData.documentID else {
                 print("Invalid data format")
                 return
             }
             
-            let updatedAvailableSeats = availableSeats - numberOfSeats
+            let updatedAvailableSeats = availableSeats - 1
             
             self.db.collection("Trips").document(documentID).updateData([
                 "availableSeats": updatedAvailableSeats,

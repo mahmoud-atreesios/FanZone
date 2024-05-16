@@ -7,6 +7,7 @@
 
 import UIKit
 import iOSDropDown
+import Firebase
 
 class BookBusVC: UIViewController {
     
@@ -19,11 +20,16 @@ class BookBusVC: UIViewController {
     var selectedBusStation: String?
     var selectedStadiumDestination: String?
     var selectedNumberOfSeats: String?
+    var selectedTicketTo: String?
+    
+    private let db = Firestore.firestore()
+    var members: [[String: Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
+        fetchFamilyMembers()
         setUpStationDropList()
         setUpStadiumDropList()
         setUpNumberOfSeatsDropDown()
@@ -48,7 +54,8 @@ class BookBusVC: UIViewController {
         let tripsVC = TripsVC(nibName: "TripsVC", bundle: nil)
         tripsVC.selectedBusStation = selectedBusStation
         tripsVC.selectedStadiumDestination = selectedStadiumDestination
-        tripsVC.selectedNumberOfSeats = selectedNumberOfSeats
+        tripsVC.selectedTicketTo = selectedTicketTo
+        //tripsVC.selectedNumberOfSeats = selectedNumberOfSeats
         navigationController?.pushViewController(tripsVC, animated: true)
     }
 }
@@ -80,13 +87,22 @@ extension BookBusVC{
     
     func setUpNumberOfSeatsDropDown(){
         numberOfSeatsDropList.isSearchEnable = false
-        numberOfSeatsDropList.optionArray = ["1","2","3","4"]
+        numberOfSeatsDropList.placeholder = "Ticket To"
+        numberOfSeatsDropList.optionArray = ["Myself"] + members.compactMap { $0["depName"] as? String }
         numberOfSeatsDropList.itemsTintColor = .black
         
-        // The the Closure returns Selected Index and String
+        // The Closure returns Selected Index and String
         numberOfSeatsDropList.didSelect{(selectedText , index ,id) in
-            print("Selected String: \(selectedText) \n index: \(index)")
-            self.selectedNumberOfSeats = selectedText
+            if index > 0 {
+                let depId = self.members[index - 1]["depID"] as? String ?? ""
+                print("Selected DepId for \(selectedText) is \(depId)")
+                self.selectedTicketTo = depId
+            }else{
+                if let userID = Auth.auth().currentUser?.uid{
+                    print("Selected DepId for \(selectedText) is \(userID)")
+                    self.selectedTicketTo = userID
+                }
+            }
         }
     }
 }
@@ -104,5 +120,32 @@ extension BookBusVC{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
+    }
+}
+
+extension BookBusVC{
+    func fetchFamilyMembers(){
+        let userID = Auth.auth().currentUser?.uid
+        if let userID = userID {
+            db.collection("Family_Members")
+                .whereField("userID", isEqualTo: userID)
+                .getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error.localizedDescription)")
+                    } else {
+                        guard let documents = querySnapshot?.documents else {
+                            print("No documents")
+                            return
+                        }
+                        self.members = documents.map { document in
+                            var data = document.data()
+                            data["documentID"] = document.documentID
+                            return data
+                        }
+                        self.setUpNumberOfSeatsDropDown()
+                        
+                    }
+                }
+        }
     }
 }

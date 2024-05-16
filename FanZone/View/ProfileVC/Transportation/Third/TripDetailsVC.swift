@@ -31,6 +31,7 @@ class TripDetailsVC: UIViewController {
     var ticketPrice: String?
     var tripDocumentID: String?
     var availableSeats: Int?
+    var selectedTicketTo: String?
     
     private let viewModel = ViewModel()
     private let disposeBag = DisposeBag()
@@ -56,26 +57,26 @@ extension TripDetailsVC{
             return
         }
         
-        guard let availableSeats = availableSeats, let selectedNumberOfSeatsInteger = Int(selectedNumberOfSeats ?? "0") else {
-            showAlert(title: "Error", message: "Invalid number of available seats or selected number of seats.")
-            return
-        }
-        
-        guard availableSeats >= selectedNumberOfSeatsInteger else {
-            showAlert(title: "Not Enough Seats", message: "There are not enough available seats in this trip.")
-            return
-        }
+//        guard let availableSeats = availableSeats, let selectedNumberOfSeatsInteger = Int(selectedNumberOfSeats ?? "0") else {
+//            showAlert(title: "Error", message: "Invalid number of available seats or selected number of seats.")
+//            return
+//        }
+//
+//        guard availableSeats >= selectedNumberOfSeatsInteger else {
+//            showAlert(title: "Not Enough Seats", message: "There are not enough available seats in this trip.")
+//            return
+//        }
         
         BusTicketsManager.shared.selectedBusTicketsModel = BusTicketsModel(
             station: selectedStation,
             destination: selectedDestination,
             travelDate: travelDate,
             travelTime: travelTime,
-            numberOfSeats: selectedNumberOfSeats,
             busNumber: selectedBusNumber,
             ticketStatus: "Activated",
             documentID: tripDocumentID,
-            availableSeats: availableSeats)
+            availableSeats: availableSeats,
+            ticketTo: selectedTicketTo)
         
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
@@ -129,9 +130,9 @@ extension TripDetailsVC{
         date.text = travelDate
         time.text = travelTime
         busNumber.text = selectedBusNumber
-        numberOfSeats.text = selectedNumberOfSeats
+        numberOfSeats.text = "000"
                 
-        if let ticketPriceInt = Int(ticketPrice ?? "0") , let selectedNumberOfSeatsInt = Int(selectedNumberOfSeats ?? "0"){
+        if let ticketPriceInt = Int(ticketPrice ?? "0") , let selectedNumberOfSeatsInt = Int(selectedNumberOfSeats ?? "1"){
             totalTicketPrice = String(ticketPriceInt * selectedNumberOfSeatsInt)
             totalPrice.text = "\(ticketPriceInt * selectedNumberOfSeatsInt)$"
         }else {

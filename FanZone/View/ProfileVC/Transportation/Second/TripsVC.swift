@@ -21,6 +21,7 @@ class TripsVC: UIViewController {
     var selectedBusStation: String?
     var selectedStadiumDestination: String?
     var selectedNumberOfSeats: String?
+    var selectedTicketTo: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +69,8 @@ extension TripsVC: UITableViewDelegate, UITableViewDataSource{
         tripDetailsVC.selectedBusNumber = selectedTrip["busNumber"] as? String
         tripDetailsVC.tripDocumentID = selectedTrip["documentID"] as? String
         tripDetailsVC.availableSeats = selectedTrip["availableSeats"] as? Int
-        tripDetailsVC.selectedNumberOfSeats = selectedNumberOfSeats
+        tripDetailsVC.selectedTicketTo = selectedTicketTo
+        //tripDetailsVC.selectedNumberOfSeats = selectedNumberOfSeats
         
         //present(tripDetailsVC, animated: true)
         navigationController?.pushViewController(tripDetailsVC, animated: true)

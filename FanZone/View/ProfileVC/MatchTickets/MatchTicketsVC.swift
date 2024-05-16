@@ -119,6 +119,7 @@ extension MatchTicketsVC {
         if let userID = userID {
             db.collection("Match_Tickets")
                 .whereField("userID", isEqualTo: userID)
+                .whereField("selectedTicket", isEqualTo: "yes")
                 .getDocuments { (querySnapshot, error) in
                     if let error = error {
                         print("Error getting documents: \(error.localizedDescription)")

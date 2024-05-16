@@ -39,13 +39,13 @@ extension BusTicketVC: UITableViewDelegate, UITableViewDataSource{
         cell.destination.text = busTicket["stadiumDestination"] as? String
         cell.date.text = busTicket["travelDate"] as? String
         cell.time.text = busTicket["travelTime"] as? String
-        cell.numberOfSeats.text = busTicket["numberOfSeats"] as? String
+        //cell.numberOfSeats.text = busTicket["ticketTo"] as? String
         cell.busNumber.text = busTicket["busNumber"] as? String
         cell.ticketStatus.text = busTicket["ticketStatus"] as? String
         cell.ticketID = busTicket["documentID"] as? String
         cell.delegate = self
         
-        if let userID = busTicket["userID"] as? String {
+        if let userID = busTicket["ticketTo"] as? String {
             let fanID = String(userID.prefix(4))
             cell.fanID.text = fanID
         }

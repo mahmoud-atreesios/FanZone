@@ -12,9 +12,10 @@ struct BusTicketsModel{
     let destination: String?
     let travelDate: String?
     let travelTime: String?
-    let numberOfSeats: String?
+    //let numberOfSeats: String?
     let busNumber: String?
     let ticketStatus: String?
     let documentID: String?
     let availableSeats: Int?
+    let ticketTo: String?
 }
