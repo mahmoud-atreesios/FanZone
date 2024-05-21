@@ -117,7 +117,6 @@ extension BookingVC{
                    }
             }
         }
-
         
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken

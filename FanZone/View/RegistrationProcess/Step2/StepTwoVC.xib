@@ -57,8 +57,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="Qrp-od-pNS">
                                     <rect key="frame" x="131.66666666666666" y="360" width="129.99999999999997" height="130"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="130" id="7EG-xz-hvg"/>
-                                        <constraint firstAttribute="width" constant="130" id="fa9-pn-QgC"/>
+                                        <constraint firstAttribute="height" constant="130" id="fxo-8O-3Qf"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IYH-bD-BwY">

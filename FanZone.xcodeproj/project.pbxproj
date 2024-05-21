@@ -114,6 +114,7 @@
 		1CAE5B7C2B707F03008431D0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE5B7B2B707F03008431D0 /* ApiManager.swift */; };
 		1CAE5B7E2B708018008431D0 /* UpcomingFixeturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE5B7D2B708018008431D0 /* UpcomingFixeturesModel.swift */; };
 		1CB830792BEA7F660046EDC8 /* AllTeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB830782BEA7F660046EDC8 /* AllTeamsModel.swift */; };
+		1CBA97482BFA39480035CDED /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA97472BFA39480035CDED /* OnboardingCollectionViewCell.swift */; };
 		1CC22DCC2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC22DCA2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift */; };
 		1CC22DCD2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC22DCB2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib */; };
 		1CC2F38A2B7EB8E4006FFB77 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC2F3892B7EB8E4006FFB77 /* RadioButton.swift */; };
@@ -124,6 +125,8 @@
 		1CD5629F2BCE6A8E006682D7 /* UIGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD5629E2BCE6A8E006682D7 /* UIGradient */; };
 		1CD593AE2B8D259200710333 /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD593AC2B8D259200710333 /* PaymentMethodVC.swift */; };
 		1CD593AF2B8D259200710333 /* PaymentMethodVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */; };
+		1CDA39682BFA323D0039F3A4 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDA39672BFA323D0039F3A4 /* OnboardingVC.swift */; };
+		1CDA396A2BFA33D80039F3A4 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDA39692BFA33D80039F3A4 /* OnboardingSlide.swift */; };
 		1CE120DC2B8796D100DA7CDC /* AvailableTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */; };
 		1CE120DD2B8796D100DA7CDC /* AvailableTrips.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */; };
 		1CE729AA2B88C05600F970DF /* TripDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE729A82B88C05600F970DF /* TripDetailsVC.swift */; };
@@ -235,6 +238,7 @@
 		1CAE5B7B2B707F03008431D0 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		1CAE5B7D2B708018008431D0 /* UpcomingFixeturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingFixeturesModel.swift; sourceTree = "<group>"; };
 		1CB830782BEA7F660046EDC8 /* AllTeamsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTeamsModel.swift; sourceTree = "<group>"; };
+		1CBA97472BFA39480035CDED /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		1CC22DCA2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMatchesTableViewCell.swift; sourceTree = "<group>"; };
 		1CC22DCB2B6EBED200704EA8 /* UpcomingMatchesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingMatchesTableViewCell.xib; sourceTree = "<group>"; };
 		1CC2F3892B7EB8E4006FFB77 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 		1CCBA4C62B76C9B00079C049 /* VideoWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWebViewVC.swift; sourceTree = "<group>"; };
 		1CD593AC2B8D259200710333 /* PaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodVC.swift; sourceTree = "<group>"; };
 		1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentMethodVC.xib; sourceTree = "<group>"; };
+		1CDA39672BFA323D0039F3A4 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		1CDA39692BFA33D80039F3A4 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		1CE120DA2B8796D100DA7CDC /* AvailableTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTrips.swift; sourceTree = "<group>"; };
 		1CE120DB2B8796D100DA7CDC /* AvailableTrips.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableTrips.xib; sourceTree = "<group>"; };
 		1CE729A82B88C05600F970DF /* TripDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsVC.swift; sourceTree = "<group>"; };
@@ -564,6 +570,7 @@
 				1CEF7C422B75CD7A00A9B824 /* NewsModel.swift */,
 				1CCBA4C42B76C0AA0079C049 /* HighlightsModel.swift */,
 				1CB830782BEA7F660046EDC8 /* AllTeamsModel.swift */,
+				1CDA39692BFA33D80039F3A4 /* OnboardingSlide.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +587,7 @@
 				1C005ED12B83F48000CA88A5 /* ProfileVC */,
 				1C20DA782B7DA48200936E0E /* Booking Process */,
 				1C7D57352B975B2F00AA6618 /* RegistrationProcess */,
+				1CDA39662BFA32170039F3A4 /* Onboarding */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -771,6 +779,15 @@
 				1CD593AD2B8D259200710333 /* PaymentMethodVC.xib */,
 			);
 			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
+		1CDA39662BFA32170039F3A4 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1CDA39672BFA323D0039F3A4 /* OnboardingVC.swift */,
+				1CBA97472BFA39480035CDED /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		1CDFF8EA2B877F7A0031241A /* MatchTickets */ = {
@@ -1159,6 +1176,7 @@
 				1CEA48212B771AC6002873AC /* FixturesVC.swift in Sources */,
 				1CD593AE2B8D259200710333 /* PaymentMethodVC.swift in Sources */,
 				1C7C65762B6AD3DE00A64EDD /* HomeVC.swift in Sources */,
+				1CDA39682BFA323D0039F3A4 /* OnboardingVC.swift in Sources */,
 				1CAE5B7E2B708018008431D0 /* UpcomingFixeturesModel.swift in Sources */,
 				1C015CCB2B6CA35100988E7D /* ViewModel.swift in Sources */,
 				1C4BA0F82BC9EF66000AA477 /* BusTicketsManager.swift in Sources */,
@@ -1194,6 +1212,7 @@
 				1C7C65722B6AD3DE00A64EDD /* AppDelegate.swift in Sources */,
 				1CEF7C432B75CD7A00A9B824 /* NewsModel.swift in Sources */,
 				1CCBA4C12B76B9EA0079C049 /* HighlightsTableViewCell.swift in Sources */,
+				1CBA97482BFA39480035CDED /* OnboardingCollectionViewCell.swift in Sources */,
 				1CABEAE02B8B2B85001DB682 /* FamilyMembersTableViewCell.swift in Sources */,
 				1C1921D92B83F82E00B6DE44 /* ContactUsVC.swift in Sources */,
 				1CE729AA2B88C05600F970DF /* TripDetailsVC.swift in Sources */,
@@ -1201,6 +1220,7 @@
 				1C6144622B7318F4009424EA /* TrendingCollectionViewCell.swift in Sources */,
 				1C7C65742B6AD3DE00A64EDD /* SceneDelegate.swift in Sources */,
 				1C38C08B2B747FAB00D67603 /* NewsTableViewCell.swift in Sources */,
+				1CDA396A2BFA33D80039F3A4 /* OnboardingSlide.swift in Sources */,
 				1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */,
 				1CB830792BEA7F660046EDC8 /* AllTeamsModel.swift in Sources */,
 				1C7C65A92B6C38C200A64EDD /* NewsVC.swift in Sources */,

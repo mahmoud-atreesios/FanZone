@@ -23,16 +23,17 @@ class BookBusVC: UIViewController {
     var selectedTicketTo: String?
     
     private let db = Firestore.firestore()
+    var availableTrips: [[String: Any]] = []
     var members: [[String: Any]] = []
+    var stationNames: [String] = []
+    var destinationNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
         fetchFamilyMembers()
-        setUpStationDropList()
-        setUpStadiumDropList()
-        setUpNumberOfSeatsDropDown()
+        fetchAvailableTripsData()
     }
     
     @IBAction func showTripsButtonPressed(_ sender: UIButton) {
@@ -63,10 +64,9 @@ class BookBusVC: UIViewController {
 extension BookBusVC{
     func setUpStationDropList(){
         busStationDropList.isSearchEnable = false
-        busStationDropList.optionArray = ["Ain Shames","Tahrir Square","helwan","Alexandria","5th settlement","Giza","shobra"]
+        busStationDropList.optionArray = stationNames
         busStationDropList.itemsTintColor = .black
         
-        // The the Closure returns Selected Index and String
         busStationDropList.didSelect{(selectedText , index ,id) in
             print("Selected String: \(selectedText) \n index: \(index)")
             self.selectedBusStation = selectedText
@@ -75,10 +75,9 @@ extension BookBusVC{
     
     func setUpStadiumDropList(){
         stadiumDestinationDropList.isSearchEnable = false
-        stadiumDestinationDropList.optionArray = ["We Salam Stad","Ismalia Stadium","Cairo International Stadium (al-Qāhirah (Cairo))","Alexandria Stadium","Borg El Arab Stadium (Al-Iskandarîah (Alexandria))"]
+        stadiumDestinationDropList.optionArray = destinationNames
         stadiumDestinationDropList.itemsTintColor = .black
         
-        // The the Closure returns Selected Index and String
         stadiumDestinationDropList.didSelect{(selectedText , index ,id) in
             print("Selected String: \(selectedText) \n index: \(index)")
             self.selectedStadiumDestination = selectedText
@@ -107,22 +106,6 @@ extension BookBusVC{
     }
 }
 
-
-extension BookBusVC{
-    func setupUI(){
-        showTripsButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
-}
-
 extension BookBusVC{
     func fetchFamilyMembers(){
         let userID = Auth.auth().currentUser?.uid
@@ -147,5 +130,52 @@ extension BookBusVC{
                     }
                 }
         }
+    }
+}
+
+extension BookBusVC{
+    func fetchAvailableTripsData(){
+        db.collection("Trips")
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error.localizedDescription)")
+                } else {
+                    guard let documents = querySnapshot?.documents else {
+                        print("No documents")
+                        return
+                    }
+                    var tempTrips: [[String: Any]] = []
+                    tempTrips = documents.map { document in
+                        var data = document.data()
+                        data["documentID"] = document.documentID
+                        return data
+                    }
+                    // Filter the temporary array to include trips with availableSeats > 0
+                    self.availableTrips = tempTrips.filter { trip in
+                        return trip["availableSeats"] as? Int ?? 0 > 0
+                    }
+                    
+                    self.stationNames = Array(Set(self.availableTrips.compactMap { $0["station"] as? String }))
+                    self.destinationNames = Array(Set(self.availableTrips.compactMap { $0["destination"] as? String }))
+                    
+                    self.setUpStationDropList()
+                    self.setUpStadiumDropList()
+                }
+            }
+    }
+}
+
+extension BookBusVC{
+    func setupUI(){
+        showTripsButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
 }

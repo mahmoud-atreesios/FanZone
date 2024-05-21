@@ -110,7 +110,6 @@ extension TripsVC{
     }
 }
 
-
 extension TripsVC{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

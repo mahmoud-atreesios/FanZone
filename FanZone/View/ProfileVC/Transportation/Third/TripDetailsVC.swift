@@ -130,7 +130,7 @@ extension TripDetailsVC{
         date.text = travelDate
         time.text = travelTime
         busNumber.text = selectedBusNumber
-        numberOfSeats.text = "000"
+        numberOfSeats.text = "1"
                 
         if let ticketPriceInt = Int(ticketPrice ?? "0") , let selectedNumberOfSeatsInt = Int(selectedNumberOfSeats ?? "1"){
             totalTicketPrice = String(ticketPriceInt * selectedNumberOfSeatsInt)
