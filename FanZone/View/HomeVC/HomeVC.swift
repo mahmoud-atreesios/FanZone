@@ -21,8 +21,8 @@ class HomeVC: UIViewController {
     
     var leagueID: String?
         
-    var arr = ["PL","laliga","EPL2","BL","SA","CL"]
-    var dic = ["PL":"152" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"390"]
+    var arr = ["mlss","laliga","EPL2","BL","SA","CL"]
+    var dic = ["mlss":"332" , "laliga":"302", "EPL2":"141", "BL":"175", "SA":"207","CL":"3"]
     
     let plStadArray = Constants.links.plStadArray
     let laligaStadArray = Constants.links.laligaStadArray
@@ -40,7 +40,7 @@ class HomeVC: UIViewController {
         //upcomingMatchesTableView.delegate = self
         //upcomingMatchesTableView.dataSource = self
         
-        viewModel.getUpcomingFixetures(leagueID: "152", from: calculateFormattedLaunchDate() , to: getFormattedDateAfterTenDays())
+        viewModel.getUpcomingFixetures(leagueID: "332", from: calculateFormattedLaunchDate() , to: getFormattedDateAfterTenDays())
         
         upcomingMatchesTableView.isScrollEnabled = false
         
@@ -127,7 +127,7 @@ extension HomeVC{
                         
                         if row == 0 {
                             // 3aezo lma edos hna eb3at ll api l id bta3 l league w egyb l data w b kda hakon mstakhdm function wa7da w model wa7da bs
-                            self.leagueID = self.dic["PL"]
+                            self.leagueID = self.dic["mlss"]
                         }else if row == 1{
                             self.leagueID = self.dic["laliga"]
                         }else if row == 2{
@@ -239,7 +239,7 @@ extension HomeVC{
     
     func shouldDisplayCell(_ result: UpcomingFixetures) -> Bool{
         
-        let popularTeams = ["Chelsea","Manchester Utd","Arsenal","Liverpool","Manchester City","Atletico Madrid","Barcelona","Atl. Madrid","Sevilla","Real Madrid","Zamalek","Al Ahly","Ismaily","Juventus","Inter Milan","AC Milan","AS Roma","Inter","Borussia Dortmund","Mainz","Bayern Munich","Bayer Leverkusen"]
+        let popularTeams = ["Chelsea","Manchester Utd","Arsenal","Liverpool","Manchester City","Atletico Madrid","Barcelona","Atl. Madrid","Sevilla","Real Madrid","Zamalek","Al Ahly","Ismaily","Juventus","Inter Milan","AC Milan","AS Roma","Inter","Borussia Dortmund","Mainz","Bayern Munich","Bayer Leverkusen","LA Galaxy","Inter Miami","Toronto FC","Portland Timbers"]
         
         return popularTeams.contains(result.eventHomeTeam) || popularTeams.contains(result.eventAwayTeam)
     }
