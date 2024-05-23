@@ -159,8 +159,8 @@ extension MatchTicketsVC {
     }
 }
 
+//MARK: - intial setup
 extension MatchTicketsVC{
-    
     func setFirstScreen(){
         if tickets.isEmpty {
             // Create and configure the "no matches" image view

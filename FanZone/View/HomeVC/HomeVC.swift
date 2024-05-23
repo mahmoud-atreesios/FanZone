@@ -102,10 +102,7 @@ extension HomeVC{
                 cell.leagueImageView.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1)
                 cell.leagueImageView.image = UIImage(named: image)?.withRenderingMode(.alwaysTemplate)
                 
-                
-                // Execute this block only once
                 if !hasExecutedOnce {
-                    // Set background color for the first row by default
                     if row == 0 {
                         cell.backgroundColor = UIColor(red: 180/255, green: 180/255, blue: 179/255, alpha: 1.0)
                         selectedCell = cell
@@ -114,7 +111,6 @@ extension HomeVC{
                     hasExecutedOnce = true
                 }
                 
-                // Handle cell selection
                 let tapGesture = UITapGestureRecognizer()
                 cell.leagueImageView.addGestureRecognizer(tapGesture)
                 cell.leagueImageView.isUserInteractionEnabled = true
@@ -195,7 +191,6 @@ extension HomeVC{
                 cell.matchTime.text = result.eventTime
                 cell.stadiumName.text = result.eventStadium
                 
-                // Add a light grey stroke to the cell
                 cell.contentView.layer.borderWidth = 1.0
                 cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
                 cell.contentView.layer.cornerRadius = 10.0

@@ -25,15 +25,19 @@ class BookingVC: UIViewController{
     
     private let viewModel = ViewModel()
     private let disposeBag = DisposeBag()
-    
     private let db = Firestore.firestore()
+    
+    var members: [[String: Any]] = []
+    var tickets: [[String: Any]] = []
+    var selectedDepIds: [String] = []
+    
     var firstToken: String?
     var orderId: String?
     var totalPrice: String?
-    var members: [[String: Any]] = []
-    var selectedDepIds: [String] = []
+    var homeTeam: String?
+    var awayTeam: String?
     
-    private let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
+    let ticketPriceRelay = BehaviorRelay<Int?>(value: nil)
     var numberOfSelectedTickets = BehaviorRelay<Int>(value: 1)
     
     var departmentTableViewData: [cellData] = [
@@ -48,18 +52,9 @@ class BookingVC: UIViewController{
         // Do any additional setup after loading the view.
         setUpUi()
         getFirtToken()
-        
-        departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
-        departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
-        numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
-        numberOfTicketsTableView.isScrollEnabled = false
-        
-        departmentSelectionTableView.dataSource = self
-        departmentSelectionTableView.delegate = self
-        
-        numberOfTicketsTableView.dataSource = self
-        numberOfTicketsTableView.delegate = self
-        
+        setTeamsName()
+        fetchMatchTickets()
+        setupTableViews()
         totalTicketPrice()
         setUpNumberOfTicketsDropDown()
         makeBookingButtonLabelClickable()
@@ -67,56 +62,16 @@ class BookingVC: UIViewController{
     }
 }
 
+//MARK: - Booking Button
 extension BookingVC{
-    func setUpUi(){
-        panoramaImageView.layer.cornerRadius = 20
-        panoramaImageView.clipsToBounds = true
-        panoramaImageView.controlMethod = .both
-        
-        bookingButton.layer.cornerRadius = 15
-        bookingButton.clipsToBounds = true
-        bookingButton.isUserInteractionEnabled = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
-    
-    func makeBookingButtonLabelClickable(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(bookingButtonTapped))
-        bookingButton.addGestureRecognizer(tapGesture)
-    }
-    
     //boooooooooking button
     @objc func bookingButtonTapped() {
         guard Auth.auth().currentUser != nil else {
             showAlert(title: "OOPS!", message: "You have to sign in first to be able to book a ticket.")
             return
         }
-        
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("User not authenticated")
-            return
-        }
-        
-        // Collect selected depIds
-        for indexPath in 0..<numberOfTicketsTableView.numberOfRows(inSection: 0) {
-            if let cell = numberOfTicketsTableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? NumberOfTicketsTableViewCell,
-               let index = cell.ticketsForDropList.selectedIndex {
-                   if index == 0 {
-                       selectedDepIds.insert(userID, at: 0)
-                   } else if index > 0 {
-                       let depId = self.members[index - 1]["depID"] as? String ?? ""
-                       selectedDepIds.append(depId)
-                   }
-            }
-        }
+        checkTicketBought()
+        selectedDeps()
         
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
@@ -177,7 +132,6 @@ extension BookingVC{
 
 // MARK: Department and Category Selection
 extension BookingVC: UITableViewDataSource, UITableViewDelegate {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView == departmentSelectionTableView{
             return departmentTableViewData.count
@@ -247,21 +201,18 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
             ticketsDropList?.itemsTintColor = .black
             ticketsDropList?.arrowSize = 10
             
-            // The the Closure returns Selected Index and String
             cell.ticketsForDropList.didSelect { (selectedText, index, id) in
                 if index > 0 {
                     let depId = self.members[index - 1]["depID"] as? String ?? ""
                     print("Selected DepId for \(selectedText) is \(depId)")
                 }
             }
-            
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if departmentTableViewData[indexPath.section].opened == true{
             departmentTableViewData[indexPath.section].opened = false
             let sections = IndexSet.init(integer: indexPath.section)
@@ -274,21 +225,7 @@ extension BookingVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension BookingVC{
-    func totalTicketPrice() {
-        Observable.combineLatest(ticketPriceRelay, numberOfSelectedTickets)
-            .subscribe(onNext: { price, numberOfTickets in
-                if let price = price{
-                    self.totallTicketPrice.text = "\(price * numberOfTickets)$"
-                    self.totalPrice = "\(price * numberOfTickets)00"
-                } else {
-                    self.totallTicketPrice.text = "0$"
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-}
-
+//MARK: - fetch data
 extension BookingVC{
     func fetchFamilyMembers(){
         let userID = Auth.auth().currentUser?.uid
@@ -312,5 +249,141 @@ extension BookingVC{
                     }
                 }
         }
+    }
+    
+    func fetchMatchTickets(){
+        let userID = Auth.auth().currentUser?.uid
+        if let userID = userID, let homeTeam = homeTeam, let awayTeam = awayTeam {
+            db.collection("Match_Tickets")
+                .whereField("userID", isEqualTo: userID)
+                .whereField("selectedTicket", isEqualTo: "yes")
+                .whereField("team1", isEqualTo: homeTeam)
+                .whereField("team2", isEqualTo: awayTeam)
+                .whereField("ticketStatus", isEqualTo: "Activated")
+                .getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error.localizedDescription)")
+                    } else {
+                        guard let documents = querySnapshot?.documents else {
+                            print("++++++++++++ No documents")
+                            return
+                        }
+                        self.tickets = documents.map { document in
+                            var data = document.data()
+                            data["documentID"] = document.documentID
+                            print("++++++++++ \(data) +++++++++++")
+                            print("++++++++++ \(data) +++++++++++")
+                            print("++++++++++ \(data) +++++++++++")
+                            print("++++++++++ \(data) +++++++++++")
+                            print("++++++++++ \(data) +++++++++++")
+                            print("++++++++++ \(data) +++++++++++")
+                            print("++++++++++ \(data) +++++++++++")
+                            return data
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension BookingVC {
+    func checkTicketBought(){
+        if !tickets.isEmpty {
+            showAlert(title: "You have already bought this ticket", message: "You have already bought this match's ticket. You cannot buy it more than once.")
+        }
+    }
+}
+
+//MARK: - total price
+extension BookingVC{
+    func totalTicketPrice() {
+        Observable.combineLatest(ticketPriceRelay, numberOfSelectedTickets)
+            .subscribe(onNext: { price, numberOfTickets in
+                if let price = price{
+                    self.totallTicketPrice.text = "\(price * numberOfTickets)$"
+                    self.totalPrice = "\(price * numberOfTickets)00"
+                } else {
+                    self.totallTicketPrice.text = "0$"
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension BookingVC{
+    func selectedDeps(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("User not authenticated")
+            return
+        }
+        
+        // Collect selected depIds
+        for indexPath in 0..<numberOfTicketsTableView.numberOfRows(inSection: 0) {
+            if let cell = numberOfTicketsTableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? NumberOfTicketsTableViewCell,
+               let index = cell.ticketsForDropList.selectedIndex {
+                if index == 0 {
+                    selectedDepIds.insert(userID, at: 0)
+                } else if index > 0 {
+                    let depId = self.members[index - 1]["depID"] as? String ?? ""
+                    selectedDepIds.append(depId)
+                }
+            }
+        }
+    }
+    
+    func setTeamsName(){
+        homeTeam = MatchTicketsManager.shared.selectedMatchTicketsModel?.homeTeamName
+        awayTeam = MatchTicketsManager.shared.selectedMatchTicketsModel?.awayTeamName
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
+
+    }
+}
+
+//MARK: - intial setup
+extension BookingVC{
+    func setUpUi(){
+        panoramaImageView.layer.cornerRadius = 20
+        panoramaImageView.clipsToBounds = true
+        panoramaImageView.controlMethod = .both
+        
+        bookingButton.layer.cornerRadius = 15
+        bookingButton.clipsToBounds = true
+        bookingButton.isUserInteractionEnabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    func makeBookingButtonLabelClickable(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(bookingButtonTapped))
+        bookingButton.addGestureRecognizer(tapGesture)
+    }
+}
+
+extension BookingVC{
+    func setupTableViews(){
+        departmentSelectionTableView.register(UINib(nibName: "DepartmnetSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "departmentsCell")
+        departmentSelectionTableView.register(UINib(nibName: "CategorySelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
+        numberOfTicketsTableView.register(UINib(nibName: "NumberOfTicketsTableViewCell", bundle: nil), forCellReuseIdentifier: "ticketsForCell")
+        numberOfTicketsTableView.isScrollEnabled = false
+        
+        departmentSelectionTableView.dataSource = self
+        departmentSelectionTableView.delegate = self
+        
+        numberOfTicketsTableView.dataSource = self
+        numberOfTicketsTableView.delegate = self
     }
 }
