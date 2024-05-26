@@ -29,7 +29,7 @@ class OnboardingVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
-        slides = [OnboardingSlide(title: "Fanzone easy way to reserve match tickets", desc: "Fanzone is an easy way to be able to reserve football                  match tickets of your favourite teams", image: UIImage(named: "onboarding1")!),
+        slides = [OnboardingSlide(title: "Fanzone easy way to reserve match tickets", desc: "Fanzone is an easy way to be able to reserve football match tickets of your favourite teams", image: UIImage(named: "onboarding1")!),
                   OnboardingSlide(title: "Reserve for your family", desc: "Fanzone allow you to haave your beloved family members connected to your account so, you can book the ticket for your self and your childern", image: UIImage(named: "onboarding2")!),
                   OnboardingSlide(title: "Book Transportation!", desc: "Fanzone provide transportation for the stadiums destinantion so that you can book a bus for the match stadium", image: UIImage(named: "onboarding3")!)]
         

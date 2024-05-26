@@ -70,8 +70,15 @@ extension BookingVC{
             showAlert(title: "OOPS!", message: "You have to sign in first to be able to book a ticket.")
             return
         }
-        checkTicketBought()
+        
         selectedDeps()
+        
+        guard !selectedDepIds.isEmpty else {
+            showAlert(title: "Error", message: "You must choose at least one person for the ticket.")
+            return
+        }
+        
+        checkTicketBought()
         
         let paymentMethodVC = PaymentMethodVC(nibName: "PaymentMethodVC", bundle: nil)
         paymentMethodVC.firstToken = firstToken
@@ -251,39 +258,96 @@ extension BookingVC{
         }
     }
     
-    func fetchMatchTickets(){
+    func fetchMatchTickets() {
         let userID = Auth.auth().currentUser?.uid
         if let userID = userID, let homeTeam = homeTeam, let awayTeam = awayTeam {
-            db.collection("Match_Tickets")
+            let group = DispatchGroup()
+            
+            var documentsArray: [QueryDocumentSnapshot] = []
+            
+            let query1 = db.collection("Match_Tickets")
                 .whereField("userID", isEqualTo: userID)
                 .whereField("selectedTicket", isEqualTo: "yes")
-                .whereField("team1", isEqualTo: homeTeam)
-                .whereField("team2", isEqualTo: awayTeam)
+                .whereField("team1", in: [homeTeam, awayTeam])
                 .whereField("ticketStatus", isEqualTo: "Activated")
-                .getDocuments { (querySnapshot, error) in
-                    if let error = error {
-                        print("Error getting documents: \(error.localizedDescription)")
-                    } else {
-                        guard let documents = querySnapshot?.documents else {
-                            print("++++++++++++ No documents")
-                            return
-                        }
-                        self.tickets = documents.map { document in
-                            var data = document.data()
-                            data["documentID"] = document.documentID
-                            print("++++++++++ \(data) +++++++++++")
-                            print("++++++++++ \(data) +++++++++++")
-                            print("++++++++++ \(data) +++++++++++")
-                            print("++++++++++ \(data) +++++++++++")
-                            print("++++++++++ \(data) +++++++++++")
-                            print("++++++++++ \(data) +++++++++++")
-                            print("++++++++++ \(data) +++++++++++")
-                            return data
-                    }
+            
+            let query2 = db.collection("Match_Tickets")
+                .whereField("userID", isEqualTo: userID)
+                .whereField("selectedTicket", isEqualTo: "yes")
+                .whereField("team2", in: [homeTeam, awayTeam])
+                .whereField("ticketStatus", isEqualTo: "Activated")
+            
+            group.enter()
+            query1.getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error.localizedDescription)")
+                } else {
+                    documentsArray.append(contentsOf: querySnapshot?.documents ?? [])
+                }
+                group.leave()
+            }
+            
+            group.enter()
+            query2.getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error.localizedDescription)")
+                } else {
+                    documentsArray.append(contentsOf: querySnapshot?.documents ?? [])
+                }
+                group.leave()
+            }
+            
+            group.notify(queue: .main) {
+                let filteredDocuments = documentsArray.filter { document in
+                    let data = document.data()
+                    let team1 = data["team1"] as? String
+                    let team2 = data["team2"] as? String
+                    return (team1 == homeTeam || team1 == awayTeam) && (team2 == homeTeam || team2 == awayTeam)
+                }
+                
+                self.tickets = filteredDocuments.map { document in
+                    var data = document.data()
+                    data["documentID"] = document.documentID
+                    print("++++++++++ \(data) +++++++++++")
+                    return data
                 }
             }
         }
     }
+    
+//    func fetchMatchTickets(){
+//        let userID = Auth.auth().currentUser?.uid
+//        if let userID = userID, let homeTeam = homeTeam, let awayTeam = awayTeam {
+//            db.collection("Match_Tickets")
+//                .whereField("userID", isEqualTo: userID)
+//                .whereField("selectedTicket", isEqualTo: "yes")
+//                .whereField("team1", in: [homeTeam,awayTeam])
+//                .whereField("team2", in: [homeTeam,awayTeam])
+//                .whereField("ticketStatus", isEqualTo: "Activated")
+//                .getDocuments { (querySnapshot, error) in
+//                    if let error = error {
+//                        print("Error getting documents: \(error.localizedDescription)")
+//                    } else {
+//                        guard let documents = querySnapshot?.documents else {
+//                            print("++++++++++++ No documents")
+//                            return
+//                        }
+//                        self.tickets = documents.map { document in
+//                            var data = document.data()
+//                            data["documentID"] = document.documentID
+//                            print("++++++++++ \(data) +++++++++++")
+//                            print("++++++++++ \(data) +++++++++++")
+//                            print("++++++++++ \(data) +++++++++++")
+//                            print("++++++++++ \(data) +++++++++++")
+//                            print("++++++++++ \(data) +++++++++++")
+//                            print("++++++++++ \(data) +++++++++++")
+//                            print("++++++++++ \(data) +++++++++++")
+//                            return data
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 extension BookingVC {
@@ -334,14 +398,6 @@ extension BookingVC{
     func setTeamsName(){
         homeTeam = MatchTicketsManager.shared.selectedMatchTicketsModel?.homeTeamName
         awayTeam = MatchTicketsManager.shared.selectedMatchTicketsModel?.awayTeamName
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-        print("++++++++++ \(homeTeam ?? "") +++++++++++ \(awayTeam ?? "")")
-
     }
 }
 

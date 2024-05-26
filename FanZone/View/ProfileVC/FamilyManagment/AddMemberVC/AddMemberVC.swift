@@ -88,8 +88,8 @@ extension AddMemberVC{
             return
         }
         
-        guard let birthCertificateImage = birthCertificateImage.image else{
-            showAlert(title: "Error!", message: "No birth cerftificate image selected.")
+        guard let depName = depName.text, let depGender = selectedGender else {
+            showAlert(title: "Error", message: "Please complete the form.")
             LoaderManager.shared.hideBallLoader()
             blurEffectView.removeFromSuperview()
             //isSavingData = false
@@ -97,9 +97,21 @@ extension AddMemberVC{
             return
         }
         
+        guard let depSSN = depSSN.text, isValidEgyptianSSN(depSSN) else {
+            showAlert(title: "Error", message: "Invalid SSN format.")
+            LoaderManager.shared.hideBallLoader()
+            blurEffectView.removeFromSuperview()
+            //isSavingData = false
+            addMemberButton.isEnabled = true
+            return
+        }
         
-        guard let depName = depName.text, let depSSN = depSSN.text, let depGender = selectedGender else {
-            showAlert(title: "Error", message: "Please complete the form.")
+        guard let birthCertificateImage = birthCertificateImage.image else{
+            showAlert(title: "Error!", message: "No birth cerftificate image selected.")
+            LoaderManager.shared.hideBallLoader()
+            blurEffectView.removeFromSuperview()
+            //isSavingData = false
+            addMemberButton.isEnabled = true
             return
         }
         
@@ -282,6 +294,15 @@ extension AddMemberVC{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
+    }
+}
+
+// MARK: - SSN Validation
+extension AddMemberVC {
+    func isValidEgyptianSSN(_ ssn: String) -> Bool {
+        let regex = "^[2-3]\\d{1,2}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\\d{7}$"
+        let ssnPredicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return ssnPredicate.evaluate(with: ssn)
     }
 }
 

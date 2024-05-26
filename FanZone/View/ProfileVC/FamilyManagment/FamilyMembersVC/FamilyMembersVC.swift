@@ -83,7 +83,7 @@ extension FamilyMembersVC{
 
 extension FamilyMembersVC{
     func setUpUI(){
-        familyMembersTableView.isUserInteractionEnabled = false
+        familyMembersTableView.isUserInteractionEnabled = true
         familyMembersTableView.delegate = self
         familyMembersTableView.dataSource = self
         addNewMemberButton.tintColor = UIColor(red: 33/255, green: 53/255, blue: 85/255, alpha: 1.0)
