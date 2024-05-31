@@ -22,14 +22,15 @@ Fanzone application is made for football match reservation to ease the fans the 
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/7974631d-c619-4409-b65b-78793f0be75d" alt="Highlights" width="30%" />
 </p>
 
-### Login Screen
-![Login Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/Login.png)
+### Login Screen, Profile Screen, Ticket Screen
+<p align="center">
+  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/ad32f5cc-e2cc-4c0a-9e41-e945c34e9d3f" alt="Login" width="30%" />
+  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/c5aad635-a6e4-42fc-bde0-78acb8b92834" alt="Profile" width="30%" />
+  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/f867c9ea-9a74-4a93-ba35-3ec2948bb625" alt="Ticket" width="30%" />
+</p>
 
-### Profile Screen
-![Profile Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/Profile.png)
-
-### Ticket Screen
-![Ticket Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/Ticket.png)
 
 ### BookBus Screen
-![BookBus Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/BookBus.png)
+<p align="center">
+  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/a1827d10-5cf8-4cd3-827c-9bcfa1e257c0" alt="BookBus Screen" width="30%" />
+</p>
