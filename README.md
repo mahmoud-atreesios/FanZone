@@ -2,21 +2,21 @@
 Football Ticketing Reservation System
 
 ## Description
-Fanzone application is made for football matches reservation to ease on the fans the process of entering from the stadium gates we represent most of the popular leagues to make the fan able to reserve matches for his supported team, he can also see a 360 view of the seat he wishes before he book the ticket, we also provide news about the leagues and the official highlights of the matches after he book the ticket the ticket include a qrcode which he will scan it in the stadium gates to enter the match. We have integrated with paymob to handle the process of transactions either buy or refund.
+Fanzone application is made for football match reservation to ease the fans the process of entering from the stadium gates we represent most of the popular leagues to enable the fan to reserve matches for his supported team, he can also see a 360 view of the seat he wishes before he books the ticket, we also provide news about the leagues and the official highlights of the matches after he books the ticket include a qrcode which he will scan it in the stadium gates to enter the match. We have integrated with paymob to handle the process of transactions either buy or refund.
 
 ## Features
 - View the most popular leagues in the world.
 - The fan can easily book any match ticket.
-- Representing a 360 view to the fan of his choosen seat before booking it.
-- We provide also global sports news and the official highlight videos.
-- Allowing the fan to add family members so that he can bought for them tickets through the fan's account.
-- The fan also can refund the ticket before the match by 24h.
+- Representing a 360 view to the fan of his chosen seat before booking it.
+- We provide also global sports news and official highlight videos.
+- Allowing the fan to add family members so that he can buy them tickets through the fan's account.
+- The fan also can refund the ticket before the match within 24 hours.
 - We also provide bus transportation to and from the stadium.
 
 ## Screenshots
 
 ### Home Screen
-![Home Screen](/Users/mahmoudatrees/Desktop/GraduationProject/ScreenShots/Home.png)
+![Home](https://github.com/mahmoud-atreesios/FanZone/assets/136765078/772a8031-7518-4db8-814b-7705692c1bee)
 
 ### News Screen
 ![News Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/News.png)
