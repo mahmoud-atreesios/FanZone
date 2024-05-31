@@ -19,7 +19,7 @@ Fanzone application is made for football match reservation to ease the fans the 
 ![Home](https://github.com/mahmoud-atreesios/FanZone/assets/136765078/772a8031-7518-4db8-814b-7705692c1bee)
 
 ### News Screen
-![News Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/News.png)
+![News](https://github.com/mahmoud-atreesios/FanZone/assets/136765078/170d2d41-3830-46c3-b5bf-1e8104d893c3)
 
 ### Highlights Screen
 ![Highlights Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/Highlights.png)
