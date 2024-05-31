@@ -18,8 +18,8 @@ Fanzone application is made for football match reservation to ease the fans the 
 ### Home Screen, News Screen, Highlights Screen
 <p align="center">
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/772a8031-7518-4db8-814b-7705692c1bee" alt="Home" width="30%" />
-  <img src="![News](https://github.com/mahmoud-atreesios/FanZone/assets/136765078/170d2d41-3830-46c3-b5bf-1e8104d893c3)" alt="News Screen" width="30%" />
-  <img src="![Highlights](https://github.com/mahmoud-atreesios/FanZone/assets/136765078/7974631d-c619-4409-b65b-78793f0be75d)" alt="Highlights Screen" width="30%" />
+  <img src="!https://github.com/mahmoud-atreesios/FanZone/assets/136765078/170d2d41-3830-46c3-b5bf-1e8104d893c3" alt="News Screen" width="30%" />
+  <img src="!https://github.com/mahmoud-atreesios/FanZone/assets/136765078/7974631d-c619-4409-b65b-78793f0be75d" alt="Highlights Screen" width="30%" />
 </p>
 
 ### Login Screen
