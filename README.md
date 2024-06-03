@@ -2,7 +2,7 @@
 Football Ticketing Reservation System
 
 ## Description
-Fanzone application is made for football match reservation to ease the fans the process of entering from the stadium gates we represent most of the popular leagues to enable the fan to reserve matches for his supported team, he can also see a 360 view of the seat he wishes before he books the ticket, we also provide news about the leagues and the official highlights of the matches after he books the ticket include a qrcode which he will scan it in the stadium gates to enter the match. We have integrated with paymob to handle the process of transactions either buy or refund.
+Welcome to the FanZone App project! Fanzone application is made for football match reservation to ease the fans the process of entering from the stadium gates we represent most of the popular leagues to enable the fan to reserve matches for his supported team, he can also see a 360 view of the seat he wishes before he books the ticket, we also provide news about the leagues and the official highlights of the matches after he books the ticket include a qrcode which he will scan it in the stadium gates to enter the match. We have integrated with paymob to handle the process of transactions either buy or refund.
 
 ## Features
 - View the most popular leagues in the world.
@@ -34,3 +34,18 @@ Fanzone application is made for football match reservation to ease the fans the 
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/a1827d10-5cf8-4cd3-827c-9bcfa1e257c0" alt="BookBus Screen" width="30%" />
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/5eafd760-f80f-4e0f-898b-85dfb19ddd23" alt="Seat view" width="30%" />
 </p>
+
+## Technologies Used
+- Swift: The primary programming language for iOS app development.
+- UIKit: The foundational framework for building user interfaces.
+- RxSwift: A reactive programming framework for handling asynchronous operations.
+- MVVM: Mode View View Model architectural pattern.
+- Firebase: Using the Firestore database to handle all the data of the fan.
+
+## Installation
+- Clone this repository to your local machine.
+- Open the project in Xcode.
+- Build and run the app on your iOS simulator or physical device.
+
+## Contact
+ For questions or feedback, feel free to contact us at mahmoudatrees956@gmail.com.
