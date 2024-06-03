@@ -4,17 +4,7 @@ Football Ticketing Reservation System
 ## Description
 Welcome to the FanZone App project! Fanzone application is made for football match reservation to ease the fans the process of entering from the stadium gates we represent most of the popular leagues to enable the fan to reserve matches for his supported team, he can also see a 360 view of the seat he wishes before he books the ticket, we also provide news about the leagues and the official highlights of the matches after he books the ticket include a qrcode which he will scan it in the stadium gates to enter the match. We have integrated with paymob to handle the process of transactions either buy or refund.
 
-## Features
-- View the most popular leagues in the world.
-- The fan can easily book any match ticket.
-- Representing a 360 view to the fan of his chosen seat before booking it.
-- We provide also global sports news and official highlight videos.
-- Allowing the fan to add family members so that he can buy them tickets through the fan's account.
-- The fan also can refund the ticket before the match within 24 hours.
-- We also provide bus transportation to and from the stadium.
-
 ## Screenshots
-
 ### Home Screen, News Screen, Highlights Screen
 <p align="center">
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/772a8031-7518-4db8-814b-7705692c1bee" alt="Home" width="30%" />
@@ -34,6 +24,15 @@ Welcome to the FanZone App project! Fanzone application is made for football mat
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/a1827d10-5cf8-4cd3-827c-9bcfa1e257c0" alt="BookBus Screen" width="30%" />
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/5eafd760-f80f-4e0f-898b-85dfb19ddd23" alt="Seat view" width="30%" />
 </p>
+
+## Features
+- View the most popular leagues in the world.
+- The fan can easily book any match ticket.
+- Representing a 360 view to the fan of his chosen seat before booking it.
+- We provide also global sports news and official highlight videos.
+- Allowing the fan to add family members so that he can buy them tickets through the fan's account.
+- The fan also can refund the ticket before the match within 24 hours.
+- We also provide bus transportation to and from the stadium.
 
 ## Technologies Used
 - Swift: The primary programming language for iOS app development.
