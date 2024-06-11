@@ -41,6 +41,7 @@ Welcome to the FanZone App project! Fanzone application is made for football mat
 - RxSwift: A reactive programming framework for handling asynchronous operations.
 - MVVM: Mode View View Model architectural pattern.
 - Firebase: Using the Firestore database to handle all the data of the fan.
+- Paymob: integrated with Paymob to control the payment process.
 
 ## Installation
 - Clone this repository to your local machine.
