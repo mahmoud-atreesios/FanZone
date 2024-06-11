@@ -19,9 +19,10 @@ Welcome to the FanZone App project! Fanzone application is made for football mat
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/f867c9ea-9a74-4a93-ba35-3ec2948bb625" alt="Ticket" width="30%" />
 </p>
 
-### BookBus Screen
+### BookBus Screen, Paymob Screen, 360View
 <p align="center">
-  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/a1827d10-5cf8-4cd3-827c-9bcfa1e257c0" alt="BookBus Screen" width="30%" />
+  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/a1827d10-5cf8-4cd3-827c-9bcfa1e257c0" alt="BookBus" width="30%" />
+  <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/071aba24-fd4a-4e0a-95b9-f640dbda6370" alt="Paymob" width="30%" />
   <img src="https://github.com/mahmoud-atreesios/FanZone/assets/136765078/5eafd760-f80f-4e0f-898b-85dfb19ddd23" alt="Seat view" width="30%" />
 </p>
 
