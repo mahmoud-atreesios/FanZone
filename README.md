@@ -16,7 +16,7 @@ Fanzone application is made for football matches reservation to ease on the fans
 ## Screenshots
 
 ### Home Screen
-![Home Screen](/Users/mahmoudatrees/Desktop/GraduationProject/ScreenShots/Home.png)
+![Home Screen](ScreenShots/Home.png)
 
 ### News Screen
 ![News Screen](/Users/mahmoudatrees/Desktop/Graduation\Project/ScreenShots/News.png)

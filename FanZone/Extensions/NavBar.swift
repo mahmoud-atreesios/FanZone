@@ -10,10 +10,10 @@ import UIKit
 
 // Mainly for title bar for the logoo and the person button
 struct NavBar{
-     static func applyCustomNavBar(to viewController: UIViewController){
+    static func applyCustomNavBar(to viewController: UIViewController){
         let imageView = UIImageView(image: UIImage(named: "FanZoneLogo"))
         let leftBarButton = UIBarButtonItem(customView: imageView)
-         viewController.navigationItem.leftBarButtonItem = leftBarButton
+        viewController.navigationItem.leftBarButtonItem = leftBarButton
         
         if let image = UIImage(systemName: "person.circle") {
             let coloredImage = image.withTintColor(UIColor(red: 33/255.0, green: 53/255.0, blue: 85/255.0, alpha: 1.0), renderingMode: .alwaysOriginal)
@@ -47,7 +47,17 @@ extension UIImageView {
         layer.cornerRadius = self.frame.height / 2
         clipsToBounds = true
     }
+    
+    func resizeAndMakeRounded(to diameter: CGFloat) {
+        // Resize the image view
+        let smallerDimension = min(self.frame.width, self.frame.height)
+        let newDiameter = min(diameter, smallerDimension)
+        
+        self.frame.size = CGSize(width: newDiameter, height: newDiameter)
+        self.makeRounded()
+    }
 }
+
 
 extension UIImage {
     func resized(to size: CGSize) -> UIImage {
