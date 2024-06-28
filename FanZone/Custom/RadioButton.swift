@@ -41,7 +41,6 @@ class RadioButton: UIButton {
     }
     
     func updateButtonAppearance() {
-        
         let outerCircleImage = UIImage(systemName: "circle")?
             .withTintColor(.lightGray, renderingMode: .alwaysOriginal)
         let innerCircleImage = UIImage(systemName: "circle.fill")?

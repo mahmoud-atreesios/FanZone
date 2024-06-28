@@ -22,28 +22,20 @@ class NewsVC: UIViewController {
     var timer: Timer?
     var currentIndex = 0
     
-    var plStadArray = ["PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3","PL1","PL2","PL3"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        NavBar.applyCustomNavBar(to: self)
-        newsTableView.isScrollEnabled = false
-        
-        trendingCollectionView.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
-        newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsCell")
-        
+        setup()
         viewModel.getTrendingNewsData()
         viewModel.getNewsData()
-        
         bindTrendingCollectionViewToViewModel()
         bindNewsTableViewToViewModel()
     }
 }
 
+// MARK: - Trending collection view
 extension NewsVC{
     func bindTrendingCollectionViewToViewModel(){
-
         viewModel.trendingNewsDataResult
             .map { result in
                 // Filter and take the first 5 elements
@@ -74,6 +66,7 @@ extension NewsVC{
     }
 }
 
+// MARK: - News collection view
 extension NewsVC{
     func bindNewsTableViewToViewModel(){
         viewModel.newsDataResult
@@ -105,21 +98,6 @@ extension NewsVC{
     }
 }
 
-extension NewsVC {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowWebPageSegue",
-           let destinationVC = segue.destination as? NewsWebVC,
-           let result = sender as? NewsModel,
-           let urlString = result.url,
-           let url = URL(string: urlString) {
-            destinationVC.url = url
-        } else {
-            print("Segue not properly configured.")
-        }
-    }
-}
-
-
 // MARK: - Automatic scroll of page control
 extension NewsVC{
     override func viewWillDisappear(_ animated: Bool){
@@ -135,7 +113,6 @@ extension NewsVC{
     func startAutoScrolling(){
         // Schedule a timer to change the page
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
-        
         pageControl.layer.cornerRadius = 10.0
         pageControl.layer.masksToBounds = true
     }
@@ -147,12 +124,11 @@ extension NewsVC{
     
     @objc func scrollToNextPage(){
         guard trendingCollectionView.numberOfItems(inSection: 0) > 0 else {
-            // No items in the collection view, show alert and return
             let alert = UIAlertController(title: "No Data", message: "There are no items to display.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             
-            // Retry the API call
+            // Retry the API call fe moshkla!!!!!!
             viewModel.getNewsData()
             
             return
@@ -169,5 +145,30 @@ extension NewsVC{
         
         // Update the page control
         pageControl.currentPage = nextPage
+    }
+}
+
+// MARK: - intial setup
+extension NewsVC{
+    func setup(){
+        NavBar.applyCustomNavBar(to: self)
+        newsTableView.isScrollEnabled = false
+        
+        trendingCollectionView.register(UINib(nibName: "TrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
+        newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsCell")
+    }
+}
+
+extension NewsVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowWebPageSegue",
+           let destinationVC = segue.destination as? NewsWebVC,
+           let result = sender as? NewsModel,
+           let urlString = result.url,
+           let url = URL(string: urlString) {
+            destinationVC.url = url
+        } else {
+            print("Segue not properly configured.")
+        }
     }
 }

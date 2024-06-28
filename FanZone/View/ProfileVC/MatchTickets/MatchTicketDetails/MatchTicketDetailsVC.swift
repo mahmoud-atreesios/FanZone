@@ -108,9 +108,6 @@ class MatchTicketDetailsVC: UIViewController {
 
 
 extension MatchTicketDetailsVC {
-    
-    
-    
     func retrieveQRCodeImage(qrCodeURL: String) {
         self.qrCodeImageView.sd_setImage(with: URL(string: qrCodeURL), placeholderImage: UIImage(named: "circle"))
     }

@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
+import RxSwift
 
 class ProfileVC: UIViewController {
     
@@ -26,19 +27,21 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var contactUsView: UIView!
     
     let db = Firestore.firestore()
+    let firebaseViewModel = FireBaseViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpUi()
         retriveCurrentFanData()
+        bindProfileViewToViewModel()
         
         makeMatchTicketsViewClickable()
         makeBusTicketsViewClickable()
         makeBookTransportationViewClickable()
         makeFamilyManagmentViewClickable()
         makeContactUsViewClickable()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,45 +50,35 @@ class ProfileVC: UIViewController {
     }
 }
 
+// MARK: - retrieve fan data
 extension ProfileVC{
     func retriveCurrentFanData(){
         let userID = Auth.auth().currentUser?.uid
         if let userID = userID {
-            db.collection("Fan").document(userID).getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let data = document.data()
-                    if let fullname = data?["fullname"] as? String,
-                       let phoneNumber = data?["phoneNumber"] as? String,
-                       let gender = data?["gender"] as? String,
-                       let supportedTeam = data?["supportedTeam"] as? String,
-                       let fanImageURL = data?["fanImageURL"] as? String {
-                        // Use the retrieved data
-                        print("Fullname: \(fullname), Phone Number: \(phoneNumber), Gender: \(gender), Supported Team: \(supportedTeam), Fan Image URL: \(fanImageURL)")
-                        
-                        // Split the full name into components
-                        let nameComponents = fullname.components(separatedBy: " ")
-                        if let firstName = nameComponents.first,
-                           let lastName = nameComponents.last {
-                            // Get the first letter of the last name
-                            let firstLetterOfLastName = String(lastName.prefix(1)).uppercased()
-                            
-                            let shortenedName = "\(firstName) \(firstLetterOfLastName)."
-                            self.fanName.text = shortenedName
-                            
-                            // Inside your code where you want to load the image
-                            if let fanImageURL = data?["fanImageURL"] as? String {
-                                self.fanImageView.sd_setImage(with: URL(string: fanImageURL), placeholderImage: UIImage(systemName: "square.and.arrow.up.on.square.fill"))
-                            }
-                        }
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-            }
+            firebaseViewModel.retriveCurrentFanData(userID: userID)
         }
+    }
+    
+    func bindProfileViewToViewModel(){
+        firebaseViewModel.loggedInFanData.subscribe(onNext: { fanData in
+            if let fullname = fanData["fullname"],
+                let fanImageURL = fanData["fanImageURL"] {
+                
+                // Split the full name into components
+                let nameComponents = fullname.components(separatedBy: " ")
+                if let firstName = nameComponents.first,
+                   let lastName = nameComponents.last{
+                    let firstLetterOfLastName = String(lastName.prefix(1)).uppercased()
+                    let shortenedName = "\(firstName) \(firstLetterOfLastName)."
+                    self.fanName.text = shortenedName
+                }
+                self.fanImageView.sd_setImage(with: URL(string: fanImageURL))
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
+// MARK: - tabs clickable
 extension ProfileVC{
     
     //1 match Tickets
@@ -97,7 +90,6 @@ extension ProfileVC{
         let matchTicketsVC = MatchTicketsVC(nibName: "MatchTicketsVC", bundle: nil)
         navigationController?.pushViewController(matchTicketsVC, animated: true)
     }
-    
     
     //2 bus tickets
     func makeBusTicketsViewClickable(){
@@ -142,6 +134,7 @@ extension ProfileVC{
     }
 }
 
+// MARK: - intial setup
 extension ProfileVC{
     func setUpUi(){
         fanImageView.makeRounded()
