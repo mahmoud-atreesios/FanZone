@@ -586,16 +586,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-0q-gBE">
-                                                <rect key="frame" x="5" y="34" width="383" height="715"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-0q-gBE">
+                                                <rect key="frame" x="5" y="85" width="383" height="664"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
+                                            <searchBar contentMode="redraw" id="UjQ-8E-Jx8">
+                                                <rect key="frame" x="5" y="29" width="383" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="vHL-g0-yQL" id="Qef-u4-aPr"/>
+                                                </connections>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="wcQ-r7-EYu" firstAttribute="top" secondItem="b92-2e-eGn" secondAttribute="top" constant="5" id="9ab-16-tfh"/>
                                             <constraint firstAttribute="bottom" secondItem="G3t-0q-gBE" secondAttribute="bottom" id="9qM-vt-8is"/>
-                                            <constraint firstItem="G3t-0q-gBE" firstAttribute="top" secondItem="wcQ-r7-EYu" secondAttribute="bottom" constant="5" id="FDI-Fe-N7L"/>
+                                            <constraint firstItem="G3t-0q-gBE" firstAttribute="top" secondItem="UjQ-8E-Jx8" secondAttribute="bottom" id="PY7-no-4MT"/>
                                             <constraint firstAttribute="trailing" secondItem="G3t-0q-gBE" secondAttribute="trailing" constant="5" id="Yog-Xe-lXu"/>
                                             <constraint firstItem="G3t-0q-gBE" firstAttribute="leading" secondItem="b92-2e-eGn" secondAttribute="leading" constant="5" id="Zur-bF-Izx"/>
                                             <constraint firstItem="wcQ-r7-EYu" firstAttribute="leading" secondItem="b92-2e-eGn" secondAttribute="leading" constant="5" id="z2H-vE-3VI"/>
@@ -624,6 +632,7 @@
                     <navigationItem key="navigationItem" id="qw4-Rr-qUO"/>
                     <connections>
                         <outlet property="highlightsTableView" destination="G3t-0q-gBE" id="hqJ-zx-Bat"/>
+                        <outlet property="searchBar" destination="UjQ-8E-Jx8" id="7Lv-5e-bYH"/>
                         <segue destination="w6P-Kf-8Pv" kind="show" identifier="ShowVideoWebPage" id="7CE-YY-40b"/>
                     </connections>
                 </viewController>
@@ -943,15 +952,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kze-Zu-FB3">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="794"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FanImage" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-ER-jFQ">
-                                                <rect key="frame" x="106.66666666666669" y="10" width="180" height="180"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-ER-jFQ">
+                                                <rect key="frame" x="106.66666666666669" y="11.666666666666671" width="180" height="177.33333333333331"/>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="PbU-83-cBM"/>
                                                     <constraint firstAttribute="width" constant="180" id="u2G-WP-Ntj"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M.Atrees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-0m-E6v">
-                                                <rect key="frame" x="146" y="200" width="101" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-0m-E6v">
+                                                <rect key="frame" x="196.66666666666666" y="200" width="0.0" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="pso-VH-hDp"/>
                                                 </constraints>
@@ -1377,7 +1387,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CLlogo" width="2500" height="2500"/>
-        <image name="FanImage" width="816" height="886"/>
         <image name="arrow.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="128" height="102"/>
@@ -1386,6 +1395,7 @@
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="stad2" width="3543" height="2358"/>

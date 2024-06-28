@@ -23,7 +23,20 @@ class ViewModel{
     
     var teamsModel: AllTeamsModel?
     var teamsResult = BehaviorRelay<[Teams]>.init(value: [])
-
+    
+    let searchText = BehaviorRelay<String>(value: "")
+    
+    var filteredHighlightsResult: Observable<[HighlightResponse]> {
+        return Observable.combineLatest(highlightsResult, searchText)
+            .map { highlights, searchText in
+                if searchText.isEmpty {
+                    return highlights
+                } else {
+                    return highlights.filter { $0.title?.lowercased().contains(searchText.lowercased()) ?? false }
+                }
+            }
+    }
+    
 }
 
 // MARK: - Fixtures

@@ -49,11 +49,11 @@ extension FixturesVC{
             .bind(to: fixturesTableView.rx.items(cellIdentifier: "upcomingCell", cellType: UpcomingMatchesTableViewCell.self)) { row, result, cell in
                 
                 switch self.leagueID {
-                case "302":
+                case "1":
                     cell.stadImageView.image = UIImage(named: self.laligaStadArray[row])
                 case "141":
                     cell.stadImageView.image = UIImage(named: self.cairoStadArray[row])
-                case "175":
+                case "17":
                     cell.stadImageView.image = UIImage(named: self.bundesStadArray[row])
                 case "207":
                     cell.stadImageView.image = UIImage(named: self.seriaStadArray[row])
@@ -62,7 +62,7 @@ extension FixturesVC{
                 default:
                     cell.stadImageView.image = UIImage(named: self.plStadArray[row])
                 }
-                
+
                 cell.homeTeamName.text = result.eventHomeTeam
                 cell.awayTeamName.text = result.eventAwayTeam
                 cell.matchTime.text = result.eventTime
