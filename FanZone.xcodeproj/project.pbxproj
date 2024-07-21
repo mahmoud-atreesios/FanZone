@@ -71,6 +71,8 @@
 		1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */; };
 		1C4BA0F82BC9EF66000AA477 /* BusTicketsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */; };
 		1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D3BF22B7C699500623370 /* BookingVC.swift */; };
+		1C5E225D2C3210CB005F9D3D /* CiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E225C2C3210CB005F9D3D /* CiImage.swift */; };
+		1C5E225F2C3211D5005F9D3D /* ID.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E225E2C3211D5005F9D3D /* ID.mlmodel */; };
 		1C606A5A2B817BFB00CD0259 /* cellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C606A592B817BFB00CD0259 /* cellData.swift */; };
 		1C606A5D2B81814A00CD0259 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 1C606A5C2B81814A00CD0259 /* iOSDropDown */; };
 		1C6144622B7318F4009424EA /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */; };
@@ -194,6 +196,8 @@
 		1C4BA0F42BC9EF4D000AA477 /* BusTicketsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsModel.swift; sourceTree = "<group>"; };
 		1C4BA0F72BC9EF66000AA477 /* BusTicketsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTicketsManager.swift; sourceTree = "<group>"; };
 		1C5D3BF22B7C699500623370 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
+		1C5E225C2C3210CB005F9D3D /* CiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiImage.swift; sourceTree = "<group>"; };
+		1C5E225E2C3211D5005F9D3D /* ID.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ID.mlmodel; sourceTree = "<group>"; };
 		1C606A592B817BFB00CD0259 /* cellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellData.swift; sourceTree = "<group>"; };
 		1C6144602B7318F4009424EA /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		1C6144612B7318F4009424EA /* TrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -540,6 +544,7 @@
 				1C7D57452B9782F000AA6618 /* Supporting Files */,
 				1C7C657F2B6AD3E000A64EDD /* Info.plist */,
 				1C1D9B7A2B97BB5800A06A1E /* GoogleService-Info.plist */,
+				1C5E225E2C3211D5005F9D3D /* ID.mlmodel */,
 			);
 			path = FanZone;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7C65A62B6C36C300A64EDD /* NavBar.swift */,
+				1C5E225C2C3210CB005F9D3D /* CiImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1204,6 +1210,7 @@
 				1C015CC72B6C9D9500988E7D /* LeagueCollectionViewCell.swift in Sources */,
 				1C6144652B7336DE009424EA /* TrendingNewsModel.swift in Sources */,
 				1C0C1D4C2B82874F0038DAEF /* NumberOfTicketsTableViewCell.swift in Sources */,
+				1C5E225D2C3210CB005F9D3D /* CiImage.swift in Sources */,
 				1C7C65A72B6C36C300A64EDD /* NavBar.swift in Sources */,
 				1C5D3BF32B7C699500623370 /* BookingVC.swift in Sources */,
 				1C20DA802B7DA64100936E0E /* DepartmnetSelectionTableViewCell.swift in Sources */,
@@ -1228,6 +1235,7 @@
 				1C4BA0F52BC9EF4D000AA477 /* BusTicketsModel.swift in Sources */,
 				1CB830792BEA7F660046EDC8 /* AllTeamsModel.swift in Sources */,
 				1C7C65A92B6C38C200A64EDD /* NewsVC.swift in Sources */,
+				1C5E225F2C3211D5005F9D3D /* ID.mlmodel in Sources */,
 				1CABEAE42B8B41E5001DB682 /* AddMemberVC.swift in Sources */,
 				1C1921DC2B84022900B6DE44 /* Alert.swift in Sources */,
 				1CAE5B7A2B707DEC008431D0 /* Constants.swift in Sources */,

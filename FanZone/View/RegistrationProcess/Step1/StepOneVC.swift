@@ -50,6 +50,12 @@ class StepOneVC: UIViewController {
             showAlert(title: "Confirm Password Required", message: "Please confirm your password.")
             return
         }
+        
+        guard isValidPassword(password) else {
+            showAlert(title: "Weak Password", message: "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
+            return
+        }
+        
         createUser()
     }
 }
@@ -143,6 +149,13 @@ extension StepOneVC{
         nextButton.layer.cornerRadius = 10
         nextButton.layer.masksToBounds = true
     }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordTest.evaluate(with: password)
+    }
+    
 }
 
 // MARK: HIDE KEYBOARD
