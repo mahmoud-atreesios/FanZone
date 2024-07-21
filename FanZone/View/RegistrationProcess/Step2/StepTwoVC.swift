@@ -57,6 +57,12 @@ class StepTwoVC: UIViewController {
             showAlert(title: "Phone Number Required", message: "Please enter your Phone number.")
             return
         }
+        
+        guard let phoneNumber = fanPhoneNumber.text, phoneNumber.count == 11 else {
+            showAlert(title: "Phone Number is incorrect", message: "Please enter a valid Phone number.")
+            return
+        }
+        
         guard let gender = selectedGender, !gender.isEmpty else {
             showAlert(title: "Gender Required", message: "Please select your gender.")
             return
@@ -224,6 +230,7 @@ extension StepTwoVC{
     
     func setUpSupportedTeamDropList(){
         fanSupportedTeam.isSearchEnable = false
+        //fanSupportedTeam.optionArray = ["Al Ahly","Zamalek","Pyramids","El itihad","El gouna"]
         fanSupportedTeam.optionArray = viewModel.teamsResult.value.map { $0.teamName }
         fanSupportedTeam.itemsTintColor = .black
         
@@ -233,6 +240,9 @@ extension StepTwoVC{
         }
         
         // Update the drop-down list after the teamsResult value changes
+        
+        //***********************************
+        
         viewModel.teamsResult
             .subscribe(onNext: { [weak self] teams in
                 self?.fanSupportedTeam.optionArray = teams.map { $0.teamName }
@@ -247,7 +257,10 @@ extension StepTwoVC{
         nextButton.tintColor = UIColor(red: 87/255, green: 149/255, blue: 154/255, alpha: 1.0)
         nextButton.layer.cornerRadius = 10
         nextButton.layer.masksToBounds = true
-        fanImage.makeRounded()
+        fanImage.layer.cornerRadius = 10
+        fanImage.layer.borderColor = UIColor.darkGray.cgColor
+        fanImage.layer.borderWidth = 1
+        fanImage.layer.masksToBounds = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

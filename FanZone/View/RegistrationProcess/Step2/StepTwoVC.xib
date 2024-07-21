@@ -54,15 +54,8 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="Qrp-od-pNS">
-                                    <rect key="frame" x="131.66666666666666" y="360" width="129.99999999999997" height="130"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="130" id="MSU-82-MyV"/>
-                                        <constraint firstAttribute="height" constant="130" id="fxo-8O-3Qf"/>
-                                    </constraints>
-                                </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IYH-bD-BwY">
-                                    <rect key="frame" x="20" y="495" width="353" height="196"/>
+                                    <rect key="frame" x="20" y="523" width="353" height="196"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNe-7t-Zqg">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
@@ -121,23 +114,42 @@
                                         <action selector="nextButtonPressed:" destination="-1" eventType="touchUpInside" id="QzD-qw-c5Z"/>
                                     </connections>
                                 </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="electronics" translatesAutoresizingMaskIntoConstraints="NO" id="Qrp-od-pNS">
+                                    <rect key="frame" x="20" y="366" width="130" height="130"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="130" id="U86-jp-1pv"/>
+                                        <constraint firstAttribute="width" constant="130" id="eaW-6Y-r4d"/>
+                                    </constraints>
+                                </imageView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJU-qn-PH3">
+                                    <rect key="frame" x="157" y="372" width="231" height="106"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <string key="text">- Face takes up 80% of it.                - No sunglasses, hats, or caps.                                              - clear and highy quality photo.                                                - Show you alone with neutral expression.</string>
+                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="CHa-97-cIG" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" id="1AN-cD-TLQ"/>
+                                <constraint firstAttribute="trailing" secondItem="DJU-qn-PH3" secondAttribute="trailing" constant="5" id="6yq-ES-3CE"/>
                                 <constraint firstItem="TAk-Ss-QVj" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="10" id="CWL-Tb-PaG"/>
-                                <constraint firstItem="Iau-VH-7Eb" firstAttribute="top" secondItem="IYH-bD-BwY" secondAttribute="bottom" constant="83" id="DnE-sT-ZbO"/>
+                                <constraint firstItem="IYH-bD-BwY" firstAttribute="top" secondItem="Qrp-od-pNS" secondAttribute="bottom" constant="27" id="Cxf-dy-SoJ"/>
+                                <constraint firstItem="Iau-VH-7Eb" firstAttribute="top" secondItem="IYH-bD-BwY" secondAttribute="bottom" constant="55" id="DnE-sT-ZbO"/>
                                 <constraint firstItem="IYH-bD-BwY" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="20" id="Ewv-tc-fmV"/>
+                                <constraint firstItem="IYH-bD-BwY" firstAttribute="top" secondItem="DJU-qn-PH3" secondAttribute="bottom" constant="45" id="Fxq-XM-2nL"/>
                                 <constraint firstAttribute="bottom" secondItem="Iau-VH-7Eb" secondAttribute="bottom" constant="42.329999999999998" id="Mdu-xF-sTh"/>
                                 <constraint firstItem="CHa-97-cIG" firstAttribute="top" secondItem="Pck-kY-DBP" secondAttribute="top" id="Qod-w3-73h"/>
-                                <constraint firstItem="Qrp-od-pNS" firstAttribute="top" secondItem="CHa-97-cIG" secondAttribute="bottom" constant="60" id="SIe-7i-Cnj"/>
-                                <constraint firstItem="IYH-bD-BwY" firstAttribute="top" secondItem="Qrp-od-pNS" secondAttribute="bottom" constant="5" id="V4J-gi-Kah"/>
                                 <constraint firstAttribute="trailing" secondItem="CHa-97-cIG" secondAttribute="trailing" id="Z7d-uk-zWQ"/>
                                 <constraint firstItem="Iau-VH-7Eb" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="120" id="ar5-cb-JPL"/>
                                 <constraint firstAttribute="trailing" secondItem="Iau-VH-7Eb" secondAttribute="trailing" constant="120" id="hE9-Kg-LfJ"/>
-                                <constraint firstItem="Qrp-od-pNS" firstAttribute="centerX" secondItem="Pck-kY-DBP" secondAttribute="centerX" id="mme-fG-TJv"/>
+                                <constraint firstItem="Qrp-od-pNS" firstAttribute="top" secondItem="TAk-Ss-QVj" secondAttribute="bottom" constant="10" id="jIU-1v-xP8"/>
+                                <constraint firstItem="DJU-qn-PH3" firstAttribute="leading" secondItem="Qrp-od-pNS" secondAttribute="trailing" constant="7" id="mhk-ja-nhP"/>
                                 <constraint firstItem="TAk-Ss-QVj" firstAttribute="top" secondItem="CHa-97-cIG" secondAttribute="bottom" constant="10" id="qHY-t7-cVT"/>
                                 <constraint firstAttribute="trailing" secondItem="IYH-bD-BwY" secondAttribute="trailing" constant="20" id="qv8-PX-bBH"/>
+                                <constraint firstItem="Qrp-od-pNS" firstAttribute="leading" secondItem="Pck-kY-DBP" secondAttribute="leading" constant="20" id="xGo-uP-Z6a"/>
+                                <constraint firstItem="DJU-qn-PH3" firstAttribute="top" secondItem="CHa-97-cIG" secondAttribute="bottom" constant="72" id="zsg-fk-mmd"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -163,8 +175,8 @@
         </view>
     </objects>
     <resources>
-        <image name="addImage" width="512" height="512"/>
         <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>
+        <image name="electronics" width="512" height="512"/>
         <image name="step2" width="1920" height="1600"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

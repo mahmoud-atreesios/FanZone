@@ -872,7 +872,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="GOa-3f-xwN"/>
                                                     <constraint firstAttribute="width" constant="150" id="w5P-Cz-2if"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.19215686269999999" green="0.270588249" blue="0.39607840779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" red="0.19215686274509802" green="0.27058823529411763" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled">
                                                     <attributedString key="attributedTitle">
